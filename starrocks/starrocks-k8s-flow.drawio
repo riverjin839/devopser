@@ -1,0 +1,89 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="sr-k8s-flow" name="StarRocks on K8s">
+    <mxGraphModel dx="1720" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1720" pageHeight="1000" background="#FFFFFF" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- 제목 -->
+        <mxCell id="title" value="StarRocks on K8s 주요 구성 흐름 (shared-data)" style="text;html=1;align=left;verticalAlign=middle;fontSize=32;fontStyle=1;fontColor=#614419;" vertex="1" parent="1">
+          <mxGeometry x="60" y="20" width="1000" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- 네임스페이스 컨테이너 -->
+        <mxCell id="ns" value="tenant namespace · StarRocksCluster" style="rounded=1;arcSize=3;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#B37E2E;strokeWidth=3;dashed=1;dashPattern=10 6;align=left;verticalAlign=top;spacingLeft=20;spacingTop=10;fontSize=22;fontStyle=1;fontColor=#614419;" vertex="1" parent="1">
+          <mxGeometry x="40" y="280" width="1240" height="470" as="geometry" />
+        </mxCell>
+
+        <!-- 상단 행 -->
+        <mxCell id="user" value="&lt;b&gt;사용자&lt;/b&gt;&lt;br&gt;MySQL Client · BI · Airflow" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#B37E2E;strokeWidth=3;fontSize=24;fontColor=#614419;" vertex="1" parent="1">
+          <mxGeometry x="60" y="100" width="380" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="ingress" value="&lt;b&gt;Ingress / Gateway&lt;/b&gt;&lt;br&gt;FE Web UI" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#B37E2E;strokeWidth=3;fontSize=24;fontColor=#614419;" vertex="1" parent="1">
+          <mxGeometry x="480" y="100" width="380" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="prom" value="&lt;b&gt;Prometheus&lt;/b&gt;&lt;br&gt;/metrics 수집" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#B37E2E;strokeWidth=3;fontSize=24;fontColor=#614419;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="100" width="380" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- 핵심: FE / CN (단일 강조색) -->
+        <mxCell id="fe" value="&lt;b&gt;FE StatefulSet ×3&lt;/b&gt;&lt;br&gt;Leader + Follower×2&lt;br&gt;SQL 파싱 · 플랜 · 메타&lt;br&gt;(meta PVC 영속화)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFB343;strokeColor=#614419;strokeWidth=3;fontSize=24;fontColor=#614419;" vertex="1" parent="1">
+          <mxGeometry x="80" y="340" width="480" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="cn" value="&lt;b&gt;CN StatefulSet ×N&lt;/b&gt;&lt;br&gt;쿼리 실행 · 적재 실행&lt;br&gt;HPA 자동 확장" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFB343;strokeColor=#614419;strokeWidth=3;fontSize=24;fontColor=#614419;" vertex="1" parent="1">
+          <mxGeometry x="760" y="340" width="480" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="cache" value="&lt;b&gt;CN Data Cache PVC&lt;/b&gt;&lt;br&gt;로컬 디스크 캐시" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#B37E2E;strokeWidth=3;fontSize=24;fontColor=#614419;" vertex="1" parent="1">
+          <mxGeometry x="760" y="600" width="480" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- 우측: Operator / CR -->
+        <mxCell id="op" value="&lt;b&gt;StarRocks Operator&lt;/b&gt;&lt;br&gt;Reconcile&lt;br&gt;FE·CN·Service·HPA 생성" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#DB9A39;strokeWidth=3;fontSize=22;fontColor=#614419;" vertex="1" parent="1">
+          <mxGeometry x="1380" y="340" width="300" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="cr" value="&lt;b&gt;StarRocksCluster CR&lt;/b&gt;&lt;br&gt;kubectl apply" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#DB9A39;strokeWidth=3;fontSize=22;fontColor=#614419;" vertex="1" parent="1">
+          <mxGeometry x="1380" y="620" width="300" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- 하단 행 -->
+        <mxCell id="ext" value="&lt;b&gt;External Catalog&lt;/b&gt;&lt;br&gt;Iceberg · Hive (HMS)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#B37E2E;strokeWidth=3;fontSize=24;fontColor=#614419;" vertex="1" parent="1">
+          <mxGeometry x="80" y="840" width="480" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="s3" value="&lt;b&gt;AIStor / MinIO (S3)&lt;/b&gt;&lt;br&gt;테이블 데이터 영구 저장" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#614419;strokeColor=#614419;strokeWidth=3;fontSize=24;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="760" y="840" width="480" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- 핵심 쿼리 경로 (6px) -->
+        <mxCell id="e1" value="① SQL :9030" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#614419;strokeWidth=6;endArrow=block;endFill=1;endSize=10;fontSize=20;fontStyle=1;fontColor=#614419;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.354;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="user" target="fe">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" value="② Fragment 분배&lt;br&gt;brpc :8060" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#614419;strokeWidth=6;endArrow=block;endFill=1;endSize=10;fontSize=20;fontStyle=1;fontColor=#614419;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="fe" target="cn">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="③ 캐시 조회" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#614419;strokeWidth=6;endArrow=block;endFill=1;endSize=10;fontSize=20;fontStyle=1;fontColor=#614419;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="cn" target="cache">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" value="④ miss 시 S3 GET · 적재 시 PUT" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#614419;strokeWidth=6;endArrow=block;endFill=1;startArrow=block;startFill=1;endSize=10;startSize=10;fontSize=20;fontStyle=1;fontColor=#614419;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="cache" target="s3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- 보조 경로 (4px) -->
+        <mxCell id="e5" value="⑤ 외부 메타 조회" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#B37E2E;strokeWidth=4;endArrow=block;endFill=1;endSize=8;fontSize=20;fontColor=#614419;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="fe" target="ext">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" value="HTTP :8030" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#B37E2E;strokeWidth=4;endArrow=block;endFill=1;endSize=8;fontSize=20;fontColor=#614419;labelBackgroundColor=#FFFFFF;exitX=0.105;exitY=1;exitDx=0;exitDy=0;entryX=0.917;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="ingress" target="fe">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" value="FE :8030 · CN :8040" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#B37E2E;strokeWidth=4;endArrow=block;endFill=1;endSize=8;fontSize=20;fontColor=#614419;labelBackgroundColor=#FFFFFF;dashed=1;exitX=0.474;exitY=1;exitDx=0;exitDy=0;entryX=0.919;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="prom" target="ns">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#DB9A39;strokeWidth=4;endArrow=block;endFill=1;endSize=8;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.34;entryDx=0;entryDy=0;" edge="1" parent="1" source="op" target="ns">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" value="watch" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#DB9A39;strokeWidth=4;endArrow=block;endFill=1;endSize=8;fontSize=20;fontColor=#614419;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="cr" target="op">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
