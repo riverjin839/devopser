@@ -5131,7 +5131,16 @@ body { padding: 0 !important; margin: 0 !important; min-height: 0 !important; }
   box-shadow: none !important; background: var(--g-bg) !important; background-image: none !important; }
 .diagram-container::before, .diagram-container::after { display: none !important; }
 
+/* 임베드 칸 폭에 맞춤 (가로 스크롤 제거) */
+html, body { overflow: hidden !important; }
+.diagram-container { overflow: hidden !important; padding: 6px !important; }
+.diagram-container > svg { width: 100% !important; min-width: 0 !important; max-width: 100% !important;
+  height: auto !important; transform: none !important; display: block; }
+
 /* 폰트 */
+.diagram-container svg text.t-primary { font-size: 13px !important; }
+.diagram-container svg text.t-muted { font-size: 10px !important; }
+.diagram-container svg text[class^="t-edge"], .diagram-container svg text[class*=" t-edge"] { font-size: 9.5px !important; font-weight: 600; }
 .diagram-container svg text { font-family: 'Pretendard', 'Inter', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
 .diagram-container svg text[data-detail="fine"] { font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-variant-numeric: tabular-nums; font-weight: 700; fill: var(--g-accent) !important; }
@@ -5164,6 +5173,7 @@ body { padding: 0 !important; margin: 0 !important; min-height: 0 !important; }
 rect.c-region { fill: url(#g-hatch) !important; stroke: var(--g-hatch) !important; stroke-dasharray: none !important; rx: 18px; ry: 18px; }
 
 /* 화살표 라벨 = 필 */
+.diagram-container svg rect.g-edge-pill { fill: #FFFFFF !important; stroke: var(--g-line) !important; stroke-width: 0.8px !important; }
 .diagram-container svg [data-edge-label] rect, .diagram-container svg .edge-label-bg { rx: 8px; ry: 8px; }
 </style>
 </head>
@@ -5285,7 +5295,7 @@ rect.c-region { fill: url(#g-hatch) !important; stroke: var(--g-hatch) !importan
     <!-- Main Diagram -->
     <div class="diagram-container" data-detail-level="read"
          data-preset-badge-editorial-plate="ARCHIFY / 도판 04">
-      <svg viewBox="0 0 1086 672" role="img" lang="ko" aria-labelledby="archify-diagram-title archify-diagram-description" data-animation="trace" data-preset="classic" data-quality-profile="showcase" data-node-ui="" data-reader-fit="intrinsic-height" data-reader-min-text="7.5" data-reader-primary-text="14">
+      <svg viewBox="0 0 966 628" role="img" lang="ko" aria-labelledby="archify-diagram-title archify-diagram-description" data-animation="trace" data-preset="classic" data-quality-profile="showcase" data-node-ui="" data-reader-fit="intrinsic-height" data-reader-min-text="7.5" data-reader-primary-text="14">
         <title id="archify-diagram-title">ML 플랫폼 멘탈 맵 (그림 1.4)</title>
         <desc id="archify-diagram-description">Archify로 생성한 아키텍처 다이어그램입니다.</desc>
         <!-- Definitions -->
@@ -5332,277 +5342,277 @@ rect.c-region { fill: url(#g-hatch) !important; stroke: var(--g-hatch) !importan
         <rect width="100%" height="100%" fill="url(#grid)" />
 
         <!-- Boundaries (behind everything) -->
-        <rect data-graph-role="structural-frame" data-composition-frame-kind="region" data-composition-frame-id="0" data-composition-frame-label="파이프라인 오케스트레이션 · Kubeflow Pipelines" x="430" y="170" width="600" height="114" rx="12" class="c-region" stroke-width="1"/>
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="region" data-composition-frame-id="0" data-composition-frame-label="파이프라인 · Kubeflow Pipelines" x="240" y="160" width="670" height="120" rx="12" class="c-region" stroke-width="1"/>
 
         <!-- Connection paths (before components for correct z-order) -->
         <g data-graph-role="automatic-crossover" style="--step:0">
-          <path data-graph-role="automatic-crossover-underlay" d="M 160 232 L 250 232" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="dw" data-edge-to="fs" data-edge-label="변환 피처" data-edge-key="0" data-edge-id="dw-fs" data-composition-points="160,232;250,232" data-composition-crossover="halo" data-composition-independent="true" d="M 160 232 L 250 232" class="a-default" data-animate="edge" style="--step:0" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 190 75 L 270 75" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="dw" data-edge-to="fs" data-edge-label="변환 피처" data-edge-key="0" data-edge-id="dw-fs" data-composition-points="190,75;270,75" data-composition-crossover="halo" data-composition-independent="true" d="M 190 75 L 270 75" class="a-default" data-animate="edge" style="--step:0" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:1">
-          <path data-graph-role="automatic-crossover-underlay" d="M 370 232 L 460 232" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="fs" data-edge-to="prep" data-edge-label="피처 조회" data-edge-key="1" data-edge-id="fs-prep" data-composition-points="370,232;460,232" data-composition-crossover="halo" data-composition-independent="true" d="M 370 232 L 460 232" class="a-default" data-animate="edge" style="--step:1" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 345 110 L 345 190" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="fs" data-edge-to="prep" data-edge-label="피처" data-edge-key="1" data-edge-id="fs-prep" data-composition-points="345,110;345,190" data-composition-crossover="halo" data-composition-independent="true" d="M 345 110 L 345 190" class="a-default" data-animate="edge" style="--step:1" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:2">
-          <path data-graph-role="automatic-crossover-underlay" d="M 580 232 L 670 232" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="prep" data-edge-to="train" data-edge-label="학습 데이터" data-edge-key="2" data-edge-id="prep-train" data-composition-points="580,232;670,232" data-composition-crossover="halo" data-composition-independent="true" d="M 580 232 L 670 232" class="a-emphasis" data-animate="edge" style="--step:2" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 420 225 L 500 225" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="prep" data-edge-to="train" data-edge-label="학습 데이터" data-edge-key="2" data-edge-id="prep-train" data-composition-points="420,225;500,225" data-composition-crossover="halo" data-composition-independent="true" d="M 420 225 L 500 225" class="a-emphasis" data-animate="edge" style="--step:2" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:3">
-          <path data-graph-role="automatic-crossover-underlay" d="M 790 232 L 880 232" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="train" data-edge-to="eval" data-edge-label="학습된 모델" data-edge-key="3" data-edge-id="train-eval" data-composition-points="790,232;880,232" data-composition-crossover="halo" data-composition-independent="true" d="M 790 232 L 880 232" class="a-emphasis" data-animate="edge" style="--step:3" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 650 225 L 730 225" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="train" data-edge-to="evalm" data-edge-label="학습된 모델" data-edge-key="3" data-edge-id="train-evalm" data-composition-points="650,225;730,225" data-composition-crossover="halo" data-composition-independent="true" d="M 650 225 L 730 225" class="a-emphasis" data-animate="edge" style="--step:3" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:4">
-          <path data-graph-role="automatic-crossover-underlay" d="M 940 264 L 940 380" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="eval" data-edge-to="deploy" data-edge-label="검증 통과" data-edge-key="4" data-edge-id="eval-deploy" data-composition-points="940,264;940,380" data-composition-crossover="halo" data-composition-independent="true" d="M 940 264 L 940 380" class="a-emphasis" data-animate="edge" style="--step:4" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 575 190 L 575 110" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="train" data-edge-to="exp" data-edge-label="지표" data-edge-key="4" data-edge-id="train-exp" data-composition-points="575,190;575,110" data-composition-crossover="halo" data-composition-independent="true" d="M 575 190 L 575 110" class="a-default" data-animate="edge" style="--step:4" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:5">
-          <path data-graph-role="automatic-crossover-underlay" d="M 880 412 L 790 412" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="deploy" data-edge-to="api" data-edge-label="배포" data-edge-key="5" data-edge-id="deploy-api" data-composition-points="880,412;790,412" data-composition-crossover="halo" data-composition-independent="true" d="M 880 412 L 790 412" class="a-emphasis" data-animate="edge" style="--step:5" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 805 190 L 805 110" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="evalm" data-edge-to="registry" data-edge-label="등록" data-edge-key="5" data-edge-id="evalm-registry" data-composition-points="805,190;805,110" data-composition-crossover="halo" data-composition-independent="true" d="M 805 190 L 805 110" class="a-default" data-animate="edge" style="--step:5" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:6">
-          <path data-graph-role="automatic-crossover-underlay" d="M 580 412 L 670 412" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="user" data-edge-to="api" data-edge-label="예측 요청" data-edge-key="6" data-edge-id="user-api" data-composition-points="580,412;670,412" data-composition-crossover="halo" data-composition-independent="true" d="M 580 412 L 670 412" class="a-default" data-animate="edge" style="--step:6" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 805 260 L 805 340" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="evalm" data-edge-to="deploy" data-edge-label="검증 통과" data-edge-key="6" data-edge-id="evalm-deploy" data-composition-points="805,260;805,340" data-composition-crossover="halo" data-composition-independent="true" d="M 805 260 L 805 340" class="a-emphasis" data-animate="edge" style="--step:6" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:7">
-          <path data-graph-role="automatic-crossover-underlay" d="M 730 200 L 730 104" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="train" data-edge-to="exp" data-edge-label="파라미터 · 지표" data-edge-key="7" data-edge-id="train-exp" data-composition-points="730,200;730,104" data-composition-crossover="halo" data-composition-independent="true" d="M 730 200 L 730 104" class="a-default" data-animate="edge" style="--step:7" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 880 75 L 896 75 Q 904 75 904 83 L 904 367 Q 904 375 896 375 L 880 375" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="registry" data-edge-to="deploy" data-edge-label="모델 ID" data-edge-key="7" data-edge-id="registry-deploy" data-composition-points="880,75;904,75;904,375;880,375" data-composition-crossover="halo" data-composition-independent="true" d="M 880 75 L 896 75 Q 904 75 904 83 L 904 367 Q 904 375 896 375 L 880 375" class="a-default" data-animate="edge" style="--step:7" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:8">
-          <path data-graph-role="automatic-crossover-underlay" d="M 940 200 L 940 104" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="eval" data-edge-to="registry" data-edge-label="모델 등록" data-edge-key="8" data-edge-id="eval-registry" data-composition-points="940,200;940,104" data-composition-crossover="halo" data-composition-independent="true" d="M 940 200 L 940 104" class="a-default" data-animate="edge" style="--step:8" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 730 375 L 650 375" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="deploy" data-edge-to="api" data-edge-label="배포" data-edge-key="8" data-edge-id="deploy-api" data-composition-points="730,375;650,375" data-composition-crossover="halo" data-composition-independent="true" d="M 730 375 L 650 375" class="a-emphasis" data-animate="edge" style="--step:8" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:9">
-          <path data-graph-role="automatic-crossover-underlay" d="M 1000 72 L 1016 72 Q 1024 72 1024 80 L 1024 404 Q 1024 412 1016 412 L 1000 412" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="registry" data-edge-to="deploy" data-edge-label="모델 ID" data-edge-key="9" data-edge-id="registry-deploy" data-composition-points="1000,72;1024,72;1024,412;1000,412" data-composition-crossover="halo" data-composition-independent="true" d="M 1000 72 L 1016 72 Q 1024 72 1024 80 L 1024 404 Q 1024 412 1016 412 L 1000 412" class="a-default" data-animate="edge" style="--step:9" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 575 490 L 575 410" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="user" data-edge-to="api" data-edge-label="요청" data-edge-key="9" data-edge-id="user-api" data-composition-points="575,490;575,410" data-composition-crossover="halo" data-composition-independent="true" d="M 575 490 L 575 410" class="a-default" data-animate="edge" style="--step:9" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:10">
-          <path data-graph-role="automatic-crossover-underlay" d="M 737 444 L 737 540" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="api" data-edge-to="log" data-edge-label="요청 로그" data-edge-key="10" data-edge-id="api-log" data-composition-points="737,444;737,540" data-composition-crossover="halo" data-composition-independent="true" d="M 737 444 L 737 540" class="a-default" data-animate="edge" style="--step:10" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 500 375 L 420 375" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="api" data-edge-to="log" data-edge-label="로그" data-edge-key="10" data-edge-id="api-log" data-composition-points="500,375;420,375" data-composition-crossover="halo" data-composition-independent="true" d="M 500 375 L 420 375" class="a-default" data-animate="edge" style="--step:10" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:11">
-          <path data-graph-role="automatic-crossover-underlay" d="M 670 556 L 362 556 Q 354 556 354 548 L 354 444" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="log" data-edge-to="monitor" data-edge-label="지표" data-edge-key="11" data-edge-id="log-monitor" data-composition-points="670,556;354,556;354,444" data-composition-crossover="halo" data-composition-independent="true" d="M 670 556 L 362 556 Q 354 556 354 548 L 354 444" class="a-default" data-animate="edge" style="--step:11" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 270 375 L 190 375" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="log" data-edge-to="monitor" data-edge-label="지표" data-edge-key="11" data-edge-id="log-monitor" data-composition-points="270,375;190,375" data-composition-crossover="halo" data-composition-independent="true" d="M 270 375 L 190 375" class="a-default" data-animate="edge" style="--step:11" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:12">
-          <path data-graph-role="automatic-crossover-underlay" d="M 310 380 L 310 330 Q 310 322 318 322 L 512 322 Q 520 322 520 314 L 520 264" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="monitor" data-edge-to="prep" data-edge-label="재학습 트리거" data-edge-key="12" data-edge-id="monitor-retrain" data-composition-points="310,380;310,322;520,322;520,264" data-composition-crossover="halo" data-composition-independent="true" d="M 310 380 L 310 330 Q 310 322 318 322 L 512 322 Q 520 322 520 314 L 520 264" class="a-dashed" data-animate="edge" style="--step:12" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 115 340 L 115 233 Q 115 225 123 225 L 270 225" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="monitor" data-edge-to="prep" data-edge-label="재학습" data-edge-key="12" data-edge-id="monitor-prep" data-composition-points="115,340;115,225;270,225" data-composition-crossover="halo" data-composition-independent="true" d="M 115 340 L 115 233 Q 115 225 123 225 L 270 225" class="a-dashed" data-animate="edge" style="--step:12" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
         </g>
 
         <!-- Components -->
         <g id="node-dw" data-node-id="dw" data-node-label="데이터 웨어하우스" tabindex="0" role="button" aria-label="데이터 웨어하우스 포커스, 배치 · 스트리밍, 아키텍처 구성요소" aria-pressed="false" data-node-kind="database" data-node-sublabel="배치 · 스트리밍" data-node-tag="9" data-node-context="아키텍처 구성요소">
           <title>데이터 웨어하우스 · 배치 · 스트리밍 · 아키텍처 구성요소 · 9</title>
-          <rect x="40" y="200" width="120" height="64" rx="8" class="c-mask"/>
-          <rect x="40" y="200" width="120" height="64" rx="8" class="c-database" data-animate="node" style="--step:0" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(46 206) scale(0.6875)">
+          <rect x="40" y="40" width="150" height="70" rx="8" class="c-mask"/>
+          <rect x="40" y="40" width="150" height="70" rx="8" class="c-database" data-animate="node" style="--step:0" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(46 46) scale(0.6875)">
             <ellipse cx="8" cy="4" rx="5" ry="2"/>
             <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="100" y="230" class="t-primary" font-size="10.9" font-weight="600" text-anchor="middle">데이터 웨어하우스</text>
-        <text data-detail="context" x="100" y="246" class="t-muted" font-size="9" text-anchor="middle">배치 · 스트리밍</text>
-        <text data-detail="fine" x="100" y="256" class="t-database" font-size="7" text-anchor="middle">9</text>
+          <text data-node-label="" data-detail-anchor="" x="115" y="73" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">데이터 웨어하우스</text>
+        <text data-detail="context" x="115" y="89" class="t-muted" font-size="9" text-anchor="middle">배치 · 스트리밍</text>
+        <text data-detail="fine" x="115" y="102" class="t-database" font-size="7" text-anchor="middle">9</text>
         </g>
 
         <g id="node-fs" data-node-id="fs" data-node-label="피처 스토어" tabindex="0" role="button" aria-label="피처 스토어 포커스, Feast, 아키텍처 구성요소" aria-pressed="false" data-node-kind="database" data-node-sublabel="Feast" data-node-tag="D" data-node-context="아키텍처 구성요소">
           <title>피처 스토어 · Feast · 아키텍처 구성요소 · D</title>
-          <rect x="250" y="200" width="120" height="64" rx="8" class="c-mask"/>
-          <rect x="250" y="200" width="120" height="64" rx="8" class="c-database" data-animate="node" style="--step:1" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(256 206) scale(0.6875)">
+          <rect x="270" y="40" width="150" height="70" rx="8" class="c-mask"/>
+          <rect x="270" y="40" width="150" height="70" rx="8" class="c-database" data-animate="node" style="--step:1" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(276 46) scale(0.6875)">
             <ellipse cx="8" cy="4" rx="5" ry="2"/>
             <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="310" y="230" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">피처 스토어</text>
-        <text data-detail="context" x="310" y="246" class="t-muted" font-size="9" text-anchor="middle">Feast</text>
-        <text data-detail="fine" x="310" y="256" class="t-database" font-size="7" text-anchor="middle">D</text>
+          <text data-node-label="" data-detail-anchor="" x="345" y="73" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">피처 스토어</text>
+        <text data-detail="context" x="345" y="89" class="t-muted" font-size="9" text-anchor="middle">Feast</text>
+        <text data-detail="fine" x="345" y="102" class="t-database" font-size="7" text-anchor="middle">D</text>
         </g>
 
-        <g id="node-prep" data-node-id="prep" data-node-label="데이터 준비" tabindex="0" role="button" aria-label="데이터 준비 포커스, 수집 · 정제 · 분할, 파이프라인 오케스트레이션 · Kubeflow Pipelines" aria-pressed="false" data-node-kind="backend" data-node-sublabel="수집 · 정제 · 분할" data-node-tag="3" data-node-context="파이프라인 오케스트레이션 · Kubeflow Pipelines">
-          <title>데이터 준비 · 수집 · 정제 · 분할 · 파이프라인 오케스트레이션 · Kubeflow Pipelines · 3</title>
-          <rect x="460" y="200" width="120" height="64" rx="8" class="c-mask"/>
-          <rect x="460" y="200" width="120" height="64" rx="8" class="c-backend" data-animate="node" style="--step:2" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(466 206) scale(0.6875)">
-            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
-          </g>
-          <text data-node-label="" data-detail-anchor="" x="520" y="230" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">데이터 준비</text>
-        <text data-detail="context" x="520" y="246" class="t-muted" font-size="9" text-anchor="middle">수집 · 정제 · 분할</text>
-        <text data-detail="fine" x="520" y="256" class="t-backend" font-size="7" text-anchor="middle">3</text>
-        </g>
-
-        <g id="node-train" data-node-id="train" data-node-label="모델 학습" tabindex="0" role="button" aria-label="모델 학습 포커스, KFP 컴포넌트, 파이프라인 오케스트레이션 · Kubeflow Pipelines" aria-pressed="false" data-node-kind="backend" data-node-sublabel="KFP 컴포넌트" data-node-tag="4" data-node-context="파이프라인 오케스트레이션 · Kubeflow Pipelines">
-          <title>모델 학습 · KFP 컴포넌트 · 파이프라인 오케스트레이션 · Kubeflow Pipelines · 4</title>
-          <rect x="670" y="200" width="120" height="64" rx="8" class="c-mask"/>
-          <rect x="670" y="200" width="120" height="64" rx="8" class="c-backend" data-animate="node" style="--step:3" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(676 206) scale(0.6875)">
-            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
-          </g>
-          <text data-node-label="" data-detail-anchor="" x="730" y="230" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">모델 학습</text>
-        <text data-detail="context" x="730" y="246" class="t-muted" font-size="9" text-anchor="middle">KFP 컴포넌트</text>
-        <text data-detail="fine" x="730" y="256" class="t-backend" font-size="7" text-anchor="middle">4</text>
-        </g>
-
-        <g id="node-eval" data-node-id="eval" data-node-label="평가 · 검증" tabindex="0" role="button" aria-label="평가 · 검증 포커스, 지표 + 업무 승인, 파이프라인 오케스트레이션 · Kubeflow Pipelines" aria-pressed="false" data-node-kind="backend" data-node-sublabel="지표 + 업무 승인" data-node-tag="5" data-node-context="파이프라인 오케스트레이션 · Kubeflow Pipelines">
-          <title>평가 · 검증 · 지표 + 업무 승인 · 파이프라인 오케스트레이션 · Kubeflow Pipelines · 5</title>
-          <rect x="880" y="200" width="120" height="64" rx="8" class="c-mask"/>
-          <rect x="880" y="200" width="120" height="64" rx="8" class="c-backend" data-animate="node" style="--step:4" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(886 206) scale(0.6875)">
-            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
-          </g>
-          <text data-node-label="" data-detail-anchor="" x="940" y="230" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">평가 · 검증</text>
-        <text data-detail="context" x="940" y="246" class="t-muted" font-size="9" text-anchor="middle">지표 + 업무 승인</text>
-        <text data-detail="fine" x="940" y="256" class="t-backend" font-size="7" text-anchor="middle">5</text>
-        </g>
-
-        <g id="node-exp" data-node-id="exp" data-node-label="실험 추적" tabindex="0" role="button" aria-label="실험 추적 포커스, MLflow Tracking, 아키텍처 구성요소" aria-pressed="false" data-node-kind="database" data-node-sublabel="MLflow Tracking" data-node-tag="C" data-node-context="아키텍처 구성요소">
-          <title>실험 추적 · MLflow Tracking · 아키텍처 구성요소 · C</title>
-          <rect x="670" y="40" width="120" height="64" rx="8" class="c-mask"/>
-          <rect x="670" y="40" width="120" height="64" rx="8" class="c-database" data-animate="node" style="--step:8" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(676 46) scale(0.6875)">
+        <g id="node-exp" data-node-id="exp" data-node-label="실험 추적" tabindex="0" role="button" aria-label="실험 추적 포커스, MLflow, 아키텍처 구성요소" aria-pressed="false" data-node-kind="database" data-node-sublabel="MLflow" data-node-tag="C" data-node-context="아키텍처 구성요소">
+          <title>실험 추적 · MLflow · 아키텍처 구성요소 · C</title>
+          <rect x="500" y="40" width="150" height="70" rx="8" class="c-mask"/>
+          <rect x="500" y="40" width="150" height="70" rx="8" class="c-database" data-animate="node" style="--step:5" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(506 46) scale(0.6875)">
             <ellipse cx="8" cy="4" rx="5" ry="2"/>
             <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="730" y="70" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">실험 추적</text>
-        <text data-detail="context" x="730" y="86" class="t-muted" font-size="9" text-anchor="middle">MLflow Tracking</text>
-        <text data-detail="fine" x="730" y="96" class="t-database" font-size="7" text-anchor="middle">C</text>
+          <text data-node-label="" data-detail-anchor="" x="575" y="73" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">실험 추적</text>
+        <text data-detail="context" x="575" y="89" class="t-muted" font-size="9" text-anchor="middle">MLflow</text>
+        <text data-detail="fine" x="575" y="102" class="t-database" font-size="7" text-anchor="middle">C</text>
         </g>
 
-        <g id="node-registry" data-node-id="registry" data-node-label="모델 레지스트리" tabindex="0" role="button" aria-label="모델 레지스트리 포커스, MLflow Registry, 아키텍처 구성요소" aria-pressed="false" data-node-kind="database" data-node-sublabel="MLflow Registry" data-node-tag="B" data-node-context="아키텍처 구성요소">
-          <title>모델 레지스트리 · MLflow Registry · 아키텍처 구성요소 · B</title>
-          <rect x="880" y="40" width="120" height="64" rx="8" class="c-mask"/>
-          <rect x="880" y="40" width="120" height="64" rx="8" class="c-database" data-animate="node" style="--step:9" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(886 46) scale(0.6875)">
+        <g id="node-registry" data-node-id="registry" data-node-label="모델 레지스트리" tabindex="0" role="button" aria-label="모델 레지스트리 포커스, MLflow, 아키텍처 구성요소" aria-pressed="false" data-node-kind="database" data-node-sublabel="MLflow" data-node-tag="B" data-node-context="아키텍처 구성요소">
+          <title>모델 레지스트리 · MLflow · 아키텍처 구성요소 · B</title>
+          <rect x="730" y="40" width="150" height="70" rx="8" class="c-mask"/>
+          <rect x="730" y="40" width="150" height="70" rx="8" class="c-database" data-animate="node" style="--step:6" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(736 46) scale(0.6875)">
             <ellipse cx="8" cy="4" rx="5" ry="2"/>
             <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="940" y="70" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">모델 레지스트리</text>
-        <text data-detail="context" x="940" y="86" class="t-muted" font-size="9" text-anchor="middle">MLflow Registry</text>
-        <text data-detail="fine" x="940" y="96" class="t-database" font-size="7" text-anchor="middle">B</text>
+          <text data-node-label="" data-detail-anchor="" x="805" y="73" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">모델 레지스트리</text>
+        <text data-detail="context" x="805" y="89" class="t-muted" font-size="9" text-anchor="middle">MLflow</text>
+        <text data-detail="fine" x="805" y="102" class="t-database" font-size="7" text-anchor="middle">B</text>
         </g>
 
-        <g id="node-deploy" data-node-id="deploy" data-node-label="모델 배포" tabindex="0" role="button" aria-label="모델 배포 포커스, CI/CD → K8s, 아키텍처 구성요소" aria-pressed="false" data-node-kind="cloud" data-node-sublabel="CI/CD → K8s" data-node-tag="6" data-node-context="아키텍처 구성요소">
-          <title>모델 배포 · CI/CD → K8s · 아키텍처 구성요소 · 6</title>
-          <rect x="880" y="380" width="120" height="64" rx="8" class="c-mask"/>
-          <rect x="880" y="380" width="120" height="64" rx="8" class="c-cloud" data-animate="node" style="--step:5" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="cloud" class="semantic-sigil s-cloud" transform="translate(886 386) scale(0.6875)">
-            <path d="M4.3 12.5h7.3a2.4 2.4 0 0 0 .2-4.8 4 4 0 0 0-7.5-1.3A3.1 3.1 0 0 0 4.3 12.5Z"/>
+        <g id="node-prep" data-node-id="prep" data-node-label="데이터 준비" tabindex="0" role="button" aria-label="데이터 준비 포커스, 수집 · 정제, 파이프라인 · Kubeflow Pipelines" aria-pressed="false" data-node-kind="backend" data-node-sublabel="수집 · 정제" data-node-tag="3" data-node-context="파이프라인 · Kubeflow Pipelines">
+          <title>데이터 준비 · 수집 · 정제 · 파이프라인 · Kubeflow Pipelines · 3</title>
+          <rect x="270" y="190" width="150" height="70" rx="8" class="c-mask"/>
+          <rect x="270" y="190" width="150" height="70" rx="8" class="c-backend" data-animate="node" style="--step:2" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(276 196) scale(0.6875)">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="940" y="410" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">모델 배포</text>
-        <text data-detail="context" x="940" y="426" class="t-muted" font-size="9" text-anchor="middle">CI/CD → K8s</text>
-        <text data-detail="fine" x="940" y="436" class="t-cloud" font-size="7" text-anchor="middle">6</text>
+          <text data-node-label="" data-detail-anchor="" x="345" y="223" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">데이터 준비</text>
+        <text data-detail="context" x="345" y="239" class="t-muted" font-size="9" text-anchor="middle">수집 · 정제</text>
+        <text data-detail="fine" x="345" y="252" class="t-backend" font-size="7" text-anchor="middle">3</text>
         </g>
 
-        <g id="node-api" data-node-id="api" data-node-label="모델 API" tabindex="0" role="button" aria-label="모델 API 포커스, REST 서빙, 아키텍처 구성요소" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="REST 서빙" data-node-tag="A" data-node-context="아키텍처 구성요소">
-          <title>모델 API · REST 서빙 · 아키텍처 구성요소 · A</title>
-          <rect x="670" y="380" width="120" height="64" rx="8" class="c-mask"/>
-          <rect x="670" y="380" width="120" height="64" rx="8" class="c-frontend" data-animate="node" style="--step:6" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(676 386) scale(0.6875)">
-            <rect x="2" y="3" width="12" height="10" rx="2"/>
-            <path d="M2 6.5h12"/>
-            <circle cx="4.1" cy="4.8" r=".7" class="sigil-fill"/>
-            <circle cx="6.3" cy="4.8" r=".7" class="sigil-fill"/>
+        <g id="node-train" data-node-id="train" data-node-label="모델 학습" tabindex="0" role="button" aria-label="모델 학습 포커스, KFP, 파이프라인 · Kubeflow Pipelines" aria-pressed="false" data-node-kind="backend" data-node-sublabel="KFP" data-node-tag="4" data-node-context="파이프라인 · Kubeflow Pipelines">
+          <title>모델 학습 · KFP · 파이프라인 · Kubeflow Pipelines · 4</title>
+          <rect x="500" y="190" width="150" height="70" rx="8" class="c-mask"/>
+          <rect x="500" y="190" width="150" height="70" rx="8" class="c-backend" data-animate="node" style="--step:3" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(506 196) scale(0.6875)">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="730" y="410" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">모델 API</text>
-        <text data-detail="context" x="730" y="426" class="t-muted" font-size="9" text-anchor="middle">REST 서빙</text>
-        <text data-detail="fine" x="730" y="436" class="t-frontend" font-size="7" text-anchor="middle">A</text>
+          <text data-node-label="" data-detail-anchor="" x="575" y="223" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">모델 학습</text>
+        <text data-detail="context" x="575" y="239" class="t-muted" font-size="9" text-anchor="middle">KFP</text>
+        <text data-detail="fine" x="575" y="252" class="t-backend" font-size="7" text-anchor="middle">4</text>
         </g>
 
-        <g id="node-user" data-node-id="user" data-node-label="사용자" tabindex="0" role="button" aria-label="사용자 포커스, 예측 요청, 아키텍처 구성요소" aria-pressed="false" data-node-kind="external" data-node-sublabel="예측 요청" data-node-tag="7" data-node-context="아키텍처 구성요소">
-          <title>사용자 · 예측 요청 · 아키텍처 구성요소 · 7</title>
-          <rect x="460" y="380" width="120" height="64" rx="8" class="c-mask"/>
-          <rect x="460" y="380" width="120" height="64" rx="8" class="c-external" data-animate="node" style="--step:6" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(466 386) scale(0.6875)">
-            <rect x="2.5" y="5" width="8.5" height="8" rx="1.5"/>
-            <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
+        <g id="node-evalm" data-node-id="evalm" data-node-label="평가 · 검증" tabindex="0" role="button" aria-label="평가 · 검증 포커스, 지표 + 승인, 파이프라인 · Kubeflow Pipelines" aria-pressed="false" data-node-kind="backend" data-node-sublabel="지표 + 승인" data-node-tag="5" data-node-context="파이프라인 · Kubeflow Pipelines">
+          <title>평가 · 검증 · 지표 + 승인 · 파이프라인 · Kubeflow Pipelines · 5</title>
+          <rect x="730" y="190" width="150" height="70" rx="8" class="c-mask"/>
+          <rect x="730" y="190" width="150" height="70" rx="8" class="c-backend" data-animate="node" style="--step:4" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(736 196) scale(0.6875)">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="520" y="410" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">사용자</text>
-        <text data-detail="context" x="520" y="426" class="t-muted" font-size="9" text-anchor="middle">예측 요청</text>
-        <text data-detail="fine" x="520" y="436" class="t-external" font-size="7" text-anchor="middle">7</text>
+          <text data-node-label="" data-detail-anchor="" x="805" y="223" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">평가 · 검증</text>
+        <text data-detail="context" x="805" y="239" class="t-muted" font-size="9" text-anchor="middle">지표 + 승인</text>
+        <text data-detail="fine" x="805" y="252" class="t-backend" font-size="7" text-anchor="middle">5</text>
         </g>
 
-        <g id="node-monitor" data-node-id="monitor" data-node-label="모델 모니터링" tabindex="0" role="button" aria-label="모델 모니터링 포커스, 드리프트 · 성능, 아키텍처 구성요소" aria-pressed="false" data-node-kind="security" data-node-sublabel="드리프트 · 성능" data-node-tag="8" data-node-context="아키텍처 구성요소">
-          <title>모델 모니터링 · 드리프트 · 성능 · 아키텍처 구성요소 · 8</title>
-          <rect x="250" y="380" width="120" height="64" rx="8" class="c-mask"/>
-          <rect x="250" y="380" width="120" height="64" rx="8" class="c-security" data-animate="node" style="--step:12" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="security" class="semantic-sigil s-security" transform="translate(256 386) scale(0.6875)">
+        <g id="node-monitor" data-node-id="monitor" data-node-label="모델 모니터링" tabindex="0" role="button" aria-label="모델 모니터링 포커스, 드리프트, 아키텍처 구성요소" aria-pressed="false" data-node-kind="security" data-node-sublabel="드리프트" data-node-tag="8" data-node-context="아키텍처 구성요소">
+          <title>모델 모니터링 · 드리프트 · 아키텍처 구성요소 · 8</title>
+          <rect x="40" y="340" width="150" height="70" rx="8" class="c-mask"/>
+          <rect x="40" y="340" width="150" height="70" rx="8" class="c-security" data-animate="node" style="--step:12" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="security" class="semantic-sigil s-security" transform="translate(46 346) scale(0.6875)">
             <path d="M8 2.2 13 4v3.5c0 3.1-1.8 5.4-5 6.5-3.2-1.1-5-3.4-5-6.5V4Z"/>
             <path d="m5.8 8 1.5 1.5 3-3"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="310" y="410" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">모델 모니터링</text>
-        <text data-detail="context" x="310" y="426" class="t-muted" font-size="9" text-anchor="middle">드리프트 · 성능</text>
-        <text data-detail="fine" x="310" y="436" class="t-security" font-size="7" text-anchor="middle">8</text>
+          <text data-node-label="" data-detail-anchor="" x="115" y="373" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">모델 모니터링</text>
+        <text data-detail="context" x="115" y="389" class="t-muted" font-size="9" text-anchor="middle">드리프트</text>
+        <text data-detail="fine" x="115" y="402" class="t-security" font-size="7" text-anchor="middle">8</text>
         </g>
 
-        <g id="node-log" data-node-id="log" data-node-label="로깅" tabindex="0" role="button" aria-label="로깅 포커스, 요청 · 예측 기록, 아키텍처 구성요소" aria-pressed="false" data-node-kind="messagebus" data-node-sublabel="요청 · 예측 기록" data-node-tag="E" data-node-context="아키텍처 구성요소">
-          <title>로깅 · 요청 · 예측 기록 · 아키텍처 구성요소 · E</title>
-          <rect x="670" y="540" width="120" height="64" rx="8" class="c-mask"/>
-          <rect x="670" y="540" width="120" height="64" rx="8" class="c-messagebus" data-animate="node" style="--step:11" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="messagebus" class="semantic-sigil s-messagebus" transform="translate(676 546) scale(0.6875)">
+        <g id="node-log" data-node-id="log" data-node-label="로깅" tabindex="0" role="button" aria-label="로깅 포커스, 요청 · 예측, 아키텍처 구성요소" aria-pressed="false" data-node-kind="messagebus" data-node-sublabel="요청 · 예측" data-node-tag="E" data-node-context="아키텍처 구성요소">
+          <title>로깅 · 요청 · 예측 · 아키텍처 구성요소 · E</title>
+          <rect x="270" y="340" width="150" height="70" rx="8" class="c-mask"/>
+          <rect x="270" y="340" width="150" height="70" rx="8" class="c-messagebus" data-animate="node" style="--step:11" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="messagebus" class="semantic-sigil s-messagebus" transform="translate(276 346) scale(0.6875)">
             <path d="M2.5 4.5h11M2.5 8h11M2.5 11.5h11"/>
             <circle cx="5" cy="4.5" r="1" class="sigil-fill"/>
             <circle cx="10.5" cy="8" r="1" class="sigil-fill"/>
             <circle cx="7" cy="11.5" r="1" class="sigil-fill"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="730" y="570" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">로깅</text>
-        <text data-detail="context" x="730" y="586" class="t-muted" font-size="9" text-anchor="middle">요청 · 예측 기록</text>
-        <text data-detail="fine" x="730" y="596" class="t-messagebus" font-size="7" text-anchor="middle">E</text>
+          <text data-node-label="" data-detail-anchor="" x="345" y="373" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">로깅</text>
+        <text data-detail="context" x="345" y="389" class="t-muted" font-size="9" text-anchor="middle">요청 · 예측</text>
+        <text data-detail="fine" x="345" y="402" class="t-messagebus" font-size="7" text-anchor="middle">E</text>
+        </g>
+
+        <g id="node-api" data-node-id="api" data-node-label="모델 API" tabindex="0" role="button" aria-label="모델 API 포커스, REST, 아키텍처 구성요소" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="REST" data-node-tag="A" data-node-context="아키텍처 구성요소">
+          <title>모델 API · REST · 아키텍처 구성요소 · A</title>
+          <rect x="500" y="340" width="150" height="70" rx="8" class="c-mask"/>
+          <rect x="500" y="340" width="150" height="70" rx="8" class="c-frontend" data-animate="node" style="--step:9" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(506 346) scale(0.6875)">
+            <rect x="2" y="3" width="12" height="10" rx="2"/>
+            <path d="M2 6.5h12"/>
+            <circle cx="4.1" cy="4.8" r=".7" class="sigil-fill"/>
+            <circle cx="6.3" cy="4.8" r=".7" class="sigil-fill"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="575" y="373" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">모델 API</text>
+        <text data-detail="context" x="575" y="389" class="t-muted" font-size="9" text-anchor="middle">REST</text>
+        <text data-detail="fine" x="575" y="402" class="t-frontend" font-size="7" text-anchor="middle">A</text>
+        </g>
+
+        <g id="node-deploy" data-node-id="deploy" data-node-label="모델 배포" tabindex="0" role="button" aria-label="모델 배포 포커스, CI/CD → K8s, 아키텍처 구성요소" aria-pressed="false" data-node-kind="cloud" data-node-sublabel="CI/CD → K8s" data-node-tag="6" data-node-context="아키텍처 구성요소">
+          <title>모델 배포 · CI/CD → K8s · 아키텍처 구성요소 · 6</title>
+          <rect x="730" y="340" width="150" height="70" rx="8" class="c-mask"/>
+          <rect x="730" y="340" width="150" height="70" rx="8" class="c-cloud" data-animate="node" style="--step:7" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="cloud" class="semantic-sigil s-cloud" transform="translate(736 346) scale(0.6875)">
+            <path d="M4.3 12.5h7.3a2.4 2.4 0 0 0 .2-4.8 4 4 0 0 0-7.5-1.3A3.1 3.1 0 0 0 4.3 12.5Z"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="805" y="373" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">모델 배포</text>
+        <text data-detail="context" x="805" y="389" class="t-muted" font-size="9" text-anchor="middle">CI/CD → K8s</text>
+        <text data-detail="fine" x="805" y="402" class="t-cloud" font-size="7" text-anchor="middle">6</text>
+        </g>
+
+        <g id="node-user" data-node-id="user" data-node-label="사용자" tabindex="0" role="button" aria-label="사용자 포커스, 예측 요청, 아키텍처 구성요소" aria-pressed="false" data-node-kind="external" data-node-sublabel="예측 요청" data-node-tag="7" data-node-context="아키텍처 구성요소">
+          <title>사용자 · 예측 요청 · 아키텍처 구성요소 · 7</title>
+          <rect x="500" y="490" width="150" height="70" rx="8" class="c-mask"/>
+          <rect x="500" y="490" width="150" height="70" rx="8" class="c-external" data-animate="node" style="--step:9" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(506 496) scale(0.6875)">
+            <rect x="2.5" y="5" width="8.5" height="8" rx="1.5"/>
+            <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="575" y="523" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">사용자</text>
+        <text data-detail="context" x="575" y="539" class="t-muted" font-size="9" text-anchor="middle">예측 요청</text>
+        <text data-detail="fine" x="575" y="552" class="t-external" font-size="7" text-anchor="middle">7</text>
         </g>
 
         <!-- Connection labels -->
         <g data-detail="context" data-edge-from="dw" data-edge-to="fs" data-edge-label="변환 피처" data-edge-key="0" data-edge-id="dw-fs">
-          <rect x="178.4" y="212" width="53.199999999999996" height="14" rx="3" class="c-mask"/>
-          <text x="205" y="222" class="t-edge-default" font-size="8" text-anchor="middle">변환 피처</text>
+          <rect x="203.4" y="55" width="53.199999999999996" height="14" rx="3" class="c-mask"/>
+          <text x="230" y="65" class="t-edge-default" font-size="8" text-anchor="middle">변환 피처</text>
         </g>
-        <g data-detail="context" data-edge-from="fs" data-edge-to="prep" data-edge-label="피처 조회" data-edge-key="1" data-edge-id="fs-prep">
-          <rect x="388.4" y="212" width="53.199999999999996" height="14" rx="3" class="c-mask"/>
-          <text x="415" y="222" class="t-edge-default" font-size="8" text-anchor="middle">피처 조회</text>
+        <g data-detail="context" data-edge-from="fs" data-edge-to="prep" data-edge-label="피처" data-edge-key="1" data-edge-id="fs-prep">
+          <rect x="309" y="143" width="30" height="14" rx="3" class="c-mask"/>
+          <text x="324" y="153" class="t-edge-default" font-size="8" text-anchor="middle">피처</text>
         </g>
         <g data-detail="context" data-edge-from="prep" data-edge-to="train" data-edge-label="학습 데이터" data-edge-key="2" data-edge-id="prep-train">
-          <rect x="593.6" y="212" width="62.8" height="14" rx="3" class="c-mask"/>
-          <text x="625" y="222" class="t-edge-emphasis" font-size="8" text-anchor="middle">학습 데이터</text>
+          <rect x="428.6" y="205" width="62.8" height="14" rx="3" class="c-mask"/>
+          <text x="460" y="215" class="t-edge-emphasis" font-size="8" text-anchor="middle">학습 데이터</text>
         </g>
-        <g data-detail="context" data-edge-from="train" data-edge-to="eval" data-edge-label="학습된 모델" data-edge-key="3" data-edge-id="train-eval">
-          <rect x="803.6" y="212" width="62.8" height="14" rx="3" class="c-mask"/>
-          <text x="835" y="222" class="t-edge-emphasis" font-size="8" text-anchor="middle">학습된 모델</text>
+        <g data-detail="context" data-edge-from="train" data-edge-to="evalm" data-edge-label="학습된 모델" data-edge-key="3" data-edge-id="train-evalm">
+          <rect x="658.6" y="205" width="62.8" height="14" rx="3" class="c-mask"/>
+          <text x="690" y="215" class="t-edge-emphasis" font-size="8" text-anchor="middle">학습된 모델</text>
         </g>
-        <g data-detail="context" data-edge-from="eval" data-edge-to="deploy" data-edge-label="검증 통과" data-edge-key="4" data-edge-id="eval-deploy">
-          <rect x="880.8" y="315" width="53.199999999999996" height="14" rx="3" class="c-mask"/>
-          <text x="907.4" y="325" class="t-edge-emphasis" font-size="8" text-anchor="middle">검증 통과</text>
+        <g data-detail="context" data-edge-from="train" data-edge-to="exp" data-edge-label="지표" data-edge-key="4" data-edge-id="train-exp">
+          <rect x="560" y="170" width="30" height="14" rx="3" class="c-mask"/>
+          <text x="575" y="180" class="t-edge-default" font-size="8" text-anchor="middle">지표</text>
         </g>
-        <g data-detail="context" data-edge-from="deploy" data-edge-to="api" data-edge-label="배포" data-edge-key="5" data-edge-id="deploy-api">
-          <rect x="820" y="392" width="30" height="14" rx="3" class="c-mask"/>
-          <text x="835" y="402" class="t-edge-emphasis" font-size="8" text-anchor="middle">배포</text>
+        <g data-detail="context" data-edge-from="evalm" data-edge-to="registry" data-edge-label="등록" data-edge-key="5" data-edge-id="evalm-registry">
+          <rect x="790" y="170" width="30" height="14" rx="3" class="c-mask"/>
+          <text x="805" y="180" class="t-edge-default" font-size="8" text-anchor="middle">등록</text>
         </g>
-        <g data-detail="context" data-edge-from="user" data-edge-to="api" data-edge-label="예측 요청" data-edge-key="6" data-edge-id="user-api">
-          <rect x="598.4" y="392" width="53.199999999999996" height="14" rx="3" class="c-mask"/>
-          <text x="625" y="402" class="t-edge-default" font-size="8" text-anchor="middle">예측 요청</text>
+        <g data-detail="context" data-edge-from="evalm" data-edge-to="deploy" data-edge-label="검증 통과" data-edge-key="6" data-edge-id="evalm-deploy">
+          <rect x="745.8" y="293" width="53.199999999999996" height="14" rx="3" class="c-mask"/>
+          <text x="772.4" y="303" class="t-edge-emphasis" font-size="8" text-anchor="middle">검증 통과</text>
         </g>
-        <g data-detail="context" data-edge-from="train" data-edge-to="exp" data-edge-label="파라미터 · 지표" data-edge-key="7" data-edge-id="train-exp">
-          <rect x="642" y="145" width="82" height="14" rx="3" class="c-mask"/>
-          <text x="683" y="155" class="t-edge-default" font-size="8" text-anchor="middle">파라미터 · 지표</text>
+        <g data-detail="context" data-edge-from="registry" data-edge-to="deploy" data-edge-label="모델 ID" data-edge-key="7" data-edge-id="registry-deploy">
+          <rect x="882.2" y="205" width="43.6" height="14" rx="3" class="c-mask"/>
+          <text x="904" y="215" class="t-edge-default" font-size="8" text-anchor="middle">모델 ID</text>
         </g>
-        <g data-detail="context" data-edge-from="eval" data-edge-to="registry" data-edge-label="모델 등록" data-edge-key="8" data-edge-id="eval-registry">
-          <rect x="913.4" y="180" width="53.199999999999996" height="14" rx="3" class="c-mask"/>
-          <text x="940" y="190" class="t-edge-default" font-size="8" text-anchor="middle">모델 등록</text>
+        <g data-detail="context" data-edge-from="deploy" data-edge-to="api" data-edge-label="배포" data-edge-key="8" data-edge-id="deploy-api">
+          <rect x="675" y="355" width="30" height="14" rx="3" class="c-mask"/>
+          <text x="690" y="365" class="t-edge-emphasis" font-size="8" text-anchor="middle">배포</text>
         </g>
-        <g data-detail="context" data-edge-from="registry" data-edge-to="deploy" data-edge-label="모델 ID" data-edge-key="9" data-edge-id="registry-deploy">
-          <rect x="1002.2" y="222" width="43.6" height="14" rx="3" class="c-mask"/>
-          <text x="1024" y="232" class="t-edge-default" font-size="8" text-anchor="middle">모델 ID</text>
+        <g data-detail="context" data-edge-from="user" data-edge-to="api" data-edge-label="요청" data-edge-key="9" data-edge-id="user-api">
+          <rect x="560" y="470" width="30" height="14" rx="3" class="c-mask"/>
+          <text x="575" y="480" class="t-edge-default" font-size="8" text-anchor="middle">요청</text>
         </g>
-        <g data-detail="context" data-edge-from="api" data-edge-to="log" data-edge-label="요청 로그" data-edge-key="10" data-edge-id="api-log">
-          <rect x="677.8" y="485" width="53.199999999999996" height="14" rx="3" class="c-mask"/>
-          <text x="704.4" y="495" class="t-edge-default" font-size="8" text-anchor="middle">요청 로그</text>
+        <g data-detail="context" data-edge-from="api" data-edge-to="log" data-edge-label="로그" data-edge-key="10" data-edge-id="api-log">
+          <rect x="445" y="355" width="30" height="14" rx="3" class="c-mask"/>
+          <text x="460" y="365" class="t-edge-default" font-size="8" text-anchor="middle">로그</text>
         </g>
         <g data-detail="context" data-edge-from="log" data-edge-to="monitor" data-edge-label="지표" data-edge-key="11" data-edge-id="log-monitor">
-          <rect x="339" y="480" width="30" height="14" rx="3" class="c-mask"/>
-          <text x="354" y="490" class="t-edge-default" font-size="8" text-anchor="middle">지표</text>
+          <rect x="215" y="355" width="30" height="14" rx="3" class="c-mask"/>
+          <text x="230" y="365" class="t-edge-default" font-size="8" text-anchor="middle">지표</text>
         </g>
-        <g data-detail="context" data-edge-from="monitor" data-edge-to="prep" data-edge-label="재학습 트리거" data-edge-key="12" data-edge-id="monitor-retrain">
-          <rect x="378.8" y="302" width="72.4" height="14" rx="3" class="c-mask"/>
-          <text x="415" y="312" class="t-edge-dashed" font-size="8" text-anchor="middle">재학습 트리거</text>
+        <g data-detail="context" data-edge-from="monitor" data-edge-to="prep" data-edge-label="재학습" data-edge-key="12" data-edge-id="monitor-prep">
+          <rect x="173.1" y="205" width="38.8" height="14" rx="3" class="c-mask"/>
+          <text x="192.5" y="215" class="t-edge-dashed" font-size="8" text-anchor="middle">재학습</text>
         </g>
 
         <!-- Boundary labels (foreground masks keep routes out of titles) -->
-        <g data-graph-role="structural-frame-label" data-composition-frame-id="0" data-composition-frame-kind="region" data-composition-frame-label="파이프라인 오케스트레이션 · Kubeflow Pipelines">
-          <rect data-graph-role="structural-frame-label-mask" x="434" y="180" width="258.4" height="16" rx="3" class="c-mask"/>
-          <text data-boundary-label="" x="438" y="193" class="t-cloud" font-size="9" font-weight="600">파이프라인 오케스트레이션 · Kubeflow Pipelines</text>
+        <g data-graph-role="structural-frame-label" data-composition-frame-id="0" data-composition-frame-kind="region" data-composition-frame-label="파이프라인 · Kubeflow Pipelines">
+          <rect data-graph-role="structural-frame-label-mask" x="353" y="170" width="177.4" height="16" rx="3" class="c-mask"/>
+          <text data-boundary-label="" x="357" y="183" class="t-cloud" font-size="9" font-weight="600">파이프라인 · Kubeflow Pipelines</text>
         </g>
 
         <!-- Legend -->
@@ -14991,7 +15001,7 @@ rect.c-region { fill: url(#g-hatch) !important; stroke: var(--g-hatch) !importan
       '<pattern id="g-hatch" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">' +
         '<rect width="10" height="10" fill="#F7F9F8"/><line x1="0" y1="0" x2="0" y2="10" stroke="#D3D9D5" stroke-width="3"/>' +
       '</pattern>');
-    var HERO = ["prep", "train", "eval"];
+    var HERO = ["prep", "train", "evalm"];
     svg.querySelectorAll('[data-node-id]').forEach(function (g) {
       if (HERO.indexOf(g.getAttribute('data-node-id')) >= 0) g.classList.add('g-hero');
       var tag = g.querySelector('text[data-detail="fine"]');
@@ -15019,6 +15029,15 @@ rect.c-region { fill: url(#g-hatch) !important; stroke: var(--g-hatch) !importan
           sig.parentNode.insertBefore(ring, sig);
         }
       }
+    });
+    svg.querySelectorAll('g[data-edge-id]').forEach(function (eg) {
+      var t = eg.querySelector('text'), m = eg.querySelector('rect.c-mask');
+      if (!t || !m) return;
+      var b = t.getBBox(), padX = 6, padY = 3;
+      m.setAttribute('x', b.x - padX); m.setAttribute('y', b.y - padY);
+      m.setAttribute('width', b.width + padX * 2); m.setAttribute('height', b.height + padY * 2);
+      m.setAttribute('rx', (b.height + padY * 2) / 2);
+      m.classList.add('g-edge-pill');
     });
     svg.setAttribute('data-green-decorated', 'true');
     return true;
