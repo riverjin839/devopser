@@ -204,4 +204,4 @@ mlflow.genai.evaluate(data=data, predict_fn=answer,
 
 **MLflow 는 어떤 엔진으로 돌리든 결과를 한 장부에 남기고, 그중 배포할 버전을 alias 로 고르는 도구임.**
 
-다음 글 : Ray · Kubeflow · MLflow 비교 - 기능, 장단점, 활용 조합
+관련 글 : Kubeflow + MLflow 통합 스터디, Ray · Kubeflow · MLflow 비교

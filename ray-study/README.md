@@ -351,4 +351,4 @@ kubectl port-forward -n team-a svc/<cluster>-head-svc 8265:8265   # 대시보드
 
 **Ray 는 Kubeflow 를 통째로 대체하는 게 아니라, 무거운 분산 계산을 파이썬 그대로 돌리는 엔진이고 플랫폼 기능은 직접 붙여야 함.**
 
-다음 글 : Ray Core 실습 - 로컬 클러스터에서 Task·Actor 병렬화, Dashboard 로 스케줄링 관찰
+관련 글 : Ray · Kubeflow · MLflow 비교, Kubeflow + MLflow 통합 스터디

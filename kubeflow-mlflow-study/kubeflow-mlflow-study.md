@@ -271,4 +271,4 @@ curl -H "Authorization: Bearer ${TOKEN}" \
 
 **mlflow-integration 은 MLflow 를 Kubeflow 네임스페이스·RBAC 체계에 그대로 끼워 넣는 어댑터임.**
 
-다음 글 : MLflow 스터디 - 실험 추적, 모델 레지스트리, GenAI 기능
+관련 글 : MLflow 스터디, Ray · Kubeflow · MLflow 비교
