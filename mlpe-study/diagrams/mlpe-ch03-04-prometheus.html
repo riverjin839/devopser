@@ -5133,17 +5133,17 @@ body { padding: 0 !important; margin: 0 !important; min-height: 0 !important; }
 
 /* 임베드 칸 폭에 맞춤 (가로 스크롤 제거) */
 html, body { overflow: hidden !important; }
-.diagram-container { overflow: hidden !important; padding: 6px !important; }
+.diagram-container { overflow: hidden !important; padding: 0 !important; }
 .diagram-container > svg { width: 100% !important; min-width: 0 !important; max-width: 100% !important;
   height: auto !important; transform: none !important; display: block; }
 
 /* 폰트 */
-.diagram-container svg text.t-primary { font-size: 13px !important; }
-.diagram-container svg text.t-muted { font-size: 10px !important; }
-.diagram-container svg text[class^="t-edge"], .diagram-container svg text[class*=" t-edge"] { font-size: 9.5px !important; font-weight: 600; }
+.diagram-container svg text.t-primary { font-size: 15.5px !important; }
+.diagram-container svg text.t-muted { font-size: 12px !important; }
+.diagram-container svg text[class^="t-edge"], .diagram-container svg text[class*=" t-edge"] { font-size: 11.5px !important; font-weight: 600; }
 .diagram-container svg text { font-family: 'Pretendard', 'Inter', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
 .diagram-container svg text[data-detail="fine"] { font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-variant-numeric: tabular-nums; font-weight: 700; fill: var(--g-accent) !important; }
+  font-variant-numeric: tabular-nums; font-weight: 700; font-size: 10.5px !important; fill: var(--g-accent) !important; }
 .diagram-container svg .t-primary { fill: var(--g-text) !important; }
 .diagram-container svg .t-muted { fill: var(--g-muted) !important; }
 
@@ -5295,7 +5295,7 @@ rect.c-region { fill: url(#g-hatch) !important; stroke: var(--g-hatch) !importan
     <!-- Main Diagram -->
     <div class="diagram-container" data-detail-level="read"
          data-preset-badge-editorial-plate="ARCHIFY / 도판 04">
-      <svg viewBox="0 0 690 478" role="img" lang="ko" aria-labelledby="archify-diagram-title archify-diagram-description" data-animation="trace" data-preset="classic" data-quality-profile="showcase" data-node-ui="" data-reader-fit="intrinsic-height" data-reader-min-text="7.5" data-reader-primary-text="14">
+      <svg viewBox="0 0 752 484" role="img" lang="ko" aria-labelledby="archify-diagram-title archify-diagram-description" data-animation="trace" data-preset="classic" data-quality-profile="showcase" data-node-ui="" data-reader-fit="intrinsic-height" data-reader-min-text="7.5" data-reader-primary-text="14">
         <title id="archify-diagram-title">Prometheus + Grafana</title>
         <desc id="archify-diagram-description">Archify로 생성한 아키텍처 다이어그램입니다.</desc>
         <!-- Definitions -->
@@ -5346,122 +5346,122 @@ rect.c-region { fill: url(#g-hatch) !important; stroke: var(--g-hatch) !importan
 
         <!-- Connection paths (before components for correct z-order) -->
         <g data-graph-role="automatic-crossover" style="--step:0">
-          <path data-graph-role="automatic-crossover-underlay" d="M 270 131 L 182 131 Q 174 131 174 123 L 174 110" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="prom" data-edge-to="a1" data-edge-label="스크랩" data-edge-key="0" data-edge-id="prom-a1" data-composition-points="270,131;174,131;174,110" data-composition-crossover="halo" data-composition-independent="true" d="M 270 131 L 182 131 Q 174 131 174 123 L 174 110" class="a-default" data-animate="edge" style="--step:0" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 290 131 L 203.5 131 Q 196 131 196 123.5 L 196 116" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="prom" data-edge-to="a1" data-edge-label="스크랩" data-edge-key="0" data-edge-id="prom-a1" data-composition-points="290,131;196,131;196,116" data-composition-crossover="halo" data-composition-independent="true" d="M 290 131 L 203.5 131 Q 196 131 196 123.5 L 196 116" class="a-default" data-animate="edge" style="--step:0" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:1">
-          <path data-graph-role="automatic-crossover-underlay" d="M 270 169 L 182 169 Q 174 169 174 177 L 174 190" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="prom" data-edge-to="a2" data-edge-label="스크랩" data-edge-key="1" data-edge-id="prom-a2" data-composition-points="270,169;174,169;174,190" data-composition-crossover="halo" data-composition-independent="true" d="M 270 169 L 182 169 Q 174 169 174 177 L 174 190" class="a-default" data-animate="edge" style="--step:1" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 290 175 L 203.5 175 Q 196 175 196 182.5 L 196 190" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="prom" data-edge-to="a2" data-edge-label="스크랩" data-edge-key="1" data-edge-id="prom-a2" data-composition-points="290,175;196,175;196,190" data-composition-crossover="halo" data-composition-independent="true" d="M 290 175 L 203.5 175 Q 196 175 196 182.5 L 196 190" class="a-default" data-animate="edge" style="--step:1" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:2">
-          <path data-graph-role="automatic-crossover-underlay" d="M 420 131 L 508 131 Q 516 131 516 123 L 516 110" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="prom" data-edge-to="graf" data-edge-label="PromQL" data-edge-key="2" data-edge-id="prom-graf" data-composition-points="420,131;516,131;516,110" data-composition-crossover="halo" data-composition-independent="true" d="M 420 131 L 508 131 Q 516 131 516 123 L 516 110" class="a-emphasis" data-animate="edge" style="--step:2" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 462 131 L 548.5 131 Q 556 131 556 123.5 L 556 116" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="prom" data-edge-to="graf" data-edge-label="PromQL" data-edge-key="2" data-edge-id="prom-graf" data-composition-points="462,131;556,131;556,116" data-composition-crossover="halo" data-composition-independent="true" d="M 462 131 L 548.5 131 Q 556 131 556 123.5 L 556 116" class="a-emphasis" data-animate="edge" style="--step:2" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:3">
-          <path data-graph-role="automatic-crossover-underlay" d="M 420 169 L 508 169 Q 516 169 516 177 L 516 190" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="prom" data-edge-to="am" data-edge-label="알림 규칙" data-edge-key="3" data-edge-id="prom-am" data-composition-points="420,169;516,169;516,190" data-composition-crossover="halo" data-composition-independent="true" d="M 420 169 L 508 169 Q 516 169 516 177 L 516 190" class="a-default" data-animate="edge" style="--step:3" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 462 175 L 548.5 175 Q 556 175 556 182.5 L 556 190" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="prom" data-edge-to="am" data-edge-label="알림 규칙" data-edge-key="3" data-edge-id="prom-am" data-composition-points="462,175;556,175;556,190" data-composition-crossover="halo" data-composition-independent="true" d="M 462 175 L 548.5 175 Q 556 175 556 182.5 L 556 190" class="a-default" data-animate="edge" style="--step:3" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:4">
-          <path data-graph-role="automatic-crossover-underlay" d="M 575 260 L 575 340" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="am" data-edge-to="mail" data-edge-label="라우팅" data-edge-key="4" data-edge-id="am-mail" data-composition-points="575,260;575,340" data-composition-crossover="halo" data-composition-independent="true" d="M 575 260 L 575 340" class="a-default" data-animate="edge" style="--step:4" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 626 266 L 626 340" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="am" data-edge-to="mail" data-edge-label="라우팅" data-edge-key="4" data-edge-id="am-mail" data-composition-points="626,266;626,340" data-composition-crossover="halo" data-composition-independent="true" d="M 626 266 L 626 340" class="a-default" data-animate="edge" style="--step:4" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
 
         <!-- Components -->
         <g id="node-a1" data-node-id="a1" data-node-label="앱 1" tabindex="0" role="button" aria-label="앱 1 포커스, /metrics, 아키텍처 구성요소" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="/metrics" data-node-context="아키텍처 구성요소">
           <title>앱 1 · /metrics · 아키텍처 구성요소</title>
-          <rect x="40" y="40" width="150" height="70" rx="8" class="c-mask"/>
-          <rect x="40" y="40" width="150" height="70" rx="8" class="c-frontend" data-animate="node" style="--step:1" stroke-width="1.5"/>
+          <rect x="40" y="40" width="172" height="76" rx="8" class="c-mask"/>
+          <rect x="40" y="40" width="172" height="76" rx="8" class="c-frontend" data-animate="node" style="--step:1" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(46 46) scale(0.6875)">
             <rect x="2" y="3" width="12" height="10" rx="2"/>
             <path d="M2 6.5h12"/>
             <circle cx="4.1" cy="4.8" r=".7" class="sigil-fill"/>
             <circle cx="6.3" cy="4.8" r=".7" class="sigil-fill"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="115" y="73" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">앱 1</text>
-        <text data-detail="context" x="115" y="89" class="t-muted" font-size="9" text-anchor="middle">/metrics</text>
+          <text data-node-label="" data-detail-anchor="" x="126" y="76" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">앱 1</text>
+        <text data-detail="context" x="126" y="92" class="t-muted" font-size="9" text-anchor="middle">/metrics</text>
         </g>
 
         <g id="node-a2" data-node-id="a2" data-node-label="앱 2" tabindex="0" role="button" aria-label="앱 2 포커스, /metrics, 아키텍처 구성요소" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="/metrics" data-node-context="아키텍처 구성요소">
           <title>앱 2 · /metrics · 아키텍처 구성요소</title>
-          <rect x="40" y="190" width="150" height="70" rx="8" class="c-mask"/>
-          <rect x="40" y="190" width="150" height="70" rx="8" class="c-frontend" data-animate="node" style="--step:2" stroke-width="1.5"/>
+          <rect x="40" y="190" width="172" height="76" rx="8" class="c-mask"/>
+          <rect x="40" y="190" width="172" height="76" rx="8" class="c-frontend" data-animate="node" style="--step:2" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(46 196) scale(0.6875)">
             <rect x="2" y="3" width="12" height="10" rx="2"/>
             <path d="M2 6.5h12"/>
             <circle cx="4.1" cy="4.8" r=".7" class="sigil-fill"/>
             <circle cx="6.3" cy="4.8" r=".7" class="sigil-fill"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="115" y="223" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">앱 2</text>
-        <text data-detail="context" x="115" y="239" class="t-muted" font-size="9" text-anchor="middle">/metrics</text>
+          <text data-node-label="" data-detail-anchor="" x="126" y="226" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">앱 2</text>
+        <text data-detail="context" x="126" y="242" class="t-muted" font-size="9" text-anchor="middle">/metrics</text>
         </g>
 
         <g id="node-prom" data-node-id="prom" data-node-label="Prometheus" tabindex="0" role="button" aria-label="Prometheus 포커스, 시계열 DB · pull, 아키텍처 구성요소" aria-pressed="false" data-node-kind="database" data-node-sublabel="시계열 DB · pull" data-node-context="아키텍처 구성요소">
           <title>Prometheus · 시계열 DB · pull · 아키텍처 구성요소</title>
-          <rect x="270" y="115" width="150" height="70" rx="8" class="c-mask"/>
-          <rect x="270" y="115" width="150" height="70" rx="8" class="c-database" data-animate="node" style="--step:0" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(276 121) scale(0.6875)">
+          <rect x="290" y="115" width="172" height="76" rx="8" class="c-mask"/>
+          <rect x="290" y="115" width="172" height="76" rx="8" class="c-database" data-animate="node" style="--step:0" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(296 121) scale(0.6875)">
             <ellipse cx="8" cy="4" rx="5" ry="2"/>
             <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="345" y="148" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Prometheus</text>
-        <text data-detail="context" x="345" y="164" class="t-muted" font-size="9" text-anchor="middle">시계열 DB · pull</text>
+          <text data-node-label="" data-detail-anchor="" x="376" y="151" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Prometheus</text>
+        <text data-detail="context" x="376" y="167" class="t-muted" font-size="9" text-anchor="middle">시계열 DB · pull</text>
         </g>
 
         <g id="node-graf" data-node-id="graf" data-node-label="Grafana" tabindex="0" role="button" aria-label="Grafana 포커스, 대시보드, 아키텍처 구성요소" aria-pressed="false" data-node-kind="backend" data-node-sublabel="대시보드" data-node-context="아키텍처 구성요소">
           <title>Grafana · 대시보드 · 아키텍처 구성요소</title>
-          <rect x="500" y="40" width="150" height="70" rx="8" class="c-mask"/>
-          <rect x="500" y="40" width="150" height="70" rx="8" class="c-backend" data-animate="node" style="--step:3" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(506 46) scale(0.6875)">
+          <rect x="540" y="40" width="172" height="76" rx="8" class="c-mask"/>
+          <rect x="540" y="40" width="172" height="76" rx="8" class="c-backend" data-animate="node" style="--step:3" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(546 46) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="575" y="73" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Grafana</text>
-        <text data-detail="context" x="575" y="89" class="t-muted" font-size="9" text-anchor="middle">대시보드</text>
+          <text data-node-label="" data-detail-anchor="" x="626" y="76" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Grafana</text>
+        <text data-detail="context" x="626" y="92" class="t-muted" font-size="9" text-anchor="middle">대시보드</text>
         </g>
 
         <g id="node-am" data-node-id="am" data-node-label="Alertmanager" tabindex="0" role="button" aria-label="Alertmanager 포커스, 알림 라우팅, 아키텍처 구성요소" aria-pressed="false" data-node-kind="security" data-node-sublabel="알림 라우팅" data-node-context="아키텍처 구성요소">
           <title>Alertmanager · 알림 라우팅 · 아키텍처 구성요소</title>
-          <rect x="500" y="190" width="150" height="70" rx="8" class="c-mask"/>
-          <rect x="500" y="190" width="150" height="70" rx="8" class="c-security" data-animate="node" style="--step:4" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="security" class="semantic-sigil s-security" transform="translate(506 196) scale(0.6875)">
+          <rect x="540" y="190" width="172" height="76" rx="8" class="c-mask"/>
+          <rect x="540" y="190" width="172" height="76" rx="8" class="c-security" data-animate="node" style="--step:4" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="security" class="semantic-sigil s-security" transform="translate(546 196) scale(0.6875)">
             <path d="M8 2.2 13 4v3.5c0 3.1-1.8 5.4-5 6.5-3.2-1.1-5-3.4-5-6.5V4Z"/>
             <path d="m5.8 8 1.5 1.5 3-3"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="575" y="223" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Alertmanager</text>
-        <text data-detail="context" x="575" y="239" class="t-muted" font-size="9" text-anchor="middle">알림 라우팅</text>
+          <text data-node-label="" data-detail-anchor="" x="626" y="226" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Alertmanager</text>
+        <text data-detail="context" x="626" y="242" class="t-muted" font-size="9" text-anchor="middle">알림 라우팅</text>
         </g>
 
         <g id="node-mail" data-node-id="mail" data-node-label="메일 알림" tabindex="0" role="button" aria-label="메일 알림 포커스, 담당자, 아키텍처 구성요소" aria-pressed="false" data-node-kind="external" data-node-sublabel="담당자" data-node-context="아키텍처 구성요소">
           <title>메일 알림 · 담당자 · 아키텍처 구성요소</title>
-          <rect x="500" y="340" width="150" height="70" rx="8" class="c-mask"/>
-          <rect x="500" y="340" width="150" height="70" rx="8" class="c-external" data-animate="node" style="--step:5" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(506 346) scale(0.6875)">
+          <rect x="540" y="340" width="172" height="76" rx="8" class="c-mask"/>
+          <rect x="540" y="340" width="172" height="76" rx="8" class="c-external" data-animate="node" style="--step:5" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(546 346) scale(0.6875)">
             <rect x="2.5" y="5" width="8.5" height="8" rx="1.5"/>
             <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="575" y="373" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">메일 알림</text>
-        <text data-detail="context" x="575" y="389" class="t-muted" font-size="9" text-anchor="middle">담당자</text>
+          <text data-node-label="" data-detail-anchor="" x="626" y="376" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">메일 알림</text>
+        <text data-detail="context" x="626" y="392" class="t-muted" font-size="9" text-anchor="middle">담당자</text>
         </g>
 
         <!-- Connection labels -->
         <g data-detail="context" data-edge-from="prom" data-edge-to="a1" data-edge-label="스크랩" data-edge-key="0" data-edge-id="prom-a1">
-          <rect x="202.6" y="111" width="38.8" height="14" rx="3" class="c-mask"/>
-          <text x="222" y="121" class="t-edge-default" font-size="8" text-anchor="middle">스크랩</text>
+          <rect x="223.6" y="111" width="38.8" height="14" rx="3" class="c-mask"/>
+          <text x="243" y="121" class="t-edge-default" font-size="8" text-anchor="middle">스크랩</text>
         </g>
         <g data-detail="context" data-edge-from="prom" data-edge-to="a2" data-edge-label="스크랩" data-edge-key="1" data-edge-id="prom-a2">
-          <rect x="154.6" y="159.5" width="38.8" height="14" rx="3" class="c-mask"/>
-          <text x="174" y="169.5" class="t-edge-default" font-size="8" text-anchor="middle">스크랩</text>
+          <rect x="176.6" y="162.5" width="38.8" height="14" rx="3" class="c-mask"/>
+          <text x="196" y="172.5" class="t-edge-default" font-size="8" text-anchor="middle">스크랩</text>
         </g>
         <g data-detail="context" data-edge-from="prom" data-edge-to="graf" data-edge-label="PromQL" data-edge-key="2" data-edge-id="prom-graf">
-          <rect x="448.6" y="111" width="38.8" height="14" rx="3" class="c-mask"/>
-          <text x="468" y="121" class="t-edge-emphasis" font-size="8" text-anchor="middle">PromQL</text>
+          <rect x="489.6" y="111" width="38.8" height="14" rx="3" class="c-mask"/>
+          <text x="509" y="121" class="t-edge-emphasis" font-size="8" text-anchor="middle">PromQL</text>
         </g>
         <g data-detail="context" data-edge-from="prom" data-edge-to="am" data-edge-label="알림 규칙" data-edge-key="3" data-edge-id="prom-am">
-          <rect x="489.4" y="159.5" width="53.199999999999996" height="14" rx="3" class="c-mask"/>
-          <text x="516" y="169.5" class="t-edge-default" font-size="8" text-anchor="middle">알림 규칙</text>
+          <rect x="529.4" y="162.5" width="53.199999999999996" height="14" rx="3" class="c-mask"/>
+          <text x="556" y="172.5" class="t-edge-default" font-size="8" text-anchor="middle">알림 규칙</text>
         </g>
         <g data-detail="context" data-edge-from="am" data-edge-to="mail" data-edge-label="라우팅" data-edge-key="4" data-edge-id="am-mail">
-          <rect x="530.2" y="293" width="38.8" height="14" rx="3" class="c-mask"/>
-          <text x="549.6" y="303" class="t-edge-default" font-size="8" text-anchor="middle">라우팅</text>
+          <rect x="581.2" y="296" width="38.8" height="14" rx="3" class="c-mask"/>
+          <text x="600.6" y="306" class="t-edge-default" font-size="8" text-anchor="middle">라우팅</text>
         </g>
 
         <!-- Boundary labels (foreground masks keep routes out of titles) -->
@@ -14892,11 +14892,31 @@ rect.c-region { fill: url(#g-hatch) !important; stroke: var(--g-hatch) !importan
       m.classList.add('g-edge-pill');
     });
     svg.setAttribute('data-green-decorated', 'true');
+    fit(svg);
     return true;
   }
+  function fit(svg) {
+    svg = svg || document.querySelector('.diagram-container svg');
+    if (!svg || !svg.getScreenCTM()) return;
+    var inv = svg.getScreenCTM().inverse(), P = svg.createSVGPoint();
+    var x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9;
+    svg.querySelectorAll('[data-node-id], g[data-edge-id], rect.c-region, [data-boundary-id]').forEach(function (el) {
+      var r = el.getBoundingClientRect(); if (!r.width && !r.height) return;
+      [[r.left, r.top], [r.right, r.bottom]].forEach(function (c) {
+        P.x = c[0]; P.y = c[1]; var q = P.matrixTransform(inv);
+        x0 = Math.min(x0, q.x); y0 = Math.min(y0, q.y); x1 = Math.max(x1, q.x); y1 = Math.max(y1, q.y);
+      });
+    });
+    if (x1 <= x0) return;
+    var pad = 14;
+    svg.setAttribute('viewBox', (x0 - pad) + ' ' + (y0 - pad) + ' ' + (x1 - x0 + pad * 2) + ' ' + (y1 - y0 + pad * 2));
+    svg.removeAttribute('width'); svg.removeAttribute('height');
+    svg.setAttribute('data-green-fit', 'true');
+  }
+  window.addEventListener('resize', function () { /* viewBox is width-independent */ });
   function boot() { if (!decorate()) setTimeout(boot, 120); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
-  window.addEventListener('load', function () { setTimeout(decorate, 50); });
+  window.addEventListener('load', function () { setTimeout(function () { decorate(); fit(); }, 60); setTimeout(function () { fit(); }, 600); });
 })();
 </script>
 </body>

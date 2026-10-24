@@ -5133,17 +5133,17 @@ body { padding: 0 !important; margin: 0 !important; min-height: 0 !important; }
 
 /* 임베드 칸 폭에 맞춤 (가로 스크롤 제거) */
 html, body { overflow: hidden !important; }
-.diagram-container { overflow: hidden !important; padding: 6px !important; }
+.diagram-container { overflow: hidden !important; padding: 0 !important; }
 .diagram-container > svg { width: 100% !important; min-width: 0 !important; max-width: 100% !important;
   height: auto !important; transform: none !important; display: block; }
 
 /* 폰트 */
-.diagram-container svg text.t-primary { font-size: 13px !important; }
-.diagram-container svg text.t-muted { font-size: 10px !important; }
-.diagram-container svg text[class^="t-edge"], .diagram-container svg text[class*=" t-edge"] { font-size: 9.5px !important; font-weight: 600; }
+.diagram-container svg text.t-primary { font-size: 15.5px !important; }
+.diagram-container svg text.t-muted { font-size: 12px !important; }
+.diagram-container svg text[class^="t-edge"], .diagram-container svg text[class*=" t-edge"] { font-size: 11.5px !important; font-weight: 600; }
 .diagram-container svg text { font-family: 'Pretendard', 'Inter', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
 .diagram-container svg text[data-detail="fine"] { font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-variant-numeric: tabular-nums; font-weight: 700; fill: var(--g-accent) !important; }
+  font-variant-numeric: tabular-nums; font-weight: 700; font-size: 10.5px !important; fill: var(--g-accent) !important; }
 .diagram-container svg .t-primary { fill: var(--g-text) !important; }
 .diagram-container svg .t-muted { fill: var(--g-muted) !important; }
 
@@ -5295,7 +5295,7 @@ rect.c-region { fill: url(#g-hatch) !important; stroke: var(--g-hatch) !importan
     <!-- Main Diagram -->
     <div class="diagram-container" data-detail-level="read"
          data-preset-badge-editorial-plate="ARCHIFY / 도판 04">
-      <svg viewBox="0 0 734 478" role="img" lang="ko" aria-labelledby="archify-diagram-title archify-diagram-description" data-animation="trace" data-preset="classic" data-quality-profile="showcase" data-node-ui="" data-reader-fit="intrinsic-height" data-reader-min-text="7.5" data-reader-primary-text="14">
+      <svg viewBox="0 0 796 484" role="img" lang="ko" aria-labelledby="archify-diagram-title archify-diagram-description" data-animation="trace" data-preset="classic" data-quality-profile="showcase" data-node-ui="" data-reader-fit="intrinsic-height" data-reader-min-text="7.5" data-reader-primary-text="14">
         <title id="archify-diagram-title">개발 / 스테이징 / 운영 단계</title>
         <desc id="archify-diagram-description">Archify로 생성한 아키텍처 다이어그램입니다.</desc>
         <!-- Definitions -->
@@ -5346,174 +5346,174 @@ rect.c-region { fill: url(#g-hatch) !important; stroke: var(--g-hatch) !importan
 
         <!-- Connection paths (before components for correct z-order) -->
         <g data-graph-role="automatic-crossover" style="--step:0">
-          <path data-graph-role="automatic-crossover-underlay" d="M 190 75 L 270 75" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="trig" data-edge-to="prep" data-edge-label="시작" data-edge-key="0" data-edge-id="trig-prep" data-composition-points="190,75;270,75" data-composition-crossover="halo" data-composition-independent="true" d="M 190 75 L 270 75" class="a-default" data-animate="edge" style="--step:0" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 212 78 L 290 78" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="trig" data-edge-to="prep" data-edge-label="시작" data-edge-key="0" data-edge-id="trig-prep" data-composition-points="212,78;290,78" data-composition-crossover="halo" data-composition-independent="true" d="M 212 78 L 290 78" class="a-default" data-animate="edge" style="--step:0" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:1">
-          <path data-graph-role="automatic-crossover-underlay" d="M 420 75 L 500 75" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="prep" data-edge-to="ver" data-edge-key="1" data-edge-id="prep-ver" data-composition-points="420,75;500,75" data-composition-crossover="halo" data-composition-independent="true" d="M 420 75 L 500 75" class="a-default" data-animate="edge" style="--step:1" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 462 78 L 540 78" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="prep" data-edge-to="ver" data-edge-key="1" data-edge-id="prep-ver" data-composition-points="462,78;540,78" data-composition-crossover="halo" data-composition-independent="true" d="M 462 78 L 540 78" class="a-default" data-animate="edge" style="--step:1" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:2">
-          <path data-graph-role="automatic-crossover-underlay" d="M 575 110 L 575 190" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="ver" data-edge-to="train" data-edge-key="2" data-edge-id="ver-train" data-composition-points="575,110;575,190" data-composition-crossover="halo" data-composition-independent="true" d="M 575 110 L 575 190" class="a-default" data-animate="edge" style="--step:2" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 626 116 L 626 190" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="ver" data-edge-to="train" data-edge-key="2" data-edge-id="ver-train" data-composition-points="626,116;626,190" data-composition-crossover="halo" data-composition-independent="true" d="M 626 116 L 626 190" class="a-default" data-animate="edge" style="--step:2" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:3">
-          <path data-graph-role="automatic-crossover-underlay" d="M 500 225 L 420 225" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="train" data-edge-to="evalm" data-edge-key="3" data-edge-id="train-evalm" data-composition-points="500,225;420,225" data-composition-crossover="halo" data-composition-independent="true" d="M 500 225 L 420 225" class="a-default" data-animate="edge" style="--step:3" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 540 228 L 462 228" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="train" data-edge-to="evalm" data-edge-key="3" data-edge-id="train-evalm" data-composition-points="540,228;462,228" data-composition-crossover="halo" data-composition-independent="true" d="M 540 228 L 462 228" class="a-default" data-animate="edge" style="--step:3" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:4">
-          <path data-graph-role="automatic-crossover-underlay" d="M 270 225 L 190 225" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="evalm" data-edge-to="valid" data-edge-label="통과" data-edge-key="4" data-edge-id="evalm-valid" data-composition-points="270,225;190,225" data-composition-crossover="halo" data-composition-independent="true" d="M 270 225 L 190 225" class="a-default" data-animate="edge" style="--step:4" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 290 228 L 212 228" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="evalm" data-edge-to="valid" data-edge-label="통과" data-edge-key="4" data-edge-id="evalm-valid" data-composition-points="290,228;212,228" data-composition-crossover="halo" data-composition-independent="true" d="M 290 228 L 212 228" class="a-default" data-animate="edge" style="--step:4" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:5">
-          <path data-graph-role="automatic-crossover-underlay" d="M 115 260 L 115 340" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="valid" data-edge-to="deploy" data-edge-label="승인" data-edge-key="5" data-edge-id="valid-deploy" data-composition-points="115,260;115,340" data-composition-crossover="halo" data-composition-independent="true" d="M 115 260 L 115 340" class="a-emphasis" data-animate="edge" style="--step:5" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 126 266 L 126 340" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="valid" data-edge-to="deploy" data-edge-label="승인" data-edge-key="5" data-edge-id="valid-deploy" data-composition-points="126,266;126,340" data-composition-crossover="halo" data-composition-independent="true" d="M 126 266 L 126 340" class="a-emphasis" data-animate="edge" style="--step:5" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:6">
-          <path data-graph-role="automatic-crossover-underlay" d="M 190 375 L 270 375" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="deploy" data-edge-to="api" data-edge-label="서빙" data-edge-key="6" data-edge-id="deploy-api" data-composition-points="190,375;270,375" data-composition-crossover="halo" data-composition-independent="true" d="M 190 375 L 270 375" class="a-emphasis" data-animate="edge" style="--step:6" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 212 378 L 290 378" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="deploy" data-edge-to="api" data-edge-label="서빙" data-edge-key="6" data-edge-id="deploy-api" data-composition-points="212,378;290,378" data-composition-crossover="halo" data-composition-independent="true" d="M 212 378 L 290 378" class="a-emphasis" data-animate="edge" style="--step:6" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:7">
-          <path data-graph-role="automatic-crossover-underlay" d="M 420 375 L 500 375" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="api" data-edge-to="mon" data-edge-label="지표" data-edge-key="7" data-edge-id="api-mon" data-composition-points="420,375;500,375" data-composition-crossover="halo" data-composition-independent="true" d="M 420 375 L 500 375" class="a-default" data-animate="edge" style="--step:7" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 462 378 L 540 378" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="api" data-edge-to="mon" data-edge-label="지표" data-edge-key="7" data-edge-id="api-mon" data-composition-points="462,378;540,378" data-composition-crossover="halo" data-composition-independent="true" d="M 462 378 L 540 378" class="a-default" data-animate="edge" style="--step:7" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:8">
-          <path data-graph-role="automatic-crossover-underlay" d="M 650 375 L 666 375 Q 674 375 674 367 L 674 24 Q 674 16 666 16 L 123 16 Q 115 16 115 24 L 115 40" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="mon" data-edge-to="trig" data-edge-label="재학습" data-edge-key="8" data-edge-id="mon-trig" data-composition-points="650,375;674,375;674,16;115,16;115,40" data-composition-crossover="halo" data-composition-independent="true" d="M 650 375 L 666 375 Q 674 375 674 367 L 674 24 Q 674 16 666 16 L 123 16 Q 115 16 115 24 L 115 40" class="a-dashed" data-animate="edge" style="--step:8" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 712 378 L 728 378 Q 736 378 736 370 L 736 24 Q 736 16 728 16 L 134 16 Q 126 16 126 24 L 126 40" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="mon" data-edge-to="trig" data-edge-label="재학습" data-edge-key="8" data-edge-id="mon-trig" data-composition-points="712,378;736,378;736,16;126,16;126,40" data-composition-crossover="halo" data-composition-independent="true" d="M 712 378 L 728 378 Q 736 378 736 370 L 736 24 Q 736 16 728 16 L 134 16 Q 126 16 126 24 L 126 40" class="a-dashed" data-animate="edge" style="--step:8" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
         </g>
 
         <!-- Components -->
         <g id="node-trig" data-node-id="trig" data-node-label="트리거" tabindex="0" role="button" aria-label="트리거 포커스, CI · 스케줄 · 임계치, 아키텍처 구성요소" aria-pressed="false" data-node-kind="external" data-node-sublabel="CI · 스케줄 · 임계치" data-node-context="아키텍처 구성요소">
           <title>트리거 · CI · 스케줄 · 임계치 · 아키텍처 구성요소</title>
-          <rect x="40" y="40" width="150" height="70" rx="8" class="c-mask"/>
-          <rect x="40" y="40" width="150" height="70" rx="8" class="c-external" data-animate="node" style="--step:0" stroke-width="1.5"/>
+          <rect x="40" y="40" width="172" height="76" rx="8" class="c-mask"/>
+          <rect x="40" y="40" width="172" height="76" rx="8" class="c-external" data-animate="node" style="--step:0" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(46 46) scale(0.6875)">
             <rect x="2.5" y="5" width="8.5" height="8" rx="1.5"/>
             <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="115" y="73" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">트리거</text>
-        <text data-detail="context" x="115" y="89" class="t-muted" font-size="9" text-anchor="middle">CI · 스케줄 · 임계치</text>
+          <text data-node-label="" data-detail-anchor="" x="126" y="76" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">트리거</text>
+        <text data-detail="context" x="126" y="92" class="t-muted" font-size="9" text-anchor="middle">CI · 스케줄 · 임계치</text>
         </g>
 
         <g id="node-prep" data-node-id="prep" data-node-label="데이터 준비" tabindex="0" role="button" aria-label="데이터 준비 포커스, 아키텍처 구성요소" aria-pressed="false" data-node-kind="backend" data-node-context="아키텍처 구성요소">
           <title>데이터 준비 · 아키텍처 구성요소</title>
-          <rect x="270" y="40" width="150" height="70" rx="8" class="c-mask"/>
-          <rect x="270" y="40" width="150" height="70" rx="8" class="c-backend" data-animate="node" style="--step:1" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(276 46) scale(0.6875)">
+          <rect x="290" y="40" width="172" height="76" rx="8" class="c-mask"/>
+          <rect x="290" y="40" width="172" height="76" rx="8" class="c-backend" data-animate="node" style="--step:1" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(296 46) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
-          <text data-node-label="" x="345" y="79" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">데이터 준비</text>
+          <text data-node-label="" x="376" y="82" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">데이터 준비</text>
         </g>
 
         <g id="node-ver" data-node-id="ver" data-node-label="데이터 버전관리" tabindex="0" role="button" aria-label="데이터 버전관리 포커스, 아키텍처 구성요소" aria-pressed="false" data-node-kind="database" data-node-context="아키텍처 구성요소">
           <title>데이터 버전관리 · 아키텍처 구성요소</title>
-          <rect x="500" y="40" width="150" height="70" rx="8" class="c-mask"/>
-          <rect x="500" y="40" width="150" height="70" rx="8" class="c-database" data-animate="node" style="--step:2" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(506 46) scale(0.6875)">
+          <rect x="540" y="40" width="172" height="76" rx="8" class="c-mask"/>
+          <rect x="540" y="40" width="172" height="76" rx="8" class="c-database" data-animate="node" style="--step:2" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(546 46) scale(0.6875)">
             <ellipse cx="8" cy="4" rx="5" ry="2"/>
             <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
           </g>
-          <text data-node-label="" x="575" y="79" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">데이터 버전관리</text>
+          <text data-node-label="" x="626" y="82" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">데이터 버전관리</text>
         </g>
 
         <g id="node-train" data-node-id="train" data-node-label="학습" tabindex="0" role="button" aria-label="학습 포커스, 아키텍처 구성요소" aria-pressed="false" data-node-kind="backend" data-node-context="아키텍처 구성요소">
           <title>학습 · 아키텍처 구성요소</title>
-          <rect x="500" y="190" width="150" height="70" rx="8" class="c-mask"/>
-          <rect x="500" y="190" width="150" height="70" rx="8" class="c-backend" data-animate="node" style="--step:3" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(506 196) scale(0.6875)">
+          <rect x="540" y="190" width="172" height="76" rx="8" class="c-mask"/>
+          <rect x="540" y="190" width="172" height="76" rx="8" class="c-backend" data-animate="node" style="--step:3" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(546 196) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
-          <text data-node-label="" x="575" y="229" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">학습</text>
+          <text data-node-label="" x="626" y="232" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">학습</text>
         </g>
 
         <g id="node-evalm" data-node-id="evalm" data-node-label="평가" tabindex="0" role="button" aria-label="평가 포커스, 아키텍처 구성요소" aria-pressed="false" data-node-kind="backend" data-node-context="아키텍처 구성요소">
           <title>평가 · 아키텍처 구성요소</title>
-          <rect x="270" y="190" width="150" height="70" rx="8" class="c-mask"/>
-          <rect x="270" y="190" width="150" height="70" rx="8" class="c-backend" data-animate="node" style="--step:4" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(276 196) scale(0.6875)">
+          <rect x="290" y="190" width="172" height="76" rx="8" class="c-mask"/>
+          <rect x="290" y="190" width="172" height="76" rx="8" class="c-backend" data-animate="node" style="--step:4" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(296 196) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
-          <text data-node-label="" x="345" y="229" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">평가</text>
+          <text data-node-label="" x="376" y="232" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">평가</text>
         </g>
 
         <g id="node-valid" data-node-id="valid" data-node-label="검증" tabindex="0" role="button" aria-label="검증 포커스, 업무 승인, 아키텍처 구성요소" aria-pressed="false" data-node-kind="security" data-node-sublabel="업무 승인" data-node-context="아키텍처 구성요소">
           <title>검증 · 업무 승인 · 아키텍처 구성요소</title>
-          <rect x="40" y="190" width="150" height="70" rx="8" class="c-mask"/>
-          <rect x="40" y="190" width="150" height="70" rx="8" class="c-security" data-animate="node" style="--step:5" stroke-width="1.5"/>
+          <rect x="40" y="190" width="172" height="76" rx="8" class="c-mask"/>
+          <rect x="40" y="190" width="172" height="76" rx="8" class="c-security" data-animate="node" style="--step:5" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="security" class="semantic-sigil s-security" transform="translate(46 196) scale(0.6875)">
             <path d="M8 2.2 13 4v3.5c0 3.1-1.8 5.4-5 6.5-3.2-1.1-5-3.4-5-6.5V4Z"/>
             <path d="m5.8 8 1.5 1.5 3-3"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="115" y="223" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">검증</text>
-        <text data-detail="context" x="115" y="239" class="t-muted" font-size="9" text-anchor="middle">업무 승인</text>
+          <text data-node-label="" data-detail-anchor="" x="126" y="226" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">검증</text>
+        <text data-detail="context" x="126" y="242" class="t-muted" font-size="9" text-anchor="middle">업무 승인</text>
         </g>
 
         <g id="node-deploy" data-node-id="deploy" data-node-label="모델 배포" tabindex="0" role="button" aria-label="모델 배포 포커스, 버전 · 롤백, 아키텍처 구성요소" aria-pressed="false" data-node-kind="cloud" data-node-sublabel="버전 · 롤백" data-node-context="아키텍처 구성요소">
           <title>모델 배포 · 버전 · 롤백 · 아키텍처 구성요소</title>
-          <rect x="40" y="340" width="150" height="70" rx="8" class="c-mask"/>
-          <rect x="40" y="340" width="150" height="70" rx="8" class="c-cloud" data-animate="node" style="--step:6" stroke-width="1.5"/>
+          <rect x="40" y="340" width="172" height="76" rx="8" class="c-mask"/>
+          <rect x="40" y="340" width="172" height="76" rx="8" class="c-cloud" data-animate="node" style="--step:6" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="cloud" class="semantic-sigil s-cloud" transform="translate(46 346) scale(0.6875)">
             <path d="M4.3 12.5h7.3a2.4 2.4 0 0 0 .2-4.8 4 4 0 0 0-7.5-1.3A3.1 3.1 0 0 0 4.3 12.5Z"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="115" y="373" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">모델 배포</text>
-        <text data-detail="context" x="115" y="389" class="t-muted" font-size="9" text-anchor="middle">버전 · 롤백</text>
+          <text data-node-label="" data-detail-anchor="" x="126" y="376" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">모델 배포</text>
+        <text data-detail="context" x="126" y="392" class="t-muted" font-size="9" text-anchor="middle">버전 · 롤백</text>
         </g>
 
         <g id="node-api" data-node-id="api" data-node-label="ML 서비스 API" tabindex="0" role="button" aria-label="ML 서비스 API 포커스, REST, 아키텍처 구성요소" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="REST" data-node-context="아키텍처 구성요소">
           <title>ML 서비스 API · REST · 아키텍처 구성요소</title>
-          <rect x="270" y="340" width="150" height="70" rx="8" class="c-mask"/>
-          <rect x="270" y="340" width="150" height="70" rx="8" class="c-frontend" data-animate="node" style="--step:7" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(276 346) scale(0.6875)">
+          <rect x="290" y="340" width="172" height="76" rx="8" class="c-mask"/>
+          <rect x="290" y="340" width="172" height="76" rx="8" class="c-frontend" data-animate="node" style="--step:7" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(296 346) scale(0.6875)">
             <rect x="2" y="3" width="12" height="10" rx="2"/>
             <path d="M2 6.5h12"/>
             <circle cx="4.1" cy="4.8" r=".7" class="sigil-fill"/>
             <circle cx="6.3" cy="4.8" r=".7" class="sigil-fill"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="345" y="373" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">ML 서비스 API</text>
-        <text data-detail="context" x="345" y="389" class="t-muted" font-size="9" text-anchor="middle">REST</text>
+          <text data-node-label="" data-detail-anchor="" x="376" y="376" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">ML 서비스 API</text>
+        <text data-detail="context" x="376" y="392" class="t-muted" font-size="9" text-anchor="middle">REST</text>
         </g>
 
         <g id="node-mon" data-node-id="mon" data-node-label="성능 모니터링" tabindex="0" role="button" aria-label="성능 모니터링 포커스, 시스템 · ML · 비즈니스, 아키텍처 구성요소" aria-pressed="false" data-node-kind="messagebus" data-node-sublabel="시스템 · ML · 비즈니스" data-node-context="아키텍처 구성요소">
           <title>성능 모니터링 · 시스템 · ML · 비즈니스 · 아키텍처 구성요소</title>
-          <rect x="500" y="340" width="150" height="70" rx="8" class="c-mask"/>
-          <rect x="500" y="340" width="150" height="70" rx="8" class="c-messagebus" data-animate="node" style="--step:8" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="messagebus" class="semantic-sigil s-messagebus" transform="translate(506 346) scale(0.6875)">
+          <rect x="540" y="340" width="172" height="76" rx="8" class="c-mask"/>
+          <rect x="540" y="340" width="172" height="76" rx="8" class="c-messagebus" data-animate="node" style="--step:8" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="messagebus" class="semantic-sigil s-messagebus" transform="translate(546 346) scale(0.6875)">
             <path d="M2.5 4.5h11M2.5 8h11M2.5 11.5h11"/>
             <circle cx="5" cy="4.5" r="1" class="sigil-fill"/>
             <circle cx="10.5" cy="8" r="1" class="sigil-fill"/>
             <circle cx="7" cy="11.5" r="1" class="sigil-fill"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="575" y="373" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">성능 모니터링</text>
-        <text data-detail="context" x="575" y="389" class="t-muted" font-size="9" text-anchor="middle">시스템 · ML · 비즈니스</text>
+          <text data-node-label="" data-detail-anchor="" x="626" y="376" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">성능 모니터링</text>
+        <text data-detail="context" x="626" y="392" class="t-muted" font-size="9" text-anchor="middle">시스템 · ML · 비즈니스</text>
         </g>
 
         <!-- Connection labels -->
         <g data-detail="context" data-edge-from="trig" data-edge-to="prep" data-edge-label="시작" data-edge-key="0" data-edge-id="trig-prep">
-          <rect x="215" y="55" width="30" height="14" rx="3" class="c-mask"/>
-          <text x="230" y="65" class="t-edge-default" font-size="8" text-anchor="middle">시작</text>
+          <rect x="236" y="58" width="30" height="14" rx="3" class="c-mask"/>
+          <text x="251" y="68" class="t-edge-default" font-size="8" text-anchor="middle">시작</text>
         </g>
 
 
 
         <g data-detail="context" data-edge-from="evalm" data-edge-to="valid" data-edge-label="통과" data-edge-key="4" data-edge-id="evalm-valid">
-          <rect x="215" y="205" width="30" height="14" rx="3" class="c-mask"/>
-          <text x="230" y="215" class="t-edge-default" font-size="8" text-anchor="middle">통과</text>
+          <rect x="236" y="208" width="30" height="14" rx="3" class="c-mask"/>
+          <text x="251" y="218" class="t-edge-default" font-size="8" text-anchor="middle">통과</text>
         </g>
         <g data-detail="context" data-edge-from="valid" data-edge-to="deploy" data-edge-label="승인" data-edge-key="5" data-edge-id="valid-deploy">
-          <rect x="79" y="293" width="30" height="14" rx="3" class="c-mask"/>
-          <text x="94" y="303" class="t-edge-emphasis" font-size="8" text-anchor="middle">승인</text>
+          <rect x="90" y="296" width="30" height="14" rx="3" class="c-mask"/>
+          <text x="105" y="306" class="t-edge-emphasis" font-size="8" text-anchor="middle">승인</text>
         </g>
         <g data-detail="context" data-edge-from="deploy" data-edge-to="api" data-edge-label="서빙" data-edge-key="6" data-edge-id="deploy-api">
-          <rect x="215" y="355" width="30" height="14" rx="3" class="c-mask"/>
-          <text x="230" y="365" class="t-edge-emphasis" font-size="8" text-anchor="middle">서빙</text>
+          <rect x="236" y="358" width="30" height="14" rx="3" class="c-mask"/>
+          <text x="251" y="368" class="t-edge-emphasis" font-size="8" text-anchor="middle">서빙</text>
         </g>
         <g data-detail="context" data-edge-from="api" data-edge-to="mon" data-edge-label="지표" data-edge-key="7" data-edge-id="api-mon">
-          <rect x="445" y="355" width="30" height="14" rx="3" class="c-mask"/>
-          <text x="460" y="365" class="t-edge-default" font-size="8" text-anchor="middle">지표</text>
+          <rect x="486" y="358" width="30" height="14" rx="3" class="c-mask"/>
+          <text x="501" y="368" class="t-edge-default" font-size="8" text-anchor="middle">지표</text>
         </g>
         <g data-detail="context" data-edge-from="mon" data-edge-to="trig" data-edge-label="재학습" data-edge-key="8" data-edge-id="mon-trig">
-          <rect x="654.6" y="175.5" width="38.8" height="14" rx="3" class="c-mask"/>
-          <text x="674" y="185.5" class="t-edge-dashed" font-size="8" text-anchor="middle">재학습</text>
+          <rect x="716.6" y="177" width="38.8" height="14" rx="3" class="c-mask"/>
+          <text x="736" y="187" class="t-edge-dashed" font-size="8" text-anchor="middle">재학습</text>
         </g>
 
         <!-- Boundary labels (foreground masks keep routes out of titles) -->
@@ -14944,11 +14944,31 @@ rect.c-region { fill: url(#g-hatch) !important; stroke: var(--g-hatch) !importan
       m.classList.add('g-edge-pill');
     });
     svg.setAttribute('data-green-decorated', 'true');
+    fit(svg);
     return true;
   }
+  function fit(svg) {
+    svg = svg || document.querySelector('.diagram-container svg');
+    if (!svg || !svg.getScreenCTM()) return;
+    var inv = svg.getScreenCTM().inverse(), P = svg.createSVGPoint();
+    var x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9;
+    svg.querySelectorAll('[data-node-id], g[data-edge-id], rect.c-region, [data-boundary-id]').forEach(function (el) {
+      var r = el.getBoundingClientRect(); if (!r.width && !r.height) return;
+      [[r.left, r.top], [r.right, r.bottom]].forEach(function (c) {
+        P.x = c[0]; P.y = c[1]; var q = P.matrixTransform(inv);
+        x0 = Math.min(x0, q.x); y0 = Math.min(y0, q.y); x1 = Math.max(x1, q.x); y1 = Math.max(y1, q.y);
+      });
+    });
+    if (x1 <= x0) return;
+    var pad = 14;
+    svg.setAttribute('viewBox', (x0 - pad) + ' ' + (y0 - pad) + ' ' + (x1 - x0 + pad * 2) + ' ' + (y1 - y0 + pad * 2));
+    svg.removeAttribute('width'); svg.removeAttribute('height');
+    svg.setAttribute('data-green-fit', 'true');
+  }
+  window.addEventListener('resize', function () { /* viewBox is width-independent */ });
   function boot() { if (!decorate()) setTimeout(boot, 120); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
-  window.addEventListener('load', function () { setTimeout(decorate, 50); });
+  window.addEventListener('load', function () { setTimeout(function () { decorate(); fit(); }, 60); setTimeout(function () { fit(); }, 600); });
 })();
 </script>
 </body>
