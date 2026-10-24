@@ -14914,7 +14914,7 @@ rect.c-region { fill: url(#g-hatch) !important; stroke: var(--g-hatch) !importan
     if (!svg || !svg.getScreenCTM()) return;
     var inv = svg.getScreenCTM().inverse(), P = svg.createSVGPoint();
     var x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9;
-    svg.querySelectorAll('[data-node-id], g[data-edge-id], rect.c-region, [data-boundary-id]').forEach(function (el) {
+    svg.querySelectorAll('[data-node-id], g[data-edge-id], path[data-edge-id], rect.c-region, [data-boundary-id]').forEach(function (el) {
       var r = el.getBoundingClientRect(); if (!r.width && !r.height) return;
       [[r.left, r.top], [r.right, r.bottom]].forEach(function (c) {
         P.x = c[0]; P.y = c[1]; var q = P.matrixTransform(inv);
