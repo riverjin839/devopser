@@ -7,6 +7,10 @@
   python3 mac_spec_lab.py --ctx 32768  # 로컬 AI 계산 시 컨텍스트 길이 지정 (기본 8192)
   python3 mac_spec_lab.py --demo       # 맥이 아닌 곳에서 흐름 확인용 (샘플 출력)
 
+입력 편의 (실습 모드)
+  Tab      : 다음 단어 자동완성 (한 번에 한 단어씩)
+  ↑ / ↓    : 이전에 친 명령 불러오기 (~/.mac_spec_lab_history 에 저장)
+
 출력
   ~/mac-spec-report-YYYYMMDD.md  (사양 요약 + 로컬 AI 계산 + 실습 로그)
 
@@ -200,21 +204,108 @@ def norm(s):
     return " ".join(s.replace('"', "'").split())
 
 
-def ask(prompt):
+# ---------------------------------------------------------------- 입력 편의 : Tab 자동완성 · ↑↓ 히스토리
+try:
+    import readline
+except ImportError:          # Windows 등 readline 없는 환경 → 기능 없이 동작
+    readline = None
+
+HISTORY_FILE = os.path.expanduser("~/.mac_spec_lab_history")
+EXTRA_WORDS = ["sysctl -a", "sysctl hw", "system_profiler -listDataTypes", "df -h /", "diskutil list", "pmset -g batt"]
+_complete = {"current": "", "pool": []}
+
+
+def _completer(text, state):
+    """줄 전체를 보고, 알려진 명령 중 앞부분이 같은 것의 '다음 한 단어'까지만 채움"""
+    if state == 0:
+        line = readline.get_line_buffer()
+        pool = [_complete["current"]] + _complete["pool"]
+        seen, cands = set(), []
+        for cmd in pool:
+            if not cmd or not cmd.startswith(line):
+                continue
+            rest = cmd[len(line):]
+            if rest.startswith(" "):                 # 단어 끝까지 친 상태 → 공백 포함 다음 단어
+                nxt = " " + rest[1:].split(" ")[0]
+            else:
+                nxt = rest.split(" ")[0]
+                if len(cmd) > len(line) + len(nxt):  # 뒤에 더 있으면 공백까지 붙여줌
+                    nxt += " "
+            cand = line + nxt
+            if cand not in seen:
+                seen.add(cand)
+                cands.append(cand)
+        _complete["cands"] = cands
+    cands = _complete.get("cands", [])
+    return cands[state] if state < len(cands) else None
+
+
+def setup_readline(enabled):
+    if not (enabled and readline):
+        return
+    _complete["pool"] = [st["cmd"] for st in STEPS] + EXTRA_WORDS
+    readline.set_completer(_completer)
+    readline.set_completer_delims("")                # 줄 전체를 하나로 보고 완성
+    if "libedit" in (readline.__doc__ or ""):        # macOS 기본 python3 (libedit)
+        readline.parse_and_bind("bind ^I rl_complete")
+    else:                                            # GNU readline
+        readline.parse_and_bind("tab: complete")
+        readline.parse_and_bind("set show-all-if-ambiguous on")
+    readline.set_history_length(500)
     try:
-        return input(prompt)
+        readline.read_history_file(HISTORY_FILE)
+    except (OSError, IOError):
+        pass
+
+
+def save_history():
+    if readline:
+        try:
+            readline.write_history_file(HISTORY_FILE)
+        except (OSError, IOError):
+            pass
+
+
+def _rl_prompt(p):
+    """색 코드를 readline 이 길이 계산에서 빼도록 감쌈 (↑↓ 로 줄 다시 그릴 때 깨짐 방지)"""
+    if readline and USE_COLOR:
+        return re.sub(r"(\033\[[0-9;]*m)", "\001\\1\002", p)
+    return p
+
+
+def _forget_last_history(before):
+    """명령이 아닌 입력(Enter, 퀴즈 번호, s/q)은 히스토리에서 지움"""
+    if not readline:
+        return
+    n = readline.get_current_history_length()
+    if n > before:
+        try:
+            readline.remove_history_item(n - 1)
+        except (ValueError, IndexError):
+            pass
+
+
+def ask(prompt, keep=False):
+    before = readline.get_current_history_length() if readline else 0
+    try:
+        s = input(_rl_prompt(prompt))
     except EOFError:
         return ""
     except KeyboardInterrupt:
         print("\n중단함")
+        save_history()
         sys.exit(1)
+    if not keep or s.strip().lower() in ("", "s", "q"):
+        _forget_last_history(before)
+    return s
 
 
 def type_command(cmd):
     """명령 직접 입력 연습. 반환 : True=실행, False=건너뜀, None=종료"""
     tries = 0
+    _complete["current"] = cmd
     while True:
-        s = ask(ink("  직접 쳐봐 (Enter=자동 입력, s=건너뛰기, q=종료) > ")).strip()
+        s = ask(ink("  직접 쳐봐 (Enter=자동 입력, s=건너뛰기, q=종료, Tab=자동완성, ↑↓=이전 명령) > "), keep=True).strip()
         if s == "":
             print(dim("  → " + cmd))
             return True
@@ -456,6 +547,7 @@ def main():
     ap.add_argument("--out", default=None, help="리포트 경로 (기본 ~/mac-spec-report-YYYYMMDD.md)")
     a = ap.parse_args()
     interactive = not a.auto and sys.stdin.isatty()
+    setup_readline(interactive)
     out_path = os.path.expanduser(a.out or "~/mac-spec-report-{}.md".format(datetime.date.today().strftime("%Y%m%d")))
 
     if sys.platform != "darwin" and not a.demo:
@@ -469,9 +561,11 @@ def main():
     if interactive:
         print(ink(" 각 단계에서 명령을 직접 쳐보면 정답인지 알려줌. 귀찮으면 Enter 로 자동 입력"))
         print(ink(" 실행되는 건 화면에 보이는 조회 명령뿐임"))
+        if readline:
+            print(ink(" Tab = 다음 단어 자동완성, ↑↓ = 이전에 친 명령 불러오기"))
         ask(dim(" 시작하려면 Enter "))
 
-    r, logs, last_group = {}, [], None
+    r, logs, last_group, quit_early = {}, [], None, False
     for i, st in enumerate(STEPS, 1):
         g = st["group"]
         if g != last_group:
@@ -486,6 +580,7 @@ def main():
         if interactive:
             go = type_command(st["cmd"])
             if go is None:
+                quit_early = True
                 break
             if go is False:
                 print(dim("  건너뜀"))
@@ -522,8 +617,9 @@ def main():
         if interactive:
             nxt = ask(dim("  다음 단계 Enter (q=여기서 리포트 생성) > ")).strip().lower()
             if nxt == "q":
+                quit_early = True
                 break
-    if last_group in QUIZ and interactive:
+    if last_group in QUIZ and interactive and not quit_early:
         quiz(QUIZ[last_group])
 
     print()
@@ -540,6 +636,7 @@ def main():
     else:
         print(warn("  메모리 값이 없어 계산 생략"))
 
+    save_history()
     report(r, logs, ai, out_path)
     print()
     print(h1("리포트 저장 : ") + out_path)
