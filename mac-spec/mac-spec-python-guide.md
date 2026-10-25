@@ -2,14 +2,14 @@
 
 > **목표** : Python 프로그램 하나로 사양 확인 명령을 단계별로 직접 쳐보고, 결과 리포트와 로컬 AI 구성 가능 범위까지 한 번에 얻음
 
-- 출처 : mac_spec_lab.py (devopser 레포 `mac-spec/` 폴더), macOS 기본 명령어, Apple 칩 공개 사양(메모리 대역폭)
+- 출처 : `mac_spec_lab.py` (devopser 레포 `mac-spec/` 폴더), macOS 기본 명령어, Apple 칩 공개 사양(메모리 대역폭)
 - 기준 버전 : macOS 27 Golden Gate, Python 3.9 이상 (2026-10 기준)
 
 ---
 
 ## 1. 개요
 
-- mac_spec_lab.py = 사양 확인 명령을 하나씩 물어보고, 직접 치게 하고, 실행 결과를 해석해주는 실습 프로그램
+- `mac_spec_lab.py` = 사양 확인 명령을 하나씩 물어보고, 직접 치게 하고, 실행 결과를 해석해주는 실습 프로그램
 - 끝나면 사양 요약, 로컬 AI 판정표, 실습 로그가 담긴 MD 리포트가 생김
 - 표준 라이브러리만 씀 → 맥 기본 `python3` 로 바로 실행
 
@@ -46,8 +46,8 @@
 | 2. 칩 | 칩 이름 | `sysctl -n machdep.cpu.brand_string` |
 | 3. CPU 코어 | 전체, P 코어, E 코어 | `sysctl -n hw.ncpu`, `hw.perflevel0/1.physicalcpu` |
 | 4. 메모리 | 총량, 여유율 | `sysctl -n hw.memsize`, `memory_pressure` |
-| 5. 모델 정보 | JSON 구조 보기, 모델명, 식별자 | `system_profiler SPHardwareDataType -json` + `plutil` |
-| 6. GPU | 이름, 코어 수 | `system_profiler SPDisplaysDataType -json` + `plutil` |
+| 5. 모델 정보 | JSON 구조 보기, 모델명, 식별자 | `system_profiler SPHardwareDataType -json` 와 `plutil` |
+| 6. GPU | 이름, 코어 수 | `system_profiler SPDisplaysDataType -json` 와 `plutil` |
 | 7. 스토리지 | 루트 볼륨, APFS 컨테이너 | `df -H /`, `diskutil info /` |
 | 8. 배터리 | 사이클, 원시 용량 | `ioreg -r -c AppleSmartBattery` |
 
@@ -161,7 +161,7 @@ open ~/mac-spec-report-$(date +%Y%m%d).md
 
 ### 5-3. 실행 화면
 
-```
+```text
 [2/17] 아키텍처  - 칩 계열 확인
   명령 : uname -m
   직접 쳐봐 (Enter=자동 입력, s=건너뛰기, q=종료) > uname -a
