@@ -215,26 +215,47 @@ EXTRA_WORDS = ["sysctl -a", "sysctl hw", "system_profiler -listDataTypes", "df -
 _complete = {"current": "", "pool": []}
 
 
+def _next_piece(line, cmd):
+    """line 다음에 cmd 에서 이어질 '한 단어' (필요하면 뒤 공백 포함). 안 맞으면 None"""
+    if not cmd.startswith(line) or cmd == line:
+        return None
+    rest = cmd[len(line):]
+    if rest.startswith(" "):                     # 단어 끝까지 친 상태 → 공백 + 다음 단어
+        piece = " " + rest[1:].split(" ")[0]
+        tail = rest[len(piece):]
+    else:                                        # 단어 중간 → 그 단어 끝까지
+        piece = rest.split(" ")[0]
+        tail = rest[len(piece):]
+    if tail.startswith(" "):                     # 뒤에 더 있으면 공백까지 붙여서 바로 다음 Tab 가능
+        piece += " "
+    return piece
+
+
 def _completer(text, state):
-    """줄 전체를 보고, 알려진 명령 중 앞부분이 같은 것의 '다음 한 단어'까지만 채움"""
+    """Tab 자동완성.
+    readline 은 커서 앞 '조각(text)' 만 돌려준 값으로 바꿔치기함.
+    GNU 는 delims="" 이면 조각 = 줄 전체, macOS libedit 은 delims 를 무시하고 조각 = 마지막 단어.
+    그래서 줄 전체가 아니라 'text + 덧붙일 글자' 를 돌려줘야 양쪽 다 맞음.
+    """
     if state == 0:
-        line = readline.get_line_buffer()
+        line = readline.get_line_buffer()[:readline.get_endidx()]
+        trailing = line.endswith(" ")
+        key = " ".join(line.split()) + (" " if trailing and line.strip() else "")   # 공백 여러 개 → 하나
         pool = [_complete["current"]] + _complete["pool"]
         seen, cands = set(), []
         for cmd in pool:
-            if not cmd or not cmd.startswith(line):
+            piece = _next_piece(key, cmd) if cmd else None
+            if piece is None:
                 continue
-            rest = cmd[len(line):]
-            if rest.startswith(" "):                 # 단어 끝까지 친 상태 → 공백 포함 다음 단어
-                nxt = " " + rest[1:].split(" ")[0]
-            else:
-                nxt = rest.split(" ")[0]
-                if len(cmd) > len(line) + len(nxt):  # 뒤에 더 있으면 공백까지 붙여줌
-                    nxt += " "
-            cand = line + nxt
+            if trailing and piece.startswith(" "):   # 이미 친 공백과 겹치지 않게
+                piece = piece[1:]
+            cand = text + piece
             if cand not in seen:
                 seen.add(cand)
                 cands.append(cand)
+        # 현재 단계 명령이 맞으면 그것 하나만 → 후보가 여러 개라 멈추는 일 없이 바로 채워짐
+        if _complete["current"] and _next_piece(key, _complete["current"]) is not None:
+            cands = cands[:1]
         _complete["cands"] = cands
     cands = _complete.get("cands", [])
     return cands[state] if state < len(cands) else None
