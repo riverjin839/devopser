@@ -2,7 +2,7 @@
 
 > **목표** : Superset 구조·권한 모델·K8s 배포 방식을 이해하고, 폐쇄망 Lake(StarRocks·Trino) 앞단 BI 로 올릴 때 확인할 점을 정리함
 
-- 출처 : apache/superset 레포 (docs/admin_docs, UPDATING.md), apache/superset-kubernetes-operator 레포, Preset 6.1 릴리즈 글
+- 출처 : apache/superset 레포 (`docs/admin_docs`, `UPDATING.md`), apache/superset-kubernetes-operator 레포, Preset 6.1 릴리즈 글
 - 기준 버전 : Superset 6.1.0 GA (2026-06 발표), 7.0.0rc2 투표 중 (2026-10 기준) / Operator v0.3.1 (2026-10-21)
 
 ---
