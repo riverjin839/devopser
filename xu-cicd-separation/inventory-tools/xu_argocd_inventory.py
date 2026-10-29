@@ -12,7 +12,13 @@ argocd CLI 로그인 없이 kubectl 로 ArgoCD CRD(Application, AppProject, Appl
   2) ArgoCD 에 등록된 클러스터인지 확인 → 접속 서버 URL 과 IP 를 보여주고 맞는지 확인
   3) 그 클러스터를 목적지로 하는 Application 을 모아 서비스 목록과 CSV 생성
 
-클러스터 시크릿에서는 name, server 두 값만 디코딩함. 자격증명(config)은 읽지 않음.
+클러스터 시크릿에서는 name, server 두 값만 디코딩하고 나머지(자격증명 config 포함)는 받는 즉시 버림.
+파일·화면 어디에도 남기지 않음.
+
+운영 영향 방지 장치 (xu_k8s_inventory.py 와 동일)
+  - 허용된 읽기 명령(get, get --raw, config current-context, version)만 실행, 그 외는 실행 전에 차단
+  - API 페이지 단위(기본 500개) 조회 + 페이지 사이 대기, 받은 즉시 필요한 필드만 남김
+  - 낮은 CPU 우선순위(nice), 남은 메모리 확인, --dry-run 지원
 
 비대화형 실행: --cluster <이름> --yes
 """
@@ -27,12 +33,13 @@ import re
 import socket
 import subprocess
 import sys
+import time
 import unicodedata
 from collections import OrderedDict, defaultdict
+from urllib.parse import urlencode, urlparse
 
-from urllib.parse import urlparse
-
-VERSION = "1.0.0"
+VERSION = "1.1.0"
+ARGO_API = "/apis/argoproj.io/v1alpha1"
 IN_CLUSTER_SERVER = "https://kubernetes.default.svc"
 
 # 서비스 구성(설정)용 kind — 이 외의 kind 는 워크로드로 봄 (CR 포함)
@@ -56,42 +63,163 @@ def log(msg):
     sys.stderr.flush()
 
 
+def is_read_only(args):
+    """허용된 읽기 명령만 True. kubectl get --raw 는 항상 HTTP GET."""
+    if not args:
+        return False
+    if args[0] == "get":
+        return not any(a in ("-w", "--watch", "--watch-only") or a.startswith("--watch") for a in args)
+    if args[:2] == ["config", "current-context"]:
+        return True
+    return args[0] == "version"
+
+
 class Kube(object):
-    def __init__(self, kubectl, kubeconfig=None, context=None, timeout=300):
+    def __init__(self, kubectl, kubeconfig=None, context=None, timeout=120, page_size=500, throttle=0.3, dry_run=False):
         self.base = [kubectl]
         if kubeconfig:
             self.base += ["--kubeconfig", kubeconfig]
         if context:
             self.base += ["--context", context]
         self.timeout = timeout
+        self.page_size = page_size
+        self.throttle = throttle
+        self.dry_run = dry_run
         self.warnings = []
+        self.calls = 0
 
     def run(self, args):
+        if not is_read_only(args):
+            raise SystemExit("[차단] 읽기 전용이 아닌 kubectl 명령은 실행하지 않음: kubectl " + " ".join(args))
+        self.calls += 1
+        if self.dry_run:
+            print("DRY-RUN  " + " ".join(self.base + args))
+            return 0, "", ""
         try:
-            p = subprocess.Popen(self.base + args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-            out, err = p.communicate(timeout=self.timeout)
-        except subprocess.TimeoutExpired:
-            p.kill()
-            p.communicate()
-            return 124, "", "timeout"
+            # 별도 프로세스 그룹: 타임아웃 시 kubectl 과 인증 플러그인 자식까지 같이 정리
+            p = subprocess.Popen(self.base + args, stdin=subprocess.DEVNULL, stdout=subprocess.PIPE,
+                                 stderr=subprocess.PIPE, start_new_session=True)
         except OSError as e:
             return 127, "", str(e)
+        try:
+            out, err = p.communicate(timeout=self.timeout)
+        except KeyboardInterrupt:
+            try:
+                os.killpg(p.pid, 9)  # Ctrl-C 시 실행 중인 kubectl 도 같이 정리
+            except OSError:
+                pass
+            raise
+        except subprocess.TimeoutExpired:
+            try:
+                os.killpg(p.pid, 9)
+            except OSError:
+                p.kill()
+            try:
+                p.communicate(timeout=5)
+            except subprocess.TimeoutExpired:
+                pass
+            return 124, "", "timeout after {}s".format(self.timeout)
         return p.returncode, out.decode("utf-8", "replace"), err.decode("utf-8", "replace")
 
-    def items(self, resource, namespace=None, selector=None, optional=False):
-        args = ["get", resource, "-o", "json"]
-        args += ["-n", namespace] if namespace else ["-A"]
-        if selector:
-            args += ["-l", selector]
-        rc, out, err = self.run(args)
-        if rc != 0:
-            msg = "{} 조회 실패: {}".format(resource, (err.strip().splitlines() or [str(rc)])[-1])
-            if optional:
-                self.warnings.append(msg)
-                log("  (건너뜀) " + msg)
+    def list_raw(self, path, selector=None, optional=False, transform=None, page_size=None):
+        """API 를 page_size 단위로 페이지 조회. 페이지마다 transform 으로 필요한 필드만 남김."""
+        items, cont, restarted = [], "", False
+        limit = min(page_size or self.page_size, self.page_size)
+        while True:
+            q = [("limit", str(limit))]
+            if selector:
+                q.append(("labelSelector", selector))
+            if cont:
+                q.append(("continue", cont))
+            rc, out, err = self.run(["get", "--raw", path + "?" + urlencode(q)])
+            if self.dry_run:
                 return []
-            raise SystemExit("[오류] " + msg)
-        return json.loads(out).get("items", []) or []
+            if rc != 0:
+                if cont and not restarted and ("expired" in err.lower() or "410" in err):
+                    log("  continue 토큰 만료 → 처음부터 다시 조회")
+                    items, cont, restarted = [], "", True
+                    time.sleep(self.throttle)
+                    continue
+                msg = "{} 조회 실패: {}".format(path, (err.strip().splitlines() or [str(rc)])[-1])
+                if optional:
+                    self.warnings.append(msg)
+                    log("  (건너뜀) " + msg)
+                    return []
+                raise SystemExit("[오류] " + msg)
+            try:
+                d = json.loads(out)
+            except ValueError:
+                if optional:
+                    self.warnings.append("{} 응답이 JSON 이 아님".format(path))
+                    return []
+                raise SystemExit("[오류] {} 응답이 JSON 이 아님".format(path))
+            kind = d.get("kind", "")
+            kind = kind[:-4] if kind.endswith("List") else kind
+            for it in d.get("items") or []:
+                it.setdefault("kind", kind)
+                it = transform(it) if transform else it
+                if it is not None:
+                    items.append(it)
+            cont = (d.get("metadata") or {}).get("continue") or ""
+            d = out = None  # 원본 페이지는 바로 버림
+            if not cont:
+                return items
+            time.sleep(self.throttle)
+
+
+def mem_available_mb():
+    try:
+        with open("/proc/meminfo") as f:
+            for line in f:
+                if line.startswith("MemAvailable:"):
+                    return int(line.split()[1]) // 1024
+    except (IOError, OSError, ValueError):
+        return None
+    return None
+
+
+def slim_meta(o):
+    m = o.get("metadata") or {}
+    return {k: m[k] for k in ("name", "namespace", "labels", "annotations", "creationTimestamp") if m.get(k) is not None}
+
+
+def slim_app(o):
+    spec, st = o.get("spec") or {}, o.get("status") or {}
+    op = st.get("operationState") or {}
+    hist = st.get("history") or []
+    return {"kind": "Application", "metadata": slim_meta(o),
+            "spec": {"project": spec.get("project"), "source": spec.get("source"), "sources": spec.get("sources"),
+                     "destination": spec.get("destination"),
+                     "syncPolicy": {"automated": (spec.get("syncPolicy") or {}).get("automated")}},
+            "status": {"sync": {k: (st.get("sync") or {}).get(k) for k in ("status", "revision", "revisions")},
+                       "health": {"status": (st.get("health") or {}).get("status")},
+                       "resources": [{"group": r.get("group", ""), "kind": r.get("kind", ""), "namespace": r.get("namespace", ""),
+                                      "name": r.get("name", ""), "status": r.get("status", ""),
+                                      "health": {"status": (r.get("health") or {}).get("status")}}
+                                     for r in st.get("resources") or []],
+                       "summary": {"images": (st.get("summary") or {}).get("images") or [],
+                                   "externalURLs": (st.get("summary") or {}).get("externalURLs") or []},
+                       "operationState": {"phase": op.get("phase"), "finishedAt": op.get("finishedAt"),
+                                          "operation": {"initiatedBy": (op.get("operation") or {}).get("initiatedBy") or {}}},
+                       "history": hist[-1:]}}
+
+
+def slim_project(o):
+    spec = o.get("spec") or {}
+    return {"kind": "AppProject", "metadata": slim_meta(o),
+            "spec": {"description": spec.get("description"),
+                     "roles": [{"groups": r.get("groups") or []} for r in spec.get("roles") or []]}}
+
+
+def slim_appset(o):
+    return {"kind": "ApplicationSet", "metadata": slim_meta(o), "spec": o.get("spec") or {}}
+
+
+def slim_cluster_secret(o):
+    """name/server/project 만 디코딩하고 자격증명(config)이 든 data 는 버림"""
+    d = o.get("data") or {}
+    return {"secret": (o.get("metadata") or {}).get("name", ""), "name": b64(d.get("name", "")),
+            "server": b64(d.get("server", "")), "project": b64(d["project"]) if d.get("project") else ""}
 
 
 # --------------------------------------------------------------------------- helpers
@@ -141,6 +269,8 @@ def write_csv(path, header, rows):
 
 
 def ask(prompt):
+    if not sys.stdin.isatty():
+        raise SystemExit("[중단] 터미널이 아닌 곳에서 실행됨 — 비대화형으로 쓰려면 --cluster <이름> --yes 지정")
     try:
         return input(prompt).strip()
     except EOFError:
@@ -171,6 +301,11 @@ def owner_hints(o):
     return out
 
 
+def strip_userinfo(url):
+    """https://user:token@host/... → https://host/... (CSV 에 자격증명이 남지 않게)"""
+    return re.sub(r"^([a-zA-Z][a-zA-Z0-9+.-]*://)[^/@]*@", r"\1", url or "")
+
+
 def repo_group(url):
     """git URL 에서 조직/그룹 경로 추출 (담당 팀 단서)"""
     if not url:
@@ -189,13 +324,13 @@ def repo_group(url):
 
 def load_clusters(kube, argocd_ns, apps):
     clusters = OrderedDict()
-    secs = kube.items("secrets", namespace=argocd_ns, selector="argocd.argoproj.io/secret-type=cluster", optional=True)
+    secs = kube.list_raw("/api/v1/namespaces/{}/secrets".format(argocd_ns),
+                         selector="argocd.argoproj.io/secret-type=cluster", optional=True, transform=slim_cluster_secret)
     for s in secs:
-        d = s.get("data") or {}
-        name, server = b64(d.get("name", "")), norm_server(b64(d.get("server", "")))
+        server = norm_server(s["server"])
         if server:
-            clusters[server] = {"name": name or md(s).get("name"), "server": server, "source": "secret:" + md(s).get("name", ""),
-                                "project": b64(d.get("project", "")) if d.get("project") else ""}
+            clusters[server] = {"name": s["name"] or s["secret"], "server": server, "source": "secret:" + s["secret"],
+                                "project": s["project"]}
     if IN_CLUSTER_SERVER not in clusters:
         clusters[IN_CLUSTER_SERVER] = {"name": "in-cluster", "server": IN_CLUSTER_SERVER, "source": "기본(in-cluster)", "project": ""}
     # 시크릿 조회 권한이 없을 때를 대비해 Application 목적지에서도 보충
@@ -313,7 +448,7 @@ def analyze(cluster, apps, projects, appsets):
                 missing.append(row)
 
         summ = st.get("summary") or {}
-        repos = [s.get("repoURL", "") for s in srcs]
+        repos = [strip_userinfo(s.get("repoURL", "")) for s in srcs]
         app_row = {
             "app": name, "app_namespace": md(a).get("namespace"), "project": spec.get("project", ""),
             "dest_name": dest.get("name", "") or cname, "dest_server": dest.get("server", "") or srv,
@@ -422,22 +557,42 @@ def main():
     ap.add_argument("--cluster", help="클러스터 이름 (지정하면 첫 질문 생략)")
     ap.add_argument("-y", "--yes", action="store_true", help="서버 확인 질문 생략 (비대화형)")
     ap.add_argument("-o", "--out", help="출력 디렉터리 (기본: argo-inv-<클러스터>-YYYYmmdd-HHMM)")
-    ap.add_argument("--timeout", type=int, default=300)
+    ap.add_argument("--page-size", type=int, default=500, help="API 페이지 크기 (기본 500)")
+    ap.add_argument("--throttle", type=float, default=0.3, help="페이지·호출 사이 대기 초 (기본 0.3)")
+    ap.add_argument("--min-free-mb", type=int, default=2048, help="노드에 남겨둘 최소 메모리 (기본 2048MB)")
+    ap.add_argument("--timeout", type=int, default=120, help="kubectl 호출 1회 타임아웃(초)")
+    ap.add_argument("--dry-run", action="store_true", help="실행하지 않고 호출할 kubectl 명령만 출력")
     ap.add_argument("--version", action="version", version=VERSION)
     args = ap.parse_args()
+    if args.page_size < 50 or args.page_size > 1000:
+        raise SystemExit("--page-size 는 50~1000 사이로 지정")
+    try:
+        os.nice(10)
+    except (OSError, AttributeError):
+        pass
 
+    os.umask(0o077)  # 결과 파일은 실행한 사용자만 읽기
     started = datetime.datetime.now()
-    kube = Kube(args.kubectl, args.kubeconfig, args.context, args.timeout)
+    kube = Kube(args.kubectl, args.kubeconfig, args.context, args.timeout, args.page_size, args.throttle, args.dry_run)
     rc, ctx, _ = kube.run(["config", "current-context"])
     log("context: {}".format(ctx.strip() or "(알 수 없음)"))
+    mem = mem_available_mb()
+    if mem is not None and mem < args.min_free_mb + 300 and not args.dry_run:
+        raise SystemExit("[중단] 이 노드 남은 메모리 {}MB — 다른 노드에서 실행하거나 --min-free-mb 조정".format(mem))
 
-    log("Application 조회")
-    apps = kube.items("applications.argoproj.io")
+    log("Application 조회 ({}개씩 페이지, 읽기 전용)".format(args.page_size))
+    apps = kube.list_raw(ARGO_API + "/applications", transform=slim_app, page_size=50)  # 앱 객체가 커서 작은 페이지
+    time.sleep(args.throttle)
     log("AppProject / ApplicationSet 조회")
-    projects = kube.items("appprojects.argoproj.io", optional=True)
-    appsets = kube.items("applicationsets.argoproj.io", optional=True)
+    projects = kube.list_raw(ARGO_API + "/appprojects", optional=True, transform=slim_project)
+    time.sleep(args.throttle)
+    appsets = kube.list_raw(ARGO_API + "/applicationsets", optional=True, transform=slim_appset)
+    time.sleep(args.throttle)
     log("ArgoCD 등록 클러스터 조회 ({} 네임스페이스)".format(args.argocd_ns))
     clusters = load_clusters(kube, args.argocd_ns, apps)
+    if args.dry_run:
+        log("dry-run 끝: kubectl 호출 {}건, 클러스터에 아무 요청도 보내지 않음".format(kube.calls))
+        return
     log("등록 클러스터 {}개, Application {}개".format(len(clusters), len(apps)))
 
     cluster, ips = choose_cluster(clusters, args.cluster, args.yes)
