@@ -1,7 +1,7 @@
 ## wu K8s 배포 서비스 전수 조사 및 담당자 매핑 가이드
 
 > 작성일: 2026-10-29 · 작성자: Woong
-> 그림: [`wuxi-k8s-service-inventory-flow.drawio`](./wuxi-k8s-service-inventory-flow.drawio)
+> 그림: [`xu-k8s-service-inventory-flow.drawio`](./xu-k8s-service-inventory-flow.drawio)
 
 ### 1. 원칙
 
@@ -15,7 +15,7 @@
 
 ### 2. 전체 흐름
 
-> 그림: `wuxi-k8s-service-inventory-flow.drawio` — 수집 소스 7개 → 5단계 진행 흐름
+> 그림: `xu-k8s-service-inventory-flow.drawio` — 수집 소스 7개 → 5단계 진행 흐름
 
 1. **수집**: 읽기 전용 8단계, 1주 간격 스냅샷 2회
 2. **병합**: 키 = 네임스페이스/kind/이름, 최상위 리소스 기준
@@ -49,7 +49,7 @@
 - `kubectl`, `jq`, `argocd`, `helm`, `hubble` CLI 준비
 
 ```bash
-export KUBECONFIG=~/.kube/wuxi-readonly
+export KUBECONFIG=~/.kube/xu-readonly
 OUT=inv-$(date +%F); mkdir -p $OUT
 kubectl config current-context   # wu 클러스터가 맞는지 먼저 확인
 ```

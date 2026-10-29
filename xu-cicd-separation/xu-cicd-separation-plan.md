@@ -1,7 +1,7 @@
 ## wu CI/CD 고도화 및 I 지역 분리 협의 계획서
 
 > 작성일: 2026-10-28 · 작성자: Woong
-> 그림: [`wuxi-cicd-separation.drawio`](./wuxi-cicd-separation.drawio) (1페이지 목표 아키텍처, 2페이지 로드맵)
+> 그림: [`xu-cicd-separation.drawio`](./xu-cicd-separation.drawio) (1페이지 목표 아키텍처, 2페이지 로드맵)
 
 ### 1. 개요
 
