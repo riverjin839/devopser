@@ -1,21 +1,21 @@
-## wu K8s 서비스 인벤토리 수집기
+## xu K8s 서비스 인벤토리 수집기
 
-wu 클러스터 서비스 전수 조사용 파이썬 도구 2개. 둘 다 표준 라이브러리만 쓰고(Python 3.6+), kubectl 로 **읽기만** 함. 폐쇄망에서 파일 복사만으로 실행됨.
+xu 클러스터 서비스 전수 조사용 파이썬 도구 2개. 둘 다 표준 라이브러리만 쓰고(Python 3.6+), kubectl 로 **읽기만** 함. 폐쇄망에서 파일 복사만으로 실행됨.
 
 | 파일 | 실행 위치 | 보는 것 |
 | --- | --- | --- |
-| `wu_k8s_inventory.py` | wu 클러스터 master #1 | 클러스터에 실제로 떠 있는 전부 (기준 목록) |
-| `wu_argocd_inventory.py` | ArgoCD 가 설치된 클러스터 노드 | ArgoCD 가 wu 로 배포하는 앱 (GitOps 기준 목록) |
+| `xu_k8s_inventory.py` | xu 클러스터 master #1 | 클러스터에 실제로 떠 있는 전부 (기준 목록) |
+| `xu_argocd_inventory.py` | ArgoCD 가 설치된 클러스터 노드 | ArgoCD 가 xu 로 배포하는 앱 (GitOps 기준 목록) |
 
 두 결과를 비교하면 "ArgoCD 밖에서 배포된 것"과 "ArgoCD 에만 있고 실물이 없는 것"이 나옴.
 
-### 1. wu_k8s_inventory.py (master #1)
+### 1. xu_k8s_inventory.py (master #1)
 
 ```bash
-python3 wu_k8s_inventory.py                                   # 기본 실행
-python3 wu_k8s_inventory.py --ref-pattern 'i-region\.corp|10\.10\.'   # ConfigMap 의 I 지역 참조도 검색
-python3 wu_k8s_inventory.py --skip-resource-scan              # 리소스 타입 스캔 생략 (빠름)
-python3 wu_k8s_inventory.py --exclude-ns '^(kube-|cattle-)'   # 네임스페이스 제외
+python3 xu_k8s_inventory.py                                   # 기본 실행
+python3 xu_k8s_inventory.py --ref-pattern 'i-region\.corp|10\.10\.'   # ConfigMap 의 I 지역 참조도 검색
+python3 xu_k8s_inventory.py --skip-resource-scan              # 리소스 타입 스캔 생략 (빠름)
+python3 xu_k8s_inventory.py --exclude-ns '^(kube-|cattle-)'   # 네임스페이스 제외
 ```
 
 하는 일
@@ -41,12 +41,12 @@ python3 wu_k8s_inventory.py --exclude-ns '^(kube-|cattle-)'   # 네임스페이�
 | resource_counts.csv | 리소스 타입(CRD 포함)별·NS별 개수 |
 | summary.md, services.txt | 요약, 콘솔에 찍힌 서비스 목록 |
 
-### 2. wu_argocd_inventory.py (ArgoCD 노드)
+### 2. xu_argocd_inventory.py (ArgoCD 노드)
 
 ```bash
-python3 wu_argocd_inventory.py                       # 대화형
-python3 wu_argocd_inventory.py --argocd-ns argocd    # ArgoCD 네임스페이스가 다를 때
-python3 wu_argocd_inventory.py --cluster wu-k8s -y   # 비대화형 (cron 등)
+python3 xu_argocd_inventory.py                       # 대화형
+python3 xu_argocd_inventory.py --argocd-ns argocd    # ArgoCD 네임스페이스가 다를 때
+python3 xu_argocd_inventory.py --cluster xu-k8s -y   # 비대화형 (cron 등)
 ```
 
 대화 흐름

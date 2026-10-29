@@ -1,4 +1,4 @@
-## wu K8s 배포 서비스 전수 조사 및 담당자 매핑 가이드
+## xu K8s 배포 서비스 전수 조사 및 담당자 매핑 가이드
 
 > 작성일: 2026-10-29 · 작성자: Woong
 > 그림: [`xu-k8s-service-inventory-flow.drawio`](./xu-k8s-service-inventory-flow.drawio)
@@ -41,17 +41,17 @@
 
 ### 4. 단계별 수집 방법
 
-수집은 8단계이고 전부 읽기 전용 명령임. 결과는 날짜별 디렉터리에 TSV로 남겨서 5장 교차 검증에서 바로 비교함. `<wu ...>`는 현지 값으로 바꿔야 함.
+수집은 8단계이고 전부 읽기 전용 명령임. 결과는 날짜별 디렉터리에 TSV로 남겨서 5장 교차 검증에서 바로 비교함. `<xu ...>`는 현지 값으로 바꿔야 함.
 
 #### 4-0. 준비
 
-- wu 클러스터용 읽기 전용 kubeconfig (클러스터 전체 get·list 권한), ArgoCD 읽기 계정, Jenkins 읽기 권한 확보
+- xu 클러스터용 읽기 전용 kubeconfig (클러스터 전체 get·list 권한), ArgoCD 읽기 계정, Jenkins 읽기 권한 확보
 - `kubectl`, `jq`, `argocd`, `helm`, `hubble` CLI 준비
 
 ```bash
 export KUBECONFIG=~/.kube/xu-readonly
 OUT=inv-$(date +%F); mkdir -p $OUT
-kubectl config current-context   # wu 클러스터가 맞는지 먼저 확인
+kubectl config current-context   # xu 클러스터가 맞는지 먼저 확인
 ```
 
 #### 4-1. 네임스페이스와 전 리소스 덤프
@@ -110,14 +110,14 @@ managedFields의 manager 값으로 배포 경로를 추정할 수 있음.
 
 #### 4-3. ArgoCD
 
-wu 클러스터를 관리하는 ArgoCD가 I 지역 공용 인스턴스일 수 있어서, 어느 ArgoCD가 wu를 대상으로 등록했는지부터 확인함.
+xu 클러스터를 관리하는 ArgoCD가 I 지역 공용 인스턴스일 수 있어서, 어느 ArgoCD가 xu를 대상으로 등록했는지부터 확인함.
 
 ```bash
-argocd cluster list      # wu API 서버가 등록된 ArgoCD 찾기 (I 지역·wu 양쪽 다 확인)
+argocd cluster list      # xu API 서버가 등록된 ArgoCD 찾기 (I 지역·xu 양쪽 다 확인)
 
-# wu를 목적지로 하는 Application
+# xu를 목적지로 하는 Application
 kubectl -n argocd get applications.argoproj.io -o json | jq -r '
-  .items[] | select(.spec.destination.server == "<wu API 서버>" or .spec.destination.name == "<wu 클러스터 이름>") |
+  .items[] | select(.spec.destination.server == "<xu API 서버>" or .spec.destination.name == "<xu 클러스터 이름>") |
   [ .metadata.name, .spec.project, .spec.destination.namespace,
     (.spec.source.repoURL // .spec.sources[0].repoURL),
     (.spec.source.path // .spec.source.chart // "-"),
@@ -182,7 +182,7 @@ cut -f4 $OUT/images.tsv | cut -d/ -f1 | sort | uniq -c | sort -rn
 # 이미지 이름이 들어간 Job 찾기 (Pipeline script, Jenkinsfile 경로 포함)
 grep -rl "<이미지 이름>" $JENKINS_HOME/jobs/*/config.xml
 
-# wu 클러스터에 kubectl·helm으로 직접 배포하는 Job (ArgoCD 밖 배포 경로)
+# xu 클러스터에 kubectl·helm으로 직접 배포하는 Job (ArgoCD 밖 배포 경로)
 grep -rlE "kubectl (apply|set image|rollout)|helm (upgrade|install)" $JENKINS_HOME/jobs/*/config.xml
 ```
 
@@ -297,7 +297,7 @@ git -C <레포> log --since=1.year --format='%an <%ae>' -- <앱 경로> | sort |
 | 서비스명 | 사람이 부르는 이름 | 담당자 확인 |
 | 종류 | API, 배치(CronJob), 데이터(DB·Operator), 인프라 애드온 | 4-2 |
 | 배포 경로 | ArgoCD, Helm, Jenkins kubectl, 수동, Operator | 4-2 managedFields, 4-3, 4-4, 4-6 |
-| ArgoCD 앱 · 프로젝트 | 앱 이름, AppProject, 관리하는 ArgoCD(I 지역/wu) | 4-3 |
+| ArgoCD 앱 · 프로젝트 | 앱 이름, AppProject, 관리하는 ArgoCD(I 지역/xu) | 4-3 |
 | Git 레포 · 경로 | repoURL, path 또는 chart | 4-3 |
 | 이미지 · 레지스트리 | 이미지, 어느 Nexus에서 받는지 | 4-6 |
 | Jenkins Job | 빌드·배포 Job 경로 | 4-6 |
@@ -306,7 +306,7 @@ git -C <레포> log --since=1.year --format='%an <%ae>' -- <앱 경로> | sort |
 | I 지역 의존성 | 호출하는 I 지역 대상, ExternalName, ConfigMap 참조 | 4-5, 4-7, 4-8 |
 | 담당자(정) · (부) · 팀 | 이름, 팀 | 6장 |
 | 근거 · 신뢰도 | 어떤 근거로 정했는지, 확정/추정/미확인 | 6장 |
-| 분리 처리 | wu 이관, 공용 유지, 폐기 후보, 미정 | 담당자 협의 |
+| 분리 처리 | xu 이관, 공용 유지, 폐기 후보, 미정 | 담당자 협의 |
 | 비고 | 특이사항 | - |
 
 "폐기 후보"는 사용 여부가 없음이고 담당자도 동의한 경우만 붙임.
@@ -315,8 +315,8 @@ git -C <레포> log --since=1.year --format='%an <%ae>' -- <앱 경로> | sort |
 
 출장 전에 1차 수집을 끝내고, 11/2 실사에서 빈칸을 채우는 순서가 가장 효율적임.
 
-- [ ] wu 클러스터·ArgoCD·Jenkins 읽기 전용 접근 권한 확보
-- [ ] wu를 관리하는 ArgoCD 인스턴스 확인 (I 지역 공용 여부)
+- [ ] xu 클러스터·ArgoCD·Jenkins 읽기 전용 접근 권한 확보
+- [ ] xu를 관리하는 ArgoCD 인스턴스 확인 (I 지역 공용 여부)
 - [ ] 4-1 ~ 4-8 1차 수집
 - [ ] 처음 보는 CRD·Operator 목록 따로 정리
 - [ ] Hubble 흐름 수집을 하루 여러 번 (최소 업무시간·야간 배치 시간)

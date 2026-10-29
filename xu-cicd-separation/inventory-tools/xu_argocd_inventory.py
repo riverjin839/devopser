@@ -405,7 +405,7 @@ def write_outputs(outdir, cluster, ips, app_rows, res_rows, svc_rows, missing, e
     if warnings:
         lines += ["", "### 수집 경고", ""] + ["- " + w for w in warnings]
     lines += ["", "### 다음 단계", "",
-              "- 대상 클러스터 master 에서 wu_k8s_inventory.py 결과와 app_resources.csv 를 비교 (네임스페이스/kind/이름 키)",
+              "- 대상 클러스터 master 에서 xu_k8s_inventory.py 결과와 app_resources.csv 를 비교 (네임스페이스/kind/이름 키)",
               "- 클러스터 쪽에만 있는 워크로드 = ArgoCD 밖 배포 → Helm·Jenkins 로 추적"]
     with open(os.path.join(outdir, "summary.md"), "w", encoding="utf-8") as f:
         f.write("\n".join(lines) + "\n")

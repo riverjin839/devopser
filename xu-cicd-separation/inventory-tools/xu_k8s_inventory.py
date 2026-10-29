@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-wu K8s 서비스 인벤토리 수집기
+xu K8s 서비스 인벤토리 수집기
 
 kubectl 이 설치된 master 노드에서 실행. 표준 라이브러리만 사용 (Python 3.6+).
 클러스터에는 읽기(get/list)만 수행함.
@@ -645,7 +645,7 @@ def print_services(res, out):
     w = [24, 34, 36, 30]
     head = "{}{}{}{}{}".format(pad("NAMESPACE", w[0]), pad("SERVICE", w[1]), pad("배포 경로", w[2]),
                                pad("노출(host/LB)", w[3]), "상태")
-    out.write("\n== wu K8s 서비스 목록: 서비스 {}개 / 워크로드 {}개 / 네임스페이스 {}개 ==\n\n".format(
+    out.write("\n== xu K8s 서비스 목록: 서비스 {}개 / 워크로드 {}개 / 네임스페이스 {}개 ==\n\n".format(
         len(rows), len(res["workloads"]), res["ns_count"]))
     out.write(head + "\n" + "-" * (sum(w) + 24) + "\n")
     for r in rows:
@@ -692,7 +692,7 @@ def write_outputs(res, outdir, scan_rows, warnings, started):
         for f in w["flags"].split(","):
             if f:
                 flags[f] += 1
-    lines = ["## wu K8s 서비스 인벤토리 요약", "",
+    lines = ["## xu K8s 서비스 인벤토리 요약", "",
              "- 수집 시각: {}".format(started.strftime("%Y-%m-%d %H:%M:%S")),
              "- 서비스 {}개 / 최상위 워크로드 {}개 / 네임스페이스 {}개 (워크로드 없는 NS {}개)".format(
                  len(res["services"]), len(res["workloads"]), res["ns_count"], len(res["empty_ns"])),
@@ -731,7 +731,7 @@ def write_outputs(res, outdir, scan_rows, warnings, started):
 # --------------------------------------------------------------------------- main
 
 def main():
-    ap = argparse.ArgumentParser(description="wu K8s 서비스 인벤토리 수집기 (읽기 전용)")
+    ap = argparse.ArgumentParser(description="xu K8s 서비스 인벤토리 수집기 (읽기 전용)")
     ap.add_argument("--kubectl", default=os.environ.get("KUBECTL", "kubectl"), help="kubectl 경로 (기본: kubectl)")
     ap.add_argument("--kubeconfig", help="kubeconfig 경로")
     ap.add_argument("--context", help="kubeconfig context")
