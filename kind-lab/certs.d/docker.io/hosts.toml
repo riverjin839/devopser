@@ -1,0 +1,6 @@
+# docker.io 이미지를 사내 Nexus 프록시로 받음
+server = "https://registry-1.docker.io"
+
+[host."https://nexus.internal:8443"]
+  capabilities = ["pull", "resolve"]
+  skip_verify = true          # 사내 CA 를 노드에 넣었으면 false + ca 지정

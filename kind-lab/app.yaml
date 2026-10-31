@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello
+  labels: {app: hello}
+spec:
+  replicas: 3
+  selector:
+    matchLabels: {app: hello}
+  template:
+    metadata:
+      labels: {app: hello}
+    spec:
+      containers:
+      - name: hello
+        image: hello-lab:0.1          # 로컬 빌드 후 kind load 로 넣을 이미지
+        imagePullPolicy: IfNotPresent # 레지스트리 안 감
+        env:
+        - name: NODE_NAME             # 어느 노드에서 응답했는지 표시
+          valueFrom:
+            fieldRef: {fieldPath: spec.nodeName}
+        ports:
+        - containerPort: 8080
+        readinessProbe:
+          httpGet: {path: /, port: 8080}
+        resources:
+          requests: {cpu: 50m, memory: 32Mi}
+          limits: {memory: 64Mi}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello
+spec:
+  type: NodePort
+  selector: {app: hello}
+  ports:
+  - port: 80
+    targetPort: 8080
+    nodePort: 30080

@@ -1,0 +1,18 @@
+# kind v0.33.0 / Kubernetes v1.37.0 (kind 기본 노드 이미지)
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+name: lab
+nodes:
+- role: control-plane
+  image: kindest/node:v1.37.0@sha256:a1ed56cfb0e7b93589bdf97c8cd566405a265939e3620fc4f5de89adff580ae5
+  extraPortMappings:
+  - containerPort: 30080      # NodePort
+    hostPort: 8080            # 내 PC localhost:8080
+- role: worker
+  image: kindest/node:v1.37.0@sha256:a1ed56cfb0e7b93589bdf97c8cd566405a265939e3620fc4f5de89adff580ae5
+- role: worker
+  image: kindest/node:v1.37.0@sha256:a1ed56cfb0e7b93589bdf97c8cd566405a265939e3620fc4f5de89adff580ae5
+containerdConfigPatches:      # 사내 미러(Nexus) 쓰려면 certs.d 방식 활성화
+- |-
+  [plugins."io.containerd.grpc.v1.cri".registry]
+    config_path = "/etc/containerd/certs.d"
