@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="generator" content="archify 3.2.0">
   <meta name="archify-reader-contract" content="declared-wide-v1">
-  <title>실습 흐름 다이어그램</title>
+  <title>실습 순서 다이어그램</title>
   <script>
     // Resolve the theme before first paint so light-preference users don't
     // see a dark flash. The toolbar script below re-applies with UI state.
@@ -5265,7 +5265,7 @@ rect.c-region { fill: transparent !important; stroke: var(--a3) !important; stro
            data-preset-badge-blueprint="블루프린트 / 개정 01"
            data-preset-badge-editorial="에디토리얼 / 현장 노트">
         <div class="pulse-dot"></div>
-        <h1>실습 흐름</h1>
+        <h1>실습 순서</h1>
       </div>
     </div>
 
@@ -5275,7 +5275,7 @@ rect.c-region { fill: transparent !important; stroke: var(--a3) !important; stro
     <div class="diagram-container" data-detail-level="read"
          data-preset-badge-editorial-plate="ARCHIFY / 도판 04">
       <svg viewBox="0 0 910 548" role="img" lang="ko" aria-labelledby="archify-diagram-title archify-diagram-description" data-animation="trace" data-preset="classic" data-quality-profile="showcase" data-node-ui="" data-reader-fit="intrinsic-height" data-reader-min-text="7.5" data-reader-primary-text="14">
-        <title id="archify-diagram-title">실습 흐름</title>
+        <title id="archify-diagram-title">실습 순서</title>
         <desc id="archify-diagram-description">Archify로 생성한 아키텍처 다이어그램입니다.</desc>
         <!-- Definitions -->
         <defs>
@@ -5326,40 +5326,40 @@ rect.c-region { fill: transparent !important; stroke: var(--a3) !important; stro
         <!-- Connection paths (before components for correct z-order) -->
         <g data-graph-role="automatic-crossover" style="--step:0">
           <path data-graph-role="automatic-crossover-underlay" d="M 270 90 L 340 90" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="inst" data-edge-to="cfg" data-edge-key="0" data-edge-id="inst-cfg" data-composition-points="270,90;340,90" data-composition-crossover="halo" data-composition-independent="true" d="M 270 90 L 340 90" class="a-default" data-animate="edge" style="--step:0" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-edge-from="inst" data-edge-to="create" data-edge-key="0" data-edge-id="inst-create" data-composition-points="270,90;340,90" data-composition-crossover="halo" data-composition-independent="true" d="M 270 90 L 340 90" class="a-default" data-animate="edge" style="--step:0" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:1">
           <path data-graph-role="automatic-crossover-underlay" d="M 570 90 L 640 90" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="cfg" data-edge-to="create" data-edge-key="1" data-edge-id="cfg-create" data-composition-points="570,90;640,90" data-composition-crossover="halo" data-composition-independent="true" d="M 570 90 L 640 90" class="a-default" data-animate="edge" style="--step:1" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-edge-from="create" data-edge-to="repo" data-edge-key="1" data-edge-id="create-repo" data-composition-points="570,90;640,90" data-composition-crossover="halo" data-composition-independent="true" d="M 570 90 L 640 90" class="a-default" data-animate="edge" style="--step:1" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:2">
           <path data-graph-role="automatic-crossover-underlay" d="M 755 140 L 755 210" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="create" data-edge-to="build" data-edge-key="2" data-edge-id="create-build" data-composition-points="755,140;755,210" data-composition-crossover="halo" data-composition-independent="true" d="M 755 140 L 755 210" class="a-default" data-animate="edge" style="--step:2" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-edge-from="repo" data-edge-to="kov" data-edge-key="2" data-edge-id="repo-kov" data-composition-points="755,140;755,210" data-composition-crossover="halo" data-composition-independent="true" d="M 755 140 L 755 210" class="a-default" data-animate="edge" style="--step:2" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:3">
-          <path data-graph-role="automatic-crossover-underlay" d="M 640 260 L 570 260" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="build" data-edge-to="load" data-edge-key="3" data-edge-id="build-load" data-composition-points="640,260;570,260" data-composition-crossover="halo" data-composition-independent="true" d="M 640 260 L 570 260" class="a-emphasis" data-animate="edge" style="--step:3" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 640 260 L 570 260" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="kov" data-edge-to="open" data-edge-key="3" data-edge-id="kov-open" data-composition-points="640,260;570,260" data-composition-crossover="halo" data-composition-independent="true" d="M 640 260 L 570 260" class="a-default" data-animate="edge" style="--step:3" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:4">
           <path data-graph-role="automatic-crossover-underlay" d="M 340 260 L 270 260" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="load" data-edge-to="apply" data-edge-key="4" data-edge-id="load-apply" data-composition-points="340,260;270,260" data-composition-crossover="halo" data-composition-independent="true" d="M 340 260 L 270 260" class="a-emphasis" data-animate="edge" style="--step:4" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+          <path data-edge-from="open" data-edge-to="ms" data-edge-key="4" data-edge-id="open-ms" data-composition-points="340,260;270,260" data-composition-crossover="halo" data-composition-independent="true" d="M 340 260 L 270 260" class="a-emphasis" data-animate="edge" style="--step:4" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:5">
-          <path data-graph-role="automatic-crossover-underlay" d="M 155 310 L 155 380" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="apply" data-edge-to="curl" data-edge-key="5" data-edge-id="apply-curl" data-composition-points="155,310;155,380" data-composition-crossover="halo" data-composition-independent="true" d="M 155 310 L 155 380" class="a-default" data-animate="edge" style="--step:5" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 155 310 L 155 380" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="ms" data-edge-to="top" data-edge-key="5" data-edge-id="ms-top" data-composition-points="155,310;155,380" data-composition-crossover="halo" data-composition-independent="true" d="M 155 310 L 155 380" class="a-emphasis" data-animate="edge" style="--step:5" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:6">
           <path data-graph-role="automatic-crossover-underlay" d="M 270 430 L 340 430" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="curl" data-edge-to="verify" data-edge-key="6" data-edge-id="curl-verify" data-composition-points="270,430;340,430" data-composition-crossover="halo" data-composition-independent="true" d="M 270 430 L 340 430" class="a-default" data-animate="edge" style="--step:6" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-edge-from="top" data-edge-to="desc" data-edge-key="6" data-edge-id="top-desc" data-composition-points="270,430;340,430" data-composition-crossover="halo" data-composition-independent="true" d="M 270 430 L 340 430" class="a-default" data-animate="edge" style="--step:6" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:7">
           <path data-graph-role="automatic-crossover-underlay" d="M 570 430 L 640 430" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="verify" data-edge-to="del" data-edge-key="7" data-edge-id="verify-del" data-composition-points="570,430;640,430" data-composition-crossover="halo" data-composition-independent="true" d="M 570 430 L 640 430" class="a-default" data-animate="edge" style="--step:7" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-edge-from="desc" data-edge-to="del" data-edge-key="7" data-edge-id="desc-del" data-composition-points="570,430;640,430" data-composition-crossover="halo" data-composition-independent="true" d="M 570 430 L 640 430" class="a-default" data-animate="edge" style="--step:7" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
 
         <!-- Components -->
-        <g id="node-inst" data-node-id="inst" data-node-label="도구 설치" tabindex="0" role="button" aria-label="도구 설치 포커스, docker · kind, 아키텍처 구성요소" aria-pressed="false" data-node-kind="external" data-node-sublabel="docker · kind" data-node-tag="1" data-node-context="아키텍처 구성요소">
-          <title>도구 설치 · docker · kind · 아키텍처 구성요소 · 1</title>
+        <g id="node-inst" data-node-id="inst" data-node-label="도구 설치" tabindex="0" role="button" aria-label="도구 설치 포커스, kind · kubectl · helm, 아키텍처 구성요소" aria-pressed="false" data-node-kind="external" data-node-sublabel="kind · kubectl · helm" data-node-tag="1" data-node-context="아키텍처 구성요소">
+          <title>도구 설치 · kind · kubectl · helm · 아키텍처 구성요소 · 1</title>
           <rect x="40" y="40" width="230" height="100" rx="8" class="c-mask"/>
           <rect x="40" y="40" width="230" height="100" rx="8" class="c-external" data-animate="node" style="--step:0" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(46 46) scale(0.6875)">
@@ -5367,99 +5367,102 @@ rect.c-region { fill: transparent !important; stroke: var(--a3) !important; stro
             <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
           </g>
           <text data-node-label="" data-detail-anchor="" x="155" y="88" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">도구 설치</text>
-        <text data-detail="context" x="155" y="104" class="t-muted" font-size="9" text-anchor="middle">docker · kind</text>
+        <text data-detail="context" x="155" y="104" class="t-muted" font-size="9" text-anchor="middle">kind · kubectl · helm</text>
         <text data-detail="fine" x="155" y="132" class="t-external" font-size="7" text-anchor="middle">1</text>
         </g>
 
-        <g id="node-cfg" data-node-id="cfg" data-node-label="설정 작성" tabindex="0" role="button" aria-label="설정 작성 포커스, kind-lab.yaml, 아키텍처 구성요소" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="kind-lab.yaml" data-node-tag="2" data-node-context="아키텍처 구성요소">
-          <title>설정 작성 · kind-lab.yaml · 아키텍처 구성요소 · 2</title>
+        <g id="node-create" data-node-id="create" data-node-label="kind 배포" tabindex="0" role="button" aria-label="kind 배포 포커스, myk8s · v1.37.0, 아키텍처 구성요소" aria-pressed="false" data-node-kind="cloud" data-node-sublabel="myk8s · v1.37.0" data-node-tag="2" data-node-context="아키텍처 구성요소">
+          <title>kind 배포 · myk8s · v1.37.0 · 아키텍처 구성요소 · 2</title>
           <rect x="340" y="40" width="230" height="100" rx="8" class="c-mask"/>
-          <rect x="340" y="40" width="230" height="100" rx="8" class="c-frontend" data-animate="node" style="--step:1" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(346 46) scale(0.6875)">
+          <rect x="340" y="40" width="230" height="100" rx="8" class="c-cloud" data-animate="node" style="--step:1" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="cloud" class="semantic-sigil s-cloud" transform="translate(346 46) scale(0.6875)">
+            <path d="M4.3 12.5h7.3a2.4 2.4 0 0 0 .2-4.8 4 4 0 0 0-7.5-1.3A3.1 3.1 0 0 0 4.3 12.5Z"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="455" y="88" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">kind 배포</text>
+        <text data-detail="context" x="455" y="104" class="t-muted" font-size="9" text-anchor="middle">myk8s · v1.37.0</text>
+        <text data-detail="fine" x="455" y="132" class="t-cloud" font-size="7" text-anchor="middle">2</text>
+        </g>
+
+        <g id="node-repo" data-node-id="repo" data-node-label="helm repo" tabindex="0" role="button" aria-label="helm repo 포커스, 차트 저장소 2개, 아키텍처 구성요소" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="차트 저장소 2개" data-node-tag="3" data-node-context="아키텍처 구성요소">
+          <title>helm repo · 차트 저장소 2개 · 아키텍처 구성요소 · 3</title>
+          <rect x="640" y="40" width="230" height="100" rx="8" class="c-mask"/>
+          <rect x="640" y="40" width="230" height="100" rx="8" class="c-frontend" data-animate="node" style="--step:2" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(646 46) scale(0.6875)">
             <rect x="2" y="3" width="12" height="10" rx="2"/>
             <path d="M2 6.5h12"/>
             <circle cx="4.1" cy="4.8" r=".7" class="sigil-fill"/>
             <circle cx="6.3" cy="4.8" r=".7" class="sigil-fill"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="455" y="88" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">설정 작성</text>
-        <text data-detail="context" x="455" y="104" class="t-muted" font-size="9" text-anchor="middle">kind-lab.yaml</text>
-        <text data-detail="fine" x="455" y="132" class="t-frontend" font-size="7" text-anchor="middle">2</text>
+          <text data-node-label="" data-detail-anchor="" x="755" y="88" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">helm repo</text>
+        <text data-detail="context" x="755" y="104" class="t-muted" font-size="9" text-anchor="middle">차트 저장소 2개</text>
+        <text data-detail="fine" x="755" y="132" class="t-frontend" font-size="7" text-anchor="middle">3</text>
         </g>
 
-        <g id="node-create" data-node-id="create" data-node-label="클러스터 생성" tabindex="0" role="button" aria-label="클러스터 생성 포커스, 노드 3 · v1.37.0, 아키텍처 구성요소" aria-pressed="false" data-node-kind="cloud" data-node-sublabel="노드 3 · v1.37.0" data-node-tag="3" data-node-context="아키텍처 구성요소">
-          <title>클러스터 생성 · 노드 3 · v1.37.0 · 아키텍처 구성요소 · 3</title>
-          <rect x="640" y="40" width="230" height="100" rx="8" class="c-mask"/>
-          <rect x="640" y="40" width="230" height="100" rx="8" class="c-cloud" data-animate="node" style="--step:2" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="cloud" class="semantic-sigil s-cloud" transform="translate(646 46) scale(0.6875)">
-            <path d="M4.3 12.5h7.3a2.4 2.4 0 0 0 .2-4.8 4 4 0 0 0-7.5-1.3A3.1 3.1 0 0 0 4.3 12.5Z"/>
+        <g id="node-open" data-node-id="open" data-node-label="접속 확인" tabindex="0" role="button" aria-label="접속 확인 포커스, localhost:30003, 아키텍처 구성요소" aria-pressed="false" data-node-kind="external" data-node-sublabel="localhost:30003" data-node-tag="5" data-node-context="아키텍처 구성요소">
+          <title>접속 확인 · localhost:30003 · 아키텍처 구성요소 · 5</title>
+          <rect x="340" y="210" width="230" height="100" rx="8" class="c-mask"/>
+          <rect x="340" y="210" width="230" height="100" rx="8" class="c-external" data-animate="node" style="--step:4" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(346 216) scale(0.6875)">
+            <rect x="2.5" y="5" width="8.5" height="8" rx="1.5"/>
+            <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="755" y="88" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">클러스터 생성</text>
-        <text data-detail="context" x="755" y="104" class="t-muted" font-size="9" text-anchor="middle">노드 3 · v1.37.0</text>
-        <text data-detail="fine" x="755" y="132" class="t-cloud" font-size="7" text-anchor="middle">3</text>
+          <text data-node-label="" data-detail-anchor="" x="455" y="258" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">접속 확인</text>
+        <text data-detail="context" x="455" y="274" class="t-muted" font-size="9" text-anchor="middle">localhost:30003</text>
+        <text data-detail="fine" x="455" y="302" class="t-external" font-size="7" text-anchor="middle">5</text>
         </g>
 
-        <g id="node-apply" data-node-id="apply" data-node-label="배포" tabindex="0" role="button" aria-label="배포 포커스, Deploy · NodePort, 아키텍처 구성요소" aria-pressed="false" data-node-kind="backend" data-node-sublabel="Deploy · NodePort" data-node-tag="6" data-node-context="아키텍처 구성요소">
-          <title>배포 · Deploy · NodePort · 아키텍처 구성요소 · 6</title>
+        <g id="node-kov" data-node-id="kov" data-node-label="kube-ops-view" tabindex="0" role="button" aria-label="kube-ops-view 포커스, NodePort 30003, 아키텍처 구성요소" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="NodePort 30003" data-node-tag="4" data-node-context="아키텍처 구성요소">
+          <title>kube-ops-view · NodePort 30003 · 아키텍처 구성요소 · 4</title>
+          <rect x="640" y="210" width="230" height="100" rx="8" class="c-mask"/>
+          <rect x="640" y="210" width="230" height="100" rx="8" class="c-frontend" data-animate="node" style="--step:3" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(646 216) scale(0.6875)">
+            <rect x="2" y="3" width="12" height="10" rx="2"/>
+            <path d="M2 6.5h12"/>
+            <circle cx="4.1" cy="4.8" r=".7" class="sigil-fill"/>
+            <circle cx="6.3" cy="4.8" r=".7" class="sigil-fill"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="755" y="258" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">kube-ops-view</text>
+        <text data-detail="context" x="755" y="274" class="t-muted" font-size="9" text-anchor="middle">NodePort 30003</text>
+        <text data-detail="fine" x="755" y="302" class="t-frontend" font-size="7" text-anchor="middle">4</text>
+        </g>
+
+        <g id="node-ms" data-node-id="ms" data-node-label="metrics-server" tabindex="0" role="button" aria-label="metrics-server 포커스, insecure-tls, 아키텍처 구성요소" aria-pressed="false" data-node-kind="backend" data-node-sublabel="insecure-tls" data-node-tag="6" data-node-context="아키텍처 구성요소">
+          <title>metrics-server · insecure-tls · 아키텍처 구성요소 · 6</title>
           <rect x="40" y="210" width="230" height="100" rx="8" class="c-mask"/>
           <rect x="40" y="210" width="230" height="100" rx="8" class="c-backend" data-animate="node" style="--step:5" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(46 216) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="155" y="258" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">배포</text>
-        <text data-detail="context" x="155" y="274" class="t-muted" font-size="9" text-anchor="middle">Deploy · NodePort</text>
+          <text data-node-label="" data-detail-anchor="" x="155" y="258" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">metrics-server</text>
+        <text data-detail="context" x="155" y="274" class="t-muted" font-size="9" text-anchor="middle">insecure-tls</text>
         <text data-detail="fine" x="155" y="302" class="t-backend" font-size="7" text-anchor="middle">6</text>
         </g>
 
-        <g id="node-load" data-node-id="load" data-node-label="kind load" tabindex="0" role="button" aria-label="kind load 포커스, 레지스트리 없이 적재, 아키텍처 구성요소" aria-pressed="false" data-node-kind="messagebus" data-node-sublabel="레지스트리 없이 적재" data-node-tag="5" data-node-context="아키텍처 구성요소">
-          <title>kind load · 레지스트리 없이 적재 · 아키텍처 구성요소 · 5</title>
-          <rect x="340" y="210" width="230" height="100" rx="8" class="c-mask"/>
-          <rect x="340" y="210" width="230" height="100" rx="8" class="c-messagebus" data-animate="node" style="--step:4" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="messagebus" class="semantic-sigil s-messagebus" transform="translate(346 216) scale(0.6875)">
+        <g id="node-top" data-node-id="top" data-node-label="kubectl top" tabindex="0" role="button" aria-label="kubectl top 포커스, node · pod 정렬, 아키텍처 구성요소" aria-pressed="false" data-node-kind="messagebus" data-node-sublabel="node · pod 정렬" data-node-tag="7" data-node-context="아키텍처 구성요소">
+          <title>kubectl top · node · pod 정렬 · 아키텍처 구성요소 · 7</title>
+          <rect x="40" y="380" width="230" height="100" rx="8" class="c-mask"/>
+          <rect x="40" y="380" width="230" height="100" rx="8" class="c-messagebus" data-animate="node" style="--step:6" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="messagebus" class="semantic-sigil s-messagebus" transform="translate(46 386) scale(0.6875)">
             <path d="M2.5 4.5h11M2.5 8h11M2.5 11.5h11"/>
             <circle cx="5" cy="4.5" r="1" class="sigil-fill"/>
             <circle cx="10.5" cy="8" r="1" class="sigil-fill"/>
             <circle cx="7" cy="11.5" r="1" class="sigil-fill"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="455" y="258" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">kind load</text>
-        <text data-detail="context" x="455" y="274" class="t-muted" font-size="9" text-anchor="middle">레지스트리 없이 적재</text>
-        <text data-detail="fine" x="455" y="302" class="t-messagebus" font-size="7" text-anchor="middle">5</text>
+          <text data-node-label="" data-detail-anchor="" x="155" y="428" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">kubectl top</text>
+        <text data-detail="context" x="155" y="444" class="t-muted" font-size="9" text-anchor="middle">node · pod 정렬</text>
+        <text data-detail="fine" x="155" y="472" class="t-messagebus" font-size="7" text-anchor="middle">7</text>
         </g>
 
-        <g id="node-build" data-node-id="build" data-node-label="이미지 빌드" tabindex="0" role="button" aria-label="이미지 빌드 포커스, hello-lab:0.1, 아키텍처 구성요소" aria-pressed="false" data-node-kind="backend" data-node-sublabel="hello-lab:0.1" data-node-tag="4" data-node-context="아키텍처 구성요소">
-          <title>이미지 빌드 · hello-lab:0.1 · 아키텍처 구성요소 · 4</title>
-          <rect x="640" y="210" width="230" height="100" rx="8" class="c-mask"/>
-          <rect x="640" y="210" width="230" height="100" rx="8" class="c-backend" data-animate="node" style="--step:3" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(646 216) scale(0.6875)">
-            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
-          </g>
-          <text data-node-label="" data-detail-anchor="" x="755" y="258" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">이미지 빌드</text>
-        <text data-detail="context" x="755" y="274" class="t-muted" font-size="9" text-anchor="middle">hello-lab:0.1</text>
-        <text data-detail="fine" x="755" y="302" class="t-backend" font-size="7" text-anchor="middle">4</text>
-        </g>
-
-        <g id="node-curl" data-node-id="curl" data-node-label="접속 확인" tabindex="0" role="button" aria-label="접속 확인 포커스, localhost:8080, 아키텍처 구성요소" aria-pressed="false" data-node-kind="security" data-node-sublabel="localhost:8080" data-node-tag="7" data-node-context="아키텍처 구성요소">
-          <title>접속 확인 · localhost:8080 · 아키텍처 구성요소 · 7</title>
-          <rect x="40" y="380" width="230" height="100" rx="8" class="c-mask"/>
-          <rect x="40" y="380" width="230" height="100" rx="8" class="c-security" data-animate="node" style="--step:6" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="security" class="semantic-sigil s-security" transform="translate(46 386) scale(0.6875)">
-            <path d="M8 2.2 13 4v3.5c0 3.1-1.8 5.4-5 6.5-3.2-1.1-5-3.4-5-6.5V4Z"/>
-            <path d="m5.8 8 1.5 1.5 3-3"/>
-          </g>
-          <text data-node-label="" data-detail-anchor="" x="155" y="428" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">접속 확인</text>
-        <text data-detail="context" x="155" y="444" class="t-muted" font-size="9" text-anchor="middle">localhost:8080</text>
-        <text data-detail="fine" x="155" y="472" class="t-security" font-size="7" text-anchor="middle">7</text>
-        </g>
-
-        <g id="node-verify" data-node-id="verify" data-node-label="verify.sh" tabindex="0" role="button" aria-label="verify.sh 포커스, 자동 검증, 아키텍처 구성요소" aria-pressed="false" data-node-kind="security" data-node-sublabel="자동 검증" data-node-tag="8" data-node-context="아키텍처 구성요소">
-          <title>verify.sh · 자동 검증 · 아키텍처 구성요소 · 8</title>
+        <g id="node-desc" data-node-id="desc" data-node-label="describe node" tabindex="0" role="button" aria-label="describe node 포커스, Requests · Limits, 아키텍처 구성요소" aria-pressed="false" data-node-kind="security" data-node-sublabel="Requests · Limits" data-node-tag="8" data-node-context="아키텍처 구성요소">
+          <title>describe node · Requests · Limits · 아키텍처 구성요소 · 8</title>
           <rect x="340" y="380" width="230" height="100" rx="8" class="c-mask"/>
           <rect x="340" y="380" width="230" height="100" rx="8" class="c-security" data-animate="node" style="--step:7" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="security" class="semantic-sigil s-security" transform="translate(346 386) scale(0.6875)">
             <path d="M8 2.2 13 4v3.5c0 3.1-1.8 5.4-5 6.5-3.2-1.1-5-3.4-5-6.5V4Z"/>
             <path d="m5.8 8 1.5 1.5 3-3"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="455" y="428" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">verify.sh</text>
-        <text data-detail="context" x="455" y="444" class="t-muted" font-size="9" text-anchor="middle">자동 검증</text>
+          <text data-node-label="" data-detail-anchor="" x="455" y="428" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">describe node</text>
+        <text data-detail="context" x="455" y="444" class="t-muted" font-size="9" text-anchor="middle">Requests · Limits</text>
         <text data-detail="fine" x="455" y="472" class="t-security" font-size="7" text-anchor="middle">8</text>
         </g>
 
@@ -14863,7 +14866,7 @@ rect.c-region { fill: transparent !important; stroke: var(--a3) !important; stro
 
 <script id="autumn-theme-js">
 (function () {
-  var CFG = {"hero": ["load"], "strong": ["create", "curl"], "io": ["inst", "del"], "title": ""};
+  var CFG = {"hero": ["ms"], "strong": ["create", "top"], "io": ["inst", "del"], "title": ""};
   var NS = 'http://www.w3.org/2000/svg';
   function role(id) {
     if ((CFG.hero || []).indexOf(id) >= 0) return 'r-hero';

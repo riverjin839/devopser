@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="generator" content="archify 3.2.0">
   <meta name="archify-reader-contract" content="declared-wide-v1">
-  <title>kind 구조 다이어그램</title>
+  <title>kind 실습 구조 다이어그램</title>
   <script>
     // Resolve the theme before first paint so light-preference users don't
     // see a dark flash. The toolbar script below re-applies with UI state.
@@ -5265,7 +5265,7 @@ rect.c-region { fill: transparent !important; stroke: var(--a3) !important; stro
            data-preset-badge-blueprint="블루프린트 / 개정 01"
            data-preset-badge-editorial="에디토리얼 / 현장 노트">
         <div class="pulse-dot"></div>
-        <h1>kind 구조</h1>
+        <h1>kind 실습 구조</h1>
       </div>
     </div>
 
@@ -5275,7 +5275,7 @@ rect.c-region { fill: transparent !important; stroke: var(--a3) !important; stro
     <div class="diagram-container" data-detail-level="read"
          data-preset-badge-editorial-plate="ARCHIFY / 도판 04">
       <svg viewBox="0 0 910 548" role="img" lang="ko" aria-labelledby="archify-diagram-title archify-diagram-description" data-animation="trace" data-preset="classic" data-quality-profile="showcase" data-node-ui="" data-reader-fit="intrinsic-height" data-reader-min-text="7.5" data-reader-primary-text="14">
-        <title id="archify-diagram-title">kind 구조</title>
+        <title id="archify-diagram-title">kind 실습 구조</title>
         <desc id="archify-diagram-description">Archify로 생성한 아키텍처 다이어그램입니다.</desc>
         <!-- Definitions -->
         <defs>
@@ -5333,25 +5333,25 @@ rect.c-region { fill: transparent !important; stroke: var(--a3) !important; stro
           <path data-edge-from="docker" data-edge-to="cp" data-edge-key="1" data-edge-id="docker-cp" data-composition-points="455,140;455,210" data-composition-crossover="halo" data-composition-independent="true" d="M 455 140 L 455 210" class="a-emphasis" data-animate="edge" style="--step:1" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:2">
-          <path data-graph-role="automatic-crossover-underlay" d="M 155 140 L 155 156 Q 155 164 163 164 L 308 164 Q 316 164 316 172 L 316 245 Q 316 253 324 253 L 340 253" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="pc" data-edge-to="cp" data-edge-label="8080 → 30080" data-edge-key="2" data-edge-id="pc-cp" data-composition-points="155,140;155,164;316,164;316,253;340,253" data-composition-crossover="halo" data-composition-independent="true" d="M 155 140 L 155 156 Q 155 164 163 164 L 308 164 Q 316 164 316 172 L 316 245 Q 316 253 324 253 L 340 253" class="a-emphasis" data-animate="edge" style="--step:2" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 155 140 L 155 210" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="pc" data-edge-to="kov" data-edge-label="localhost:30003" data-edge-key="2" data-edge-id="pc-kov" data-composition-points="155,140;155,210" data-composition-crossover="halo" data-composition-independent="true" d="M 155 140 L 155 210" class="a-emphasis" data-animate="edge" style="--step:2" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:3">
-          <path data-graph-role="automatic-crossover-underlay" d="M 340 268.05 L 270 268.05" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="cp" data-edge-to="w1" data-edge-label="join" data-edge-key="3" data-edge-id="cp-w1" data-composition-points="340,268.05;270,268.05" data-composition-crossover="halo" data-composition-independent="true" d="M 340 268.05 L 270 268.05" class="a-default" data-animate="edge" style="--step:3" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 340 260 L 270 260" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="cp" data-edge-to="kov" data-edge-label="Pod" data-edge-key="3" data-edge-id="cp-kov" data-composition-points="340,260;270,260" data-composition-crossover="halo" data-composition-independent="true" d="M 340 260 L 270 260" class="a-default" data-animate="edge" style="--step:3" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:4">
           <path data-graph-role="automatic-crossover-underlay" d="M 570 260 L 640 260" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="cp" data-edge-to="w2" data-edge-label="join" data-edge-key="4" data-edge-id="cp-w2" data-composition-points="570,260;640,260" data-composition-crossover="halo" data-composition-independent="true" d="M 570 260 L 640 260" class="a-default" data-animate="edge" style="--step:4" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-edge-from="cp" data-edge-to="ms" data-edge-label="Pod" data-edge-key="4" data-edge-id="cp-ms" data-composition-points="570,260;640,260" data-composition-crossover="halo" data-composition-independent="true" d="M 570 260 L 640 260" class="a-default" data-animate="edge" style="--step:4" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:5">
-          <path data-graph-role="automatic-crossover-underlay" d="M 455 310 L 455 380" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="cp" data-edge-to="pods" data-edge-label="스케줄" data-edge-key="5" data-edge-id="cp-pods" data-composition-points="455,310;455,380" data-composition-crossover="halo" data-composition-independent="true" d="M 455 310 L 455 380" class="a-emphasis" data-animate="edge" style="--step:5" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 755 310 L 755 380" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="ms" data-edge-to="top" data-edge-label="Metrics API" data-edge-key="5" data-edge-id="ms-top" data-composition-points="755,310;755,380" data-composition-crossover="halo" data-composition-independent="true" d="M 755 310 L 755 380" class="a-emphasis" data-animate="edge" style="--step:5" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
         </g>
 
         <!-- Components -->
-        <g id="node-pc" data-node-id="pc" data-node-label="내 PC" tabindex="0" role="button" aria-label="내 PC 포커스, kubectl · curl :8080, 아키텍처 구성요소" aria-pressed="false" data-node-kind="external" data-node-sublabel="kubectl · curl :8080" data-node-context="아키텍처 구성요소">
-          <title>내 PC · kubectl · curl :8080 · 아키텍처 구성요소</title>
+        <g id="node-pc" data-node-id="pc" data-node-label="내 PC" tabindex="0" role="button" aria-label="내 PC 포커스, 브라우저 · kubectl, 아키텍처 구성요소" aria-pressed="false" data-node-kind="external" data-node-sublabel="브라우저 · kubectl" data-node-context="아키텍처 구성요소">
+          <title>내 PC · 브라우저 · kubectl · 아키텍처 구성요소</title>
           <rect x="40" y="40" width="230" height="100" rx="8" class="c-mask"/>
           <rect x="40" y="40" width="230" height="100" rx="8" class="c-external" data-animate="node" style="--step:2" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(46 46) scale(0.6875)">
@@ -5359,7 +5359,7 @@ rect.c-region { fill: transparent !important; stroke: var(--a3) !important; stro
             <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
           </g>
           <text data-node-label="" data-detail-anchor="" x="155" y="88" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">내 PC</text>
-        <text data-detail="context" x="155" y="104" class="t-muted" font-size="9" text-anchor="middle">kubectl · curl :8080</text>
+        <text data-detail="context" x="155" y="104" class="t-muted" font-size="9" text-anchor="middle">브라우저 · kubectl</text>
         </g>
 
         <g id="node-docker" data-node-id="docker" data-node-label="Docker 엔진" tabindex="0" role="button" aria-label="Docker 엔진 포커스, kind 네트워크, 아키텍처 구성요소" aria-pressed="false" data-node-kind="cloud" data-node-sublabel="kind 네트워크" data-node-context="아키텍처 구성요소">
@@ -5373,8 +5373,8 @@ rect.c-region { fill: transparent !important; stroke: var(--a3) !important; stro
         <text data-detail="context" x="455" y="104" class="t-muted" font-size="9" text-anchor="middle">kind 네트워크</text>
         </g>
 
-        <g id="node-cli" data-node-id="cli" data-node-label="kind CLI" tabindex="0" role="button" aria-label="kind CLI 포커스, v0.33.0, 아키텍처 구성요소" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="v0.33.0" data-node-context="아키텍처 구성요소">
-          <title>kind CLI · v0.33.0 · 아키텍처 구성요소</title>
+        <g id="node-cli" data-node-id="cli" data-node-label="kind · helm" tabindex="0" role="button" aria-label="kind · helm 포커스, v0.33.0 · v3, 아키텍처 구성요소" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="v0.33.0 · v3" data-node-context="아키텍처 구성요소">
+          <title>kind · helm · v0.33.0 · v3 · 아키텍처 구성요소</title>
           <rect x="640" y="40" width="230" height="100" rx="8" class="c-mask"/>
           <rect x="640" y="40" width="230" height="100" rx="8" class="c-frontend" data-animate="node" style="--step:0" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(646 46) scale(0.6875)">
@@ -5383,56 +5383,59 @@ rect.c-region { fill: transparent !important; stroke: var(--a3) !important; stro
             <circle cx="4.1" cy="4.8" r=".7" class="sigil-fill"/>
             <circle cx="6.3" cy="4.8" r=".7" class="sigil-fill"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="755" y="88" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">kind CLI</text>
-        <text data-detail="context" x="755" y="104" class="t-muted" font-size="9" text-anchor="middle">v0.33.0</text>
+          <text data-node-label="" data-detail-anchor="" x="755" y="88" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">kind · helm</text>
+        <text data-detail="context" x="755" y="104" class="t-muted" font-size="9" text-anchor="middle">v0.33.0 · v3</text>
         </g>
 
-        <g id="node-w1" data-node-id="w1" data-node-label="lab-worker" tabindex="0" role="button" aria-label="lab-worker 포커스, 노드 = 컨테이너, 아키텍처 구성요소" aria-pressed="false" data-node-kind="backend" data-node-sublabel="노드 = 컨테이너" data-node-context="아키텍처 구성요소">
-          <title>lab-worker · 노드 = 컨테이너 · 아키텍처 구성요소</title>
+        <g id="node-kov" data-node-id="kov" data-node-label="kube-ops-view" tabindex="0" role="button" aria-label="kube-ops-view 포커스, NodePort 30003, 아키텍처 구성요소" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="NodePort 30003" data-node-context="아키텍처 구성요소">
+          <title>kube-ops-view · NodePort 30003 · 아키텍처 구성요소</title>
           <rect x="40" y="210" width="230" height="100" rx="8" class="c-mask"/>
-          <rect x="40" y="210" width="230" height="100" rx="8" class="c-backend" data-animate="node" style="--step:4" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(46 216) scale(0.6875)">
-            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
+          <rect x="40" y="210" width="230" height="100" rx="8" class="c-frontend" data-animate="node" style="--step:3" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(46 216) scale(0.6875)">
+            <rect x="2" y="3" width="12" height="10" rx="2"/>
+            <path d="M2 6.5h12"/>
+            <circle cx="4.1" cy="4.8" r=".7" class="sigil-fill"/>
+            <circle cx="6.3" cy="4.8" r=".7" class="sigil-fill"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="155" y="258" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">lab-worker</text>
-        <text data-detail="context" x="155" y="274" class="t-muted" font-size="9" text-anchor="middle">노드 = 컨테이너</text>
+          <text data-node-label="" data-detail-anchor="" x="155" y="258" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">kube-ops-view</text>
+        <text data-detail="context" x="155" y="274" class="t-muted" font-size="9" text-anchor="middle">NodePort 30003</text>
         </g>
 
-        <g id="node-cp" data-node-id="cp" data-node-label="control-plane" tabindex="0" role="button" aria-label="control-plane 포커스, API · etcd · 30080, 아키텍처 구성요소" aria-pressed="false" data-node-kind="security" data-node-sublabel="API · etcd · 30080" data-node-context="아키텍처 구성요소">
-          <title>control-plane · API · etcd · 30080 · 아키텍처 구성요소</title>
+        <g id="node-cp" data-node-id="cp" data-node-label="myk8s 노드" tabindex="0" role="button" aria-label="myk8s 노드 포커스, v1.37.0 · 30000~30003, 아키텍처 구성요소" aria-pressed="false" data-node-kind="security" data-node-sublabel="v1.37.0 · 30000~30003" data-node-context="아키텍처 구성요소">
+          <title>myk8s 노드 · v1.37.0 · 30000~30003 · 아키텍처 구성요소</title>
           <rect x="340" y="210" width="230" height="100" rx="8" class="c-mask"/>
           <rect x="340" y="210" width="230" height="100" rx="8" class="c-security" data-animate="node" style="--step:2" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="security" class="semantic-sigil s-security" transform="translate(346 216) scale(0.6875)">
             <path d="M8 2.2 13 4v3.5c0 3.1-1.8 5.4-5 6.5-3.2-1.1-5-3.4-5-6.5V4Z"/>
             <path d="m5.8 8 1.5 1.5 3-3"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="455" y="258" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">control-plane</text>
-        <text data-detail="context" x="455" y="274" class="t-muted" font-size="9" text-anchor="middle">API · etcd · 30080</text>
+          <text data-node-label="" data-detail-anchor="" x="455" y="258" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">myk8s 노드</text>
+        <text data-detail="context" x="455" y="274" class="t-muted" font-size="9" text-anchor="middle">v1.37.0 · 30000~30003</text>
         </g>
 
-        <g id="node-w2" data-node-id="w2" data-node-label="lab-worker2" tabindex="0" role="button" aria-label="lab-worker2 포커스, 노드 = 컨테이너, 아키텍처 구성요소" aria-pressed="false" data-node-kind="backend" data-node-sublabel="노드 = 컨테이너" data-node-context="아키텍처 구성요소">
-          <title>lab-worker2 · 노드 = 컨테이너 · 아키텍처 구성요소</title>
+        <g id="node-ms" data-node-id="ms" data-node-label="metrics-server" tabindex="0" role="button" aria-label="metrics-server 포커스, kubelet 지표 수집, 아키텍처 구성요소" aria-pressed="false" data-node-kind="backend" data-node-sublabel="kubelet 지표 수집" data-node-context="아키텍처 구성요소">
+          <title>metrics-server · kubelet 지표 수집 · 아키텍처 구성요소</title>
           <rect x="640" y="210" width="230" height="100" rx="8" class="c-mask"/>
           <rect x="640" y="210" width="230" height="100" rx="8" class="c-backend" data-animate="node" style="--step:5" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(646 216) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="755" y="258" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">lab-worker2</text>
-        <text data-detail="context" x="755" y="274" class="t-muted" font-size="9" text-anchor="middle">노드 = 컨테이너</text>
+          <text data-node-label="" data-detail-anchor="" x="755" y="258" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">metrics-server</text>
+        <text data-detail="context" x="755" y="274" class="t-muted" font-size="9" text-anchor="middle">kubelet 지표 수집</text>
         </g>
 
-        <g id="node-pods" data-node-id="pods" data-node-label="hello Pod × 3" tabindex="0" role="button" aria-label="hello Pod × 3 포커스, kindnet CNI, 아키텍처 구성요소" aria-pressed="false" data-node-kind="messagebus" data-node-sublabel="kindnet CNI" data-node-context="아키텍처 구성요소">
-          <title>hello Pod × 3 · kindnet CNI · 아키텍처 구성요소</title>
-          <rect x="340" y="380" width="230" height="100" rx="8" class="c-mask"/>
-          <rect x="340" y="380" width="230" height="100" rx="8" class="c-messagebus" data-animate="node" style="--step:6" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="messagebus" class="semantic-sigil s-messagebus" transform="translate(346 386) scale(0.6875)">
+        <g id="node-top" data-node-id="top" data-node-label="kubectl top" tabindex="0" role="button" aria-label="kubectl top 포커스, CPU · 메모리, 아키텍처 구성요소" aria-pressed="false" data-node-kind="messagebus" data-node-sublabel="CPU · 메모리" data-node-context="아키텍처 구성요소">
+          <title>kubectl top · CPU · 메모리 · 아키텍처 구성요소</title>
+          <rect x="640" y="380" width="230" height="100" rx="8" class="c-mask"/>
+          <rect x="640" y="380" width="230" height="100" rx="8" class="c-messagebus" data-animate="node" style="--step:6" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="messagebus" class="semantic-sigil s-messagebus" transform="translate(646 386) scale(0.6875)">
             <path d="M2.5 4.5h11M2.5 8h11M2.5 11.5h11"/>
             <circle cx="5" cy="4.5" r="1" class="sigil-fill"/>
             <circle cx="10.5" cy="8" r="1" class="sigil-fill"/>
             <circle cx="7" cy="11.5" r="1" class="sigil-fill"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="455" y="428" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">hello Pod × 3</text>
-        <text data-detail="context" x="455" y="444" class="t-muted" font-size="9" text-anchor="middle">kindnet CNI</text>
+          <text data-node-label="" data-detail-anchor="" x="755" y="428" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">kubectl top</text>
+        <text data-detail="context" x="755" y="444" class="t-muted" font-size="9" text-anchor="middle">CPU · 메모리</text>
         </g>
 
         <!-- Connection labels -->
@@ -5441,21 +5444,21 @@ rect.c-region { fill: transparent !important; stroke: var(--a3) !important; stro
           <text x="605" y="80" class="t-edge-default" font-size="8" text-anchor="middle">노드 생성</text>
         </g>
 
-        <g data-detail="context" data-edge-from="pc" data-edge-to="cp" data-edge-label="8080 → 30080" data-edge-key="2" data-edge-id="pc-cp">
-          <rect x="201.7" y="144" width="67.6" height="14" rx="3" class="c-mask"/>
-          <text x="235.5" y="154" class="t-edge-emphasis" font-size="8" text-anchor="middle">8080 → 30080</text>
+        <g data-detail="context" data-edge-from="pc" data-edge-to="kov" data-edge-label="localhost:30003" data-edge-key="2" data-edge-id="pc-kov">
+          <rect x="67" y="168" width="82" height="14" rx="3" class="c-mask"/>
+          <text x="108" y="178" class="t-edge-emphasis" font-size="8" text-anchor="middle">localhost:30003</text>
         </g>
-        <g data-detail="context" data-edge-from="cp" data-edge-to="w1" data-edge-label="join" data-edge-key="3" data-edge-id="cp-w1">
-          <rect x="290" y="278.05" width="30" height="14" rx="3" class="c-mask"/>
-          <text x="305" y="288.05" class="t-edge-default" font-size="8" text-anchor="middle">join</text>
+        <g data-detail="context" data-edge-from="cp" data-edge-to="kov" data-edge-label="Pod" data-edge-key="3" data-edge-id="cp-kov">
+          <rect x="290" y="240" width="30" height="14" rx="3" class="c-mask"/>
+          <text x="305" y="250" class="t-edge-default" font-size="8" text-anchor="middle">Pod</text>
         </g>
-        <g data-detail="context" data-edge-from="cp" data-edge-to="w2" data-edge-label="join" data-edge-key="4" data-edge-id="cp-w2">
+        <g data-detail="context" data-edge-from="cp" data-edge-to="ms" data-edge-label="Pod" data-edge-key="4" data-edge-id="cp-ms">
           <rect x="590" y="240" width="30" height="14" rx="3" class="c-mask"/>
-          <text x="605" y="250" class="t-edge-default" font-size="8" text-anchor="middle">join</text>
+          <text x="605" y="250" class="t-edge-default" font-size="8" text-anchor="middle">Pod</text>
         </g>
-        <g data-detail="context" data-edge-from="cp" data-edge-to="pods" data-edge-label="스케줄" data-edge-key="5" data-edge-id="cp-pods">
-          <rect x="410.20000000000005" y="338" width="38.8" height="14" rx="3" class="c-mask"/>
-          <text x="429.6" y="348" class="t-edge-emphasis" font-size="8" text-anchor="middle">스케줄</text>
+        <g data-detail="context" data-edge-from="ms" data-edge-to="top" data-edge-label="Metrics API" data-edge-key="5" data-edge-id="ms-top">
+          <rect x="686.2" y="338" width="62.8" height="14" rx="3" class="c-mask"/>
+          <text x="717.6" y="348" class="t-edge-emphasis" font-size="8" text-anchor="middle">Metrics API</text>
         </g>
 
         <!-- Boundary labels (foreground masks keep routes out of titles) -->
@@ -14835,7 +14838,7 @@ rect.c-region { fill: transparent !important; stroke: var(--a3) !important; stro
 
 <script id="autumn-theme-js">
 (function () {
-  var CFG = {"hero": ["cp"], "strong": ["docker"], "io": ["pc", "cli"], "title": ""};
+  var CFG = {"hero": ["cp"], "strong": ["ms"], "io": ["pc", "cli"], "title": ""};
   var NS = 'http://www.w3.org/2000/svg';
   function role(id) {
     if ((CFG.hero || []).indexOf(id) >= 0) return 'r-hero';

@@ -1,39 +1,64 @@
 #!/usr/bin/env bash
-# kind 실습 검증 : 클러스터 생성 → 이미지 적재 → 배포 → 접속 → 삭제
+# 스터디 실습 검증 : kind(v1.37) → kube-ops-view → metrics-server → kubectl top → 삭제
 # usage: ./verify.sh [--keep]   (--keep 이면 클러스터 남김)
 set -euo pipefail
-NAME=lab
+NAME=myk8s
 CTX="kind-${NAME}"
+IMAGE="kindest/node:v1.37.0@sha256:a1ed56cfb0e7b93589bdf97c8cd566405a265939e3620fc4f5de89adff580ae5"
 pass() { echo "[PASS] $*"; }
 fail() { echo "[FAIL] $*"; exit 1; }
 
-if kind version | grep -q "v0.33"; then pass "kind $(kind version | awk '{print $2}')"; else fail "kind v0.33.x 아님"; fi
+for t in docker kind kubectl helm curl; do command -v "$t" >/dev/null || fail "$t 없음"; done
+pass "도구 : $(kind version | awk '{print $1, $2}'), helm $(helm version --short)"
 
 if ! kind get clusters | grep -qx "${NAME}"; then
-  kind create cluster --config kind-lab.yaml --wait 3m
+kind create cluster --name "${NAME}" --image "${IMAGE}" --wait 3m --config - <<CFG
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+- role: control-plane
+  extraPortMappings:
+  - containerPort: 30000
+    hostPort: 30000
+  - containerPort: 30001
+    hostPort: 30001
+  - containerPort: 30002
+    hostPort: 30002
+  - containerPort: 30003
+    hostPort: 30003
+CFG
 fi
+ver=$(kubectl --context "${CTX}" get nodes -o jsonpath='{.items[0].status.nodeInfo.kubeletVersion}')
+if [ "${ver}" = "v1.37.0" ]; then pass "kind 클러스터 ${NAME} : 노드 v1.37.0 Ready"; else fail "노드 버전 ${ver}"; fi
 
-nodes=$(kubectl --context "${CTX}" get nodes --no-headers | wc -l)
-if [ "${nodes}" -eq 3 ]; then pass "노드 3대"; else fail "노드 ${nodes}대"; fi
+helm repo add geek-cookbook https://geek-cookbook.github.io/charts/ >/dev/null
+helm repo add metrics-server https://kubernetes-sigs.github.io/metrics-server/ >/dev/null
+helm repo update >/dev/null
+pass "helm repo 2개 추가"
 
-ver=$(kubectl --context "${CTX}" get nodes -o jsonpath='{.items[*].status.nodeInfo.kubeletVersion}')
-if echo "${ver}" | grep -q "v1.37.0"; then pass "kubelet ${ver%% *}"; else fail "버전 ${ver}"; fi
+helm upgrade --install kube-ops-view geek-cookbook/kube-ops-view --version 1.2.2 \
+  --set service.main.type=NodePort,service.main.ports.http.nodePort=30003 \
+  --set env.TZ="Asia/Seoul" --namespace kube-system --kube-context "${CTX}" --wait --timeout 5m >/dev/null
+pass "kube-ops-view 설치 (NodePort 30003)"
 
-kubectl --context "${CTX}" wait --for=condition=Ready nodes --all --timeout=180s >/dev/null
-pass "전 노드 Ready"
+code=$(curl -s -o /dev/null -w '%{http_code}' http://localhost:30003/)
+if [ "${code}" = "200" ]; then pass "http://localhost:30003 응답 200"; else fail "kube-ops-view 접속 ${code}"; fi
 
-docker build -q -t hello-lab:0.1 . >/dev/null
-pass "이미지 빌드 hello-lab:0.1"
-kind load docker-image hello-lab:0.1 --name "${NAME}" >/dev/null
-pass "kind load : 레지스트리 없이 노드에 적재"
+helm upgrade --install metrics-server metrics-server/metrics-server --version 3.14.0 \
+  --set 'args[0]=--kubelet-insecure-tls' -n kube-system --kube-context "${CTX}" --wait --timeout 5m >/dev/null
+pass "metrics-server 설치"
 
-kubectl --context "${CTX}" apply -f app.yaml >/dev/null
-kubectl --context "${CTX}" rollout status deploy/hello --timeout=120s >/dev/null
-pass "Deployment hello 3/3"
+ok=""
+for _ in $(seq 1 24); do
+  if kubectl --context "${CTX}" top node >/dev/null 2>&1; then ok=1; break; fi
+  sleep 5
+done
+if [ -n "${ok}" ]; then pass "kubectl top node 동작 (Metrics API 준비)"; else fail "2분 안에 지표 안 올라옴"; fi
+kubectl --context "${CTX}" top node
+kubectl --context "${CTX}" top pod -A --sort-by=cpu | head -6
 
-for _ in 1 2 3 4 5 6; do curl -s localhost:8080; done | sort | uniq -c
-pods=$(for _ in $(seq 1 20); do curl -s localhost:8080; done | sort -u | wc -l)
-if [ "${pods}" -ge 2 ]; then pass "localhost:8080 → NodePort 30080 → Pod ${pods}개로 분산"; else fail "접속 실패"; fi
+kubectl --context "${CTX}" describe node | sed -n '/Allocated resources/,/memory/p'
+pass "describe node : 자원 할당량 확인"
 
 if [ "${1:-}" != "--keep" ]; then
   kind delete cluster --name "${NAME}" >/dev/null

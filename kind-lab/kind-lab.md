@@ -1,33 +1,32 @@
-## kind 실습 - 최신 Kubernetes v1.37 로컬 클러스터
+## kind 실습 - Kubernetes v1.37 + kube-ops-view + metrics-server
 
-> **목표** : kind 최신 버전으로 멀티노드 K8s v1.37 클러스터를 띄우고, 레지스트리 없이 앱 이미지를 넣어 배포·접속·검증까지 한 번에 해보기
+> **목표** : 스터디 공유 실습(kind + kube-ops-view + metrics-server)을 최신 kind·Kubernetes 버전으로 그대로 따라 하고, 노드 자원 할당량 읽는 법까지 익히기
 
-- 출처 : github.com/kubernetes-sigs/kind (v0.33.0 소스·문서), kind.sigs.k8s.io
-- 기준 버전 (2026-10) : kind **v0.33.0**, 노드 이미지 `kindest/node:v1.37.0` (v0.33.0 기본값), kubectl v1.37.x
-- 실습 파일 : `github.com/riverjin839/devopser` 의 `kind-lab/` (설정, 앱, 검증 스크립트)
+- 원본 : CloudNetastudy 공유 실습 (kind `kindest/node:v1.32.5` 기준)
+- 이 페이지 기준 (2026-10) : kind **v0.33.0**, 노드 이미지 **`kindest/node:v1.37.0`**, kube-ops-view 차트 1.2.2, metrics-server 차트 3.14.0 (앱 v0.9.0), Helm v3
+- 실습 파일 : `github.com/riverjin839/devopser` 의 `kind-lab/` (`verify.sh`)
 
 ---
 
 ## 1. 개요
 
-kind(Kubernetes IN Docker) = **Docker 컨테이너 하나를 K8s 노드 하나로 쓰는** 로컬 클러스터 도구.
+스터디 실습 = kind 로 단일 노드 클러스터를 띄우고, 두 가지 관측 도구를 붙이는 구성.
 
-- 원래 K8s 자체 테스트용으로 만든 도구 → 업스트림 최신 버전이 제일 빨리 올라옴
-- VM 없이 노드 여러 대, 멀티 control-plane(HA) 까지 가능
-- 노드 이미지 `kindest/node` 안에 kubelet, kubeadm, containerd, 기본 이미지가 다 들어 있음
+- **kube-ops-view** : 노드·Pod 배치를 화면으로 보여주는 대시보드
+- **metrics-server** : kubelet 에서 CPU·메모리 사용량을 모아 `kubectl top` 과 HPA 에 제공
 
 <!-- diagram: mlpe-kind-01-arch.html -->
 
-| 구성 | 실체 | 역할 |
+| 구성 | 실체 | 접근 |
 |---|---|---|
-| kind CLI | 단일 바이너리 | 노드 컨테이너 생성·삭제, 이미지 적재 |
-| 노드 | `kindest/node` 컨테이너 | 안에서 systemd + containerd + kubelet 실행 |
-| control-plane | 노드 컨테이너 1개 | kubeadm 으로 API 서버·etcd·스케줄러 기동 |
-| CNI | kindnet | 기본 Pod 네트워크 |
-| 스토리지 | local-path-provisioner | 기본 StorageClass |
-| 포트 | `extraPortMappings` | 호스트 포트 → 노드 컨테이너 포트 |
+| myk8s 노드 | `kindest/node:v1.37.0` 컨테이너 1개 (control-plane 겸 워커) | `kubectl --context kind-myk8s` |
+| 포트 30000~30003 | `extraPortMappings` 로 호스트에 열어둔 NodePort 범위 | `localhost:3000x` |
+| kube-ops-view | kube-system 의 Deployment + NodePort 30003 | 브라우저 |
+| metrics-server | kube-system 의 Deployment, Metrics API 등록 | `kubectl top` |
 
-**kind 노드 = 컨테이너. 그래서 클러스터 생성·삭제가 1~2분이면 끝남.**
+- 30000~30002 는 이후 실습용으로 미리 열어둔 포트
+
+**kind 노드 = Docker 컨테이너. 포트를 미리 열어둬야 NodePort 를 내 PC 에서 바로 접속 가능.**
 
 ---
 
@@ -35,32 +34,20 @@ kind(Kubernetes IN Docker) = **Docker 컨테이너 하나를 K8s 노드 하나�
 
 | 항목 | 기준 | 확인 |
 |---|---|---|
-| Docker | 메모리 8GB 이상 할당 (노드 3대 기준) | `docker info` |
-| cgroup | v2 권장. v1 은 kind 가 경고하고 다음 버전에서 지원 종료 예정 | `stat -fc %T /sys/fs/cgroup` → `cgroup2fs` |
-| inotify (Linux) | 노드 여러 대면 한도 부족 → too many open files | 아래 sysctl |
-| 포트 | 8080 비어 있어야 함 | `ss -ltn \| grep 8080` |
+| Docker | Docker Desktop · OrbStack · colima. 메모리 4GB 이상 (단일 노드) | `docker info` |
+| kind | v0.33.0 | `kind version` |
+| kubectl | v1.36~1.38 (서버 ±1 마이너) | `kubectl version --client` |
+| helm | v3 이상 | `helm version` |
+| 포트 | 30000~30003 비어 있어야 함 | `lsof -i :30003` |
 
 ```bash
-# Linux : 멀티노드에서 자주 터지는 inotify 한도 올리기
-sudo sysctl fs.inotify.max_user_watches=524288
-sudo sysctl fs.inotify.max_user_instances=512
-```
+# macOS
+brew install kind kubectl helm
 
-### 2-1. 설치
-
-```bash
-# kind v0.33.0 (Linux amd64)
-curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.33.0/kind-linux-amd64
-chmod +x ./kind && sudo mv ./kind /usr/local/bin/kind
-
-# kubectl v1.37 (서버 버전 ±1 마이너 안에서 사용)
-curl -LO https://dl.k8s.io/release/v1.37.2/bin/linux/amd64/kubectl
-sudo install -m 0755 kubectl /usr/local/bin/kubectl
-
-# macOS 는 brew
-brew install kind kubectl
-
-kind version          # kind v0.33.0 ...
+# Linux (WSL2 Ubuntu 포함)
+curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.33.0/kind-linux-amd64 && chmod +x kind && sudo mv kind /usr/local/bin/
+curl -LO https://dl.k8s.io/release/v1.37.2/bin/linux/amd64/kubectl && sudo install -m 0755 kubectl /usr/local/bin/
+curl -fsSL https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 ```
 
 ---
@@ -69,257 +56,194 @@ kind version          # kind v0.33.0 ...
 
 <!-- diagram: mlpe-kind-02-flow.html -->
 
-### 3-1. 클러스터 설정
+### 3-1. kind k8s 배포
 
-```yaml
-# kind-lab.yaml : control-plane 1 + worker 2, Kubernetes v1.37.0
+```bash
+# kind k8s 배포 : 스터디 원본에서 이미지만 v1.32.5 → v1.37.0 으로 변경
+kind create cluster --name myk8s --image kindest/node:v1.37.0@sha256:a1ed56cfb0e7b93589bdf97c8cd566405a265939e3620fc4f5de89adff580ae5 --config - <<EOF
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
-name: lab
 nodes:
 - role: control-plane
-  image: kindest/node:v1.37.0@sha256:a1ed56cfb0e7b93589bdf97c8cd566405a265939e3620fc4f5de89adff580ae5
   extraPortMappings:
-  - containerPort: 30080      # NodePort
-    hostPort: 8080            # 내 PC localhost:8080
-- role: worker
-  image: kindest/node:v1.37.0@sha256:a1ed56cfb0e7b93589bdf97c8cd566405a265939e3620fc4f5de89adff580ae5
-- role: worker
-  image: kindest/node:v1.37.0@sha256:a1ed56cfb0e7b93589bdf97c8cd566405a265939e3620fc4f5de89adff580ae5
-containerdConfigPatches:      # 사내 미러 쓰려면 certs.d 방식 활성화 (5장)
-- |-
-  [plugins."io.containerd.grpc.v1.cri".registry]
-    config_path = "/etc/containerd/certs.d"
+  - containerPort: 30000
+    hostPort: 30000
+  - containerPort: 30001
+    hostPort: 30001
+  - containerPort: 30002
+    hostPort: 30002
+  - containerPort: 30003
+    hostPort: 30003
+EOF
+
+# 확인
+kubectl get nodes -o wide                   # myk8s-control-plane Ready, VERSION v1.37.0
+docker ps --format '{{.Names}}  {{.Ports}}' # 0.0.0.0:30000-30003->30000-30003/tcp
 ```
 
-- 노드 이미지는 **태그 + `@sha256` digest** 로 고정 → kind 릴리스 노트에 적힌 값 그대로
-- 다른 K8s 버전이 필요하면 같은 kind 릴리스 노트의 다른 `kindest/node` 이미지로 교체
+- `--image` 에 **태그 + `@sha256` digest** 를 같이 씀 → kind v0.33.0 릴리스 기본 이미지와 동일한 것 보장
+- `--config -` + heredoc = 설정 파일 없이 표준 입력으로 넘기는 방식
+- 노드 1대가 control-plane 이면서 워커 역할도 함 → kind 는 단일 노드에서도 Pod 스케줄됨
 
-### 3-2. 생성·확인
+### 3-2. kube-ops-view
 
 ```bash
-kind create cluster --config kind-lab.yaml --wait 3m
-kubectl cluster-info --context kind-lab
-kubectl get nodes -o wide          # 3대 Ready, VERSION v1.37.0
-kind get clusters                  # lab
+# kube-ops-view
+helm repo add geek-cookbook https://geek-cookbook.github.io/charts/
+helm install kube-ops-view geek-cookbook/kube-ops-view --version 1.2.2 --set service.main.type=NodePort,service.main.ports.http.nodePort=30003 --set env.TZ="Asia/Seoul" --namespace kube-system
+kubectl get deploy,pod,svc,ep -n kube-system -l app.kubernetes.io/instance=kube-ops-view
+
+# kube-ops-view 접속 URL 확인 (1.5 , 2 배율)
+open "http://localhost:30003/#scale=1.5" # macOS
+open "http://localhost:30003/#scale=2"   # macOS
+
+echo "http://<Ubuntu 의 eth0 IP>:30003/#scale=1.5" # Windows WSL2(Ubuntu)
+echo "http://<Ubuntu 의 eth0 IP>:30003/#scale=2"   # Windows WSL2(Ubuntu)
+ip -4 addr show eth0 | grep inet                   # WSL2 eth0 IP 확인
 ```
 
-### 3-3. 앱 이미지 만들고 넣기
+- NodePort 를 30003 으로 고정 → 3-1 에서 열어둔 호스트 포트와 맞물림
+- `#scale=1.5` = 화면 확대 배율. 노드·Pod 가 작게 보일 때 키움
+- 차트 1.2.2 는 2022 년 이후 갱신 없음 (앱 20.4.0). 실습 시각화 용도로만 사용
 
-```python
-# server.py : 어느 Pod·노드가 응답했는지 출력하는 최소 웹 서버
-import http.server, os, socket
+> 주의 : Apple Silicon 에서 kube-ops-view 가 `ImagePullBackOff` 나 `exec format error` 로 안 뜨면 이미지가 arm64 를 지원하지 않는 경우임. 실습 진행에는 영향 없음. 3-3 부터 계속 진행 가능.
 
-class H(http.server.BaseHTTPRequestHandler):
-    def do_GET(self):
-        body = f"hello from {socket.gethostname()} ({os.environ.get('NODE_NAME', '-')})\n".encode()
-        self.send_response(200); self.send_header("Content-Type", "text/plain")
-        self.end_headers(); self.wfile.write(body)
-
-http.server.HTTPServer(("", 8080), H).serve_forever()
-```
-
-```dockerfile
-FROM python:3.12-slim
-WORKDIR /app
-COPY server.py .
-CMD ["python", "server.py"]
-```
+### 3-3. metrics-server
 
 ```bash
-docker build -t hello-lab:0.1 .
-kind load docker-image hello-lab:0.1 --name lab      # 레지스트리 없이 모든 노드에 적재
+# metrics-server
+helm repo add metrics-server https://kubernetes-sigs.github.io/metrics-server/
+helm install metrics-server metrics-server/metrics-server --version 3.14.0 --set 'args[0]=--kubelet-insecure-tls' -n kube-system
+kubectl get all -n kube-system -l app.kubernetes.io/instance=metrics-server
+kubectl get apiservices | grep -E '(AVAILABLE|metrics)'   # v1beta1.metrics.k8s.io ... True
 ```
 
-- `kind load` = 내 PC 이미지를 노드 컨테이너 안 containerd 로 복사
-- 그래서 매니페스트에 `imagePullPolicy: IfNotPresent` 필수. `latest` 태그면 기본값이 Always 라 외부로 pull 하러 감 → 실패
+- `--kubelet-insecure-tls` : kind 의 kubelet 인증서는 노드 IP 가 SAN 에 없어 검증 실패 → 실습에서만 검증 생략
+- 스터디 원본은 차트 버전 미지정 → 여기선 `--version 3.14.0` 으로 고정 (재현성)
+- `apiservices` 에서 `AVAILABLE True` 가 떠야 `kubectl top` 동작. 설치 직후 30~60초 걸림
 
-### 3-4. 배포·접속
+> 주의 : 운영 클러스터에선 `--kubelet-insecure-tls` 쓰지 말 것. kubelet serving 인증서를 정식 CA 로 발급하는 게 정석.
 
-```yaml
-# app.yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: hello
-  labels: {app: hello}
-spec:
-  replicas: 3
-  selector:
-    matchLabels: {app: hello}
-  template:
-    metadata:
-      labels: {app: hello}
-    spec:
-      containers:
-      - name: hello
-        image: hello-lab:0.1
-        imagePullPolicy: IfNotPresent
-        env:
-        - name: NODE_NAME             # 어느 노드에서 응답했는지 표시
-          valueFrom:
-            fieldRef: {fieldPath: spec.nodeName}
-        ports:
-        - containerPort: 8080
-        readinessProbe:
-          httpGet: {path: /, port: 8080}
-        resources:
-          requests: {cpu: 50m, memory: 32Mi}
-          limits: {memory: 64Mi}
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: hello
-spec:
-  type: NodePort
-  selector: {app: hello}
-  ports:
-  - port: 80
-    targetPort: 8080
-    nodePort: 30080
-```
+### 3-4. 자원 사용량 확인
 
 ```bash
-kubectl apply -f app.yaml
-kubectl rollout status deploy/hello
-kubectl get pods -o wide                      # worker 두 대에 분산
-for i in $(seq 6); do curl -s localhost:8080; done
-# hello from hello-xxxx (lab-worker) / hello from hello-yyyy (lab-worker2) ... 섞여서 나와야 정상
+# 확인
+kubectl top node
+kubectl top pod -A --sort-by='cpu'
+kubectl top pod -A --sort-by='memory'
 ```
 
-흐름 : localhost:8080 → control-plane 컨테이너 30080 (extraPortMappings) → NodePort Service → Pod 3개 중 하나.
+- `top` = **실제 사용량** (metrics-server 가 15초 주기로 수집)
+- `describe node` 의 Requests·Limits = **예약량** (스케줄러가 보는 값)
+- 사용량 ≠ 예약량. 둘 차이가 크면 requests 를 과하게 잡은 것
 
-### 3-5. 자동 검증 스크립트
+### 3-5. 노드 자원 할당량 읽기
 
 ```bash
-#!/usr/bin/env bash
-# verify.sh : 클러스터 생성 → 이미지 적재 → 배포 → 접속 → 삭제
-# usage: ./verify.sh [--keep]   (--keep 이면 클러스터 남김)
-set -euo pipefail
-NAME=lab
-CTX="kind-${NAME}"
-pass() { echo "[PASS] $*"; }
-fail() { echo "[FAIL] $*"; exit 1; }
-
-if kind version | grep -q "v0.33"; then pass "kind $(kind version | awk '{print $2}')"; else fail "kind v0.33.x 아님"; fi
-
-if ! kind get clusters | grep -qx "${NAME}"; then
-  kind create cluster --config kind-lab.yaml --wait 3m
-fi
-
-nodes=$(kubectl --context "${CTX}" get nodes --no-headers | wc -l)
-if [ "${nodes}" -eq 3 ]; then pass "노드 3대"; else fail "노드 ${nodes}대"; fi
-
-ver=$(kubectl --context "${CTX}" get nodes -o jsonpath='{.items[*].status.nodeInfo.kubeletVersion}')
-if echo "${ver}" | grep -q "v1.37.0"; then pass "kubelet ${ver%% *}"; else fail "버전 ${ver}"; fi
-
-kubectl --context "${CTX}" wait --for=condition=Ready nodes --all --timeout=180s >/dev/null
-pass "전 노드 Ready"
-
-docker build -q -t hello-lab:0.1 . >/dev/null
-pass "이미지 빌드 hello-lab:0.1"
-kind load docker-image hello-lab:0.1 --name "${NAME}" >/dev/null
-pass "kind load : 레지스트리 없이 노드에 적재"
-
-kubectl --context "${CTX}" apply -f app.yaml >/dev/null
-kubectl --context "${CTX}" rollout status deploy/hello --timeout=120s >/dev/null
-pass "Deployment hello 3/3"
-
-for _ in 1 2 3 4 5 6; do curl -s localhost:8080; done | sort | uniq -c
-pods=$(for _ in $(seq 1 20); do curl -s localhost:8080; done | sort -u | wc -l)
-if [ "${pods}" -ge 2 ]; then pass "localhost:8080 → NodePort 30080 → Pod ${pods}개로 분산"; else fail "접속 실패"; fi
-
-if [ "${1:-}" != "--keep" ]; then
-  kind delete cluster --name "${NAME}" >/dev/null
-  pass "클러스터 삭제"
-fi
+kubectl describe node
 ```
 
-- 정상이면 `[PASS]` 9줄 + Pod 별 응답 횟수가 나옴. 하나라도 `[FAIL]` 이면 그 단계에서 멈춤
+스터디 공유 출력 예시 (v1.32.5 기준. v1.37 에서도 항목 구성은 같고 Pod 이름·수치만 다름)
 
-### 3-6. 정리·로그
+```
+## 해당 노드에서 실행한 파드들의 자원 할당량
+Non-terminated Pods:          (11 in total)
+  Namespace                   Name                                           CPU Requests  CPU Limits  Memory Requests  Memory Limits  Age
+  ---------                   ----                                           ------------  ----------  ---------------  -------------  ---
+  kube-system                 coredns-7db6d8ff4d-bjssc                       100m (2%)     0 (0%)      70Mi (0%)        170Mi (1%)     37m
+  kube-system                 coredns-7db6d8ff4d-zbncd                       100m (2%)     0 (0%)      70Mi (0%)        170Mi (1%)     37m
+  kube-system                 etcd-myk8s-control-plane                       100m (2%)     0 (0%)      100Mi (0%)       0 (0%)         37m
+  kube-system                 kindnet-95vz7                                  100m (2%)     100m (2%)   50Mi (0%)        50Mi (0%)      37m
+  kube-system                 kube-apiserver-myk8s-control-plane             250m (6%)     0 (0%)      0 (0%)           0 (0%)         37m
+  kube-system                 kube-controller-manager-myk8s-control-plane    200m (5%)     0 (0%)      0 (0%)           0 (0%)         37m
+  kube-system                 kube-ops-view-7dc76bf4dc-p7dzs                 300m (7%)     300m (7%)   500Mi (3%)       500Mi (3%)     4m13s
+  kube-system                 kube-proxy-g6wk6                               0 (0%)        0 (0%)      0 (0%)           0 (0%)         37m
+  kube-system                 kube-scheduler-myk8s-control-plane             100m (2%)     0 (0%)      0 (0%)           0 (0%)         37m
+  kube-system                 metrics-server-66855dcc7c-tgl8v                100m (2%)     0 (0%)      200Mi (1%)       0 (0%)         34s
+  local-path-storage          local-path-provisioner-988d74bc-fpjpk          0 (0%)        0 (0%)      0 (0%)           0 (0%)         37m
+
+## 해당 노드에서 실행 중인 파드들의 자원 할당량 총합
+Allocated resources:
+  (Total limits may be over 100 percent, i.e., overcommitted.)
+  Resource           Requests     Limits
+  --------           --------     ------
+  cpu                1350m (33%)  400m (10%)
+  memory             990Mi (6%)   890Mi (5%)
+```
+
+읽는 법
+
+| 항목 | 의미 | 예시에서 |
+|---|---|---|
+| CPU Requests | 스케줄러가 예약하는 최소 CPU. 합이 노드 용량을 넘으면 새 Pod 못 올라감 | 1350m = 1.35 코어 예약 |
+| CPU Limits | 넘으면 스로틀링 되는 상한 | 400m. limit 없는 Pod 가 많아서 작음 |
+| Memory Requests | 예약 메모리 | 990Mi |
+| Memory Limits | 넘으면 OOMKilled | 890Mi. requests 보다 작은 건 limit 없는 Pod 가 많아서 |
+| 괄호 % | 노드 Allocatable 대비 비율 | 1350m = 33% → 노드 CPU 약 4코어 |
+| `0 (0%)` limit | 상한 없음 = 노드 여유만큼 사용 가능 | apiserver, etcd 등 |
+
+- **Requests 합 = 스케줄링 기준**, **Limits 합 = 과다 할당(overcommit) 여부**. limits 합은 100% 넘어도 됨
+- QoS 클래스 : requests = limits 인 Pod 는 Guaranteed (예 : kube-ops-view, kindnet), 일부만 있으면 Burstable, 둘 다 없으면 BestEffort (kube-proxy)
+- 메모리 부족 시 BestEffort → Burstable → Guaranteed 순으로 먼저 쫓겨남
+
+### 3-6. 삭제
 
 ```bash
-kind export logs ./kind-logs --name lab   # 문제 생기면 노드 로그 통째로 수집
-kind delete cluster --name lab
+kind delete cluster --name myk8s
 ```
+
+### 3-7. 자동 검증 스크립트
+
+```bash
+git clone -b mlpe-study-diagrams https://github.com/riverjin839/devopser.git
+cd devopser/kind-lab && ./verify.sh          # --keep 붙이면 클러스터 남김
+```
+
+- 순서 : 도구 확인 → kind 배포(v1.37.0 확인) → helm repo → kube-ops-view(30003 응답 200) → metrics-server → `kubectl top` 대기(최대 2분) → describe node → 삭제
+- 정상이면 `[PASS]` 9줄 + `kubectl top` 결과 + Allocated resources 가 출력됨
 
 ---
 
-## 4. 폐쇄망에서 kind 쓰기
+## 4. 폐쇄망에서 할 때
 
 <!-- diagram: mlpe-kind-03-airgap.html -->
 
-노드 이미지 반입
+반입 목록
+
+| 종류 | 대상 |
+|---|---|
+| 노드 이미지 | `kindest/node:v1.37.0@sha256:a1ed56cf…` |
+| 앱 이미지 | kube-ops-view, metrics-server(`registry.k8s.io/metrics-server/metrics-server:v0.9.0`) |
+| 차트 | `helm pull geek-cookbook/kube-ops-view --version 1.2.2`, `helm pull metrics-server/metrics-server --version 3.14.0` → tgz |
 
 ```bash
-# 인터넷 되는 PC
+# 인터넷 PC : 이미지·차트 확보
 docker pull kindest/node:v1.37.0@sha256:a1ed56cfb0e7b93589bdf97c8cd566405a265939e3620fc4f5de89adff580ae5
 docker save kindest/node:v1.37.0@sha256:a1ed56cfb0e7b93589bdf97c8cd566405a265939e3620fc4f5de89adff580ae5 | gzip > kind-node-v1.37.0.tar.gz
+helm pull metrics-server/metrics-server --version 3.14.0
 
 # 폐쇄망 PC
 docker load -i kind-node-v1.37.0.tar.gz
-docker image tag <로드된 이미지 ID> kindest/node:v1.37.0
-kind create cluster --config kind-airgap.yaml
+kind load docker-image registry.k8s.io/metrics-server/metrics-server:v0.9.0 --name myk8s   # 앱 이미지는 노드에 직접 적재
+helm install metrics-server ./metrics-server-3.14.0.tgz --set 'args[0]=--kubelet-insecure-tls' -n kube-system
 ```
 
-앱 이미지는 사내 Nexus 미러로
-
-```yaml
-# kind-airgap.yaml : 노드에 certs.d 마운트
-kind: Cluster
-apiVersion: kind.x-k8s.io/v1alpha4
-name: lab
-nodes:
-- role: control-plane
-  image: kindest/node:v1.37.0
-  extraMounts:
-  - hostPath: ./certs.d
-    containerPath: /etc/containerd/certs.d
-- role: worker
-  image: kindest/node:v1.37.0
-  extraMounts:
-  - hostPath: ./certs.d
-    containerPath: /etc/containerd/certs.d
-containerdConfigPatches:
-- |-
-  [plugins."io.containerd.grpc.v1.cri".registry]
-    config_path = "/etc/containerd/certs.d"
-```
-
-```toml
-# certs.d/docker.io/hosts.toml : docker.io 요청을 Nexus 프록시로
-server = "https://registry-1.docker.io"
-
-[host."https://nexus.internal:8443"]
-  capabilities = ["pull", "resolve"]
-  skip_verify = true          # 사내 CA 를 노드에 넣었으면 false + ca 지정
-```
-
-- dmz-nexus 처럼 Docker Hub 프록시가 이미 있으면 노드 이미지도 `nexus.internal:8443/kindest/node:...` 로 바로 pull 가능 → 반입 단계 생략
-- 사내 CA 는 노드 컨테이너 안에도 있어야 함 → `extraMounts` 로 CA 파일 마운트하거나 `skip_verify` 로 실습만
+- dmz-nexus 같은 Docker Hub·Helm 프록시가 있으면 반입 없이 `helm repo add` 주소만 Nexus 로 바꿔서 그대로 진행 가능
 
 ---
 
 ## 5. 검증 결과
 
-이 페이지 내용을 클라우드 작업 환경에서 실제로 돌려본 결과임.
-
 | 검증 항목 | 방법 | 결과 |
 |---|---|---|
-| kind 최신 버전 | GitHub 태그 조회 + 바이너리 실행 | v0.33.0 (go1.26.7) 동작 확인 |
-| 기본 노드 이미지 | kind v0.33.0 소스 `pkg/apis/config/defaults/image.go` | `kindest/node:v1.37.0@sha256:a1ed56cf…` 확인 |
-| 클러스터 설정 문법 | `kind create cluster --config` 파싱 | kind-lab.yaml, kind-airgap.yaml 통과. 잘못된 role 은 즉시 거부되는 것까지 확인 |
-| 매니페스트 | K8s 1.37.0 strict 스키마 검증 | Deployment·Service 통과. 타입 틀린 nodePort 는 거부 확인 |
-| hosts.toml | TOML 파서 | 정상 |
-| 앱 서버 | 로컬 실행 후 curl | `hello from ...` 200 응답 |
-| verify.sh | bash 문법 + shellcheck + 도구 모의 실행 | 경고 0, 9단계 흐름 정상 |
-| **실제 클러스터 기동** | `kind create cluster` | **미검증** : 작업 환경에서 Docker Hub(`registry-1.docker.io`) 접근이 막혀 노드 이미지 pull 단계에서 중단 |
+| kind 최신 버전 | GitHub 태그 + 바이너리 실행 | v0.33.0 확인 |
+| 노드 이미지 | kind v0.33.0 소스의 기본 이미지 값 | `kindest/node:v1.37.0@sha256:a1ed56cf…` 확인 |
+| 클러스터 설정 | `kind create cluster --config -` 파싱 | 통과 (이미지 pull 단계까지 진행) |
+| 차트 버전 | 차트 저장소 index.yaml (GitHub gh-pages) | kube-ops-view 1.2.2, metrics-server 3.14.0 존재 확인 |
+| verify.sh | bash 문법 + shellcheck | 경고 0 |
+| **실제 클러스터 기동** | `kind create cluster` | **미검증** : 작업 환경에서 Docker Hub 접근이 막혀 노드 이미지 pull 에서 중단 |
 
-> 주의 : 실제 기동 확인은 Docker Hub 또는 Nexus 프록시에 접근되는 PC 에서 `./verify.sh` 한 번 돌리면 끝남. `[PASS]` 9줄이 나오면 이 페이지 전체가 검증된 것.
-
-- 작업 환경에서 cgroup v1 경고(`cgroup v1 is deprecated ...`)도 확인됨 → 실습 PC 는 cgroup v2 권장
+> 주의 : 최종 확인은 Mac 에서 `./verify.sh` 한 번이면 끝남. `[PASS]` 9줄이 나오면 이 페이지 전체가 검증된 것. 결과를 받으면 이 표를 실제 결과로 바꿀 예정.
 
 ---
 
@@ -327,27 +251,27 @@ server = "https://registry-1.docker.io"
 
 | 증상 | 원인 | 조치 |
 |---|---|---|
-| `too many open files`, kube-proxy 재시작 반복 | inotify 한도 | 2장 sysctl |
-| `ImagePullBackOff` (hello-lab) | `kind load` 안 함 또는 `latest` 태그 + Always | `kind load` 후 `imagePullPolicy: IfNotPresent` |
-| `curl localhost:8080` 응답 없음 | 포트 충돌, extraPortMappings 누락 | `docker ps` 로 `0.0.0.0:8080->30080` 확인 |
-| 노드 NotReady 오래 감 | Docker 메모리 부족 | Docker 메모리 8GB 이상 |
-| `failed to pull image kindest/node` | 외부 접근 불가 | 4장 반입 또는 Nexus 프록시 |
-| kubectl 경고·오동작 | 클라이언트·서버 버전 차 큼 | kubectl v1.36~1.38 사용 |
+| `error: Metrics API not available` | metrics-server 기동 직후 | 30~60초 대기 후 재시도 |
+| metrics-server 로그에 `x509: cannot validate certificate` | kubelet 인증서 검증 | `--kubelet-insecure-tls` 확인 |
+| `localhost:30003` 접속 안 됨 | 포트 매핑 누락, NodePort 번호 불일치 | `docker ps` 포트, `kubectl get svc -n kube-system` 확인 |
+| WSL2 에서 localhost 안 됨 | WSL 네트워크 모드 | eth0 IP 로 접속 |
+| kube-ops-view `ImagePullBackOff` | 이미지 아키텍처 (arm64) 또는 외부 접근 불가 | 3-2 주의 참고, 폐쇄망은 4장 |
+| `port is already allocated` | 30000~30003 사용 중 | 기존 클러스터 `kind delete`, 점유 프로세스 종료 |
 
 ---
 
 ## 7. 용어 정리
 
 - **kind(Kubernetes IN Docker)** : Docker 컨테이너를 노드로 쓰는 로컬 K8s 도구
-- **노드 이미지(node image)** : kubelet·containerd·기본 이미지가 든 `kindest/node` 이미지
-- **digest** : 이미지 내용의 sha256 지문. 태그가 바뀌어도 같은 이미지 보장
-- **extraPortMappings** : 호스트 포트를 노드 컨테이너 포트로 연결하는 kind 설정
-- **extraMounts** : 호스트 디렉터리를 노드 컨테이너 안에 마운트
-- **kind load** : 로컬 이미지를 노드 containerd 로 직접 적재
-- **NodePort** : 모든 노드의 같은 포트(30000~32767)로 Service 를 여는 방식
-- **kindnet** : kind 기본 CNI
-- **certs.d / hosts.toml** : containerd 레지스트리 미러·인증서 설정 방식
-- **cgroup v2** : 리눅스 자원 제어 통합 계층. 최신 K8s 기본 전제
+- **extraPortMappings** : 호스트 포트를 kind 노드 컨테이너 포트로 연결하는 설정
+- **NodePort** : 노드의 30000~32767 포트로 Service 를 여는 방식
+- **kube-ops-view** : 클러스터 노드·Pod 배치를 시각화하는 대시보드
+- **metrics-server** : kubelet 의 CPU·메모리 지표를 모아 Metrics API 로 제공
+- **Metrics API** : `metrics.k8s.io` API 그룹. `kubectl top`, HPA 가 사용
+- **Requests / Limits** : 스케줄 예약량 / 사용 상한
+- **Allocatable** : 노드 전체 자원에서 시스템 예약분을 뺀, Pod 에 줄 수 있는 양
+- **overcommit** : Limits 합이 노드 용량을 넘는 상태
+- **QoS 클래스** : Guaranteed · Burstable · BestEffort. 자원 부족 시 축출 순서 결정
 
 ---
 
@@ -355,15 +279,14 @@ server = "https://registry-1.docker.io"
 
 | 항목 | 핵심 |
 |---|---|
-| 버전 | kind v0.33.0, 노드 v1.37.0 (digest 고정), kubectl v1.37 |
-| 구조 | 노드 = Docker 컨테이너, control-plane 1 + worker 2 |
-| 핵심 설정 | `image@sha256`, `extraPortMappings`, `containerdConfigPatches` |
-| 이미지 | `docker build` → `kind load docker-image` → `IfNotPresent` |
-| 접속 | localhost:8080 → 30080 → NodePort → Pod 분산 |
-| 검증 | `verify.sh` 9단계 PASS |
-| 폐쇄망 | 노드 이미지 save/load, 앱 이미지는 certs.d 로 Nexus 미러 |
-| 이번 검증 | 버전·설정·매니페스트·스크립트 확인 완료, 실제 기동은 외부 접근 막혀 미검증 |
+| 버전 | kind v0.33.0, 노드 v1.37.0 (digest 고정), metrics-server 차트 3.14.0 |
+| 클러스터 | 단일 노드 myk8s, 30000~30003 포트를 호스트에 개방 |
+| kube-ops-view | helm 설치, NodePort 30003, 브라우저로 배치 확인 |
+| metrics-server | `--kubelet-insecure-tls` (실습 한정), Metrics API 등록 |
+| top vs describe | top = 실제 사용량, describe = Requests·Limits 예약량 |
+| 할당량 해석 | Requests 합 = 스케줄 기준, Limits 합 = overcommit, % = Allocatable 대비 |
+| 검증 | 버전·설정·차트·스크립트 확인 완료, 실제 기동은 verify.sh 로 확인 필요 |
 
-**kind 는 노드를 컨테이너로 띄워서 최신 K8s 를 1~2분 만에 만들고 지우는 실습용 클러스터. 이미지는 kind load 로 넣으면 레지스트리 없이도 됨.**
+**kind 로 띄운 단일 노드에 metrics-server 를 붙이면, 실제 사용량(top)과 예약량(describe)을 나란히 비교하며 자원 설계를 연습할 수 있음.**
 
 관련 글 : CH3. Building applications on Kubernetes
