@@ -110,7 +110,7 @@ docker:
 
 | 항목 | 책 (BentoML 1.1) | 현재 (BentoML 1.4) |
 |---|---|---|
-| 서비스 정의 | `bentoml.Service` + `to_runner()` | `@bentoml.service` 클래스 + `@bentoml.api` 메서드 |
+| 서비스 정의 | `bentoml.Service` 와 `to_runner()` | `@bentoml.service` 클래스 + `@bentoml.api` 메서드 |
 | 모델 분리 실행 | Runner | 서비스 분리 + `bentoml.depends()` |
 | 시작 훅 | `@svc.on_startup` | 클래스 `__init__` |
 | K8s 배포 | Yatai | Yatai 는 1.2 대응 "공사 중" 상태로 2024-05 이후 커밋 없음. 공식 방향은 BentoCloud |
@@ -274,7 +274,7 @@ RemoteWorkspace("http://evidently-ui.monitoring:8000").add_run(PROJECT_ID, snaps
 ## 4. 용어 정리
 
 - **Bento** : 모델·코드·의존성·설정을 묶은 BentoML 배포 단위
-- **bentofile.yaml** : Bento 패키징 정의. Dockerfile 의 간소판
+- **`bentofile.yaml`** : Bento 패키징 정의. Dockerfile 의 간소판
 - **Runner** : BentoML 1.1 의 추론 실행 단위. 독립 워커·독립 확장
 - **Yatai** : BentoML 의 K8s 배포 운영 컴포넌트 (현재 개발 정체)
 - **Swagger(OpenAPI) 문서** : REST API 를 기계가 읽을 수 있게 기술한 명세. 브라우저에서 바로 호출 테스트
@@ -292,7 +292,7 @@ RemoteWorkspace("http://evidently-ui.monitoring:8000").add_run(PROJECT_ID, snaps
 | 항목 | 핵심 |
 |---|---|
 | 채운 블록 | 모델 배포(6) · 모델 API(A) · 모델 모니터링(8) |
-| BentoML 흐름 | MLflow 모델 import → service.py + bentofile → build → push → Yatai 배포 |
+| BentoML 흐름 | MLflow 모델 import → `service.py` 와 bentofile → build → push → Yatai 배포 |
 | 구성 | API Server Pod + Runner Pod, 독립 확장. Swagger · `/metrics` 자동 |
 | 드리프트 | 참조 vs 현재 분포를 KS · 카이제곱 · Wasserstein 으로 비교 |
 | 배치 감시 | KFP 추론 파이프라인에 detect_drift 삽입, 드리프트면 중단 |

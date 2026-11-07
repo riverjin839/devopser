@@ -202,7 +202,7 @@ KFP v1 → v2 변화.
 |---|---|
 | `InputPath(str)` / `OutputPath(str)` | `Input[T]` / `Output[T]` |
 | `_path`, `_file` 접미사 자동 제거 규칙 | 이름 규칙 없음, 타입으로 구분 |
-| 경로 문자열 | `.path` + `.metadata` 가진 객체 |
+| 경로 문자열 | `.path` 와 `.metadata` 가진 객체 |
 
 ### 2-8. KFP v2 아티팩트 타입
 
@@ -265,7 +265,7 @@ x_val, x_test, y_val, y_test = train_test_split(
 | 순서 | 컴포넌트 | 포인트 |
 |---|---|---|
 | 1 | download_ml25m_data | zip 을 `Output[Artifact]` 경로에 바로 씀 |
-| 2 | unzip_data | ratings.csv, movies.csv 만 추출 → 출력 2개 |
+| 2 | unzip_data | `ratings.csv`, `movies.csv` 만 추출 → 출력 2개 |
 | 3 | csv_to_parquet × 2 | 같은 컴포넌트 재사용, 병렬 실행 |
 | 4 | split_dataset | 출력 = 폴더 1개 안에 train · val · test Parquet |
 | 5 | put_to_minio × 2 | 파일·폴더 둘 다 업로드. 파일명 지정 파라미터 |
@@ -300,7 +300,7 @@ client.upload_pipeline("dataPrep_pipeline.yaml", pipeline_name="ml-25m-processin
 | 종류 | 정의 | 의존성 | 언제 |
 |---|---|---|---|
 | 경량 파이썬 | `@dsl.component` | 실행 시 pip | 프로토타입 |
-| 컨테이너화 파이썬 | `@dsl.component(target_image=...)` + `kfp component build` | 빌드 시 이미지에 | 무거운 의존성, 여러 모듈 |
+| 컨테이너화 파이썬 | `@dsl.component(target_image=...)` 와 `kfp component build` | 빌드 시 이미지에 | 무거운 의존성, 여러 모듈 |
 | 컨테이너 | `component.yaml` 또는 `@dsl.container_component` | 직접 만든 이미지 | 비파이썬 도구 (5장 방식) |
 
 ### 2-11. 책 vs 현재
