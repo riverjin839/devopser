@@ -257,7 +257,7 @@ for f in glob.glob("samples/**.png"):
 - **IoU(Intersection over Union)** : 예측 박스와 정답 박스의 겹침 비율
 - **mAP(mean Average Precision)** : 클래스·IoU 기준별 평균 정밀도. 탐지 모델 대표 지표
 - **신뢰도(confidence score)** : 탐지 결과에 대한 모델 확신 정도 0~1
-- **best.pt** : 학습 중 검증 성능이 가장 좋았던 가중치
+- **`best.pt`** : 학습 중 검증 성능이 가장 좋았던 가중치
 
 ---
 
@@ -266,12 +266,12 @@ for f in glob.glob("samples/**.png"):
 | 항목 | 핵심 |
 |---|---|
 | 채운 블록 | 모델 학습(4) · 평가 검증(5) |
-| YOLO 설정 | data.yaml (경로 · 클래스) + `model.train()` |
+| YOLO 설정 | `data.yaml` (경로 · 클래스) 와 `model.train()` |
 | 모델 크기 | Nano 로 가능성 확인 후 키움. 요구사항과 trade-off 우선 |
 | 시스템 의존성 | `@dsl.container_component` 와 ContainerSpec 으로 apt · pip · 스크립트 실행 |
 | 검증 | 공식 베이스 이미지 + `model.val()` → mAP 를 `Metrics` 로 기록 |
 | 파이프라인 | download → split → train → validate, 결과는 KFP UI 에서 비교 |
-| 수동 확인 | best.pt 로 직접 추론. 1 → 5 epoch 에서 눈에 띄게 개선 |
+| 수동 확인 | `best.pt` 로 직접 추론. 1 → 5 epoch 에서 눈에 띄게 개선 |
 | 현재 기준 보완 | YOLO11 · 26, libgl1 패키지명, AGPL 라이선스 |
 | 실무 | 의존성은 이미지로, GPU 지정, 일부 데이터로 먼저 확인 |
 
