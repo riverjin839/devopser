@@ -94,3 +94,7 @@ SPECS = {
         edges=[E("img", "yolo", ""), E("yolo", "cam", "특징 맵", "emphasis"),
                E("rate", "emf", "", ""), E("emf", "why", "유사 사용자 평점", "emphasis")]),
 }
+
+for _k, _v in SPECS.items():
+    if "map" not in _k:
+        _v.setdefault("size", [300, 110]); _v["stepx"] = 360; _v["stepy"] = max(_v.get("stepy", 150) + 80, 230)

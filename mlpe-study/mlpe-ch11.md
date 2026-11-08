@@ -295,7 +295,7 @@ recs = EMFExplainer(emf, recommendations, data).explain_recommendations()
 - **기존 관측 스택 재사용** : 클러스터에 이미 Prometheus · Grafana · Loki(또는 OpenSearch)가 있으면 ML 서빙도 같은 스택으로. ML 전용 스택을 따로 만들지 말 것
 - **라벨 카디널리티** : 커스텀 메트릭에 user_id · 이미지명 같은 고유값을 라벨로 넣으면 시계열 폭증 → Prometheus 메모리 문제. 라벨은 모델명 · 버전 · 엔드포인트 정도로
 - **알림 설계** : `up == 0` 같은 생존 알림 + 모델 지표 알림(신뢰도 p90 하락, 드리프트 비율) 을 severity 로 구분. 1,000명 멀티테넌트면 namespace 라벨로 팀별 라우팅 → SmartITSM 같은 티켓 시스템 webhook 연동
-- **메일 계정** : 책처럼 개인 Gmail 앱 비밀번호를 values.yaml 에 넣지 말 것. 사내 SMTP 릴레이 + Secret
+- **메일 계정** : 책처럼 개인 Gmail 앱 비밀번호를 `values.yaml` 에 넣지 말 것. 사내 SMTP 릴레이 + Secret
 - **이미지 저장 정책** : 드리프트 분석용으로 추론 이미지를 저장하면 신분증 = **개인정보**. 원본 저장 대신 속성값(밝기 · 대비 · 크기)만 저장하거나 마스킹 · 보관 기한 · 접근 통제 필수
 - **드리프트 주기** : 실시간이 아니라 일 · 주 단위 배치 Job (KFP recurring run 또는 Airflow) 로. 결과 수치를 Prometheus Pushgateway · 메트릭으로 내보내면 같은 알림 체계에 태울 수 있음
 - **설명 가능성 범위** : 규제 · 고객 응대가 필요한 모델(신용, 의료)은 사전에 설명 방식 확정. 내부 도구 수준이면 주기적 Eigen-CAM 샘플 점검 정도로 충분

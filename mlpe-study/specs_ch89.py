@@ -85,3 +85,7 @@ SPECS = {
                E("staging", "review", ""), E("review", "prod", "승인", "emphasis"),
                E("prod", "nb", "alias 로드", "emphasis")]),
 }
+
+for _k, _v in SPECS.items():
+    if "map" not in _k:
+        _v.setdefault("size", [300, 110]); _v["stepx"] = 360; _v["stepy"] = max(_v.get("stepy", 150) + 80, 230)
