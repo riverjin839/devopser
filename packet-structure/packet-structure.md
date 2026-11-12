@@ -210,3 +210,5 @@ ping -M do -s 1422 <상대 Pod IP>
 | 함정 | 방화벽 포트 불일치, MTU 불일치, 터널 모드 착각 |
 
 **헤더를 층별로 나눠 읽으면 터널이든 RoCE 든 같은 방법으로 추적할 수 있다.**
+
+관련 글 : Cisco N9K ECMP - K8s(Cilium BGP) 기준 정리 · Cilium Gateway API LB VIP 헤어핀
