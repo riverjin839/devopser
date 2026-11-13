@@ -21,14 +21,16 @@
 | iBGP · eBGP 선택 | 노드 ↔ leaf 는 eBGP, 클러스터별 ASN 1개 |
 | Egress Gateway 고가용 | 클러스터별 Gateway 노드 그룹 + Egress IP BGP 광고 |
 | 어느 위치 client 든 AIStor 분산 | 내부 = 소켓 LB(Global Service), 외부 = VIP /32 ECMP |
+| client 인입 = Super Spine · Spine · Leaf · 동일 망 | VIP 는 eTP Cluster 와 Maglev, DSR(Geneve). 가까운 노드로 들어와도 백엔드는 전체 Pod 중에서 고름 |
 
 <!-- diagram: ydl-01-overview.html -->
 
 - 동서(Pod 간, AIStor EC 복제) 트래픽 = PRIVATE VRF
 - 남북(외부 client, Egress) 트래픽 = PUBLIC VRF, Border Leaf 로만 출입
 - AIStor 는 노드마다 Pod 1개(DaemonSet) → 모든 스토리지 노드가 VIP 를 광고하는 구조
+- client 는 Super Spine 보다 같은 Spine · 같은 Leaf · 동일 망에서 더 많이 들어옴 → BGP 는 가까운 노드를 먼저 고르므로 패브릭 ECMP 만으로는 균등 분산이 안 됨
 
-**AIStor 분산은 LB 장비가 아니라 BGP ECMP 와 Cilium 소켓 LB 두 갈래로 끝낸다.**
+**패브릭은 가까운 노드까지만 데려오고, 어느 AIStor Pod 가 받을지는 Cilium Maglev 가 정한다.**
 
 ---
 
@@ -65,6 +67,7 @@
 - underlay = eBGP 로 루프백(router-id, VTEP)만 교환함. OSPF · IS-IS 없음
 - overlay = eBGP EVPN. Spine · Super Spine 은 VTEP 없는 경로 중계(route server) 역할
 - 장애 감지는 패브릭 링크에 BFD 를 붙여 IGP 수준으로 맞춤
+- "IGP ignore" 를 iBGP EVPN 의 `bestpath igp-metric ignore`(VTEP 거리 무시) 로 쓴 거라면 : Super Spine · Spine 인입은 그것으로 풀리지만 같은 leaf 인입 쏠림은 안 풀림 (3-2 참고). NX-OS 지원 여부는 NW팀 확인 필요
 
 > 주의 : Type-5 경로의 RD 는 leaf 별로 고유(rd auto)해야 함. RD 가 같으면 Spine 에서 경로가 하나로 합쳐져 ECMP 가 사라짐
 
@@ -78,7 +81,7 @@
 |---|---|---|
 | 용도 | Pod 간, ClusterMesh, AIStor EC 복제, kubelet | 외부 client 의 VIP 접근, Egress SNAT |
 | leaf 쪽 | VRF PRIVATE, leaf 별 전용 서브넷 | VRF PUBLIC, leaf 별 전용 서브넷 |
-| Cilium 광고 | PodCIDR, 노드 루프백 /32 | LoadBalancer IP /32, Egress IP /32 |
+| Cilium 광고 | PodCIDR, 노드 루프백 /32, AIStor VIP /32 | LoadBalancer IP /32, Egress IP /32 |
 | 노드 라우팅 | 내부 대역(예 : 10.0.0.0/8) → private 2경로 ECMP | 기본 경로 → public 2경로 ECMP |
 
 - Cilium BGP 는 경로를 받아 커널에 넣지 않음(OSS 기준) → 노드 라우팅은 정적 경로로 고정
@@ -110,7 +113,7 @@
 | 노드별 ASN | 노드 단위 경로 추적 쉬움 | ASN 300개 관리, 설정 생성 자동화 필요 | 거의 안 씀 |
 
 - leaf 는 `neighbor <랙 서브넷>/26 remote-as 65101` 형태의 prefix 피어링으로 노드 설정을 개별로 안 넣음
-- 피어별 수신 필터 : PRIVATE = Pod 대역과 노드 루프백만, PUBLIC = LB 풀 · Egress 풀 /32 만. maximum-prefix 로 상한을 둠
+- 피어별 수신 필터 : PRIVATE = Pod 대역, 노드 루프백, AIStor VIP 풀 /32. PUBLIC = LB 풀 · Egress 풀 /32. maximum-prefix 로 상한을 둠
 - graceful restart 를 켬 → cilium-agent 재시작 때 VIP 경로가 바로 빠지지 않음
 
 #### 2-3-3. VIP 가 ECMP 로 퍼지는 경로
@@ -134,7 +137,9 @@ client 위치에 따라 경로를 두 갈래로 나눔.
 | 경로 | client 위치 | 분산 지점 | 분산 단위 |
 |---|---|---|---|
 | A. 소켓 LB | Com K8s 안 Pod (Spark, Trino, Airflow) | Cilium 소켓 LB 가 connect() 때 AIStor Pod IP 를 고름 | 연결 |
-| B. VIP ECMP | 외부 서버, 다른 DC, 사용자망 | 패브릭 ECMP 가 VIP /32 광고 노드 중 하나를 고름 | 연결 (5-tuple 해시) |
+| B. VIP | K8s 밖 서버, 같은 랙 · 같은 Pod · 다른 Pod · 외부 | 패브릭이 가까운 노드로 보내고, 그 노드의 Maglev 가 전체 Pod 중 하나를 고름 | 연결 |
+
+- 경로 A 는 원래 위치와 무관함. 토폴로지를 안 보고 전체 백엔드 중에서 고름
 
 ### 3-1. 경로 A - Global Service
 
@@ -142,23 +147,57 @@ client 위치에 따라 경로를 두 갈래로 나눔.
 - Com 클러스터에는 AIStor Pod 가 없어서 affinity 는 의미 없음. 기본값(none) 그대로
 - VIP · NAT 없이 Pod IP 로 바로 감 → 홉 1개, client IP 그대로 보임
 
-### 3-2. 경로 B - VIP /32 와 externalTrafficPolicy Local
+### 3-2. 인입 위치별로 BGP 가 고르는 경로
 
-| 방식 | 장점 | 단점 |
-|---|---|---|
-| eTP Local (기본안) | 로컬 Pod 로만 전달, client IP 보존, 노드 간 2차 홉 없음 | ECMP 재해시 때 기존 연결이 다른 노드로 가면 끊김 |
-| eTP Cluster + Maglev | 어느 노드로 가도 같은 백엔드를 고름 → 재해시에 강함 | 2차 홉, SNAT 로 client IP 사라짐 (DSR 은 패브릭 검증 필요) |
+eBGP 패브릭에서는 AS-path 가 짧은 경로가 이김. client 가 들어오는 위치마다 VIP 경로 수가 달라짐.
 
-- eTP Local 이면 로컬 백엔드가 없는 노드는 VIP 광고를 멈춤 → 장애 노드는 자동으로 빠짐
-- 점검 순서 : 노드 cordon → AIStor Pod 제거로 광고 철회 → 작업. 갑작스러운 재해시를 피함
-- S3 SDK 재시도가 기본으로 있어 연결 끊김은 재시도로 흡수됨. 단, 대용량 멀티파트 업로드는 part 단위 재시도 설정 확인
+<!-- diagram: ydl-06-ingress-position.html -->
+
+| 인입 위치 | VIP 경로 선택 | 받는 노드 | 쏠림 |
+|---|---|---|---|
+| Super Spine (다른 Pod, Border) | Storage leaf 12대 경로의 AS-path 길이가 같음 → ECMP | 48노드 | 없음 |
+| Spine (Storage Pod 안 다른 leaf) | 같은 Pod leaf 경로 길이가 같음 → ECMP | 48노드 | 없음 |
+| Leaf (스토리지 랙과 같은 leaf) | 로컬 노드 경로 AS-path 1 vs 원격 3 → 로컬만 선택 | 그 랙 8노드 | 있음 |
+| 동일 망 (노드와 같은 서브넷) | 게이트웨이가 같은 leaf 라 Leaf 인입과 같음 | 그 랙 8노드 | 있음 |
+
+- iBGP EVPN 패브릭이어도 같음. 로컬 노드 경로(eBGP)가 원격 경로(iBGP)보다 우선이라 로컬만 남음
+- eTP Local 이면 받은 노드의 로컬 Pod 가 그대로 처리함 → 같은 랙 client 가 많을수록 그 랙 8노드만 TLS · EC 연산을 떠안음
+
+> 주의 : 동일 망 · 같은 leaf client 비중이 큰 환경에서 eTP Local 을 쓰면 랙 단위 핫스팟이 생김. 이전 기본안(eTP Local)을 아래 3-3 으로 바꿈
+
+### 3-3. VIP 기본안 - eTP Cluster, Maglev, DSR(Geneve)
+
+| 방식 | 장점 | 단점 | 이번 판단 |
+|---|---|---|---|
+| eTP Local | 홉 없음, client IP 보존 | 인입 위치 쏠림이 백엔드 쏠림으로 그대로 이어짐, ECMP 재해시 때 끊김 | Super Spine 인입만 있는 VIP 에만 사용 |
+| eTP Cluster, Maglev, DSR(Geneve) | 어느 노드로 들어와도 같은 백엔드 계산 → 위치 쏠림과 재해시에 강함. 응답은 백엔드가 client 로 바로 보냄 | 요청 방향 1홉 추가 (PRIVATE 망), Geneve 헤더만큼 MTU 여유 필요 | 기본안 |
+| eTP Cluster, Maglev, SNAT | 패브릭 요구 없음 | client IP 사라짐, 응답도 인입 노드를 거침 | DSR 검증 실패 시 대안 |
+
+- 인입 노드는 eBPF 로 전달만 함 → 쏠려도 부담이 작음. 실제 S3 처리는 Maglev 가 고른 Pod 가 함
+- GET 응답(대용량)은 DSR 로 인입 노드를 안 거침. PUT 은 요청이 인입 노드를 한 번 더 지나감 → 같은 랙 대량 업로드 client 는 경로 A 나 Sidekick 으로 돌림
+- DSR 전달은 IP 옵션 방식이 아니라 Geneve 방식을 씀. IP 옵션 패킷은 스위치에서 소프트웨어 처리로 빠져 SYN 이 버려진 사례가 있음
+- native routing 에서 Geneve DSR 을 쓰려면 tunnelProtocol 을 geneve 로 명시해야 함 (자동 지정 안 함)
+- VIP 는 모든 AIStor 노드가 광고함 → DSR 응답의 출발지(VIP)가 각 leaf 에서 정상 경로로 보임. 그래도 leaf uRPF 는 loose 또는 끔
+
+### 3-4. 동일 망 client 규칙
+
+- VIP 풀은 노드 · client 서브넷과 겹치지 않는 별도 라우팅 대역으로 둠 → ARP 불필요, Cilium L2 Announcement 미사용
+- VIP 를 PUBLIC · PRIVATE 두 VRF 에 모두 광고함 → PRIVATE 서브넷에 붙은 서버도 VIP 로 바로 접근
+- 응답은 client 대역 기준으로 나감 (PUBLIC client = 기본 경로, PRIVATE client = 내부 정적 경로) → 들어온 VRF 로 대칭 복귀
+
+### 3-5. 패브릭 쪽 보조 (선택)
+
+- iBGP EVPN 패브릭이면 leaf VRF 에 `maximum-paths mixed` 를 넣어 로컬 eBGP 경로와 원격 EVPN 경로를 같이 ECMP 로 묶을 수 있음
+- 단, 로컬 노드 8개 경로와 원격 VTEP 11개 경로가 같은 비중으로 묶여 노드 단위로는 여전히 고르지 않음 → Maglev 를 대신하지 못함
+- eBGP 패브릭은 AS-path 길이가 달라 이 방법이 안 먹힘. 이번 설계는 패브릭을 건드리지 않고 Maglev 로 해결함
 
 > 주의 : ECMP 해시는 5-tuple(L4 포트 포함)을 유지해야 함. 2-tuple(IP 만)로 바꾸면 SNAT 된 client(Egress GW, NAT 뒤 서버)의 연결이 전부 노드 하나로 몰림
 
-### 3-3. 보조 수단
+### 3-6. 보조 수단
 
-- Sidekick : client 옆 사이드카 LB, least-connection 과 헬스체크. 대형 Spark 잡처럼 연결 수가 적고 큰 경우 쏠림 보완용
-- 1.20 의 EndpointSlice 가중치(`service.cilium.io/weight`, 0 = 드레인) : eTP Cluster 서비스에서 노드 단계적 제외용
+- Sidekick : client 옆 사이드카 LB, least-connection 과 헬스체크. 같은 랙 대량 업로드, 연결 수가 적고 큰 Spark 잡 보완용
+- 1.20 의 EndpointSlice 가중치(`service.cilium.io/weight`, 0 = 드레인) : 점검 노드의 AIStor Pod 를 단계적으로 빼는 용도
+- 점검 순서 : 가중치 0 으로 드레인 → 노드 cordon → 작업. Maglev 라 남은 연결은 다른 노드로 와도 같은 백엔드로 감
 
 ---
 
@@ -197,8 +236,11 @@ autoDirectNodeRoutes: false           # L3 패브릭이라 노드 간 직접 경
 kubeProxyReplacement: true
 bpf:
   masquerade: true                    # Egress GW 전제
+tunnelProtocol: geneve                # Geneve DSR 전달용 (터널 모드 아님)
 loadBalancer:
   algorithm: maglev
+  mode: hybrid                        # TCP = DSR, UDP = SNAT
+  dsrDispatch: geneve                 # IP 옵션 대신 Geneve 로 전달
 bgpControlPlane:
   enabled: true
 egressGateway:
@@ -244,20 +286,21 @@ spec:
   - afi: ipv4
     safi: unicast
     advertisements:
-      matchLabels: { advertise: private }   # PodCIDR, 루프백만
+      matchExpressions:                       # PodCIDR · 루프백 + VIP
+      - { key: advertise, operator: In, values: [ private, vip ] }
 ---
 apiVersion: cilium.io/v2
 kind: CiliumBGPAdvertisement
 metadata:
-  name: public-vip
-  labels: { advertise: public }
+  name: aistor-vip
+  labels: { advertise: vip }                # private · public PeerConfig 둘 다 이 라벨을 선택
 spec:
   advertisements:
   - advertisementType: Service
     service:
       addresses: [ LoadBalancerIP ]
     selector:
-      matchLabels: { ydl/expose: public }   # 외부 노출 서비스만
+      matchLabels: { ydl/expose: vip }      # PUBLIC · PRIVATE 피어 둘 다에 같은 광고를 붙임
 ```
 
 ### 5-3. AIStor Service
@@ -271,10 +314,10 @@ metadata:
   annotations:
     service.cilium.io/global: "true"        # 경로 A : Com 에서 Pod IP 직결
   labels:
-    ydl/expose: public                      # 경로 B : VIP 광고 대상
+    ydl/expose: vip                         # 경로 B : 두 VRF 에 VIP 광고
 spec:
   type: LoadBalancer
-  externalTrafficPolicy: Local
+  externalTrafficPolicy: Cluster            # 인입 노드와 무관하게 Maglev 로 전체 Pod 선택
   selector: { app: aistor }
   ports:
   - { name: s3, port: 443, targetPort: 9000 }
@@ -313,7 +356,7 @@ router bgp 4200001001
       maximum-paths 64
     neighbor 10.10.1.0/26 remote-as 65101      ! 랙 서브넷 prefix 피어링
       address-family ipv4 unicast
-        prefix-list COM-PRIV-IN in              ! Pod 대역, 노드 루프백만
+        prefix-list COM-PRIV-IN in              ! Pod 대역, 노드 루프백 (AIStor 랙은 VIP 풀 추가)
         maximum-prefix 2000
   vrf PUBLIC
     address-family ipv4 unicast
@@ -332,6 +375,8 @@ router bgp 4200001001
 - 1.19 부터 ClusterMesh 정책 기본값이 로컬 클러스터 한정(policy-default-local-cluster) → 기존 CNP 를 옮기면 클러스터 간 트래픽이 조용히 막힐 수 있음
 - 현행 Lake 의 minio-global 간헐 끊김이 원인 미확정 상태임. Y지역은 같은 구조라서 원인 확정 전에 경로 A 를 운영 기본값으로 박지 않고, 경로 B(VIP) 로 우회 가능한 상태로 둠
 - 기존 Nexus 연동에서 NW팀이 언급한 2-tuple 해시 변경은 VIP 분산에 불리함. Y지역 패브릭은 5-tuple 유지로 사전 합의
+- 기존 Lake 처럼 client 가 스토리지와 같은 leaf · 같은 망에 많은 구조면 eTP Local 은 랙 핫스팟이 남. PoC 에서 같은 랙 client 로 warp 를 돌려 노드별 요청 수 편차를 먼저 측정함
+- DSR(Geneve) PoC 항목 : Nexus 에서 Geneve(UDP 6081) 통과, MTU, leaf uRPF 모드, 응답이 인입 노드를 안 거치는지 Hubble 로 확인
 - 현행 Lake 는 NIC 다운 이슈로 VXLAN 으로 전환한 이력이 있음 → Y지역 native routing 은 NIC 펌웨어 · 드라이버 검증을 PoC 항목에 넣음
 - B300 GPU 노드(Lake GPU)는 RoCE 백엔드망이 별도라 이 설계의 PRIVATE VRF 와 섞지 않음. GPU 노드의 S3 접근만 경로 A · B 를 그대로 씀
 - Gateway API(Cilium) LB IP 도 PUBLIC LB 풀에서 받음. LB 풀은 용도별(public-svc, egress, clustermesh)로 나눠 IPAM 충돌을 막음
@@ -350,6 +395,8 @@ router bgp 4200001001
 - **prefix 피어링** : 서브넷 단위로 BGP 이웃을 받는 방식. 노드별 설정 불필요
 - **eTP Local(externalTrafficPolicy: Local)** : 로컬 백엔드가 있는 노드만 VIP 를 받는 정책
 - **Maglev** : 어느 노드에서 계산해도 같은 백엔드를 고르는 일관 해시
+- **DSR(Direct Server Return)** : 백엔드가 인입 노드를 거치지 않고 client 로 바로 응답하는 방식. Geneve 전달은 원래 VIP 정보를 Geneve 헤더에 실어 보냄
+- **mixed multipath** : eBGP 경로와 iBGP 경로를 함께 ECMP 로 묶는 NX-OS 옵션
 - **Global Service** : ClusterMesh 에서 여러 클러스터 백엔드를 묶는 서비스
 - **KVStoreMesh** : 원격 클러스터 상태를 로컬 캐시로 받아 apiserver 부하를 줄이는 ClusterMesh 구성
 - **Egress Gateway** : 특정 Pod 의 외부 트래픽을 지정 노드로 보내 고정 IP 로 SNAT 하는 기능
@@ -366,10 +413,11 @@ router bgp 4200001001
 | 망 분리 | NIC 와 VRF 둘 다 분리, 피어별 광고 분리, 기본 경로 = PUBLIC |
 | BGP | 노드 ↔ leaf eBGP, 클러스터별 ASN, prefix 피어링, multipath-relax |
 | AIStor 내부 | Global Service 소켓 LB, Pod IP 직결 |
-| AIStor 외부 | VIP /32 eTP Local, 2단 ECMP, 5-tuple 해시 유지 |
+| AIStor 외부 | VIP /32 두 VRF 광고, eTP Cluster 와 Maglev, DSR(Geneve), 5-tuple 해시 유지 |
+| 인입 위치 | Super Spine · Spine = ECMP 균등, Leaf · 동일 망 = 로컬 쏠림 → Maglev 로 백엔드 균등화 |
 | Egress | 클러스터별 Gateway 그룹, Egress IP /32 BGP 광고, 장애 동작 PoC 필수 |
 | 버전 | Cilium 1.20.x, BGP v2 리소스만 사용 |
 
-**ECMP 가 끝까지 살아 있으려면 모든 계층의 maximum-paths, 고유 RD, 5-tuple 해시가 같이 맞아야 한다.**
+**패브릭 ECMP 는 인입 노드까지만 고르게 하고, 백엔드 균등은 Maglev 가 맡아야 client 위치와 무관해진다.**
 
 관련 글 : ClusterMesh minio-global 간헐 끊김, Gateway API 전환 작업 계획, VXLAN 전환 후 Pod 통신 트러블슈팅

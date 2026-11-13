@@ -5335,15 +5335,15 @@ rect.c-region { fill: transparent !important; stroke: var(--a3) !important; stro
         </g>
         <g data-graph-role="automatic-crossover" style="--step:2">
           <path data-graph-role="automatic-crossover-underlay" d="M 270 260 L 380 260" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="extc" data-edge-to="vip" data-edge-label="S3 443" data-edge-key="2" data-edge-id="extc-vip" data-composition-points="270,260;380,260" data-composition-crossover="halo" data-composition-independent="true" d="M 270 260 L 380 260" class="a-default" data-animate="edge" style="--step:2" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-edge-from="extc" data-edge-to="front" data-edge-label="VIP" data-edge-key="2" data-edge-id="extc-front" data-composition-points="270,260;380,260" data-composition-crossover="halo" data-composition-independent="true" d="M 270 260 L 380 260" class="a-default" data-animate="edge" style="--step:2" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:3">
           <path data-graph-role="automatic-crossover-underlay" d="M 610 260 L 720 260" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="vip" data-edge-to="fab" data-edge-label="/32 광고" data-edge-key="3" data-edge-id="vip-fab" data-composition-points="610,260;720,260" data-composition-crossover="halo" data-composition-independent="true" d="M 610 260 L 720 260" class="a-default" data-animate="edge" style="--step:3" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-edge-from="front" data-edge-to="maglev" data-edge-label="eTP Cluster" data-edge-key="3" data-edge-id="front-maglev" data-composition-points="610,260;720,260" data-composition-crossover="halo" data-composition-independent="true" d="M 610 260 L 720 260" class="a-default" data-animate="edge" style="--step:3" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:4">
           <path data-graph-role="automatic-crossover-underlay" d="M 835 210 L 835 140" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="fab" data-edge-to="aipod" data-edge-label="로컬 Pod" data-edge-key="4" data-edge-id="fab-aipod" data-composition-points="835,210;835,140" data-composition-crossover="halo" data-composition-independent="true" d="M 835 210 L 835 140" class="a-emphasis" data-animate="edge" style="--step:4" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+          <path data-edge-from="maglev" data-edge-to="aipod" data-edge-label="Geneve DSR" data-edge-key="4" data-edge-id="maglev-aipod" data-composition-points="835,210;835,140" data-composition-crossover="halo" data-composition-independent="true" d="M 835 210 L 835 140" class="a-emphasis" data-animate="edge" style="--step:4" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
         </g>
 
         <!-- Components -->
@@ -5375,53 +5375,54 @@ rect.c-region { fill: transparent !important; stroke: var(--a3) !important; stro
         <text data-detail="fine" x="495" y="132" class="t-security" font-size="7" text-anchor="middle">A</text>
         </g>
 
-        <g id="node-aipod" data-node-id="aipod" data-node-label="AIStor Pod" tabindex="0" role="button" aria-label="AIStor Pod 포커스, 스토리지 노드마다 1개, 아키텍처 구성요소" aria-pressed="false" data-node-kind="database" data-node-sublabel="스토리지 노드마다 1개" data-node-context="아키텍처 구성요소">
-          <title>AIStor Pod · 스토리지 노드마다 1개 · 아키텍처 구성요소</title>
+        <g id="node-aipod" data-node-id="aipod" data-node-label="AIStor Pod 전체" tabindex="0" role="button" aria-label="AIStor Pod 전체 포커스, 48개 균등, 아키텍처 구성요소" aria-pressed="false" data-node-kind="database" data-node-sublabel="48개 균등" data-node-context="아키텍처 구성요소">
+          <title>AIStor Pod 전체 · 48개 균등 · 아키텍처 구성요소</title>
           <rect x="720" y="40" width="230" height="100" rx="8" class="c-mask"/>
           <rect x="720" y="40" width="230" height="100" rx="8" class="c-database" data-animate="node" style="--step:2" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(726 46) scale(0.6875)">
             <ellipse cx="8" cy="4" rx="5" ry="2"/>
             <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="835" y="88" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">AIStor Pod</text>
-        <text data-detail="context" x="835" y="104" class="t-muted" font-size="9" text-anchor="middle">스토리지 노드마다 1개</text>
+          <text data-node-label="" data-detail-anchor="" x="835" y="88" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">AIStor Pod 전체</text>
+        <text data-detail="context" x="835" y="104" class="t-muted" font-size="9" text-anchor="middle">48개 균등</text>
         </g>
 
-        <g id="node-extc" data-node-id="extc" data-node-label="외부 Client" tabindex="0" role="button" aria-label="외부 Client 포커스, 다른 DC · 사용자망, 아키텍처 구성요소" aria-pressed="false" data-node-kind="external" data-node-sublabel="다른 DC · 사용자망" data-node-tag="B" data-node-context="아키텍처 구성요소">
-          <title>외부 Client · 다른 DC · 사용자망 · 아키텍처 구성요소 · B</title>
+        <g id="node-extc" data-node-id="extc" data-node-label="어느 위치 Client" tabindex="0" role="button" aria-label="어느 위치 Client 포커스, 랙 · Pod · 외부, 아키텍처 구성요소" aria-pressed="false" data-node-kind="external" data-node-sublabel="랙 · Pod · 외부" data-node-tag="B" data-node-context="아키텍처 구성요소">
+          <title>어느 위치 Client · 랙 · Pod · 외부 · 아키텍처 구성요소 · B</title>
           <rect x="40" y="210" width="230" height="100" rx="8" class="c-mask"/>
           <rect x="40" y="210" width="230" height="100" rx="8" class="c-external" data-animate="node" style="--step:2" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(46 216) scale(0.6875)">
             <rect x="2.5" y="5" width="8.5" height="8" rx="1.5"/>
             <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="155" y="258" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">외부 Client</text>
-        <text data-detail="context" x="155" y="274" class="t-muted" font-size="9" text-anchor="middle">다른 DC · 사용자망</text>
+          <text data-node-label="" data-detail-anchor="" x="155" y="258" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">어느 위치 Client</text>
+        <text data-detail="context" x="155" y="274" class="t-muted" font-size="9" text-anchor="middle">랙 · Pod · 외부</text>
         <text data-detail="fine" x="155" y="302" class="t-external" font-size="7" text-anchor="middle">B</text>
         </g>
 
-        <g id="node-vip" data-node-id="vip" data-node-label="LB VIP /32" tabindex="0" role="button" aria-label="LB VIP /32 포커스, LB-IPAM · eTP Local, 아키텍처 구성요소" aria-pressed="false" data-node-kind="backend" data-node-sublabel="LB-IPAM · eTP Local" data-node-tag="B" data-node-context="아키텍처 구성요소">
-          <title>LB VIP /32 · LB-IPAM · eTP Local · 아키텍처 구성요소 · B</title>
+        <g id="node-front" data-node-id="front" data-node-label="가까운 노드 수신" tabindex="0" role="button" aria-label="가까운 노드 수신 포커스, BGP 최단 경로, 아키텍처 구성요소" aria-pressed="false" data-node-kind="backend" data-node-sublabel="BGP 최단 경로" data-node-tag="B" data-node-context="아키텍처 구성요소">
+          <title>가까운 노드 수신 · BGP 최단 경로 · 아키텍처 구성요소 · B</title>
           <rect x="380" y="210" width="230" height="100" rx="8" class="c-mask"/>
           <rect x="380" y="210" width="230" height="100" rx="8" class="c-backend" data-animate="node" style="--step:3" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(386 216) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="495" y="258" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">LB VIP /32</text>
-        <text data-detail="context" x="495" y="274" class="t-muted" font-size="9" text-anchor="middle">LB-IPAM · eTP Local</text>
+          <text data-node-label="" data-detail-anchor="" x="495" y="258" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">가까운 노드 수신</text>
+        <text data-detail="context" x="495" y="274" class="t-muted" font-size="9" text-anchor="middle">BGP 최단 경로</text>
         <text data-detail="fine" x="495" y="302" class="t-backend" font-size="7" text-anchor="middle">B</text>
         </g>
 
-        <g id="node-fab" data-node-id="fab" data-node-label="Fabric ECMP" tabindex="0" role="button" aria-label="Fabric ECMP 포커스, 광고 노드 수만큼, 아키텍처 구성요소" aria-pressed="false" data-node-kind="backend" data-node-sublabel="광고 노드 수만큼" data-node-tag="B" data-node-context="아키텍처 구성요소">
-          <title>Fabric ECMP · 광고 노드 수만큼 · 아키텍처 구성요소 · B</title>
+        <g id="node-maglev" data-node-id="maglev" data-node-label="Maglev 선택" tabindex="0" role="button" aria-label="Maglev 선택 포커스, 인입 노드와 무관, 아키텍처 구성요소" aria-pressed="false" data-node-kind="security" data-node-sublabel="인입 노드와 무관" data-node-tag="B" data-node-context="아키텍처 구성요소">
+          <title>Maglev 선택 · 인입 노드와 무관 · 아키텍처 구성요소 · B</title>
           <rect x="720" y="210" width="230" height="100" rx="8" class="c-mask"/>
-          <rect x="720" y="210" width="230" height="100" rx="8" class="c-backend" data-animate="node" style="--step:4" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(726 216) scale(0.6875)">
-            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
+          <rect x="720" y="210" width="230" height="100" rx="8" class="c-security" data-animate="node" style="--step:4" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="security" class="semantic-sigil s-security" transform="translate(726 216) scale(0.6875)">
+            <path d="M8 2.2 13 4v3.5c0 3.1-1.8 5.4-5 6.5-3.2-1.1-5-3.4-5-6.5V4Z"/>
+            <path d="m5.8 8 1.5 1.5 3-3"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="835" y="258" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Fabric ECMP</text>
-        <text data-detail="context" x="835" y="274" class="t-muted" font-size="9" text-anchor="middle">광고 노드 수만큼</text>
-        <text data-detail="fine" x="835" y="302" class="t-backend" font-size="7" text-anchor="middle">B</text>
+          <text data-node-label="" data-detail-anchor="" x="835" y="258" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Maglev 선택</text>
+        <text data-detail="context" x="835" y="274" class="t-muted" font-size="9" text-anchor="middle">인입 노드와 무관</text>
+        <text data-detail="fine" x="835" y="302" class="t-security" font-size="7" text-anchor="middle">B</text>
         </g>
 
         <!-- Connection labels -->
@@ -5433,17 +5434,17 @@ rect.c-region { fill: transparent !important; stroke: var(--a3) !important; stro
           <rect x="640.8" y="70" width="48.4" height="14" rx="3" class="c-mask"/>
           <text x="665" y="80" class="t-edge-emphasis" font-size="8" text-anchor="middle">Pod 직결</text>
         </g>
-        <g data-detail="context" data-edge-from="extc" data-edge-to="vip" data-edge-label="S3 443" data-edge-key="2" data-edge-id="extc-vip">
-          <rect x="305.6" y="240" width="38.8" height="14" rx="3" class="c-mask"/>
-          <text x="325" y="250" class="t-edge-default" font-size="8" text-anchor="middle">S3 443</text>
+        <g data-detail="context" data-edge-from="extc" data-edge-to="front" data-edge-label="VIP" data-edge-key="2" data-edge-id="extc-front">
+          <rect x="310" y="240" width="30" height="14" rx="3" class="c-mask"/>
+          <text x="325" y="250" class="t-edge-default" font-size="8" text-anchor="middle">VIP</text>
         </g>
-        <g data-detail="context" data-edge-from="vip" data-edge-to="fab" data-edge-label="/32 광고" data-edge-key="3" data-edge-id="vip-fab">
-          <rect x="640.8" y="240" width="48.4" height="14" rx="3" class="c-mask"/>
-          <text x="665" y="250" class="t-edge-default" font-size="8" text-anchor="middle">/32 광고</text>
+        <g data-detail="context" data-edge-from="front" data-edge-to="maglev" data-edge-label="eTP Cluster" data-edge-key="3" data-edge-id="front-maglev">
+          <rect x="633.6" y="240" width="62.8" height="14" rx="3" class="c-mask"/>
+          <text x="665" y="250" class="t-edge-default" font-size="8" text-anchor="middle">eTP Cluster</text>
         </g>
-        <g data-detail="context" data-edge-from="fab" data-edge-to="aipod" data-edge-label="로컬 Pod" data-edge-key="4" data-edge-id="fab-aipod">
-          <rect x="810.8" y="190" width="48.4" height="14" rx="3" class="c-mask"/>
-          <text x="835" y="200" class="t-edge-emphasis" font-size="8" text-anchor="middle">로컬 Pod</text>
+        <g data-detail="context" data-edge-from="maglev" data-edge-to="aipod" data-edge-label="Geneve DSR" data-edge-key="4" data-edge-id="maglev-aipod">
+          <rect x="806" y="190" width="58" height="14" rx="3" class="c-mask"/>
+          <text x="835" y="200" class="t-edge-emphasis" font-size="8" text-anchor="middle">Geneve DSR</text>
         </g>
 
         <!-- Boundary labels (foreground masks keep routes out of titles) -->
@@ -14830,7 +14831,7 @@ rect.c-region { fill: transparent !important; stroke: var(--a3) !important; stro
 
 <script id="autumn-theme-js">
 (function () {
-  var CFG = {"hero": ["sock"], "strong": ["vip", "fab"], "io": ["inpod", "extc", "aipod"], "title": ""};
+  var CFG = {"hero": ["maglev"], "strong": ["sock", "front"], "io": ["inpod", "extc", "aipod"], "title": ""};
   var NS = 'http://www.w3.org/2000/svg';
   function role(id) {
     if ((CFG.hero || []).indexOf(id) >= 0) return 'r-hero';
