@@ -255,6 +255,30 @@ warp put --host 10.50.0.10:443 --tls \
 - 노드 1대 종료 시 끊긴 연결 : 전체의 1/48 수준 이하. 다른 노드 연결까지 끊기면 Maglev 테이블 · 재해시 설정 재점검
 - 기준 미달 시 순서 : DSR 동작 확인 → 해시 seed 분리 → 같은 leaf 대량 client 경로 A · Sidekick 이전
 
+### 3-8. Client 유형별 트래픽 플로우
+
+토폴로지 모양으로 그린 요청 경로임. 진한 선 = 요청, 점선 = 응답 시작점.
+
+| 유형 | 요청 경로 | 백엔드 선택 | 응답 경로 | VRF |
+|---|---|---|---|---|
+| ① Com Pod | Pod → Com Leaf → Com Spine → Super Spine → Storage Spine → Storage Leaf → AIStor Pod | 소켓 LB (connect 시점) | 같은 경로 역방향 | PRIVATE |
+| ② 다른 Pod 서버 | 서버 → Com Leaf → Com Spine → Super Spine → Storage Spine → Storage Leaf(12개 ECMP) → 인입 노드 | 인입 노드 Maglev → Geneve 로 백엔드 노드 | 백엔드 → 자기 Leaf → Spine → Super Spine → client (DSR) | PUBLIC |
+| ③ 외부 · 같은 Pod 서버 | client → Border(또는 Service) Leaf → Storage Spine → Storage Leaf(ECMP) → 인입 노드 | 인입 노드 Maglev | 백엔드 → 자기 Leaf → Storage Spine → Border Leaf → client | PUBLIC |
+| ④ 같은 Leaf · 동일 망 서버 | 서버 → Storage Leaf A → 랙 A 노드 8대 중 1대 (로컬 경로만) | 인입 노드 Maglev → Geneve 로 Spine 거쳐 다른 랙 | 백엔드 → Leaf B → Storage Spine → Leaf A → client | PUBLIC 또는 PRIVATE |
+
+<!-- diagram: ydl-07-flow-pod.html -->
+
+<!-- diagram: ydl-08-flow-superspine.html -->
+
+<!-- diagram: ydl-09-flow-spine.html -->
+
+<!-- diagram: ydl-10-flow-sameleaf.html -->
+
+- ① 은 VIP 를 안 거침. 백엔드 Pod IP 로 바로 가서 인입 노드가 없음
+- ②·③ 은 패브릭 ECMP 로 인입 노드부터 고르게 퍼짐. Maglev 는 인입 노드가 바뀌어도 같은 백엔드를 고르는 역할
+- ④ 만 인입 노드가 랙 A 8대로 묶임. 그래도 백엔드는 48개 중에서 고르므로, 요청은 Spine 을 한 번 더 왕복함 (같은 랙 백엔드가 걸리면 Spine 을 안 거침)
+- 같은 랙 Pod 를 선호하게 하면 ④ 의 Spine 왕복은 줄지만 랙 쏠림이 다시 생김. 이번 설계는 균등 분산을 우선함
+
 ---
 
 ## 4. Egress Gateway 고가용
