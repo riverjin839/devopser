@@ -174,6 +174,7 @@ eBGP 패브릭에서는 AS-path 가 짧은 경로가 이김. client 가 들어�
 | eTP Cluster, Maglev, SNAT | 패브릭 요구 없음 | client IP 사라짐, 응답도 인입 노드를 거침 | DSR 검증 실패 시 대안 |
 
 - 인입 노드는 eBPF 로 전달만 함 → 쏠려도 부담이 작음. 실제 S3 처리는 Maglev 가 고른 Pod 가 함
+- 같은 대역 · 같은 leaf client 는 eBGP 로컬 경로만 보여 그 랙 노드로만 들어옴. 단, 들어온 노드에서 백엔드를 전체 Pod 중에 다시 고르므로 처리 Pod 는 랙에 묶이지 않음 (3-7 표)
 - GET 응답(대용량)은 DSR 로 인입 노드를 안 거침. PUT 은 요청이 인입 노드를 한 번 더 지나감 → 같은 랙 대량 업로드 client 는 경로 A 나 Sidekick 으로 돌림
 - DSR 전달은 IP 옵션 방식이 아니라 Geneve 방식을 씀. IP 옵션 패킷은 스위치에서 소프트웨어 처리로 빠져 SYN 이 버려진 사례가 있음
 - native routing 에서 Geneve DSR 을 쓰려면 tunnelProtocol 을 geneve 로 명시해야 함 (자동 지정 안 함)
@@ -198,6 +199,61 @@ eBGP 패브릭에서는 AS-path 가 짧은 경로가 이김. client 가 들어�
 - Sidekick : client 옆 사이드카 LB, least-connection 과 헬스체크. 같은 랙 대량 업로드, 연결 수가 적고 큰 Spark 잡 보완용
 - 1.20 의 EndpointSlice 가중치(`service.cilium.io/weight`, 0 = 드레인) : 점검 노드의 AIStor Pod 를 단계적으로 빼는 용도
 - 점검 순서 : 가중치 0 으로 드레인 → 노드 cordon → 작업. Maglev 라 남은 연결은 다른 노드로 와도 같은 백엔드로 감
+
+### 3-7. 부하분산 검증 계획
+
+같은 leaf · 동일 망 client 는 그 랙 노드 8대로만 들어옴. 들어온 노드가 Maglev 로 전체 48개 Pod 중 하나에 넘기는지, 그리고 그 결과가 노드별로 고른지 수치로 확인함.
+
+| 단계 | 같은 leaf client 의 패킷이 가는 곳 | eTP Local | eTP Cluster 와 Maglev |
+|---|---|---|---|
+| 1. leaf 경로 선택 | eBGP 로컬 경로만 남음 → 그 랙 노드 8대 | 같음 | 같음 |
+| 2. 노드 도착 후 | 백엔드 선택 범위 | 자기 노드 Pod 1개 | 전체 Pod 48개 |
+| 3. 실제 S3 처리 | 처리 Pod 분포 | 랙 8개 Pod 에 몰림 | 48개에 고르게 퍼짐 |
+| 4. 응답 | 응답 경로 | 같은 노드 | 처리 Pod 가 client 로 직접 (DSR) |
+
+- 백엔드를 전체에서 고르려면 이 Service 에 `trafficDistribution`(PreferSameNode · PreferSameZone) 을 넣지 않음. 넣으면 로컬 우선으로 바뀌어 eTP Local 과 같은 쏠림이 다시 생김
+- eTP Cluster 에서는 로컬 Pod 유무와 상관없이 모든 AIStor 노드가 VIP 를 광고함
+
+#### 3-7-1. 시험 조합
+
+| 시험 | client 위치 | 부하 | 비교 대상 |
+|---|---|---|---|
+| T1 | Super Spine 쪽 (Com Pod 랙) | GET 64MiB, 동시 64 | eTP Local vs Cluster+Maglev+DSR |
+| T2 | 같은 Pod 다른 leaf | 같음 | 같음 |
+| T3 | 스토리지와 같은 leaf | 같음 | 같음 |
+| T4 | 노드와 같은 서브넷 | 같음 | 같음 |
+| T5 | 같은 leaf | PUT 256MiB, 동시 64 | DSR vs SNAT 폴백 |
+| T6 | 4개 위치 동시 | GET · PUT 혼합 | 기본안만 |
+| T7 | T6 진행 중 | AIStor 노드 1대 강제 종료 | 끊긴 연결 비율 |
+
+```bash
+# 개념 코드 : 위치마다 client 서버에서 실행, VIP 는 AIStor LB IP
+warp get --host 10.50.0.10:443 --tls \
+  --access-key "$AK" --secret-key "$SK" \
+  --obj.size 64MiB --concurrent 64 --duration 10m
+warp put --host 10.50.0.10:443 --tls \
+  --access-key "$AK" --secret-key "$SK" \
+  --obj.size 256MiB --concurrent 64 --duration 10m
+```
+
+#### 3-7-2. 보는 지표
+
+| 지표 | 수집 위치 | 확인 내용 |
+|---|---|---|
+| 노드별 S3 요청 수 | AIStor Prometheus 메트릭 (노드 라벨별) | 백엔드 분산 편차 |
+| 노드별 NIC rx · tx | node-exporter, public · private 포트별 | 인입 노드 쏠림, DSR 우회 여부 |
+| 노드별 CPU | node-exporter | TLS · EC 연산 편차 |
+| leaf · spine 업링크 카운터 | NX-OS 인터페이스 카운터 | ECMP 링크 분산, 해시 쏠림 |
+| VIP 경로 수 | `show ip route vrf PUBLIC <VIP>` | 위치별 next-hop 수 (3-2 표와 일치) |
+| 전달 경로 | Hubble flow (인입 노드 → 백엔드) | Maglev 가 원격 Pod 로 넘기는지 |
+
+#### 3-7-3. 판정 기준 (초안)
+
+- 노드별 S3 요청 수 편차 : 평균 대비 ±10% 이내 (T1~T4 모두)
+- 인입 노드 public tx : DSR 이면 GET 응답 바이트가 거의 안 보여야 함. 보이면 SNAT 로 동작 중
+- 인입 노드 NIC 사용률 : 랙 간 2배 이내 (T6)
+- 노드 1대 종료 시 끊긴 연결 : 전체의 1/48 수준 이하. 다른 노드 연결까지 끊기면 Maglev 테이블 · 재해시 설정 재점검
+- 기준 미달 시 순서 : DSR 동작 확인 → 해시 seed 분리 → 같은 leaf 대량 client 경로 A · Sidekick 이전
 
 ---
 
@@ -415,6 +471,7 @@ router bgp 4200001001
 | AIStor 내부 | Global Service 소켓 LB, Pod IP 직결 |
 | AIStor 외부 | VIP /32 두 VRF 광고, eTP Cluster 와 Maglev, DSR(Geneve), 5-tuple 해시 유지 |
 | 인입 위치 | Super Spine · Spine = ECMP 균등, Leaf · 동일 망 = 로컬 쏠림 → Maglev 로 백엔드 균등화 |
+| 검증 | 4개 위치 warp, 노드별 요청 수 편차 ±10%, DSR 우회 · 노드 장애 끊김 비율 확인 |
 | Egress | 클러스터별 Gateway 그룹, Egress IP /32 BGP 광고, 장애 동작 PoC 필수 |
 | 버전 | Cilium 1.20.x, BGP v2 리소스만 사용 |
 
