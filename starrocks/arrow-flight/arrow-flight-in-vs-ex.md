@@ -243,3 +243,5 @@ spec:
 | 전환 방향 | 웹 UI = Gateway HTTPRoute, Flight = L4 전용 LB IP 와 세션 고정 |
 
 **Arrow Flight 는 L7 기능이 필요 없는 대용량 스트림이라, Gateway API 로 넘어가더라도 L4 로 따로 빼는 게 맞다.**
+
+관련 글 : StarRocks ① 개념과 아키텍처
