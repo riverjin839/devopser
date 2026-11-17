@@ -1,0 +1,214 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 860" width="1400" height="860" font-family="Noto Sans CJK KR, Malgun Gothic, sans-serif">
+<defs>
+<marker id="mhot" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#CC501A"/></marker>
+<marker id="mgood" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F8B5A"/></marker>
+<marker id="mnorm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#817E7B"/></marker>
+<marker id="midle" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ACA8A4"/></marker>
+<marker id="mback" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F8B5A"/></marker>
+</defs>
+<rect x="20" y="14" width="1360" height="44" rx="5" fill="#201E1F" stroke="#201E1F" stroke-width="1"/>
+<rect x="20" y="62" width="1360" height="30" rx="5" fill="#ECDDB9" stroke="#D4A941" stroke-width="2"/>
+<rect x="30" y="104" width="660" height="730" rx="5" fill="none" stroke="#969390" stroke-width="1.2" stroke-dasharray="6 4"/>
+<rect x="50" y="140" width="620" height="30" rx="5" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="52,190 62,180 148,180 138,190" fill="#C34E1A" stroke="#CC501A" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="138,190 148,180 148,304 138,314" fill="#B74A1B" stroke="#CC501A" stroke-width="3" stroke-linejoin="round"/>
+<rect x="52" y="190" width="86" height="124" fill="#CC501A" stroke="#CC501A" stroke-width="3"/>
+<line x1="52" y1="211.5" x2="138" y2="211.5" stroke="#FFFFFF" stroke-width="1"/>
+<polygon points="156,190 166,180 252,180 242,190" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="242,190 252,180 252,304 242,314" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="156" y="190" width="86" height="124" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="156" y1="219.0" x2="242" y2="219.0" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="260,190 270,180 356,180 346,190" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="346,190 356,180 356,304 346,314" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="260" y="190" width="86" height="124" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="260" y1="219.0" x2="346" y2="219.0" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="364,190 374,180 460,180 450,190" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="450,190 460,180 460,304 450,314" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="364" y="190" width="86" height="124" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="364" y1="211.0" x2="450" y2="211.0" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="468,190 478,180 564,180 554,190" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="554,190 564,180 564,304 554,314" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="468" y="190" width="86" height="124" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="468" y1="219.0" x2="554" y2="219.0" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="572,190 582,180 668,180 658,190" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="658,190 668,180 668,304 658,314" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="572" y="190" width="86" height="124" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="572" y1="219.0" x2="658" y2="219.0" stroke="#A19E9A" stroke-width="1"/>
+<rect x="50" y="334" width="620" height="30" rx="5" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="52,384 62,374 148,374 138,384" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="138,384 148,374 148,470 138,480" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="52" y="384" width="86" height="96" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="52" y1="407.0" x2="138" y2="407.0" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="156,384 166,374 252,374 242,384" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="242,384 252,374 252,470 242,480" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="156" y="384" width="86" height="96" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="156" y1="407.0" x2="242" y2="407.0" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="260,384 270,374 356,374 346,384" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="346,384 356,374 356,470 346,480" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="260" y="384" width="86" height="96" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="260" y1="407.0" x2="346" y2="407.0" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="364,384 374,374 460,374 450,384" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="450,384 460,374 460,470 450,480" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="364" y="384" width="86" height="96" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="364" y1="407.0" x2="450" y2="407.0" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="468,384 478,374 564,374 554,384" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="554,384 564,374 564,470 554,480" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="468" y="384" width="86" height="96" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="468" y1="407.0" x2="554" y2="407.0" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="572,384 582,374 668,374 658,384" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="658,384 668,374 668,470 658,480" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="572" y="384" width="86" height="96" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="572" y1="407.0" x2="658" y2="407.0" stroke="#5F8B5A" stroke-width="1"/>
+<rect x="50" y="500" width="620" height="170" rx="5" fill="#CC501A" stroke="#CC501A" stroke-width="3"/>
+<rect x="50" y="686" width="620" height="128" rx="5" fill="#EEEAE4" stroke="#B6B3AE" stroke-width="1"/>
+<rect x="710" y="104" width="660" height="730" rx="5" fill="none" stroke="#969390" stroke-width="1.2" stroke-dasharray="6 4"/>
+<rect x="730" y="140" width="620" height="30" rx="5" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="732,190 742,180 828,180 818,190" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="818,190 828,180 828,304 818,314" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="732" y="190" width="86" height="124" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="732" y1="211.5" x2="818" y2="211.5" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="836,190 846,180 932,180 922,190" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="922,190 932,180 932,304 922,314" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="836" y="190" width="86" height="124" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="836" y1="211.5" x2="922" y2="211.5" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="940,190 950,180 1036,180 1026,190" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="1026,190 1036,180 1036,304 1026,314" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="940" y="190" width="86" height="124" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="940" y1="213.0" x2="1026" y2="213.0" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="1044,190 1054,180 1140,180 1130,190" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="1130,190 1140,180 1140,304 1130,314" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="1044" y="190" width="86" height="124" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="1044" y1="213.0" x2="1130" y2="213.0" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="1148,190 1158,180 1244,180 1234,190" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="1234,190 1244,180 1244,304 1234,314" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="1148" y="190" width="86" height="124" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="1148" y1="213.0" x2="1234" y2="213.0" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="1252,190 1262,180 1348,180 1338,190" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="1338,190 1348,180 1348,304 1338,314" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="1252" y="190" width="86" height="124" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="1252" y1="219.0" x2="1338" y2="219.0" stroke="#5F8B5A" stroke-width="1"/>
+<rect x="730" y="334" width="620" height="30" rx="5" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="732,384 742,374 828,374 818,384" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="818,384 828,374 828,470 818,480" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="732" y="384" width="86" height="96" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="732" y1="407.0" x2="818" y2="407.0" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="836,384 846,374 932,374 922,384" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="922,384 932,374 932,470 922,480" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="836" y="384" width="86" height="96" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="836" y1="407.0" x2="922" y2="407.0" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="940,384 950,374 1036,374 1026,384" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="1026,384 1036,374 1036,470 1026,480" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="940" y="384" width="86" height="96" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="940" y1="407.0" x2="1026" y2="407.0" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="1044,384 1054,374 1140,374 1130,384" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="1130,384 1140,374 1140,470 1130,480" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="1044" y="384" width="86" height="96" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="1044" y1="407.0" x2="1130" y2="407.0" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="1148,384 1158,374 1244,374 1234,384" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="1234,384 1244,374 1244,470 1234,480" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="1148" y="384" width="86" height="96" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="1148" y1="407.0" x2="1234" y2="407.0" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="1252,384 1262,374 1348,374 1338,384" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="1338,384 1348,374 1348,470 1338,480" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="1252" y="384" width="86" height="96" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="1252" y1="407.0" x2="1338" y2="407.0" stroke="#5F8B5A" stroke-width="1"/>
+<rect x="730" y="500" width="620" height="170" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<rect x="730" y="686" width="620" height="128" rx="5" fill="#EFE3C6" stroke="#D4A941" stroke-width="2.5"/>
+<text x="700.0" y="45.5" font-size="24.0" fill="#F7F3EC" text-anchor="middle" font-weight="bold">그림 1-2. 랙 서버 균등 분배 : 서비스 · 데이터 배치와 장애 범위</text>
+<text x="700.0" y="83.0" font-size="17.0" fill="#201E1F" text-anchor="middle" font-weight="bold">랙 = leaf · 전원 · 케이블을 공유하는 장애 단위. 핵심 Pod 와 데이터를 랙에 고르게 놓아야 랙 1개 장애가 1/N 손실로 끝남</text>
+<text x="360.0" y="129.0" font-size="17.0" fill="#201E1F" text-anchor="middle" font-weight="bold">I Lake : 스케줄러 임의 배치</text>
+<text x="360.0" y="158.5" font-size="12.0" fill="#201E1F" text-anchor="middle" font-weight="bold">DCNY01 Compute 랙 (핵심 Pod, control plane, Egress GW, ClusterMesh apiserver, 워커)</text>
+<text x="95.0" y="205.5" font-size="12.5" fill="#FFFFFF" text-anchor="middle" font-weight="bold">랙 A</text>
+<text x="95.0" y="248.0" font-size="12.5" fill="#FFFFFF" text-anchor="middle">핵심 ×3</text>
+<text x="95.0" y="265.5" font-size="12.5" fill="#FFFFFF" text-anchor="middle">CP ×2</text>
+<text x="95.0" y="283.0" font-size="12.5" fill="#FFFFFF" text-anchor="middle">Egress ×2</text>
+<text x="199.0" y="213.0" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">랙 B</text>
+<text x="199.0" y="260.5" font-size="20.0" fill="#201E1F" text-anchor="middle">CP ×1</text>
+<text x="199.0" y="285.5" font-size="20.0" fill="#201E1F" text-anchor="middle">워커</text>
+<text x="303.0" y="213.0" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">랙 C</text>
+<text x="303.0" y="273.0" font-size="20.0" fill="#201E1F" text-anchor="middle">워커</text>
+<text x="407.0" y="205.0" font-size="12.0" fill="#201E1F" text-anchor="middle" font-weight="bold">랙 D</text>
+<text x="407.0" y="256.5" font-size="12.0" fill="#201E1F" text-anchor="middle">워커</text>
+<text x="407.0" y="273.5" font-size="12.0" fill="#201E1F" text-anchor="middle">mesh-api ×2</text>
+<text x="511.0" y="213.0" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">랙 E</text>
+<text x="511.0" y="273.0" font-size="20.0" fill="#201E1F" text-anchor="middle">워커</text>
+<text x="615.0" y="213.0" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">랙 F</text>
+<text x="615.0" y="273.0" font-size="20.0" fill="#201E1F" text-anchor="middle">워커</text>
+<text x="360.0" y="353.25" font-size="13.5" fill="#201E1F" text-anchor="middle" font-weight="bold">DCNY03 Storage 랙 (AIStor erasure set) : I Lake 랙 고려 구성 → 동일 유지</text>
+<text x="95.0" y="401.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">랙 C1</text>
+<text x="95.0" y="437.5" font-size="14.0" fill="#201E1F" text-anchor="middle">set 1 · 2</text>
+<text x="95.0" y="456.5" font-size="14.0" fill="#201E1F" text-anchor="middle">각 1/R</text>
+<text x="199.0" y="401.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">랙 C2</text>
+<text x="199.0" y="437.5" font-size="14.0" fill="#201E1F" text-anchor="middle">set 1 · 2</text>
+<text x="199.0" y="456.5" font-size="14.0" fill="#201E1F" text-anchor="middle">각 1/R</text>
+<text x="303.0" y="401.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">랙 C3</text>
+<text x="303.0" y="437.5" font-size="14.0" fill="#201E1F" text-anchor="middle">set 1 · 2</text>
+<text x="303.0" y="456.5" font-size="14.0" fill="#201E1F" text-anchor="middle">각 1/R</text>
+<text x="407.0" y="401.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">랙 C4</text>
+<text x="407.0" y="437.5" font-size="14.0" fill="#201E1F" text-anchor="middle">set 1 · 2</text>
+<text x="407.0" y="456.5" font-size="14.0" fill="#201E1F" text-anchor="middle">각 1/R</text>
+<text x="511.0" y="401.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">랙 C5</text>
+<text x="511.0" y="437.5" font-size="14.0" fill="#201E1F" text-anchor="middle">set 1 · 2</text>
+<text x="511.0" y="456.5" font-size="14.0" fill="#201E1F" text-anchor="middle">각 1/R</text>
+<text x="615.0" y="401.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">랙 C6</text>
+<text x="615.0" y="437.5" font-size="14.0" fill="#201E1F" text-anchor="middle">set 1 · 2</text>
+<text x="615.0" y="456.5" font-size="14.0" fill="#201E1F" text-anchor="middle">각 1/R</text>
+<text x="60" y="542.5" font-size="20.0" fill="#FFFFFF" text-anchor="start">랙 A 장애 시</text>
+<text x="60" y="567.5" font-size="20.0" fill="#FFFFFF" text-anchor="start">· 핵심 Pod 3개 전부 중단 → 서비스 중단</text>
+<text x="60" y="592.5" font-size="20.0" fill="#FFFFFF" text-anchor="start">· CP 3대 중 2대 중단 → API 쿼럼 상실</text>
+<text x="60" y="617.5" font-size="20.0" fill="#FFFFFF" text-anchor="start">· Egress GW 전부 중단 → 외부 통신 중단</text>
+<text x="60" y="642.5" font-size="20.0" fill="#FFFFFF" text-anchor="start">(Storage 는 I Lake 도 랙 고려 구성 → 해당 없음)</text>
+<text x="60" y="736.0" font-size="13.0" fill="#201E1F" text-anchor="start">원인</text>
+<text x="60" y="754.0" font-size="13.0" fill="#201E1F" text-anchor="start">· rack 라벨은 있으나 분산 기준(topologyKey)으로 쓰지 않으면 스케줄러가 랙을 무시</text>
+<text x="60" y="772.0" font-size="13.0" fill="#201E1F" text-anchor="start">· 자원 여유가 있는 노드에 먼저 몰림</text>
+<text x="1040.0" y="129.0" font-size="17.0" fill="#201E1F" text-anchor="middle" font-weight="bold">Y1 : 랙 라벨 + 분산 스케줄</text>
+<text x="1040.0" y="158.5" font-size="12.0" fill="#201E1F" text-anchor="middle" font-weight="bold">DCNY01 Compute 랙 (핵심 Pod, control plane, Egress GW, ClusterMesh apiserver, 워커)</text>
+<text x="775.0" y="205.5" font-size="12.5" fill="#201E1F" text-anchor="middle" font-weight="bold">랙 A</text>
+<text x="775.0" y="248.0" font-size="12.5" fill="#201E1F" text-anchor="middle">핵심 · CP</text>
+<text x="775.0" y="265.5" font-size="12.5" fill="#201E1F" text-anchor="middle">Egress GW</text>
+<text x="775.0" y="283.0" font-size="12.5" fill="#201E1F" text-anchor="middle">워커</text>
+<text x="879.0" y="205.5" font-size="12.5" fill="#201E1F" text-anchor="middle" font-weight="bold">랙 B</text>
+<text x="879.0" y="248.0" font-size="12.5" fill="#201E1F" text-anchor="middle">핵심 · CP</text>
+<text x="879.0" y="265.5" font-size="12.5" fill="#201E1F" text-anchor="middle">Egress GW</text>
+<text x="879.0" y="283.0" font-size="12.5" fill="#201E1F" text-anchor="middle">워커</text>
+<text x="983.0" y="207.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">랙 C</text>
+<text x="983.0" y="257.5" font-size="14.0" fill="#201E1F" text-anchor="middle">핵심 · CP</text>
+<text x="983.0" y="276.5" font-size="14.0" fill="#201E1F" text-anchor="middle">워커</text>
+<text x="1087.0" y="207.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">랙 D</text>
+<text x="1087.0" y="257.5" font-size="14.0" fill="#201E1F" text-anchor="middle">워커</text>
+<text x="1087.0" y="276.5" font-size="14.0" fill="#201E1F" text-anchor="middle">mesh-api</text>
+<text x="1191.0" y="207.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">랙 E</text>
+<text x="1191.0" y="257.5" font-size="14.0" fill="#201E1F" text-anchor="middle">워커</text>
+<text x="1191.0" y="276.5" font-size="14.0" fill="#201E1F" text-anchor="middle">mesh-api</text>
+<text x="1295.0" y="213.0" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">랙 F</text>
+<text x="1295.0" y="273.0" font-size="20.0" fill="#201E1F" text-anchor="middle">워커</text>
+<text x="1040.0" y="353.25" font-size="13.5" fill="#201E1F" text-anchor="middle" font-weight="bold">DCNY03 Storage 랙 (AIStor erasure set) : I Lake 랙 고려 구성 → 동일 유지</text>
+<text x="775.0" y="401.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">랙 C1</text>
+<text x="775.0" y="437.5" font-size="14.0" fill="#201E1F" text-anchor="middle">set 1 · 2</text>
+<text x="775.0" y="456.5" font-size="14.0" fill="#201E1F" text-anchor="middle">각 1/R</text>
+<text x="879.0" y="401.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">랙 C2</text>
+<text x="879.0" y="437.5" font-size="14.0" fill="#201E1F" text-anchor="middle">set 1 · 2</text>
+<text x="879.0" y="456.5" font-size="14.0" fill="#201E1F" text-anchor="middle">각 1/R</text>
+<text x="983.0" y="401.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">랙 C3</text>
+<text x="983.0" y="437.5" font-size="14.0" fill="#201E1F" text-anchor="middle">set 1 · 2</text>
+<text x="983.0" y="456.5" font-size="14.0" fill="#201E1F" text-anchor="middle">각 1/R</text>
+<text x="1087.0" y="401.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">랙 C4</text>
+<text x="1087.0" y="437.5" font-size="14.0" fill="#201E1F" text-anchor="middle">set 1 · 2</text>
+<text x="1087.0" y="456.5" font-size="14.0" fill="#201E1F" text-anchor="middle">각 1/R</text>
+<text x="1191.0" y="401.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">랙 C5</text>
+<text x="1191.0" y="437.5" font-size="14.0" fill="#201E1F" text-anchor="middle">set 1 · 2</text>
+<text x="1191.0" y="456.5" font-size="14.0" fill="#201E1F" text-anchor="middle">각 1/R</text>
+<text x="1295.0" y="401.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">랙 C6</text>
+<text x="1295.0" y="437.5" font-size="14.0" fill="#201E1F" text-anchor="middle">set 1 · 2</text>
+<text x="1295.0" y="456.5" font-size="14.0" fill="#201E1F" text-anchor="middle">각 1/R</text>
+<text x="740" y="537.0" font-size="16.5" fill="#201E1F" text-anchor="start">랙 A 장애 시</text>
+<text x="740" y="558.5" font-size="16.5" fill="#201E1F" text-anchor="start">· 핵심 Pod 3개 중 2개 유지 → 서비스 정상</text>
+<text x="740" y="580.0" font-size="16.5" fill="#201E1F" text-anchor="start">· CP 3대 중 2대 유지 → API 정상</text>
+<text x="740" y="601.5" font-size="16.5" fill="#201E1F" text-anchor="start">· Egress GW 1대 유지 → 외부 통신 유지</text>
+<text x="740" y="623.0" font-size="16.5" fill="#201E1F" text-anchor="start">랙 C1 장애 시</text>
+<text x="740" y="644.5" font-size="16.5" fill="#201E1F" text-anchor="start">· 모든 set 이 1/R 만 잃음 → 읽기 · 쓰기 유지 (허용 장애 수 이내)</text>
+<text x="740" y="727.0" font-size="13.0" fill="#201E1F" text-anchor="start">적용</text>
+<text x="740" y="745.0" font-size="13.0" fill="#201E1F" text-anchor="start">· 노드 라벨 rack=&lt;랙&gt; (I Lake 와 동일)</text>
+<text x="740" y="763.0" font-size="13.0" fill="#201E1F" text-anchor="start">· 핵심 Pod · CP · Egress · mesh-api : topologySpreadConstraints (topologyKey: rack)</text>
+<text x="740" y="781.0" font-size="13.0" fill="#201E1F" text-anchor="start">· AIStor set 별 드라이브 랙 균등 (I Lake 와 동일)</text>
+</svg>

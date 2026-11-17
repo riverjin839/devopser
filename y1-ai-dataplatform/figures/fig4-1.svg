@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 790" width="1400" height="790" font-family="Noto Sans CJK KR, Malgun Gothic, sans-serif">
+<defs>
+<marker id="mhot" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#CC501A"/></marker>
+<marker id="mgood" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F8B5A"/></marker>
+<marker id="mnorm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#817E7B"/></marker>
+<marker id="midle" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ACA8A4"/></marker>
+<marker id="mback" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F8B5A"/></marker>
+</defs>
+<rect x="20" y="14" width="1360" height="44" rx="5" fill="#201E1F" stroke="#201E1F" stroke-width="1"/>
+<rect x="20" y="62" width="1360" height="30" rx="5" fill="#ECDDB9" stroke="#D4A941" stroke-width="2"/>
+<rect x="30" y="104" width="660" height="660" rx="5" fill="none" stroke="#969390" stroke-width="1.2" stroke-dasharray="6 4"/>
+<polygon points="500,160 510,150 670,150 660,160" fill="#F1EFEC" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="660,160 670,150 670,210 660,220" fill="#E2E0DD" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="500" y="160" width="160" height="60" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<line x1="500" y1="189.0" x2="660" y2="189.0" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="250,160 260,150 450,150 440,160" fill="#F1EFEC" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="440,160 450,150 450,210 440,220" fill="#E2E0DD" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<rect x="250" y="160" width="190" height="60" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<line x1="250" y1="189.0" x2="440" y2="189.0" stroke="#605E5C" stroke-width="1"/>
+<polygon points="250,300 260,290 450,290 440,300" fill="#C34E1A" stroke="#CC501A" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="440,300 450,290 450,370 440,380" fill="#B74A1B" stroke="#CC501A" stroke-width="3" stroke-linejoin="round"/>
+<rect x="250" y="300" width="190" height="80" fill="#CC501A" stroke="#CC501A" stroke-width="3"/>
+<line x1="250" y1="326.5" x2="440" y2="326.5" stroke="#FFFFFF" stroke-width="1"/>
+<polygon points="50,300 60,290 200,290 190,300" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="190,300 200,290 200,370 190,380" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="50" y="300" width="140" height="80" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="50" y1="328.5" x2="190" y2="328.5" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="500,300 510,290 670,290 660,300" fill="#ECE8E2" stroke="#C1BEB9" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="660,300 670,290 670,370 660,380" fill="#DDD9D3" stroke="#C1BEB9" stroke-width="1" stroke-linejoin="round"/>
+<rect x="500" y="300" width="160" height="80" fill="none" stroke="#C1BEB9" stroke-width="1"/>
+<line x1="500" y1="329.0" x2="660" y2="329.0" stroke="#C1BEB9" stroke-width="1"/>
+<rect x="50" y="420" width="140" height="58" rx="5" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<rect x="200" y="420" width="470" height="58" rx="5" fill="#CC501A" stroke="#CC501A" stroke-width="3"/>
+<rect x="50" y="486" width="140" height="58" rx="5" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<rect x="200" y="486" width="470" height="58" rx="5" fill="#CC501A" stroke="#CC501A" stroke-width="3"/>
+<rect x="50" y="552" width="140" height="58" rx="5" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<rect x="200" y="552" width="470" height="58" rx="5" fill="#CC501A" stroke="#CC501A" stroke-width="3"/>
+<rect x="50" y="618" width="140" height="58" rx="5" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<rect x="200" y="618" width="470" height="58" rx="5" fill="#CC501A" stroke="#CC501A" stroke-width="3"/>
+<rect x="50" y="684" width="140" height="58" rx="5" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<rect x="200" y="684" width="470" height="58" rx="5" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<rect x="710" y="104" width="660" height="660" rx="5" fill="none" stroke="#969390" stroke-width="1.2" stroke-dasharray="6 4"/>
+<polygon points="1180,160 1190,150 1350,150 1340,160" fill="#F1EFEC" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="1340,160 1350,150 1350,210 1340,220" fill="#E2E0DD" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="1180" y="160" width="160" height="60" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<line x1="1180" y1="189.0" x2="1340" y2="189.0" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="930,160 940,150 1130,150 1120,160" fill="#F1EFEC" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="1120,160 1130,150 1130,210 1120,220" fill="#E2E0DD" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<rect x="930" y="160" width="190" height="60" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<line x1="930" y1="189.0" x2="1120" y2="189.0" stroke="#605E5C" stroke-width="1"/>
+<polygon points="930,300 940,290 1130,290 1120,300" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="1120,300 1130,290 1130,370 1120,380" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="930" y="300" width="190" height="80" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="930" y1="327.0" x2="1120" y2="327.0" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="730,300 740,290 880,290 870,300" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="870,300 880,290 880,370 870,380" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="730" y="300" width="140" height="80" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="730" y1="328.5" x2="870" y2="328.5" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="1180,300 1190,290 1350,290 1340,300" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="1340,300 1350,290 1350,370 1340,380" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="1180" y="300" width="160" height="80" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="1180" y1="329.0" x2="1340" y2="329.0" stroke="#5F8B5A" stroke-width="1"/>
+<rect x="730" y="420" width="140" height="58" rx="5" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<rect x="880" y="420" width="470" height="58" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<rect x="730" y="486" width="140" height="58" rx="5" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<rect x="880" y="486" width="470" height="58" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<rect x="730" y="552" width="140" height="58" rx="5" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<rect x="880" y="552" width="470" height="58" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<rect x="730" y="618" width="140" height="58" rx="5" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<rect x="880" y="618" width="470" height="58" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<rect x="730" y="684" width="140" height="58" rx="5" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<rect x="880" y="684" width="470" height="58" rx="5" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<line x1="500" y1="185.0" x2="450" y2="185.0" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)"/>
+<rect x="454.4" y="175.0" width="41.2" height="20" fill="#FCFAF7"/>
+<text x="475.0" y="190.0" font-size="13" font-weight="bold" fill="#817E7B" text-anchor="middle">요청</text>
+<line x1="350.0" y1="220" x2="350.0" y2="290" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)"/>
+<line x1="250" y1="317.0" x2="200" y2="317.0" stroke="#CC501A" stroke-width="5" marker-end="url(#mhot)"/>
+<rect x="197.536" y="307.0" width="54.928000000000004" height="20" fill="#FCFAF7"/>
+<text x="225.0" y="322.0" font-size="13" font-weight="bold" fill="#CC501A" text-anchor="middle">Local</text>
+<line x1="200" y1="362.0" x2="250" y2="362.0" stroke="#CC501A" stroke-width="5" marker-end="url(#mhot)"/>
+<rect x="204.4" y="352.0" width="41.2" height="20" fill="#FCFAF7"/>
+<text x="225.0" y="367.0" font-size="13" font-weight="bold" fill="#CC501A" text-anchor="middle">응답</text>
+<line x1="450" y1="335.0" x2="500" y2="335.0" stroke="#ACA8A4" stroke-width="1.2" stroke-dasharray="7 5" marker-end="url(#midle)"/>
+<rect x="418.20799999999997" y="325.0" width="113.584" height="20" fill="#FCFAF7"/>
+<text x="475.0" y="340.0" font-size="13" font-weight="bold" fill="#ACA8A4" text-anchor="middle">Cluster 일 때</text>
+<line x1="450" y1="299.0" x2="551.0" y2="220" stroke="#CC501A" stroke-width="5" marker-end="url(#mhot)"/>
+<rect x="461.804" y="249.5" width="77.392" height="20" fill="#FCFAF7"/>
+<text x="500.5" y="264.5" font-size="13" font-weight="bold" fill="#CC501A" text-anchor="middle">응답 경유</text>
+<line x1="1180" y1="185.0" x2="1130" y2="185.0" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)"/>
+<rect x="1134.4" y="175.0" width="41.2" height="20" fill="#FCFAF7"/>
+<text x="1155.0" y="190.0" font-size="13" font-weight="bold" fill="#817E7B" text-anchor="middle">요청</text>
+<line x1="1030.0" y1="220" x2="1030.0" y2="290" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)"/>
+<line x1="1130" y1="335.0" x2="1180" y2="335.0" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)"/>
+<rect x="1123.168" y="325.0" width="63.66400000000001" height="20" fill="#FCFAF7"/>
+<text x="1155.0" y="340.0" font-size="13" font-weight="bold" fill="#5F8B5A" text-anchor="middle">Geneve</text>
+<line x1="1265.0" y1="290" x2="1265.0" y2="220" stroke="#5F8B5A" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#mback)"/>
+<rect x="1200.096" y="245.0" width="129.808" height="20" fill="#FCFAF7"/>
+<text x="1265.0" y="260.0" font-size="13" font-weight="bold" fill="#5F8B5A" text-anchor="middle">응답 직접 (DSR)</text>
+<line x1="930" y1="335.0" x2="880" y2="335.0" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)"/>
+<rect x="866.304" y="325.0" width="77.392" height="20" fill="#FCFAF7"/>
+<text x="905.0" y="340.0" font-size="13" font-weight="bold" fill="#817E7B" text-anchor="middle">로컬일 때</text>
+<text x="700.0" y="45.5" font-size="24.0" fill="#F7F3EC" text-anchor="middle" font-weight="bold">그림 4-1. AIStor VIP 처리 경로 : I Lake → Y1</text>
+<text x="700.0" y="83.0" font-size="17.0" fill="#201E1F" text-anchor="middle" font-weight="bold">I Lake = random · SNAT · eTP Local(일부). Y1 = Maglev · DSR(Geneve) · eTP Cluster. XDP best-effort 는 동일 유지</text>
+<text x="360.0" y="129.0" font-size="17.0" fill="#201E1F" text-anchor="middle" font-weight="bold">I Lake : random + SNAT (+ eTP Local Service 4개)</text>
+<text x="580.0" y="183.0" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">client</text>
+<text x="580.0" y="211.0" font-size="20.0" fill="#201E1F" text-anchor="middle">(ETL)</text>
+<text x="345.0" y="183.0" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">Storage leaf</text>
+<text x="345.0" y="211.0" font-size="20.0" fill="#201E1F" text-anchor="middle">VIP ECMP</text>
+<text x="345.0" y="320.5" font-size="17.5" fill="#FFFFFF" text-anchor="middle" font-weight="bold">인입 노드</text>
+<text x="345.0" y="347.25" font-size="17.5" fill="#FFFFFF" text-anchor="middle">XDP best-effort</text>
+<text x="345.0" y="369.75" font-size="17.5" fill="#FFFFFF" text-anchor="middle">random · SNAT</text>
+<text x="120.0" y="322.5" font-size="19.5" fill="#201E1F" text-anchor="middle" font-weight="bold">로컬 Pod</text>
+<text x="120.0" y="360.5" font-size="19.5" fill="#201E1F" text-anchor="middle">(같은 노드)</text>
+<text x="580.0" y="323.0" font-size="20.0" fill="#767371" text-anchor="middle" font-weight="bold">다른 랙 Pod</text>
+<text x="580.0" y="361.0" font-size="20.0" fill="#767371" text-anchor="middle">(전체 중 1)</text>
+<text x="120.0" y="456.25" font-size="19.5" fill="#201E1F" text-anchor="middle" font-weight="bold">백엔드 선택</text>
+<text x="435.0" y="456.5" font-size="20.0" fill="#FFFFFF" text-anchor="middle">노드마다 random → 재해시 시 끊김</text>
+<text x="120.0" y="522.5" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">응답 경로</text>
+<text x="435.0" y="522.5" font-size="20.0" fill="#FFFFFF" text-anchor="middle">인입 노드 경유 (SNAT)</text>
+<text x="120.0" y="588.5" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">eTP</text>
+<text x="435.0" y="588.5" font-size="20.0" fill="#FFFFFF" text-anchor="middle">Local 4개 → 인입 랙 Pod 에 묶임</text>
+<text x="120.0" y="654.5" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">client IP</text>
+<text x="435.0" y="654.5" font-size="20.0" fill="#FFFFFF" text-anchor="middle">SNAT 로 소실</text>
+<text x="120.0" y="720.5" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">XDP</text>
+<text x="435.0" y="720.5" font-size="20.0" fill="#201E1F" text-anchor="middle">best-effort</text>
+<text x="1040.0" y="129.0" font-size="17.0" fill="#201E1F" text-anchor="middle" font-weight="bold">Y1 : Maglev + DSR(Geneve) + eTP Cluster</text>
+<text x="1260.0" y="183.0" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">client</text>
+<text x="1260.0" y="211.0" font-size="20.0" fill="#201E1F" text-anchor="middle">(ETL)</text>
+<text x="1025.0" y="183.0" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">Storage leaf</text>
+<text x="1025.0" y="211.0" font-size="20.0" fill="#201E1F" text-anchor="middle">VIP ECMP</text>
+<text x="1025.0" y="321.0" font-size="18.0" fill="#201E1F" text-anchor="middle" font-weight="bold">인입 노드</text>
+<text x="1025.0" y="347.5" font-size="18.0" fill="#201E1F" text-anchor="middle">XDP · Maglev</text>
+<text x="1025.0" y="370.5" font-size="18.0" fill="#201E1F" text-anchor="middle">→ Geneve</text>
+<text x="800.0" y="322.5" font-size="19.5" fill="#201E1F" text-anchor="middle" font-weight="bold">로컬 Pod</text>
+<text x="800.0" y="360.5" font-size="19.5" fill="#201E1F" text-anchor="middle">(같은 노드)</text>
+<text x="1260.0" y="323.0" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">다른 랙 Pod</text>
+<text x="1260.0" y="361.0" font-size="20.0" fill="#201E1F" text-anchor="middle">(전체 중 1)</text>
+<text x="800.0" y="456.25" font-size="19.5" fill="#201E1F" text-anchor="middle" font-weight="bold">백엔드 선택</text>
+<text x="1115.0" y="456.5" font-size="20.0" fill="#201E1F" text-anchor="middle">Maglev → 어느 노드든 같은 Pod</text>
+<text x="800.0" y="522.5" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">응답 경로</text>
+<text x="1115.0" y="522.5" font-size="20.0" fill="#201E1F" text-anchor="middle">처리 Pod → client 직접 (DSR)</text>
+<text x="800.0" y="588.5" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">eTP</text>
+<text x="1115.0" y="588.5" font-size="20.0" fill="#201E1F" text-anchor="middle">Cluster → 전체 Pod</text>
+<text x="800.0" y="654.5" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">client IP</text>
+<text x="1115.0" y="654.5" font-size="20.0" fill="#201E1F" text-anchor="middle">보존</text>
+<text x="800.0" y="720.5" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">XDP</text>
+<text x="1115.0" y="720.0" font-size="19.0" fill="#201E1F" text-anchor="middle">best-effort (유지, bond PoC 후 native)</text>
+</svg>

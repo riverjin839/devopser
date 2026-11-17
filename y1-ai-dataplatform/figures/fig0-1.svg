@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" width="1400" height="900" font-family="Noto Sans CJK KR, Malgun Gothic, sans-serif">
+<defs>
+<marker id="mhot" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#CC501A"/></marker>
+<marker id="mgood" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F8B5A"/></marker>
+<marker id="mnorm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#817E7B"/></marker>
+<marker id="midle" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ACA8A4"/></marker>
+<marker id="mback" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F8B5A"/></marker>
+</defs>
+<rect x="20" y="14" width="1360" height="44" rx="5" fill="#201E1F" stroke="#201E1F" stroke-width="1"/>
+<rect x="20" y="62" width="1360" height="30" rx="5" fill="#ECDDB9" stroke="#D4A941" stroke-width="2"/>
+<polygon points="250,114 260,104 510,104 500,114" fill="#F1EFEC" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="500,114 510,104 510,148 500,158" fill="#E2E0DD" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="250" y="114" width="250" height="44" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<line x1="250" y1="135.0" x2="500" y2="135.0" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="570,114 580,104 830,104 820,114" fill="#F1EFEC" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="820,114 830,104 830,148 820,158" fill="#E2E0DD" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<rect x="570" y="114" width="250" height="44" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<line x1="570" y1="135.0" x2="820" y2="135.0" stroke="#605E5C" stroke-width="1"/>
+<polygon points="400,194 410,184 1000,184 990,194" fill="#F1EFEC" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="990,194 1000,184 1000,232 990,242" fill="#E2E0DD" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<rect x="400" y="194" width="590" height="48" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<line x1="400" y1="217.0" x2="990" y2="217.0" stroke="#605E5C" stroke-width="1"/>
+<rect x="30" y="270" width="420" height="420" rx="5" fill="none" stroke="#969390" stroke-width="1.2" stroke-dasharray="6 4"/>
+<polygon points="130,314 140,304 350,304 340,314" fill="#F1EFEC" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="340,314 350,304 350,344 340,354" fill="#E2E0DD" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<rect x="130" y="314" width="210" height="40" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<line x1="130" y1="343.0" x2="340" y2="343.0" stroke="#605E5C" stroke-width="1"/>
+<polygon points="110,394 120,384 370,384 360,394" fill="#F1EFEC" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="360,394 370,384 370,430 360,440" fill="#E2E0DD" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<rect x="110" y="394" width="250" height="46" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<line x1="110" y1="416.0" x2="360" y2="416.0" stroke="#605E5C" stroke-width="1"/>
+<polygon points="90,480 100,470 390,470 380,480" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="380,480 390,470 390,552 380,562" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="90" y="480" width="290" height="82" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="90" y1="508.0" x2="380" y2="508.0" stroke="#A19E9A" stroke-width="1"/>
+<rect x="60" y="586" width="360" height="84" rx="5" fill="#EEEAE4" stroke="#B6B3AE" stroke-width="1"/>
+<rect x="490" y="270" width="420" height="420" rx="5" fill="none" stroke="#969390" stroke-width="1.2" stroke-dasharray="6 4"/>
+<polygon points="590,314 600,304 810,304 800,314" fill="#F1EFEC" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="800,314 810,304 810,344 800,354" fill="#E2E0DD" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<rect x="590" y="314" width="210" height="40" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<line x1="590" y1="343.0" x2="800" y2="343.0" stroke="#605E5C" stroke-width="1"/>
+<polygon points="570,394 580,384 830,384 820,394" fill="#F1EFEC" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="820,394 830,384 830,430 820,440" fill="#E2E0DD" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<rect x="570" y="394" width="250" height="46" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<line x1="570" y1="416.0" x2="820" y2="416.0" stroke="#605E5C" stroke-width="1"/>
+<polygon points="550,480 560,470 850,470 840,480" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="840,480 850,470 850,552 840,562" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="550" y="480" width="290" height="82" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="550" y1="508.0" x2="840" y2="508.0" stroke="#A19E9A" stroke-width="1"/>
+<rect x="520" y="586" width="360" height="84" rx="5" fill="#EEEAE4" stroke="#B6B3AE" stroke-width="1"/>
+<rect x="950" y="270" width="420" height="420" rx="5" fill="none" stroke="#969390" stroke-width="1.2" stroke-dasharray="6 4"/>
+<polygon points="1050,314 1060,304 1270,304 1260,314" fill="#F1EFEC" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="1260,314 1270,304 1270,344 1260,354" fill="#E2E0DD" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<rect x="1050" y="314" width="210" height="40" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<line x1="1050" y1="343.0" x2="1260" y2="343.0" stroke="#605E5C" stroke-width="1"/>
+<polygon points="1030,394 1040,384 1290,384 1280,394" fill="#F1EFEC" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="1280,394 1290,384 1290,430 1280,440" fill="#E2E0DD" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<rect x="1030" y="394" width="250" height="46" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<line x1="1030" y1="416.0" x2="1280" y2="416.0" stroke="#605E5C" stroke-width="1"/>
+<polygon points="1010,480 1020,470 1310,470 1300,480" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="1300,480 1310,470 1310,552 1300,562" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="1010" y="480" width="290" height="82" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="1010" y1="508.0" x2="1300" y2="508.0" stroke="#5F8B5A" stroke-width="1"/>
+<rect x="980" y="586" width="360" height="84" rx="5" fill="#EEEAE4" stroke="#B6B3AE" stroke-width="1"/>
+<rect x="30" y="706" width="420" height="34" rx="5" fill="#EFE3C6" stroke="#D4A941" stroke-width="2.5"/>
+<rect x="30" y="744" width="420" height="76" rx="5" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<rect x="490" y="706" width="420" height="34" rx="5" fill="#EFE3C6" stroke="#D4A941" stroke-width="2.5"/>
+<rect x="490" y="744" width="420" height="76" rx="5" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<rect x="950" y="706" width="420" height="34" rx="5" fill="#EFE3C6" stroke="#D4A941" stroke-width="2.5"/>
+<rect x="950" y="744" width="420" height="76" rx="5" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<rect x="30" y="832" width="1340" height="40" rx="5" fill="#EFE3C6" stroke="#D4A941" stroke-width="2.5"/>
+<line x1="510" y1="131.0" x2="570" y2="131.0" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)"/>
+<rect x="507.544" y="121.0" width="64.912" height="20" fill="#FCFAF7"/>
+<text x="540.0" y="136.0" font-size="13" font-weight="bold" fill="#817E7B" text-anchor="middle">S3 443</text>
+<line x1="700.0" y1="158" x2="700.0" y2="184" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)"/>
+<line x1="700.0" y1="242" x2="317.0" y2="304" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)" marker-start="url(#mnorm)"/>
+<line x1="240.0" y1="354" x2="240.0" y2="384" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)" marker-start="url(#mnorm)"/>
+<line x1="240.0" y1="440" x2="240.0" y2="470" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)" marker-start="url(#mnorm)"/>
+<rect x="201.928" y="445.0" width="76.144" height="20" fill="#FCFAF7"/>
+<text x="240.0" y="460.0" font-size="13" font-weight="bold" fill="#817E7B" text-anchor="middle">802.3ad</text>
+<line x1="700.0" y1="242" x2="777.0" y2="304" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)" marker-start="url(#mnorm)"/>
+<line x1="700.0" y1="354" x2="700.0" y2="384" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)" marker-start="url(#mnorm)"/>
+<line x1="700.0" y1="440" x2="700.0" y2="470" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)" marker-start="url(#mnorm)"/>
+<rect x="661.928" y="445.0" width="76.144" height="20" fill="#FCFAF7"/>
+<text x="700.0" y="460.0" font-size="13" font-weight="bold" fill="#817E7B" text-anchor="middle">802.3ad</text>
+<line x1="700.0" y1="242" x2="1237.0" y2="304" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)" marker-start="url(#mnorm)"/>
+<line x1="1160.0" y1="354" x2="1160.0" y2="384" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)" marker-start="url(#mnorm)"/>
+<line x1="1160.0" y1="440" x2="1160.0" y2="470" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)" marker-start="url(#mnorm)"/>
+<rect x="1121.9279999999999" y="445.0" width="76.144" height="20" fill="#FCFAF7"/>
+<text x="1160.0" y="460.0" font-size="13" font-weight="bold" fill="#817E7B" text-anchor="middle">802.3ad</text>
+<text x="700.0" y="45.5" font-size="24.0" fill="#F7F3EC" text-anchor="middle" font-weight="bold">그림 0-1. Y1 전체 구조와 개선 위치</text>
+<text x="700.0" y="82.75" font-size="16.5" fill="#201E1F" text-anchor="middle" font-weight="bold">DCNY01 Compute · DCNY02 GPU · DCNY03 Storage(AIStor). 노드는 bond0(PUBLIC) · bond1(PRIVATE). 분산은 패브릭 → L4 → 노드 3단계</text>
+<text x="375.0" y="129.0" font-size="12.0" fill="#201E1F" text-anchor="middle" font-weight="bold">외부 ETL client</text>
+<text x="375.0" y="149.0" font-size="12.0" fill="#201E1F" text-anchor="middle">원천 소스</text>
+<text x="695.0" y="129.0" font-size="12.0" fill="#201E1F" text-anchor="middle" font-weight="bold">FA Core</text>
+<text x="695.0" y="149.0" font-size="12.0" fill="#201E1F" text-anchor="middle">DC 코어 · 방화벽</text>
+<text x="695.0" y="211.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">Super Spine (세 구간에 걸친 같은 패브릭)</text>
+<text x="695.0" y="233.0" font-size="14.0" fill="#201E1F" text-anchor="middle">Border · VRF PUBLIC / PRIVATE</text>
+<text x="40" y="295.0" font-size="17.0" fill="#201E1F" text-anchor="start" font-weight="bold">DCNY01 (Compute K8s)</text>
+<text x="235.0" y="337.0" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">Spine</text>
+<text x="235.0" y="410.0" font-size="13.0" fill="#201E1F" text-anchor="middle" font-weight="bold">ToR leaf 쌍 (VTEP)</text>
+<text x="235.0" y="431.0" font-size="13.0" fill="#201E1F" text-anchor="middle">랙당 서버 수 동일</text>
+<text x="235.0" y="502.0" font-size="19.0" fill="#201E1F" text-anchor="middle" font-weight="bold">Compute 노드</text>
+<text x="235.0" y="529.0" font-size="19.0" fill="#201E1F" text-anchor="middle">Spark · Airflow · ETL</text>
+<text x="235.0" y="553.0" font-size="19.0" fill="#201E1F" text-anchor="middle">bond0 · bond1</text>
+<text x="240.0" y="623.0" font-size="20.0" fill="#201E1F" text-anchor="middle">Compute K8s (Cilium)</text>
+<text x="240.0" y="648.0" font-size="20.0" fill="#201E1F" text-anchor="middle">Pod → AIStor : 소켓 LB 직결</text>
+<text x="500" y="295.0" font-size="17.0" fill="#201E1F" text-anchor="start" font-weight="bold">DCNY02 (GPU)</text>
+<text x="695.0" y="337.0" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">Spine</text>
+<text x="695.0" y="410.0" font-size="13.0" fill="#201E1F" text-anchor="middle" font-weight="bold">ToR leaf 쌍 (VTEP)</text>
+<text x="695.0" y="431.0" font-size="13.0" fill="#201E1F" text-anchor="middle">랙당 서버 수 동일</text>
+<text x="695.0" y="502.0" font-size="19.0" fill="#201E1F" text-anchor="middle" font-weight="bold">GPU 노드</text>
+<text x="695.0" y="529.0" font-size="19.0" fill="#201E1F" text-anchor="middle">AI 학습 · 추론</text>
+<text x="695.0" y="553.0" font-size="19.0" fill="#201E1F" text-anchor="middle">bond0 · bond1</text>
+<text x="700.0" y="623.0" font-size="20.0" fill="#201E1F" text-anchor="middle">GPU K8s (Cilium 1.20.2)</text>
+<text x="700.0" y="648.0" font-size="20.0" fill="#201E1F" text-anchor="middle">ClusterMesh 로 AIStor 직결</text>
+<text x="960" y="295.0" font-size="17.0" fill="#201E1F" text-anchor="start" font-weight="bold">DCNY03 (Storage K8s)</text>
+<text x="1155.0" y="337.0" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">Spine</text>
+<text x="1155.0" y="410.0" font-size="13.0" fill="#201E1F" text-anchor="middle" font-weight="bold">ToR leaf 쌍 (VTEP)</text>
+<text x="1155.0" y="431.0" font-size="13.0" fill="#201E1F" text-anchor="middle">랙당 서버 수 동일</text>
+<text x="1155.0" y="502.0" font-size="19.0" fill="#201E1F" text-anchor="middle" font-weight="bold">AIStor 노드</text>
+<text x="1155.0" y="529.0" font-size="19.0" fill="#201E1F" text-anchor="middle">VIP /32 BGP 광고</text>
+<text x="1155.0" y="553.0" font-size="19.0" fill="#201E1F" text-anchor="middle">bond0 · bond1</text>
+<text x="1160.0" y="623.0" font-size="16.5" fill="#201E1F" text-anchor="middle">Storage K8s (AIStor)</text>
+<text x="1160.0" y="644.5" font-size="16.5" fill="#201E1F" text-anchor="middle">VIP : Maglev · DSR · eTP Cluster</text>
+<text x="240.0" y="730.5" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">① 패브릭 (인입 노드 선택)</text>
+<text x="240.0" y="766.25" font-size="16.5" fill="#201E1F" text-anchor="middle">역할별 랙 분리 · 랙당 동일</text>
+<text x="240.0" y="787.75" font-size="16.5" fill="#201E1F" text-anchor="middle">RD 고유 · maximum-paths · igp-metric</text>
+<text x="240.0" y="809.25" font-size="16.5" fill="#201E1F" text-anchor="middle">export-gateway-ip · resilient hashing</text>
+<text x="700.0" y="730.5" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">② L4 LB (백엔드 선택)</text>
+<text x="700.0" y="765.75" font-size="17.5" fill="#201E1F" text-anchor="middle">Maglev (AIStor VIP) · DSR (Geneve)</text>
+<text x="700.0" y="788.25" font-size="17.5" fill="#201E1F" text-anchor="middle">eTP Cluster · 소켓 LB on</text>
+<text x="700.0" y="810.75" font-size="17.5" fill="#201E1F" text-anchor="middle">XDP best-effort (유지)</text>
+<text x="1160.0" y="730.5" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">③ 노드 · bond (송신 · 감지)</text>
+<text x="1160.0" y="766.0" font-size="17.0" fill="#201E1F" text-anchor="middle">802.3ad · layer3+4 (유지) · LACP fast</text>
+<text x="1160.0" y="788.0" font-size="17.0" fill="#201E1F" text-anchor="middle">MTU 9000 · BBR · fq · 버퍼</text>
+<text x="1160.0" y="810.0" font-size="17.0" fill="#201E1F" text-anchor="middle">IRQ · NUMA · tuned</text>
+<text x="700.0" y="857.75" font-size="16.5" fill="#201E1F" text-anchor="middle" font-weight="bold">S3 · ETL · 학습 I/O 는 모두 DCNY03 으로 모임 → DCNY03 구간 간 링크 = Compute + GPU 합계 (non-blocking · RTT ≤ 0.2 ms · MTU 9216)</text>
+</svg>

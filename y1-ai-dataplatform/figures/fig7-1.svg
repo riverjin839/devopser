@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 820" width="1400" height="820" font-family="Noto Sans CJK KR, Malgun Gothic, sans-serif">
+<defs>
+<marker id="mhot" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#CC501A"/></marker>
+<marker id="mgood" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F8B5A"/></marker>
+<marker id="mnorm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#817E7B"/></marker>
+<marker id="midle" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ACA8A4"/></marker>
+<marker id="mback" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F8B5A"/></marker>
+</defs>
+<rect x="20" y="14" width="1360" height="44" rx="5" fill="#201E1F" stroke="#201E1F" stroke-width="1"/>
+<rect x="20" y="62" width="1360" height="30" rx="5" fill="#ECDDB9" stroke="#D4A941" stroke-width="2"/>
+<rect x="30" y="104" width="660" height="690" rx="5" fill="none" stroke="#969390" stroke-width="1.2" stroke-dasharray="6 4"/>
+<polygon points="60,160 70,150 240,150 230,160" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="230,160 240,150 240,210 230,220" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="60" y="160" width="170" height="60" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="60" y1="181.0" x2="230" y2="181.0" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="60,310 70,300 240,300 230,310" fill="#F1EFEC" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="230,310 240,300 240,370 230,380" fill="#E2E0DD" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="60" y="310" width="170" height="70" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<line x1="60" y1="331.0" x2="230" y2="331.0" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="270,160 280,150 450,150 440,160" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="440,160 450,150 450,210 440,220" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="270" y="160" width="170" height="60" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="270" y1="181.0" x2="440" y2="181.0" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="270,310 280,300 450,300 440,310" fill="#F1EFEC" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="440,310 450,300 450,370 440,380" fill="#E2E0DD" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="270" y="310" width="170" height="70" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<line x1="270" y1="331.0" x2="440" y2="331.0" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="480,160 490,150 660,150 650,160" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="650,160 660,150 660,210 650,220" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="480" y="160" width="170" height="60" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="480" y1="181.0" x2="650" y2="181.0" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="480,310 490,300 660,300 650,310" fill="#C34E1A" stroke="#CC501A" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="650,310 660,300 660,370 650,380" fill="#B74A1B" stroke="#CC501A" stroke-width="3" stroke-linejoin="round"/>
+<rect x="480" y="310" width="170" height="70" fill="#CC501A" stroke="#CC501A" stroke-width="3"/>
+<line x1="480" y1="331.0" x2="650" y2="331.0" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="50" y="420" width="620" height="350" rx="5" fill="#EEEAE4" stroke="#B6B3AE" stroke-width="1"/>
+<rect x="710" y="104" width="660" height="690" rx="5" fill="none" stroke="#969390" stroke-width="1.2" stroke-dasharray="6 4"/>
+<polygon points="740,160 750,150 920,150 910,160" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="910,160 920,150 920,210 910,220" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="740" y="160" width="170" height="60" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="740" y1="181.0" x2="910" y2="181.0" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="740,310 750,300 920,300 910,310" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="910,310 920,300 920,370 910,380" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="740" y="310" width="170" height="70" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="740" y1="331.0" x2="910" y2="331.0" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="950,160 960,150 1130,150 1120,160" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="1120,160 1130,150 1130,210 1120,220" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="950" y="160" width="170" height="60" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="950" y1="181.0" x2="1120" y2="181.0" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="950,310 960,300 1130,300 1120,310" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="1120,310 1130,300 1130,370 1120,380" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="950" y="310" width="170" height="70" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="950" y1="331.0" x2="1120" y2="331.0" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="1160,160 1170,150 1340,150 1330,160" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="1330,160 1340,150 1340,210 1330,220" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="1160" y="160" width="170" height="60" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="1160" y1="181.0" x2="1330" y2="181.0" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="1160,310 1170,300 1340,300 1330,310" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="1330,310 1340,300 1340,370 1330,380" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="1160" y="310" width="170" height="70" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="1160" y1="331.0" x2="1330" y2="331.0" stroke="#5F8B5A" stroke-width="1"/>
+<rect x="730" y="420" width="620" height="350" rx="5" fill="#EFE3C6" stroke="#D4A941" stroke-width="2.5"/>
+<line x1="150.0" y1="220" x2="570.0" y2="300" stroke="#CC501A" stroke-width="5" marker-end="url(#mhot)"/>
+<rect x="321.304" y="250.0" width="77.392" height="20" fill="#FCFAF7"/>
+<text x="360.0" y="265.0" font-size="13" font-weight="bold" fill="#CC501A" text-anchor="middle">원격 직접</text>
+<line x1="360.0" y1="220" x2="570.0" y2="300" stroke="#CC501A" stroke-width="5" marker-end="url(#mhot)"/>
+<rect x="426.304" y="250.0" width="77.392" height="20" fill="#FCFAF7"/>
+<text x="465.0" y="265.0" font-size="13" font-weight="bold" fill="#CC501A" text-anchor="middle">원격 직접</text>
+<line x1="570.0" y1="220" x2="570.0" y2="300" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)"/>
+<line x1="830.0" y1="220" x2="830.0" y2="300" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)"/>
+<rect x="791.304" y="250.0" width="77.392" height="20" fill="#FCFAF7"/>
+<text x="830.0" y="265.0" font-size="13" font-weight="bold" fill="#5F8B5A" text-anchor="middle">로컬 조회</text>
+<line x1="1040.0" y1="220" x2="1040.0" y2="300" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)"/>
+<rect x="1001.304" y="250.0" width="77.392" height="20" fill="#FCFAF7"/>
+<text x="1040.0" y="265.0" font-size="13" font-weight="bold" fill="#5F8B5A" text-anchor="middle">로컬 조회</text>
+<line x1="1250.0" y1="220" x2="1250.0" y2="300" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)"/>
+<rect x="1211.304" y="250.0" width="77.392" height="20" fill="#FCFAF7"/>
+<text x="1250.0" y="265.0" font-size="13" font-weight="bold" fill="#5F8B5A" text-anchor="middle">로컬 조회</text>
+<line x1="920" y1="340.0" x2="950" y2="340.0" stroke="#5F8B5A" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#mback)" marker-start="url(#mback)"/>
+<rect x="888.504" y="330.0" width="92.99199999999999" height="20" fill="#FCFAF7"/>
+<text x="935.0" y="345.0" font-size="13" font-weight="bold" fill="#5F8B5A" text-anchor="middle">캐시 동기화</text>
+<line x1="1130" y1="340.0" x2="1160" y2="340.0" stroke="#5F8B5A" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#mback)" marker-start="url(#mback)"/>
+<rect x="1098.504" y="330.0" width="92.99199999999999" height="20" fill="#FCFAF7"/>
+<text x="1145.0" y="345.0" font-size="13" font-weight="bold" fill="#5F8B5A" text-anchor="middle">캐시 동기화</text>
+<text x="700.0" y="45.5" font-size="24.0" fill="#F7F3EC" text-anchor="middle" font-weight="bold">그림 7-1. ClusterMesh 3 클러스터 : apiserver 1개 직접 연결 → KVStoreMesh + HA</text>
+<text x="700.0" y="83.0" font-size="17.0" fill="#201E1F" text-anchor="middle" font-weight="bold">Compute · GPU · Storage 가 서로의 서비스 · 엔드포인트를 공유. 원격 상태를 클러스터마다 캐시하면 연결 수 · 장애 영향이 줄어듦</text>
+<text x="360.0" y="126.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">I Lake : 원격 에이전트가 apiserver 에 직접 (replica 1 · KVStoreMesh 없음)</text>
+<text x="145.0" y="175.0" font-size="12.0" fill="#201E1F" text-anchor="middle" font-weight="bold">Compute K8s</text>
+<text x="145.0" y="194.5" font-size="12.0" fill="#201E1F" text-anchor="middle">DCNY01</text>
+<text x="145.0" y="211.5" font-size="12.0" fill="#201E1F" text-anchor="middle">에이전트 전부</text>
+<text x="145.0" y="325.0" font-size="12.0" fill="#201E1F" text-anchor="middle" font-weight="bold">clustermesh-apiserver</text>
+<text x="145.0" y="358.0" font-size="12.0" fill="#201E1F" text-anchor="middle">replica 1</text>
+<text x="355.0" y="175.0" font-size="12.0" fill="#201E1F" text-anchor="middle" font-weight="bold">GPU K8s</text>
+<text x="355.0" y="194.5" font-size="12.0" fill="#201E1F" text-anchor="middle">DCNY02</text>
+<text x="355.0" y="211.5" font-size="12.0" fill="#201E1F" text-anchor="middle">에이전트 전부</text>
+<text x="355.0" y="325.0" font-size="12.0" fill="#201E1F" text-anchor="middle" font-weight="bold">clustermesh-apiserver</text>
+<text x="355.0" y="358.0" font-size="12.0" fill="#201E1F" text-anchor="middle">replica 1</text>
+<text x="565.0" y="175.0" font-size="12.0" fill="#201E1F" text-anchor="middle" font-weight="bold">Storage K8s</text>
+<text x="565.0" y="194.5" font-size="12.0" fill="#201E1F" text-anchor="middle">DCNY03</text>
+<text x="565.0" y="211.5" font-size="12.0" fill="#201E1F" text-anchor="middle">에이전트 전부</text>
+<text x="565.0" y="325.0" font-size="12.0" fill="#FFFFFF" text-anchor="middle" font-weight="bold">clustermesh-apiserver</text>
+<text x="565.0" y="358.0" font-size="12.0" fill="#FFFFFF" text-anchor="middle">replica 1</text>
+<text x="60" y="445.0" font-size="17.0" fill="#201E1F" text-anchor="start">I Lake 실측 (Storage)</text>
+<text x="60" y="467.0" font-size="17.0" fill="#201E1F" text-anchor="start">· remote 2/2 ready (Compute · GPU 로 추정, 확인 필요)</text>
+<text x="60" y="489.0" font-size="17.0" fill="#201E1F" text-anchor="start">· clustermesh-apiserver replica 1, KVStoreMesh 없음</text>
+<text x="60" y="511.0" font-size="17.0" fill="#201E1F" text-anchor="start">· 원격 클러스터의 모든 에이전트가 apiserver 1개에 직접 연결</text>
+<text x="60" y="533.0" font-size="17.0" fill="#201E1F" text-anchor="start">· apiserver 1개 장애 = 원격 서비스 변화 반영 중단</text>
+<text x="60" y="555.0" font-size="17.0" fill="#201E1F" text-anchor="start">· 기존 문서 : global-svc 간헐 끊김 원인 미확정 → 연관 확인</text>
+<text x="1040.0" y="129.0" font-size="17.0" fill="#201E1F" text-anchor="middle" font-weight="bold">Y1 : 클러스터마다 apiserver + KVStoreMesh (replica 2)</text>
+<text x="825.0" y="175.0" font-size="12.0" fill="#201E1F" text-anchor="middle" font-weight="bold">Compute K8s</text>
+<text x="825.0" y="194.5" font-size="12.0" fill="#201E1F" text-anchor="middle">DCNY01</text>
+<text x="825.0" y="211.5" font-size="12.0" fill="#201E1F" text-anchor="middle">에이전트 전부</text>
+<text x="825.0" y="325.0" font-size="12.0" fill="#201E1F" text-anchor="middle" font-weight="bold">clustermesh-apiserver</text>
+<text x="825.0" y="358.0" font-size="12.0" fill="#201E1F" text-anchor="middle">+ KVStoreMesh · 2개</text>
+<text x="1035.0" y="175.0" font-size="12.0" fill="#201E1F" text-anchor="middle" font-weight="bold">GPU K8s</text>
+<text x="1035.0" y="194.5" font-size="12.0" fill="#201E1F" text-anchor="middle">DCNY02</text>
+<text x="1035.0" y="211.5" font-size="12.0" fill="#201E1F" text-anchor="middle">에이전트 전부</text>
+<text x="1035.0" y="325.0" font-size="12.0" fill="#201E1F" text-anchor="middle" font-weight="bold">clustermesh-apiserver</text>
+<text x="1035.0" y="358.0" font-size="12.0" fill="#201E1F" text-anchor="middle">+ KVStoreMesh · 2개</text>
+<text x="1245.0" y="175.0" font-size="12.0" fill="#201E1F" text-anchor="middle" font-weight="bold">Storage K8s</text>
+<text x="1245.0" y="194.5" font-size="12.0" fill="#201E1F" text-anchor="middle">DCNY03</text>
+<text x="1245.0" y="211.5" font-size="12.0" fill="#201E1F" text-anchor="middle">에이전트 전부</text>
+<text x="1245.0" y="325.0" font-size="12.0" fill="#201E1F" text-anchor="middle" font-weight="bold">clustermesh-apiserver</text>
+<text x="1245.0" y="358.0" font-size="12.0" fill="#201E1F" text-anchor="middle">+ KVStoreMesh · 2개</text>
+<text x="740" y="441.0" font-size="13.0" fill="#201E1F" text-anchor="start">Y1</text>
+<text x="740" y="459.0" font-size="13.0" fill="#201E1F" text-anchor="start">· KVStoreMesh : 원격 상태를 클러스터 안 apiserver 에 캐시 → 에이전트는 로컬만 조회</text>
+<text x="740" y="477.0" font-size="13.0" fill="#201E1F" text-anchor="start">· apiserver replica 2 이상 + 랙 분산 → 하나 죽어도 동기화 유지</text>
+<text x="740" y="495.0" font-size="13.0" fill="#201E1F" text-anchor="start">· 연결이 끊겨도 마지막 상태로 데이터패스 계속 동작</text>
+<text x="740" y="513.0" font-size="13.0" fill="#201E1F" text-anchor="start">· cluster id · PodCIDR(multi-pool) 3 클러스터 비중복</text>
+<text x="740" y="531.0" font-size="13.0" fill="#201E1F" text-anchor="start">· Cilium patch 정렬 (GPU 1.20.2 기준), K8s 지원 범위 확인</text>
+<text x="740" y="549.0" font-size="13.0" fill="#201E1F" text-anchor="start">· Global Service affinity 미설정 유지</text>
+</svg>

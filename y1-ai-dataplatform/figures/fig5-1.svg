@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 800" width="1400" height="800" font-family="Noto Sans CJK KR, Malgun Gothic, sans-serif">
+<defs>
+<marker id="mhot" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#CC501A"/></marker>
+<marker id="mgood" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F8B5A"/></marker>
+<marker id="mnorm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#817E7B"/></marker>
+<marker id="midle" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ACA8A4"/></marker>
+<marker id="mback" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F8B5A"/></marker>
+</defs>
+<rect x="20" y="14" width="1360" height="44" rx="5" fill="#201E1F" stroke="#201E1F" stroke-width="1"/>
+<rect x="20" y="62" width="1360" height="30" rx="5" fill="#ECDDB9" stroke="#D4A941" stroke-width="2"/>
+<polygon points="30,140 40,130 230,130 220,140" fill="#F1EFEC" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="220,140 230,130 230,190 220,200" fill="#E2E0DD" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="30" y="140" width="190" height="60" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<line x1="30" y1="169.0" x2="220" y2="169.0" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="30,480 40,470 230,470 220,480" fill="#F1EFEC" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="220,480 230,470 230,530 220,540" fill="#E2E0DD" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="30" y="480" width="190" height="60" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<line x1="30" y1="509.0" x2="220" y2="509.0" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="330,140 340,130 630,130 620,140" fill="#F1EFEC" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="620,140 630,130 630,190 620,200" fill="#E2E0DD" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<rect x="330" y="140" width="290" height="60" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<line x1="330" y1="169.0" x2="620" y2="169.0" stroke="#605E5C" stroke-width="1"/>
+<polygon points="330,480 340,470 630,470 620,480" fill="#F1EFEC" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="620,480 630,470 630,530 620,540" fill="#E2E0DD" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<rect x="330" y="480" width="290" height="60" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<line x1="330" y1="509.0" x2="620" y2="509.0" stroke="#605E5C" stroke-width="1"/>
+<polygon points="760,140 770,130 980,130 970,140" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="970,140 980,130 980,190 970,200" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="760" y="140" width="210" height="60" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="760" y1="165.5" x2="970" y2="165.5" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="760,480 770,470 980,470 970,480" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="970,480 980,470 980,530 970,540" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="760" y="480" width="210" height="60" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="760" y1="505.5" x2="970" y2="505.5" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="1060,240 1070,230 1370,230 1360,240" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="1360,240 1370,230 1370,430 1360,440" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="1060" y="240" width="300" height="200" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="1060" y1="264.5" x2="1360" y2="264.5" stroke="#A19E9A" stroke-width="1"/>
+<rect x="430" y="250" width="300" height="150" rx="5" fill="#CC501A" stroke="#CC501A" stroke-width="3"/>
+<rect x="30" y="580" width="1340" height="190" rx="5" fill="#EFE3C6" stroke="#D4A941" stroke-width="2.5"/>
+<line x1="230" y1="165.0" x2="330" y2="165.0" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)"/>
+<rect x="227.57600000000002" y="155.0" width="104.84799999999998" height="20" fill="#FCFAF7"/>
+<text x="280.0" y="170.0" font-size="13" font-weight="bold" fill="#5F8B5A" text-anchor="middle">PUBLIC VIP</text>
+<line x1="630" y1="165.0" x2="760" y2="165.0" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)" marker-start="url(#mgood)"/>
+<line x1="230" y1="505.0" x2="330" y2="505.0" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)"/>
+<rect x="222.584" y="495.0" width="114.832" height="20" fill="#FCFAF7"/>
+<text x="280.0" y="510.0" font-size="13" font-weight="bold" fill="#5F8B5A" text-anchor="middle">PRIVATE VIP</text>
+<line x1="630" y1="505.0" x2="760" y2="505.0" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)" marker-start="url(#mgood)"/>
+<line x1="870.0" y1="200" x2="1215.0" y2="230" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)" marker-start="url(#mnorm)"/>
+<line x1="870.0" y1="470" x2="1215.0" y2="440" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)" marker-start="url(#mnorm)"/>
+<line x1="130.0" y1="470" x2="390.0" y2="200" stroke="#ACA8A4" stroke-width="1.2" stroke-dasharray="7 5" marker-end="url(#midle)"/>
+<rect x="189.48000000000002" y="325.0" width="141.04" height="20" fill="#FCFAF7"/>
+<text x="260.0" y="340.0" font-size="13" font-weight="bold" fill="#ACA8A4" text-anchor="middle">PUBLIC VIP 접속</text>
+<text x="700.0" y="45.5" font-size="24.0" fill="#F7F3EC" text-anchor="middle" font-weight="bold">그림 5-1. bond0 = PUBLIC · bond1 = PRIVATE : 광고 · 응답 경로</text>
+<text x="700.0" y="83.0" font-size="17.0" fill="#201E1F" text-anchor="middle" font-weight="bold">BGP 인스턴스 2개가 bond 별로 다른 것을 광고. 내부 client 는 PRIVATE VIP, 외부 client 는 PUBLIC VIP → 응답 경로 대칭</text>
+<text x="125.0" y="163.0" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">외부 client</text>
+<text x="125.0" y="191.0" font-size="20.0" fill="#201E1F" text-anchor="middle">(FA Core 경유)</text>
+<text x="125.0" y="503.0" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">내부 서버</text>
+<text x="125.0" y="531.0" font-size="20.0" fill="#201E1F" text-anchor="middle">(사내 대역)</text>
+<text x="475.0" y="163.0" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">VRF PUBLIC</text>
+<text x="475.0" y="191.0" font-size="20.0" fill="#201E1F" text-anchor="middle">leaf 쌍 (bond0 쪽)</text>
+<text x="475.0" y="503.0" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">VRF PRIVATE</text>
+<text x="475.0" y="531.0" font-size="20.0" fill="#201E1F" text-anchor="middle">leaf 쌍 (bond1 쪽)</text>
+<text x="865.0" y="159.5" font-size="16.5" fill="#201E1F" text-anchor="middle" font-weight="bold">bond0</text>
+<text x="865.0" y="187.5" font-size="16.5" fill="#201E1F" text-anchor="middle">802.3ad · layer3+4</text>
+<text x="865.0" y="499.5" font-size="16.5" fill="#201E1F" text-anchor="middle" font-weight="bold">bond1</text>
+<text x="865.0" y="527.5" font-size="16.5" fill="#201E1F" text-anchor="middle">802.3ad · layer3+4</text>
+<text x="1210.0" y="258.5" font-size="15.5" fill="#201E1F" text-anchor="middle" font-weight="bold">AIStor 노드 (Cilium)</text>
+<text x="1210.0" y="315.5" font-size="15.5" fill="#201E1F" text-anchor="middle">BGP 인스턴스 A → bond0</text>
+<text x="1210.0" y="336.0" font-size="15.5" fill="#201E1F" text-anchor="middle">  PUBLIC VIP /32</text>
+<text x="1210.0" y="356.5" font-size="15.5" fill="#201E1F" text-anchor="middle">BGP 인스턴스 B → bond1</text>
+<text x="1210.0" y="377.0" font-size="15.5" fill="#201E1F" text-anchor="middle">  PodCIDR · PRIVATE VIP</text>
+<text x="1210.0" y="397.5" font-size="15.5" fill="#201E1F" text-anchor="middle">(I Lake : ASN-A · ASN-B 2개)</text>
+<text x="580.0" y="290.75" font-size="14.5" fill="#FFFFFF" text-anchor="middle">비대칭 (피할 것)</text>
+<text x="580.0" y="310.25" font-size="14.5" fill="#FFFFFF" text-anchor="middle">내부 서버 → PUBLIC VIP</text>
+<text x="580.0" y="329.75" font-size="14.5" fill="#FFFFFF" text-anchor="middle">요청 : bond0 로 들어옴</text>
+<text x="580.0" y="349.25" font-size="14.5" fill="#FFFFFF" text-anchor="middle">응답 : 목적지가 사내 대역 → bond1</text>
+<text x="580.0" y="368.75" font-size="14.5" fill="#FFFFFF" text-anchor="middle">→ 방화벽 · uRPF drop</text>
+<text x="40" y="608.0" font-size="20.0" fill="#201E1F" text-anchor="start">원칙 · 판단</text>
+<text x="40" y="633.0" font-size="20.0" fill="#201E1F" text-anchor="start">· 노드는 VRF 가 없어 목적지 주소로 출구 bond 를 고름 → 내부 대역은 bond1, 기본 경로는 bond0</text>
+<text x="40" y="658.0" font-size="20.0" fill="#201E1F" text-anchor="start">· 내부 client 는 PRIVATE VIP, 외부 client 는 PUBLIC VIP 만 사용 → DNS 를 내부 · 외부로 나눠 강제</text>
+<text x="40" y="683.0" font-size="20.0" fill="#201E1F" text-anchor="start">· LB IPAM 풀 PRIVATE · PUBLIC 분리 : I Lake 2개 이상 확인 → 동일 유지</text>
+<text x="40" y="708.0" font-size="20.0" fill="#201E1F" text-anchor="start">· BGP 인스턴스 2개 (ASN-A : 2개 광고, ASN-B : 10개 광고) → 어느 쪽이 bond0 인지 확인 후 광고 대상 대조</text>
+<text x="40" y="733.0" font-size="20.0" fill="#201E1F" text-anchor="start">· PodCIDR 가 PUBLIC 으로 새지 않게 leaf 수신 필터 (NW) · Cilium 광고 라벨 분리</text>
+</svg>

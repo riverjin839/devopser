@@ -1,0 +1,178 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 860" width="1400" height="860" font-family="Noto Sans CJK KR, Malgun Gothic, sans-serif">
+<defs>
+<marker id="mhot" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#CC501A"/></marker>
+<marker id="mgood" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F8B5A"/></marker>
+<marker id="mnorm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#817E7B"/></marker>
+<marker id="midle" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ACA8A4"/></marker>
+<marker id="mback" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F8B5A"/></marker>
+</defs>
+<rect x="20" y="14" width="1360" height="44" rx="5" fill="#201E1F" stroke="#201E1F" stroke-width="1"/>
+<rect x="20" y="62" width="1360" height="30" rx="5" fill="#ECDDB9" stroke="#D4A941" stroke-width="2"/>
+<rect x="30" y="104" width="660" height="730" rx="5" fill="none" stroke="#969390" stroke-width="1.2" stroke-dasharray="6 4"/>
+<polygon points="260,150 270,140 460,140 450,150" fill="#F1EFEC" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="450,150 460,140 460,188 450,198" fill="#E2E0DD" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="260" y="150" width="190" height="48" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<line x1="260" y1="173.0" x2="450" y2="173.0" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="230,260 240,250 490,250 480,260" fill="#F1EFEC" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="480,260 490,250 490,304 480,314" fill="#E2E0DD" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<rect x="230" y="260" width="250" height="54" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<line x1="230" y1="284.0" x2="480" y2="284.0" stroke="#605E5C" stroke-width="1"/>
+<polygon points="52,390 62,380 122,380 112,390" fill="#C34E1A" stroke="#CC501A" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="112,390 122,380 122,466 112,476" fill="#B74A1B" stroke="#CC501A" stroke-width="3" stroke-linejoin="round"/>
+<rect x="52" y="390" width="60" height="86" fill="#CC501A" stroke="#CC501A" stroke-width="3"/>
+<line x1="52" y1="413.0" x2="112" y2="413.0" stroke="#FFFFFF" stroke-width="1"/>
+<polygon points="130,390 140,380 200,380 190,390" fill="#ECE8E2" stroke="#C1BEB9" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="190,390 200,380 200,466 190,476" fill="#DDD9D3" stroke="#C1BEB9" stroke-width="1" stroke-linejoin="round"/>
+<rect x="130" y="390" width="60" height="86" fill="none" stroke="#C1BEB9" stroke-width="1"/>
+<line x1="130" y1="413.0" x2="190" y2="413.0" stroke="#C1BEB9" stroke-width="1"/>
+<polygon points="208,390 218,380 278,380 268,390" fill="#ECE8E2" stroke="#C1BEB9" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="268,390 278,380 278,466 268,476" fill="#DDD9D3" stroke="#C1BEB9" stroke-width="1" stroke-linejoin="round"/>
+<rect x="208" y="390" width="60" height="86" fill="none" stroke="#C1BEB9" stroke-width="1"/>
+<line x1="208" y1="413.0" x2="268" y2="413.0" stroke="#C1BEB9" stroke-width="1"/>
+<polygon points="286,390 296,380 356,380 346,390" fill="#ECE8E2" stroke="#C1BEB9" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="346,390 356,380 356,466 346,476" fill="#DDD9D3" stroke="#C1BEB9" stroke-width="1" stroke-linejoin="round"/>
+<rect x="286" y="390" width="60" height="86" fill="none" stroke="#C1BEB9" stroke-width="1"/>
+<line x1="286" y1="413.0" x2="346" y2="413.0" stroke="#C1BEB9" stroke-width="1"/>
+<polygon points="364,390 374,380 434,380 424,390" fill="#ECE8E2" stroke="#C1BEB9" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="424,390 434,380 434,466 424,476" fill="#DDD9D3" stroke="#C1BEB9" stroke-width="1" stroke-linejoin="round"/>
+<rect x="364" y="390" width="60" height="86" fill="none" stroke="#C1BEB9" stroke-width="1"/>
+<line x1="364" y1="413.0" x2="424" y2="413.0" stroke="#C1BEB9" stroke-width="1"/>
+<polygon points="442,390 452,380 512,380 502,390" fill="#ECE8E2" stroke="#C1BEB9" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="502,390 512,380 512,466 502,476" fill="#DDD9D3" stroke="#C1BEB9" stroke-width="1" stroke-linejoin="round"/>
+<rect x="442" y="390" width="60" height="86" fill="none" stroke="#C1BEB9" stroke-width="1"/>
+<line x1="442" y1="413.0" x2="502" y2="413.0" stroke="#C1BEB9" stroke-width="1"/>
+<polygon points="520,390 530,380 590,380 580,390" fill="#ECE8E2" stroke="#C1BEB9" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="580,390 590,380 590,466 580,476" fill="#DDD9D3" stroke="#C1BEB9" stroke-width="1" stroke-linejoin="round"/>
+<rect x="520" y="390" width="60" height="86" fill="none" stroke="#C1BEB9" stroke-width="1"/>
+<line x1="520" y1="413.0" x2="580" y2="413.0" stroke="#C1BEB9" stroke-width="1"/>
+<polygon points="598,390 608,380 668,380 658,390" fill="#ECE8E2" stroke="#C1BEB9" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="658,390 668,380 668,466 658,476" fill="#DDD9D3" stroke="#C1BEB9" stroke-width="1" stroke-linejoin="round"/>
+<rect x="598" y="390" width="60" height="86" fill="none" stroke="#C1BEB9" stroke-width="1"/>
+<line x1="598" y1="413.0" x2="658" y2="413.0" stroke="#C1BEB9" stroke-width="1"/>
+<rect x="50" y="500" width="620" height="150" rx="5" fill="#CC501A" stroke="#CC501A" stroke-width="3"/>
+<rect x="50" y="666" width="620" height="150" rx="5" fill="#EEEAE4" stroke="#B6B3AE" stroke-width="1"/>
+<rect x="710" y="104" width="660" height="730" rx="5" fill="none" stroke="#969390" stroke-width="1.2" stroke-dasharray="6 4"/>
+<polygon points="940,150 950,140 1140,140 1130,150" fill="#F1EFEC" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="1130,150 1140,140 1140,188 1130,198" fill="#E2E0DD" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="940" y="150" width="190" height="48" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<line x1="940" y1="173.0" x2="1130" y2="173.0" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="910,260 920,250 1170,250 1160,260" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="1160,260 1170,250 1170,304 1160,314" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="910" y="260" width="250" height="54" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="910" y1="283.0" x2="1160" y2="283.0" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="732,390 742,380 802,380 792,390" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="792,390 802,380 802,466 792,476" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="732" y="390" width="60" height="86" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="732" y1="413.0" x2="792" y2="413.0" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="810,390 820,380 880,380 870,390" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="870,390 880,380 880,466 870,476" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="810" y="390" width="60" height="86" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="810" y1="413.0" x2="870" y2="413.0" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="888,390 898,380 958,380 948,390" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="948,390 958,380 958,466 948,476" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="888" y="390" width="60" height="86" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="888" y1="413.0" x2="948" y2="413.0" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="966,390 976,380 1036,380 1026,390" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="1026,390 1036,380 1036,466 1026,476" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="966" y="390" width="60" height="86" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="966" y1="413.0" x2="1026" y2="413.0" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="1044,390 1054,380 1114,380 1104,390" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="1104,390 1114,380 1114,466 1104,476" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="1044" y="390" width="60" height="86" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="1044" y1="413.0" x2="1104" y2="413.0" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="1122,390 1132,380 1192,380 1182,390" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="1182,390 1192,380 1192,466 1182,476" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="1122" y="390" width="60" height="86" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="1122" y1="413.0" x2="1182" y2="413.0" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="1200,390 1210,380 1270,380 1260,390" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="1260,390 1270,380 1270,466 1260,476" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="1200" y="390" width="60" height="86" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="1200" y1="413.0" x2="1260" y2="413.0" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="1278,390 1288,380 1348,380 1338,390" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="1338,390 1348,380 1348,466 1338,476" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="1278" y="390" width="60" height="86" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="1278" y1="413.0" x2="1338" y2="413.0" stroke="#5F8B5A" stroke-width="1"/>
+<rect x="730" y="500" width="620" height="150" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<rect x="730" y="666" width="620" height="150" rx="5" fill="#EFE3C6" stroke="#D4A941" stroke-width="2.5"/>
+<line x1="360.0" y1="198" x2="360.0" y2="250" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)"/>
+<line x1="360.0" y1="314" x2="87.0" y2="380" stroke="#CC501A" stroke-width="5" marker-end="url(#mhot)"/>
+<line x1="360.0" y1="314" x2="165.0" y2="380" stroke="#ACA8A4" stroke-width="1.2" stroke-dasharray="7 5" marker-end="url(#midle)"/>
+<line x1="360.0" y1="314" x2="243.0" y2="380" stroke="#ACA8A4" stroke-width="1.2" stroke-dasharray="7 5" marker-end="url(#midle)"/>
+<line x1="360.0" y1="314" x2="321.0" y2="380" stroke="#ACA8A4" stroke-width="1.2" stroke-dasharray="7 5" marker-end="url(#midle)"/>
+<line x1="360.0" y1="314" x2="399.0" y2="380" stroke="#ACA8A4" stroke-width="1.2" stroke-dasharray="7 5" marker-end="url(#midle)"/>
+<line x1="360.0" y1="314" x2="477.0" y2="380" stroke="#ACA8A4" stroke-width="1.2" stroke-dasharray="7 5" marker-end="url(#midle)"/>
+<line x1="360.0" y1="314" x2="555.0" y2="380" stroke="#ACA8A4" stroke-width="1.2" stroke-dasharray="7 5" marker-end="url(#midle)"/>
+<line x1="360.0" y1="314" x2="633.0" y2="380" stroke="#ACA8A4" stroke-width="1.2" stroke-dasharray="7 5" marker-end="url(#midle)"/>
+<line x1="1040.0" y1="198" x2="1040.0" y2="250" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)"/>
+<line x1="1040.0" y1="314" x2="767.0" y2="380" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)"/>
+<line x1="1040.0" y1="314" x2="845.0" y2="380" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)"/>
+<line x1="1040.0" y1="314" x2="923.0" y2="380" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)"/>
+<line x1="1040.0" y1="314" x2="1001.0" y2="380" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)"/>
+<line x1="1040.0" y1="314" x2="1079.0" y2="380" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)"/>
+<line x1="1040.0" y1="314" x2="1157.0" y2="380" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)"/>
+<line x1="1040.0" y1="314" x2="1235.0" y2="380" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)"/>
+<line x1="1040.0" y1="314" x2="1313.0" y2="380" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)"/>
+<text x="700.0" y="45.5" font-size="24.0" fill="#F7F3EC" text-anchor="middle" font-weight="bold">그림 2-1. VIP 광고 방식 : BGP 유지 (L2 는 참고)</text>
+<text x="700.0" y="83.0" font-size="17.0" fill="#201E1F" text-anchor="middle" font-weight="bold">LB IPAM 은 주소만 정함. 분산은 VIP 를 알리는 방식이 결정 → L2 면 VIP 당 노드 1대, BGP 면 광고 노드 전체 ECMP</text>
+<text x="360.0" y="128.5" font-size="16.5" fill="#201E1F" text-anchor="middle" font-weight="bold">참고 : L2 announcement (ARP) 였다면 (I Lake 는 BGP · 해당 없음)</text>
+<text x="355.0" y="167.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">ETL client</text>
+<text x="355.0" y="189.0" font-size="14.0" fill="#201E1F" text-anchor="middle">S3 → VIP</text>
+<text x="355.0" y="278.0" font-size="15.0" fill="#201E1F" text-anchor="middle" font-weight="bold">DCNY03 Storage leaf 쌍</text>
+<text x="355.0" y="303.0" font-size="15.0" fill="#201E1F" text-anchor="middle">VIP → ARP 응답한 MAC 1개</text>
+<text x="82.0" y="407.0" font-size="14.0" fill="#FFFFFF" text-anchor="middle" font-weight="bold">노드 1</text>
+<text x="82.0" y="438.5" font-size="14.0" fill="#FFFFFF" text-anchor="middle">lease</text>
+<text x="82.0" y="457.5" font-size="14.0" fill="#FFFFFF" text-anchor="middle">100%</text>
+<text x="160.0" y="407.0" font-size="14.0" fill="#767371" text-anchor="middle" font-weight="bold">노드 2</text>
+<text x="160.0" y="448.0" font-size="14.0" fill="#767371" text-anchor="middle">0%</text>
+<text x="238.0" y="407.0" font-size="14.0" fill="#767371" text-anchor="middle" font-weight="bold">노드 3</text>
+<text x="238.0" y="448.0" font-size="14.0" fill="#767371" text-anchor="middle">0%</text>
+<text x="316.0" y="407.0" font-size="14.0" fill="#767371" text-anchor="middle" font-weight="bold">노드 4</text>
+<text x="316.0" y="448.0" font-size="14.0" fill="#767371" text-anchor="middle">0%</text>
+<text x="394.0" y="407.0" font-size="14.0" fill="#767371" text-anchor="middle" font-weight="bold">노드 5</text>
+<text x="394.0" y="448.0" font-size="14.0" fill="#767371" text-anchor="middle">0%</text>
+<text x="472.0" y="407.0" font-size="14.0" fill="#767371" text-anchor="middle" font-weight="bold">노드 6</text>
+<text x="472.0" y="448.0" font-size="14.0" fill="#767371" text-anchor="middle">0%</text>
+<text x="550.0" y="407.0" font-size="14.0" fill="#767371" text-anchor="middle" font-weight="bold">노드 7</text>
+<text x="550.0" y="448.0" font-size="14.0" fill="#767371" text-anchor="middle">0%</text>
+<text x="628.0" y="407.0" font-size="14.0" fill="#767371" text-anchor="middle" font-weight="bold">노드 M</text>
+<text x="628.0" y="448.0" font-size="14.0" fill="#767371" text-anchor="middle">0%</text>
+<text x="60" y="532.5" font-size="20.0" fill="#FFFFFF" text-anchor="start">동작</text>
+<text x="60" y="557.5" font-size="20.0" fill="#FFFFFF" text-anchor="start">· VIP 마다 lease 를 가진 노드 1대만 ARP 응답</text>
+<text x="60" y="582.5" font-size="20.0" fill="#FFFFFF" text-anchor="start">· 그 VIP 의 모든 요청이 노드 1대로 인입</text>
+<text x="60" y="607.5" font-size="20.0" fill="#FFFFFF" text-anchor="start">· 장애 시 lease 이전까지 끊김</text>
+<text x="60" y="632.5" font-size="20.0" fill="#FFFFFF" text-anchor="start">· 패브릭 ECMP · iBGP/eBGP 설정과 무관하게 쏠림</text>
+<text x="60" y="690.5" font-size="16.5" fill="#201E1F" text-anchor="start">확인</text>
+<text x="60" y="712.0" font-size="16.5" fill="#201E1F" text-anchor="start">kubectl get ciliuml2announcementpolicy</text>
+<text x="60" y="733.5" font-size="16.5" fill="#201E1F" text-anchor="start">kubectl -n kube-system get lease | grep cilium-l2announce</text>
+<text x="60" y="755.0" font-size="16.5" fill="#201E1F" text-anchor="start">→ 있으면 L2 방식 = 불균형 1순위 원인</text>
+<text x="1040.0" y="129.0" font-size="17.0" fill="#201E1F" text-anchor="middle" font-weight="bold">I Lake · Y1 : BGP 광고 (CiliumBGPAdvertisement) [동일 유지]</text>
+<text x="1035.0" y="167.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">ETL client</text>
+<text x="1035.0" y="189.0" font-size="14.0" fill="#201E1F" text-anchor="middle">S3 → VIP</text>
+<text x="1035.0" y="277.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">DCNY03 Storage leaf 쌍</text>
+<text x="1035.0" y="302.0" font-size="14.0" fill="#201E1F" text-anchor="middle">VIP /32 → 랙 노드 M개 ECMP</text>
+<text x="762.0" y="407.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">노드 1</text>
+<text x="762.0" y="448.0" font-size="14.0" fill="#201E1F" text-anchor="middle">1/M</text>
+<text x="840.0" y="407.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">노드 2</text>
+<text x="840.0" y="448.0" font-size="14.0" fill="#201E1F" text-anchor="middle">1/M</text>
+<text x="918.0" y="407.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">노드 3</text>
+<text x="918.0" y="448.0" font-size="14.0" fill="#201E1F" text-anchor="middle">1/M</text>
+<text x="996.0" y="407.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">노드 4</text>
+<text x="996.0" y="448.0" font-size="14.0" fill="#201E1F" text-anchor="middle">1/M</text>
+<text x="1074.0" y="407.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">노드 5</text>
+<text x="1074.0" y="448.0" font-size="14.0" fill="#201E1F" text-anchor="middle">1/M</text>
+<text x="1152.0" y="407.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">노드 6</text>
+<text x="1152.0" y="448.0" font-size="14.0" fill="#201E1F" text-anchor="middle">1/M</text>
+<text x="1230.0" y="407.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">노드 7</text>
+<text x="1230.0" y="448.0" font-size="14.0" fill="#201E1F" text-anchor="middle">1/M</text>
+<text x="1308.0" y="407.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">노드 M</text>
+<text x="1308.0" y="448.0" font-size="14.0" fill="#201E1F" text-anchor="middle">1/M</text>
+<text x="740" y="532.5" font-size="20.0" fill="#201E1F" text-anchor="start">동작</text>
+<text x="740" y="557.5" font-size="20.0" fill="#201E1F" text-anchor="start">· 노드마다 VIP /32 를 leaf 와 eBGP 로 광고 (2세션)</text>
+<text x="740" y="582.5" font-size="20.0" fill="#201E1F" text-anchor="start">· leaf 가 랙 노드 M개로 ECMP</text>
+<text x="740" y="607.5" font-size="20.0" fill="#201E1F" text-anchor="start">· 노드 장애 = 세션 down → 경로 제거 (hold 9s)</text>
+<text x="740" y="632.5" font-size="20.0" fill="#201E1F" text-anchor="start">· 그 위에서 Maglev 가 전체 AIStor Pod 로 분배</text>
+<text x="740" y="690.5" font-size="16.5" fill="#201E1F" text-anchor="start">확인</text>
+<text x="740" y="712.0" font-size="16.5" fill="#201E1F" text-anchor="start">kubectl get ciliumbgpadvertisement -o yaml</text>
+<text x="740" y="733.5" font-size="16.5" fill="#201E1F" text-anchor="start">cilium bgp routes advertised ipv4 unicast</text>
+<text x="740" y="755.0" font-size="16.5" fill="#201E1F" text-anchor="start">show ip route &lt;VIP&gt;/32 vrf PUBLIC   (next-hop = 랙 노드 수)</text>
+</svg>

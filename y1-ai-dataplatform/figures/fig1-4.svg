@@ -1,0 +1,210 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 880" width="1400" height="880" font-family="Noto Sans CJK KR, Malgun Gothic, sans-serif">
+<defs>
+<marker id="mhot" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#CC501A"/></marker>
+<marker id="mgood" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F8B5A"/></marker>
+<marker id="mnorm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#817E7B"/></marker>
+<marker id="midle" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ACA8A4"/></marker>
+<marker id="mback" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F8B5A"/></marker>
+</defs>
+<rect x="20" y="14" width="1360" height="44" rx="5" fill="#201E1F" stroke="#201E1F" stroke-width="1"/>
+<rect x="20" y="62" width="1360" height="30" rx="5" fill="#ECDDB9" stroke="#D4A941" stroke-width="2"/>
+<rect x="30" y="104" width="430" height="682" rx="5" fill="none" stroke="#969390" stroke-width="1.2" stroke-dasharray="6 4"/>
+<rect x="40" y="114" width="410" height="46" rx="5" fill="#CC501A" stroke="#CC501A" stroke-width="3"/>
+<rect x="480" y="104" width="430" height="682" rx="5" fill="none" stroke="#969390" stroke-width="1.2" stroke-dasharray="6 4"/>
+<rect x="490" y="114" width="410" height="46" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<rect x="930" y="104" width="430" height="682" rx="5" fill="none" stroke="#969390" stroke-width="1.2" stroke-dasharray="6 4"/>
+<rect x="940" y="114" width="410" height="46" rx="5" fill="#EFE3C6" stroke="#D4A941" stroke-width="2.5"/>
+<rect x="40" y="172" width="410" height="300" rx="5" fill="none" stroke="#969390" stroke-width="1.2" stroke-dasharray="6 4"/>
+<polygon points="160,210 170,200 330,200 320,210" fill="#F1EFEC" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="320,210 330,200 330,244 320,254" fill="#E2E0DD" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<rect x="160" y="210" width="160" height="44" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<line x1="160" y1="231.0" x2="320" y2="231.0" stroke="#605E5C" stroke-width="1"/>
+<polygon points="52,310 62,300 144,300 134,310" fill="#C34E1A" stroke="#CC501A" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="134,310 144,300 144,410 134,420" fill="#B74A1B" stroke="#CC501A" stroke-width="3" stroke-linejoin="round"/>
+<rect x="52" y="310" width="82" height="110" fill="#CC501A" stroke="#CC501A" stroke-width="3"/>
+<line x1="52" y1="330.0" x2="134" y2="330.0" stroke="#FFFFFF" stroke-width="1"/>
+<polygon points="152,310 162,300 244,300 234,310" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="234,310 244,300 244,410 234,420" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="152" y="310" width="82" height="110" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="152" y1="330.0" x2="234" y2="330.0" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="252,310 262,300 344,300 334,310" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="334,310 344,300 344,410 334,420" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="252" y="310" width="82" height="110" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="252" y1="330.0" x2="334" y2="330.0" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="352,310 362,300 444,300 434,310" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="434,310 444,300 444,410 434,420" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="352" y="310" width="82" height="110" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="352" y1="330.0" x2="434" y2="330.0" stroke="#A19E9A" stroke-width="1"/>
+<rect x="52" y="430" width="390" height="34" rx="5" fill="#CC501A" stroke="#CC501A" stroke-width="3"/>
+<rect x="490" y="172" width="410" height="300" rx="5" fill="none" stroke="#969390" stroke-width="1.2" stroke-dasharray="6 4"/>
+<polygon points="610,210 620,200 780,200 770,210" fill="#F1EFEC" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="770,210 780,200 780,244 770,254" fill="#E2E0DD" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<rect x="610" y="210" width="160" height="44" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<line x1="610" y1="231.0" x2="770" y2="231.0" stroke="#605E5C" stroke-width="1"/>
+<polygon points="510,320 520,310 680,310 670,320" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="670,320 680,310 680,400 670,410" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="510" y="320" width="160" height="90" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="510" y1="341.0" x2="670" y2="341.0" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="710,320 720,310 880,310 870,320" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="870,320 880,310 880,400 870,410" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="710" y="320" width="160" height="90" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="710" y1="342.0" x2="870" y2="342.0" stroke="#5F8B5A" stroke-width="1"/>
+<rect x="510" y="430" width="370" height="34" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<rect x="940" y="172" width="195" height="128" rx="5" fill="none" stroke="#969390" stroke-width="1.2" stroke-dasharray="6 4"/>
+<rect x="1155" y="172" width="195" height="128" rx="5" fill="none" stroke="#969390" stroke-width="1.2" stroke-dasharray="6 4"/>
+<rect x="940" y="318" width="410" height="104" rx="5" fill="none" stroke="#969390" stroke-width="1.2" stroke-dasharray="6 4"/>
+<rect x="946" y="324" width="160" height="22" rx="5" fill="none" stroke="none" stroke-width="0"/>
+<polygon points="955,210 965,200 1120,200 1110,210" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="1110,210 1120,200 1120,278 1110,288" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="955" y="210" width="155" height="78" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="955" y1="231.0" x2="1110" y2="231.0" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="1170,210 1180,200 1335,200 1325,210" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="1325,210 1335,200 1335,278 1325,288" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="1170" y="210" width="155" height="78" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="1170" y1="236.5" x2="1325" y2="236.5" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="1130,352 1140,342 1330,342 1320,352" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="1320,352 1330,342 1330,404 1320,414" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="1130" y="352" width="190" height="62" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="1130" y1="381.0" x2="1320" y2="381.0" stroke="#5F8B5A" stroke-width="1"/>
+<rect x="960" y="430" width="370" height="34" rx="5" fill="#EFE3C6" stroke="#D4A941" stroke-width="2.5"/>
+<rect x="40" y="488" width="110" height="64" rx="5" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<rect x="156" y="488" width="294" height="64" rx="5" fill="#CC501A" stroke="#CC501A" stroke-width="3"/>
+<rect x="490" y="488" width="110" height="64" rx="5" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<rect x="606" y="488" width="294" height="64" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<rect x="940" y="488" width="110" height="64" rx="5" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<rect x="1056" y="488" width="294" height="64" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<rect x="40" y="560" width="110" height="64" rx="5" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<rect x="156" y="560" width="294" height="64" rx="5" fill="#CC501A" stroke="#CC501A" stroke-width="3"/>
+<rect x="490" y="560" width="110" height="64" rx="5" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<rect x="606" y="560" width="294" height="64" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<rect x="940" y="560" width="110" height="64" rx="5" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<rect x="1056" y="560" width="294" height="64" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<rect x="40" y="632" width="110" height="64" rx="5" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<rect x="156" y="632" width="294" height="64" rx="5" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<rect x="490" y="632" width="110" height="64" rx="5" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<rect x="606" y="632" width="294" height="64" rx="5" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<rect x="940" y="632" width="110" height="64" rx="5" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<rect x="1056" y="632" width="294" height="64" rx="5" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<rect x="40" y="704" width="110" height="64" rx="5" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<rect x="156" y="704" width="294" height="64" rx="5" fill="#CC501A" stroke="#CC501A" stroke-width="3"/>
+<rect x="490" y="704" width="110" height="64" rx="5" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<rect x="606" y="704" width="294" height="64" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<rect x="940" y="704" width="110" height="64" rx="5" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<rect x="1056" y="704" width="294" height="64" rx="5" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<rect x="30" y="798" width="1340" height="72" rx="5" fill="#EFE3C6" stroke="#D4A941" stroke-width="2.5"/>
+<line x1="245.0" y1="254" x2="98.0" y2="300" stroke="#CC501A" stroke-width="5" marker-end="url(#mhot)"/>
+<rect x="152.148" y="267.0" width="38.70400000000001" height="20" fill="#FCFAF7"/>
+<text x="171.5" y="282.0" font-size="13" font-weight="bold" fill="#CC501A" text-anchor="middle">1/4</text>
+<line x1="245.0" y1="254" x2="198.0" y2="300" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)"/>
+<rect x="202.148" y="267.0" width="38.70400000000001" height="20" fill="#FCFAF7"/>
+<text x="221.5" y="282.0" font-size="13" font-weight="bold" fill="#817E7B" text-anchor="middle">1/4</text>
+<line x1="245.0" y1="254" x2="298.0" y2="300" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)"/>
+<rect x="252.148" y="267.0" width="38.70400000000001" height="20" fill="#FCFAF7"/>
+<text x="271.5" y="282.0" font-size="13" font-weight="bold" fill="#817E7B" text-anchor="middle">1/4</text>
+<line x1="245.0" y1="254" x2="398.0" y2="300" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)"/>
+<rect x="302.148" y="267.0" width="38.70400000000001" height="20" fill="#FCFAF7"/>
+<text x="321.5" y="282.0" font-size="13" font-weight="bold" fill="#817E7B" text-anchor="middle">1/4</text>
+<line x1="695.0" y1="254" x2="595.0" y2="310" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)" marker-start="url(#mnorm)"/>
+<rect x="605.68" y="272.0" width="78.64" height="20" fill="#FCFAF7"/>
+<text x="645.0" y="287.0" font-size="13" font-weight="bold" fill="#817E7B" text-anchor="middle">S3 · ETL</text>
+<line x1="695.0" y1="254" x2="795.0" y2="310" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)"/>
+<rect x="690.08" y="272.0" width="109.84" height="20" fill="#FCFAF7"/>
+<text x="745.0" y="287.0" font-size="13" font-weight="bold" fill="#5F8B5A" text-anchor="middle">VIP 1/R 균등</text>
+<line x1="1037.5" y1="288" x2="1180.0" y2="342" stroke="#CC501A" stroke-width="5" marker-end="url(#mhot)"/>
+<rect x="1069.43" y="305.0" width="78.64" height="20" fill="#FCFAF7"/>
+<text x="1108.75" y="320.0" font-size="13" font-weight="bold" fill="#CC501A" text-anchor="middle">S3 · ETL</text>
+<line x1="1252.5" y1="288" x2="1280.0" y2="342" stroke="#CC501A" stroke-width="5" marker-end="url(#mhot)"/>
+<rect x="1216.634" y="305.0" width="99.23200000000001" height="20" fill="#FCFAF7"/>
+<text x="1266.25" y="320.0" font-size="13" font-weight="bold" fill="#CC501A" text-anchor="middle">S3 (대용량)</text>
+<text x="700.0" y="45.5" font-size="24.0" fill="#F7F3EC" text-anchor="middle" font-weight="bold">그림 1-4. 랙 혼재(random) → 역할별 랙 분리 · DC 구간 분리 (공간 · 전력 제약)</text>
+<text x="700.0" y="82.0" font-size="15.0" fill="#201E1F" text-anchor="middle" font-weight="bold">혼재 배치는 랙마다 AIStor 노드 수가 달라 VIP 분산이 깨짐 → 역할별 랙 분리로 해소. 구간 분리(DCNY01 · 02 · 03)는 불가피 → DCNY03 구간 간 링크로 관리</text>
+<text x="245.0" y="129.0" font-size="17.0" fill="#201E1F" text-anchor="middle" font-weight="bold"></text>
+<text x="245.0" y="132.0" font-size="14.0" fill="#FFFFFF" text-anchor="middle" font-weight="bold">A. I Lake : 랙 혼재 (random 배치)</text>
+<text x="245.0" y="151.0" font-size="14.0" fill="#FFFFFF" text-anchor="middle" font-weight="bold">[개선 대상]</text>
+<text x="695.0" y="129.0" font-size="17.0" fill="#201E1F" text-anchor="middle" font-weight="bold"></text>
+<text x="695.0" y="132.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">B. Y1 : 역할별 랙 분리</text>
+<text x="695.0" y="151.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">[개선]</text>
+<text x="1145.0" y="129.0" font-size="17.0" fill="#201E1F" text-anchor="middle" font-weight="bold"></text>
+<text x="1145.0" y="132.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">C. Y1 + DC 구간 분리 (DCNY01 · 02 · 03)</text>
+<text x="1145.0" y="151.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">[공간 · 전력 불가피 · 조건 충족]</text>
+<text x="245.0" y="197.0" font-size="17.0" fill="#201E1F" text-anchor="middle" font-weight="bold">DC (예시 : 랙 4개, AIStor 수 제각각)</text>
+<text x="240.0" y="225.0" font-size="12.0" fill="#201E1F" text-anchor="middle" font-weight="bold">Border</text>
+<text x="240.0" y="245.0" font-size="12.0" fill="#201E1F" text-anchor="middle">AIStor VIP</text>
+<text x="93.0" y="324.0" font-size="11.0" fill="#FFFFFF" text-anchor="middle" font-weight="bold">랙 1</text>
+<text x="93.0" y="361.0" font-size="11.0" fill="#FFFFFF" text-anchor="middle">AIStor 1대</text>
+<text x="93.0" y="377.0" font-size="11.0" fill="#FFFFFF" text-anchor="middle">Compute 나머지</text>
+<text x="93.0" y="393.0" font-size="11.0" fill="#FFFFFF" text-anchor="middle">노드당 1/4</text>
+<text x="193.0" y="324.0" font-size="11.0" fill="#201E1F" text-anchor="middle" font-weight="bold">랙 2</text>
+<text x="193.0" y="361.0" font-size="11.0" fill="#201E1F" text-anchor="middle">AIStor 5대</text>
+<text x="193.0" y="377.0" font-size="11.0" fill="#201E1F" text-anchor="middle">Compute 나머지</text>
+<text x="193.0" y="393.0" font-size="11.0" fill="#201E1F" text-anchor="middle">노드당 1/20</text>
+<text x="293.0" y="324.0" font-size="11.0" fill="#201E1F" text-anchor="middle" font-weight="bold">랙 3</text>
+<text x="293.0" y="361.0" font-size="11.0" fill="#201E1F" text-anchor="middle">AIStor 3대</text>
+<text x="293.0" y="377.0" font-size="11.0" fill="#201E1F" text-anchor="middle">Compute 나머지</text>
+<text x="293.0" y="393.0" font-size="11.0" fill="#201E1F" text-anchor="middle">노드당 1/12</text>
+<text x="393.0" y="324.0" font-size="11.0" fill="#201E1F" text-anchor="middle" font-weight="bold">랙 4</text>
+<text x="393.0" y="361.0" font-size="11.0" fill="#201E1F" text-anchor="middle">AIStor 2대</text>
+<text x="393.0" y="377.0" font-size="11.0" fill="#201E1F" text-anchor="middle">Compute 나머지</text>
+<text x="393.0" y="393.0" font-size="11.0" fill="#201E1F" text-anchor="middle">노드당 1/8</text>
+<text x="247.0" y="452.75" font-size="16.5" fill="#FFFFFF" text-anchor="middle" font-weight="bold">랙 1 AIStor 노드 = 랙 2 노드의 5배 인입</text>
+<text x="695.0" y="197.0" font-size="17.0" fill="#201E1F" text-anchor="middle" font-weight="bold">DC (단일 구간)</text>
+<text x="690.0" y="225.0" font-size="12.0" fill="#201E1F" text-anchor="middle" font-weight="bold">Super Spine</text>
+<text x="690.0" y="245.0" font-size="12.0" fill="#201E1F" text-anchor="middle">AIStor VIP</text>
+<text x="590.0" y="335.0" font-size="12.0" fill="#201E1F" text-anchor="middle" font-weight="bold">Compute 랙</text>
+<text x="590.0" y="369.5" font-size="12.0" fill="#201E1F" text-anchor="middle">랙당 N대 동일</text>
+<text x="590.0" y="386.5" font-size="12.0" fill="#201E1F" text-anchor="middle">Spark · Airflow · ETL</text>
+<text x="790.0" y="336.0" font-size="13.0" fill="#201E1F" text-anchor="middle" font-weight="bold">Storage 랙</text>
+<text x="790.0" y="370.0" font-size="13.0" fill="#201E1F" text-anchor="middle">랙당 M대 동일</text>
+<text x="790.0" y="388.0" font-size="13.0" fill="#201E1F" text-anchor="middle">AIStor (VIP 광고)</text>
+<text x="695.0" y="454.5" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">Storage 노드당 1/(R·M) 동일</text>
+<text x="1037.5" y="193.0" font-size="13.0" fill="#201E1F" text-anchor="middle" font-weight="bold">DCNY01 (Compute K8s)</text>
+<text x="1252.5" y="195.0" font-size="15.0" fill="#201E1F" text-anchor="middle" font-weight="bold">DCNY02 (GPU 서버)</text>
+<text x="1145.0" y="343.0" font-size="17.0" fill="#201E1F" text-anchor="middle" font-weight="bold"></text>
+<text x="956" y="339.0" font-size="13.0" fill="#201E1F" text-anchor="start" font-weight="bold">DCNY03 (Storage K8s)</text>
+<text x="1032.5" y="225.0" font-size="12.0" fill="#201E1F" text-anchor="middle" font-weight="bold">Compute 랙</text>
+<text x="1032.5" y="253.5" font-size="12.0" fill="#201E1F" text-anchor="middle">랙당 N대</text>
+<text x="1032.5" y="270.5" font-size="12.0" fill="#201E1F" text-anchor="middle">Spark · Airflow · ETL</text>
+<text x="1247.5" y="230.5" font-size="17.5" fill="#201E1F" text-anchor="middle" font-weight="bold">GPU 서버 랙</text>
+<text x="1247.5" y="267.5" font-size="17.5" fill="#201E1F" text-anchor="middle">AI 학습 · 추론</text>
+<text x="1225.0" y="375.0" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">Storage 랙</text>
+<text x="1225.0" y="404.0" font-size="20.0" fill="#201E1F" text-anchor="middle">랙당 M대 · VIP</text>
+<text x="1145.0" y="451.75" font-size="14.5" fill="#201E1F" text-anchor="middle" font-weight="bold">DCNY03 구간 간 링크 = Compute + GPU 합계</text>
+<text x="95.0" y="526.75" font-size="18.5" fill="#201E1F" text-anchor="middle" font-weight="bold">인입 분산</text>
+<text x="303.0" y="515.0" font-size="20.0" fill="#FFFFFF" text-anchor="middle">× 랙마다 AIStor 수 다름</text>
+<text x="303.0" y="540.0" font-size="20.0" fill="#FFFFFF" text-anchor="middle">→ 노드당 몫 최대 N배</text>
+<text x="545.0" y="526.75" font-size="18.5" fill="#201E1F" text-anchor="middle" font-weight="bold">인입 분산</text>
+<text x="753.0" y="515.0" font-size="19.5" fill="#201E1F" text-anchor="middle">○ Storage 랙당 M대 균일</text>
+<text x="753.0" y="539.5" font-size="19.5" fill="#201E1F" text-anchor="middle">→ 노드당 동일</text>
+<text x="995.0" y="526.75" font-size="18.5" fill="#201E1F" text-anchor="middle" font-weight="bold">인입 분산</text>
+<text x="1203.0" y="527.5" font-size="20.0" fill="#201E1F" text-anchor="middle">○ B 와 동일</text>
+<text x="95.0" y="598.75" font-size="18.5" fill="#201E1F" text-anchor="middle" font-weight="bold">장애 범위</text>
+<text x="303.0" y="587.0" font-size="19.0" fill="#FFFFFF" text-anchor="middle">× 랙 장애 시 손실 랜덤</text>
+<text x="303.0" y="611.0" font-size="19.0" fill="#FFFFFF" text-anchor="middle">(Compute · AIStor 동시)</text>
+<text x="545.0" y="598.75" font-size="18.5" fill="#201E1F" text-anchor="middle" font-weight="bold">장애 범위</text>
+<text x="753.0" y="587.0" font-size="18.5" fill="#201E1F" text-anchor="middle">○ 역할별 랙 단위 예측 가능</text>
+<text x="753.0" y="610.5" font-size="18.5" fill="#201E1F" text-anchor="middle">(1-2 원칙 적용)</text>
+<text x="995.0" y="598.75" font-size="18.5" fill="#201E1F" text-anchor="middle" font-weight="bold">장애 범위</text>
+<text x="1203.0" y="587.0" font-size="16.5" fill="#201E1F" text-anchor="middle">○ B + 구간별 전력 · 공간 분리</text>
+<text x="1203.0" y="608.5" font-size="16.5" fill="#201E1F" text-anchor="middle">(GPU 고전력 구간 독립)</text>
+<text x="95.0" y="659.0" font-size="15.0" fill="#201E1F" text-anchor="middle" font-weight="bold">Storage</text>
+<text x="95.0" y="679.0" font-size="15.0" fill="#201E1F" text-anchor="middle" font-weight="bold">접근 트래픽</text>
+<text x="303.0" y="659.0" font-size="20.0" fill="#201E1F" text-anchor="middle">△ 일부 랙 안 로컬</text>
+<text x="303.0" y="684.0" font-size="20.0" fill="#201E1F" text-anchor="middle">(효과 작음)</text>
+<text x="545.0" y="659.0" font-size="15.0" fill="#201E1F" text-anchor="middle" font-weight="bold">Storage</text>
+<text x="545.0" y="679.0" font-size="15.0" fill="#201E1F" text-anchor="middle" font-weight="bold">접근 트래픽</text>
+<text x="753.0" y="659.0" font-size="15.0" fill="#201E1F" text-anchor="middle">△ S3 전량 spine · super spine</text>
+<text x="753.0" y="679.0" font-size="15.0" fill="#201E1F" text-anchor="middle">→ 비율 2:1 이내 유지</text>
+<text x="995.0" y="659.0" font-size="15.0" fill="#201E1F" text-anchor="middle" font-weight="bold">Storage</text>
+<text x="995.0" y="679.0" font-size="15.0" fill="#201E1F" text-anchor="middle" font-weight="bold">접근 트래픽</text>
+<text x="1203.0" y="659.0" font-size="15.5" fill="#201E1F" text-anchor="middle">△ Compute · GPU 의 S3 전량이</text>
+<text x="1203.0" y="679.5" font-size="15.5" fill="#201E1F" text-anchor="middle">DCNY03 구간 간 링크로 집중</text>
+<text x="95.0" y="741.0" font-size="15.0" fill="#201E1F" text-anchor="middle" font-weight="bold">증설 · 운영</text>
+<text x="303.0" y="743.25" font-size="19.5" fill="#FFFFFF" text-anchor="middle">× 랙별 포트 · 전력 제각각</text>
+<text x="545.0" y="741.0" font-size="15.0" fill="#201E1F" text-anchor="middle" font-weight="bold">증설 · 운영</text>
+<text x="753.0" y="731.0" font-size="20.0" fill="#201E1F" text-anchor="middle">○ 역할별 랙 단위 증설</text>
+<text x="753.0" y="756.0" font-size="20.0" fill="#201E1F" text-anchor="middle">(1-3 원칙)</text>
+<text x="995.0" y="741.0" font-size="15.0" fill="#201E1F" text-anchor="middle" font-weight="bold">증설 · 운영</text>
+<text x="1203.0" y="740.75" font-size="14.5" fill="#201E1F" text-anchor="middle">△ 구간 간 링크 이중화 · 지연 관리</text>
+<text x="40" y="819.0" font-size="13.0" fill="#201E1F" text-anchor="start">C 조건 : ① DCNY03 구간 간 링크 ≥ Compute + GPU 의 Storage 접근 합계 (non-blocking)  ② 구간 간 RTT ≤ 0.2 ms  ③ 구간마다 물리 경로 2개 이상 · 관로 분리  ④ super spine 이 세 구간에 걸치는 같은 패브릭</text>
+<text x="40" y="837.0" font-size="13.0" fill="#201E1F" text-anchor="start">구간 안에서는 1-1 ~ 1-3 원칙 동일 적용. DR 목적의 다중 DC 는 별도 (DC 별 Compute + Storage 셀)</text>
+</svg>

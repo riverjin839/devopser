@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 720" width="1400" height="720" font-family="Noto Sans CJK KR, Malgun Gothic, sans-serif">
+<defs>
+<marker id="mhot" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#CC501A"/></marker>
+<marker id="mgood" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F8B5A"/></marker>
+<marker id="mnorm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#817E7B"/></marker>
+<marker id="midle" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ACA8A4"/></marker>
+<marker id="mback" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F8B5A"/></marker>
+</defs>
+<rect x="20" y="14" width="1360" height="44" rx="5" fill="#201E1F" stroke="#201E1F" stroke-width="1"/>
+<rect x="20" y="62" width="1360" height="30" rx="5" fill="#ECDDB9" stroke="#D4A941" stroke-width="2"/>
+<rect x="30" y="120" width="206" height="50" rx="5" fill="#201E1F" stroke="#201E1F" stroke-width="1"/>
+<rect x="30" y="182" width="206" height="150" rx="5" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<rect x="256" y="120" width="206" height="50" rx="5" fill="#201E1F" stroke="#201E1F" stroke-width="1"/>
+<rect x="256" y="182" width="206" height="150" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<rect x="482" y="120" width="206" height="50" rx="5" fill="#201E1F" stroke="#201E1F" stroke-width="1"/>
+<rect x="482" y="182" width="206" height="150" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<rect x="708" y="120" width="206" height="50" rx="5" fill="#201E1F" stroke="#201E1F" stroke-width="1"/>
+<rect x="708" y="182" width="206" height="150" rx="5" fill="#EFE3C6" stroke="#D4A941" stroke-width="2.5"/>
+<rect x="934" y="120" width="206" height="50" rx="5" fill="#201E1F" stroke="#201E1F" stroke-width="1"/>
+<rect x="934" y="182" width="206" height="150" rx="5" fill="#EFE3C6" stroke="#D4A941" stroke-width="2.5"/>
+<rect x="1160" y="120" width="206" height="50" rx="5" fill="#201E1F" stroke="#201E1F" stroke-width="1"/>
+<rect x="1160" y="182" width="206" height="150" rx="5" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<rect x="30" y="356" width="1340" height="150" rx="5" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<rect x="30" y="524" width="1340" height="160" rx="5" fill="#EFE3C6" stroke="#D4A941" stroke-width="2.5"/>
+<line x1="236" y1="145.0" x2="256" y2="145.0" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)"/>
+<line x1="462" y1="145.0" x2="482" y2="145.0" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)"/>
+<line x1="688" y1="145.0" x2="708" y2="145.0" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)"/>
+<line x1="914" y1="145.0" x2="934" y2="145.0" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)"/>
+<line x1="1140" y1="145.0" x2="1160" y2="145.0" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)"/>
+<text x="700.0" y="45.5" font-size="24.0" fill="#F7F3EC" text-anchor="middle" font-weight="bold">그림 9-1. 적용 로드맵 : 확인 → 위험 낮은 것 → LB → 패브릭 협업 → 검증</text>
+<text x="700.0" y="83.0" font-size="17.0" fill="#201E1F" text-anchor="middle" font-weight="bold">Y1 은 구축 시 한 번에 적용, 단계는 PoC 와 I Lake 역적용 순서. 단계마다 게이트 통과 후 다음 단계</text>
+<text x="133.0" y="154.5" font-size="24.0" fill="#F7F3EC" text-anchor="middle" font-weight="bold">P0 확인</text>
+<text x="133.0" y="227.0" font-size="20.0" fill="#201E1F" text-anchor="middle">확인 대기 해소</text>
+<text x="133.0" y="252.0" font-size="20.0" fill="#201E1F" text-anchor="middle">Local Svc 4개</text>
+<text x="133.0" y="277.0" font-size="20.0" fill="#201E1F" text-anchor="middle">NW 핵심 3개</text>
+<text x="133.0" y="302.0" font-size="20.0" fill="#201E1F" text-anchor="middle">Compute 결과</text>
+<text x="359.0" y="154.5" font-size="24.0" fill="#F7F3EC" text-anchor="middle" font-weight="bold">P1 노드</text>
+<text x="359.0" y="227.0" font-size="20.0" fill="#201E1F" text-anchor="middle">LACP fast</text>
+<text x="359.0" y="252.0" font-size="20.0" fill="#201E1F" text-anchor="middle">sysctl · tuned</text>
+<text x="359.0" y="277.0" font-size="20.0" fill="#201E1F" text-anchor="middle">IRQ · NUMA</text>
+<text x="359.0" y="302.0" font-size="20.0" fill="#201E1F" text-anchor="middle">Cilium 맵 · BBR</text>
+<text x="585.0" y="154.5" font-size="24.0" fill="#F7F3EC" text-anchor="middle" font-weight="bold">P2 L4 LB</text>
+<text x="585.0" y="230.0" font-size="17.0" fill="#201E1F" text-anchor="middle">Maglev annotation</text>
+<text x="585.0" y="252.0" font-size="17.0" fill="#201E1F" text-anchor="middle">eTP Cluster</text>
+<text x="585.0" y="274.0" font-size="17.0" fill="#201E1F" text-anchor="middle">소켓 LB on</text>
+<text x="585.0" y="296.0" font-size="17.0" fill="#201E1F" text-anchor="middle">KVStoreMesh · HA</text>
+<text x="811.0" y="154.5" font-size="24.0" fill="#F7F3EC" text-anchor="middle" font-weight="bold">P3 DSR</text>
+<text x="811.0" y="228.5" font-size="18.5" fill="#201E1F" text-anchor="middle">MTU 9000 / 9216</text>
+<text x="811.0" y="252.0" font-size="18.5" fill="#201E1F" text-anchor="middle">Geneve DSR</text>
+<text x="811.0" y="275.5" font-size="18.5" fill="#201E1F" text-anchor="middle">uRPF · UDP 6081</text>
+<text x="811.0" y="299.0" font-size="18.5" fill="#201E1F" text-anchor="middle">XDP bond PoC</text>
+<text x="1037.0" y="154.5" font-size="24.0" fill="#F7F3EC" text-anchor="middle" font-weight="bold">P4 패브릭</text>
+<text x="1037.0" y="230.5" font-size="16.5" fill="#201E1F" text-anchor="middle">RD · max-paths</text>
+<text x="1037.0" y="252.0" font-size="16.5" fill="#201E1F" text-anchor="middle">export-gateway-ip</text>
+<text x="1037.0" y="273.5" font-size="16.5" fill="#201E1F" text-anchor="middle">resilient · seed</text>
+<text x="1037.0" y="295.0" font-size="16.5" fill="#201E1F" text-anchor="middle">BFD · 구간 링크</text>
+<text x="1263.0" y="154.5" font-size="24.0" fill="#F7F3EC" text-anchor="middle" font-weight="bold">P5 검증</text>
+<text x="1263.0" y="230.0" font-size="17.0" fill="#201E1F" text-anchor="middle">T1 ~ T14</text>
+<text x="1263.0" y="252.0" font-size="17.0" fill="#201E1F" text-anchor="middle">랙 · 노드 편차 ±10%</text>
+<text x="1263.0" y="274.0" font-size="17.0" fill="#201E1F" text-anchor="middle">장애 · drain</text>
+<text x="1263.0" y="296.0" font-size="17.0" fill="#201E1F" text-anchor="middle">구간 링크 사용률</text>
+<text x="40" y="382.5" font-size="18.5" fill="#201E1F" text-anchor="start">게이트 (다음 단계 진입 조건)</text>
+<text x="40" y="406.0" font-size="18.5" fill="#201E1F" text-anchor="start">P0 → P1 : 확인 대기 목록 중 P1 대상 값 확정</text>
+<text x="40" y="429.5" font-size="18.5" fill="#201E1F" text-anchor="start">P1 → P2 : bond 멤버 장애 시 3초 내 전환, rx drop 증가 없음</text>
+<text x="40" y="453.0" font-size="18.5" fill="#201E1F" text-anchor="start">P2 → P3 : AIStor Pod 별 요청 수 편차 ±10%, 노드 작업 시 연결 유지 (Maglev)</text>
+<text x="40" y="476.5" font-size="18.5" fill="#201E1F" text-anchor="start">P3 → P4 : DSR 응답이 인입 노드 tx 에 거의 없음, MTU 분할 없음</text>
+<text x="40" y="500.0" font-size="18.5" fill="#201E1F" text-anchor="start">P4 → P5 : Border VIP 경로 수 = 기대값 (VTEP 수 또는 노드 수), 계층별 업링크 편차 ±10%</text>
+<text x="40" y="552.0" font-size="20.0" fill="#201E1F" text-anchor="start">PoC 선행</text>
+<text x="40" y="577.0" font-size="20.0" fill="#201E1F" text-anchor="start">· bond 위 XDP (ice) native 부착 · XDP_TX 경로 (PUBLIC 에서 노드 간 Geneve 도달)</text>
+<text x="40" y="602.0" font-size="20.0" fill="#201E1F" text-anchor="start">· MTU 9000 전환 영향 (노드 · 패브릭 · 구간 간 링크 9216, Pod MTU 자동 조정)</text>
+<text x="40" y="627.0" font-size="20.0" fill="#201E1F" text-anchor="start">· DSR 응답과 VRF 응답 경로 (bond0 / bond1) 정합성</text>
+<text x="40" y="652.0" font-size="20.0" fill="#201E1F" text-anchor="start">· export-gateway-ip 적용 시 ECMP 폭 ≥ Storage 노드 수</text>
+<text x="40" y="677.0" font-size="20.0" fill="#201E1F" text-anchor="start">· 노드 drain 시 BGP 광고 철회 절차 (그림 9-2)</text>
+</svg>

@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 820" width="1400" height="820" font-family="Noto Sans CJK KR, Malgun Gothic, sans-serif">
+<defs>
+<marker id="mhot" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#CC501A"/></marker>
+<marker id="mgood" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F8B5A"/></marker>
+<marker id="mnorm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#817E7B"/></marker>
+<marker id="midle" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ACA8A4"/></marker>
+<marker id="mback" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F8B5A"/></marker>
+</defs>
+<rect x="20" y="14" width="1360" height="44" rx="5" fill="#201E1F" stroke="#201E1F" stroke-width="1"/>
+<rect x="20" y="62" width="1360" height="30" rx="5" fill="#ECDDB9" stroke="#D4A941" stroke-width="2"/>
+<rect x="30" y="104" width="240" height="36" rx="5" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<rect x="280" y="104" width="860" height="36" rx="5" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<rect x="1150" y="104" width="220" height="36" rx="5" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<rect x="30" y="152" width="240" height="112" rx="5" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<rect x="280" y="158" width="470" height="44" rx="5" fill="#CC501A" stroke="#CC501A" stroke-width="3"/>
+<rect x="760" y="158" width="380" height="44" rx="5" fill="none" stroke="none" stroke-width="0"/>
+<rect x="280" y="212" width="40" height="44" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<rect x="330" y="212" width="810" height="44" rx="5" fill="none" stroke="none" stroke-width="0"/>
+<rect x="1150" y="152" width="220" height="112" rx="5" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<rect x="30" y="276" width="240" height="112" rx="5" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<rect x="280" y="282" width="330" height="44" rx="5" fill="#CC501A" stroke="#CC501A" stroke-width="3"/>
+<rect x="620" y="282" width="520" height="44" rx="5" fill="none" stroke="none" stroke-width="0"/>
+<rect x="280" y="336" width="70" height="44" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<rect x="360" y="336" width="780" height="44" rx="5" fill="none" stroke="none" stroke-width="0"/>
+<rect x="1150" y="276" width="220" height="112" rx="5" fill="#CC501A" stroke="#CC501A" stroke-width="3"/>
+<rect x="30" y="400" width="240" height="112" rx="5" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<rect x="280" y="406" width="150" height="44" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<rect x="440" y="406" width="700" height="44" rx="5" fill="none" stroke="none" stroke-width="0"/>
+<rect x="280" y="460" width="150" height="44" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<rect x="440" y="460" width="700" height="44" rx="5" fill="none" stroke="none" stroke-width="0"/>
+<rect x="1150" y="400" width="220" height="112" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<rect x="30" y="524" width="240" height="112" rx="5" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<rect x="280" y="530" width="180" height="44" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<rect x="470" y="530" width="670" height="44" rx="5" fill="none" stroke="none" stroke-width="0"/>
+<rect x="280" y="584" width="180" height="44" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<rect x="470" y="584" width="670" height="44" rx="5" fill="none" stroke="none" stroke-width="0"/>
+<rect x="1150" y="524" width="220" height="112" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<rect x="30" y="648" width="240" height="112" rx="5" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<rect x="280" y="654" width="260" height="44" rx="5" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<rect x="550" y="654" width="590" height="44" rx="5" fill="none" stroke="none" stroke-width="0"/>
+<rect x="280" y="708" width="120" height="44" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<rect x="410" y="708" width="730" height="44" rx="5" fill="none" stroke="none" stroke-width="0"/>
+<rect x="1150" y="648" width="220" height="112" rx="5" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<text x="700.0" y="45.5" font-size="24.0" fill="#F7F3EC" text-anchor="middle" font-weight="bold">그림 3-3. 장애 감지 · 전환 시간 : I Lake → Y1</text>
+<text x="700.0" y="83.0" font-size="17.0" fill="#201E1F" text-anchor="middle" font-weight="bold">막대 길이 = 트래픽이 사라지거나 쏠린 채 머무는 최대 시간. 짧을수록 좋음 (축은 대략적 비례)</text>
+<text x="150.0" y="129.5" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">장애 종류</text>
+<text x="710.0" y="129.5" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">감지 · 전환까지 (I Lake 위 · Y1 아래)</text>
+<text x="1260.0" y="129.5" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">I Lake 대비</text>
+<text x="150.0" y="203.0" font-size="13.0" fill="#201E1F" text-anchor="middle" font-weight="bold">스위치 간 링크</text>
+<text x="150.0" y="221.0" font-size="13.0" fill="#201E1F" text-anchor="middle" font-weight="bold">(leaf · spine · super spine)</text>
+<text x="515.0" y="187.5" font-size="20.0" fill="#FFFFFF" text-anchor="middle"></text>
+<text x="770" y="184.5" font-size="14.0" fill="#201E1F" text-anchor="start">BFD 확인 대기 → 없으면 BGP hold 최대 180초</text>
+<text x="300.0" y="241.5" font-size="20.0" fill="#201E1F" text-anchor="middle"></text>
+<text x="340" y="241.5" font-size="20.0" fill="#201E1F" text-anchor="start">BFD 300ms × 3 → 1초 이내</text>
+<text x="1260.0" y="215.5" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">확인 후 결정</text>
+<text x="150.0" y="327.0" font-size="16.5" fill="#201E1F" text-anchor="middle" font-weight="bold">bond 멤버</text>
+<text x="150.0" y="348.5" font-size="16.5" fill="#201E1F" text-anchor="middle" font-weight="bold">(링크는 살아 있는 장애)</text>
+<text x="445.0" y="311.5" font-size="20.0" fill="#FFFFFF" text-anchor="middle"></text>
+<text x="630" y="311.5" font-size="20.0" fill="#201E1F" text-anchor="start">LACP slow → 최대 90초 (30초 × 3)</text>
+<text x="315.0" y="365.5" font-size="20.0" fill="#201E1F" text-anchor="middle"></text>
+<text x="370" y="365.5" font-size="20.0" fill="#201E1F" text-anchor="start">LACP fast → 3초 (1초 × 3)</text>
+<text x="1260.0" y="339.5" font-size="20.0" fill="#FFFFFF" text-anchor="middle" font-weight="bold">개선</text>
+<text x="150.0" y="463.5" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">노드 ↔ leaf BGP</text>
+<text x="355.0" y="435.5" font-size="20.0" fill="#201E1F" text-anchor="middle"></text>
+<text x="450" y="435.5" font-size="20.0" fill="#201E1F" text-anchor="start">hold 12초 · keepalive 4초</text>
+<text x="355.0" y="489.5" font-size="20.0" fill="#201E1F" text-anchor="middle"></text>
+<text x="450" y="489.5" font-size="20.0" fill="#201E1F" text-anchor="start">hold 12초 (I Lake 값 유지)</text>
+<text x="1260.0" y="463.5" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">동일 유지</text>
+<text x="150.0" y="575.0" font-size="13.0" fill="#201E1F" text-anchor="middle" font-weight="bold">노드 실제 장애</text>
+<text x="150.0" y="593.0" font-size="13.0" fill="#201E1F" text-anchor="middle" font-weight="bold">(graceful restart 유지 시간)</text>
+<text x="370.0" y="559.5" font-size="20.0" fill="#201E1F" text-anchor="middle"></text>
+<text x="480" y="559.5" font-size="20.0" fill="#201E1F" text-anchor="start">GR 15초</text>
+<text x="370.0" y="613.5" font-size="20.0" fill="#201E1F" text-anchor="middle"></text>
+<text x="480" y="613.5" font-size="20.0" fill="#201E1F" text-anchor="start">GR 15초 (I Lake 값 유지)</text>
+<text x="1260.0" y="587.5" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">동일 유지</text>
+<text x="150.0" y="699.0" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">AIStor Pod 장애</text>
+<text x="150.0" y="724.0" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">(백엔드 제외)</text>
+<text x="410.0" y="683.5" font-size="20.0" fill="#201E1F" text-anchor="middle"></text>
+<text x="560" y="683.5" font-size="20.0" fill="#201E1F" text-anchor="start">readiness 기본값 (확인 대기)</text>
+<text x="340.0" y="737.5" font-size="20.0" fill="#201E1F" text-anchor="middle"></text>
+<text x="420" y="737.5" font-size="20.0" fill="#201E1F" text-anchor="start">readiness 5초 × 2 → 약 10초</text>
+<text x="1260.0" y="711.5" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">확인 후 결정</text>
+</svg>

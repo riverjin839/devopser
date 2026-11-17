@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 840" width="1400" height="840" font-family="Noto Sans CJK KR, Malgun Gothic, sans-serif">
+<defs>
+<marker id="mhot" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#CC501A"/></marker>
+<marker id="mgood" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F8B5A"/></marker>
+<marker id="mnorm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#817E7B"/></marker>
+<marker id="midle" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ACA8A4"/></marker>
+<marker id="mback" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F8B5A"/></marker>
+</defs>
+<rect x="20" y="14" width="1360" height="44" rx="5" fill="#201E1F" stroke="#201E1F" stroke-width="1"/>
+<rect x="20" y="62" width="1360" height="30" rx="5" fill="#ECDDB9" stroke="#D4A941" stroke-width="2"/>
+<rect x="30" y="104" width="190" height="40" rx="5" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<rect x="230" y="104" width="430" height="40" rx="5" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<rect x="670" y="104" width="150" height="40" rx="5" fill="#CC501A" stroke="#CC501A" stroke-width="3"/>
+<rect x="830" y="104" width="360" height="40" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<rect x="1200" y="104" width="170" height="40" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<rect x="30" y="156" width="190" height="70" rx="5" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<rect x="230" y="156" width="430" height="70" rx="5" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<rect x="670" y="156" width="150" height="70" rx="5" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<rect x="830" y="156" width="360" height="70" rx="5" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<rect x="1200" y="156" width="170" height="70" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<rect x="30" y="252" width="190" height="70" rx="5" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<rect x="230" y="252" width="430" height="70" rx="5" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<rect x="670" y="252" width="150" height="70" rx="5" fill="#CC501A" stroke="#CC501A" stroke-width="3"/>
+<rect x="830" y="252" width="360" height="70" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<rect x="1200" y="252" width="170" height="70" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<rect x="30" y="348" width="190" height="70" rx="5" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<rect x="230" y="348" width="430" height="70" rx="5" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<rect x="670" y="348" width="150" height="70" rx="5" fill="#CC501A" stroke="#CC501A" stroke-width="3"/>
+<rect x="830" y="348" width="360" height="70" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<rect x="1200" y="348" width="170" height="70" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<rect x="30" y="444" width="190" height="70" rx="5" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<rect x="230" y="444" width="430" height="70" rx="5" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<rect x="670" y="444" width="150" height="70" rx="5" fill="#CC501A" stroke="#CC501A" stroke-width="3"/>
+<rect x="830" y="444" width="360" height="70" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<rect x="1200" y="444" width="170" height="70" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<rect x="30" y="540" width="190" height="70" rx="5" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<rect x="230" y="540" width="430" height="70" rx="5" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<rect x="670" y="540" width="150" height="70" rx="5" fill="#CC501A" stroke="#CC501A" stroke-width="3"/>
+<rect x="830" y="540" width="360" height="70" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<rect x="1200" y="540" width="170" height="70" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<rect x="30" y="636" width="190" height="70" rx="5" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<rect x="230" y="636" width="430" height="70" rx="5" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<rect x="670" y="636" width="150" height="70" rx="5" fill="#CC501A" stroke="#CC501A" stroke-width="3"/>
+<rect x="830" y="636" width="360" height="70" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<rect x="1200" y="636" width="170" height="70" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<rect x="30" y="736" width="1340" height="96" rx="5" fill="#EFE3C6" stroke="#D4A941" stroke-width="2.5"/>
+<line x1="745.0" y1="226" x2="745.0" y2="252" stroke="#CC501A" stroke-width="5" marker-end="url(#mhot)"/>
+<line x1="1285.0" y1="226" x2="1285.0" y2="252" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)"/>
+<line x1="745.0" y1="322" x2="745.0" y2="348" stroke="#CC501A" stroke-width="5" marker-end="url(#mhot)"/>
+<line x1="1285.0" y1="322" x2="1285.0" y2="348" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)"/>
+<line x1="745.0" y1="418" x2="745.0" y2="444" stroke="#CC501A" stroke-width="5" marker-end="url(#mhot)"/>
+<line x1="1285.0" y1="418" x2="1285.0" y2="444" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)"/>
+<line x1="745.0" y1="514" x2="745.0" y2="540" stroke="#CC501A" stroke-width="5" marker-end="url(#mhot)"/>
+<line x1="1285.0" y1="514" x2="1285.0" y2="540" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)"/>
+<line x1="745.0" y1="610" x2="745.0" y2="636" stroke="#CC501A" stroke-width="5" marker-end="url(#mhot)"/>
+<line x1="1285.0" y1="610" x2="1285.0" y2="636" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)"/>
+<text x="700.0" y="45.5" font-size="24.0" fill="#F7F3EC" text-anchor="middle" font-weight="bold">그림 2-2. BGP 경로가 줄어드는 지점 : 광고 V → 설치 1 을 V → V 로</text>
+<text x="700.0" y="83.0" font-size="17.0" fill="#201E1F" text-anchor="middle" font-weight="bold">Storage leaf VTEP V개 (= Storage 랙 수 × 2) 가 VIP 를 광고해도 단계마다 경로가 떨어짐. 단계별 설정 1개씩으로 V개 유지</text>
+<text x="125.0" y="131.5" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">단계</text>
+<text x="445.0" y="131.5" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">경로가 떨어지는 조건</text>
+<text x="745.0" y="131.5" font-size="20.0" fill="#FFFFFF" text-anchor="middle" font-weight="bold">설정 누락 시</text>
+<text x="1010.0" y="131.5" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">2차 설정</text>
+<text x="1285.0" y="131.0" font-size="19.0" fill="#201E1F" text-anchor="middle" font-weight="bold">Y1 : 남는 경로</text>
+<text x="125.0" y="198.5" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">① 광고</text>
+<text x="445.0" y="197.25" font-size="17.5" fill="#201E1F" text-anchor="middle">Storage leaf VTEP V개가 같은 VIP 광고</text>
+<text x="745.0" y="198.5" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">V개</text>
+<text x="1010.0" y="198.5" font-size="20.0" fill="#201E1F" text-anchor="middle">-</text>
+<text x="1285.0" y="198.5" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">V개</text>
+<text x="125.0" y="292.5" font-size="16.0" fill="#201E1F" text-anchor="middle" font-weight="bold">② spine · RR 전달</text>
+<text x="445.0" y="293.5" font-size="18.0" fill="#201E1F" text-anchor="middle">RD 가 같으면 같은 경로로 보고 1개만 전달</text>
+<text x="745.0" y="294.5" font-size="20.0" fill="#FFFFFF" text-anchor="middle" font-weight="bold">1개</text>
+<text x="1010.0" y="294.5" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">leaf 별 고유 RD (rd auto)</text>
+<text x="1285.0" y="294.5" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">V개</text>
+<text x="125.0" y="390.5" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">③ RR 반사</text>
+<text x="445.0" y="390.5" font-size="20.0" fill="#201E1F" text-anchor="middle">RR 은 NLRI 마다 best 1개만 반사</text>
+<text x="745.0" y="390.5" font-size="20.0" fill="#FFFFFF" text-anchor="middle" font-weight="bold">1개</text>
+<text x="1010.0" y="390.5" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">eBGP 단일화 (또는 고유 RD)</text>
+<text x="1285.0" y="390.5" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">V개</text>
+<text x="125.0" y="485.75" font-size="18.5" fill="#201E1F" text-anchor="middle" font-weight="bold">④ AS-path 비교</text>
+<text x="445.0" y="484.5" font-size="16.0" fill="#201E1F" text-anchor="middle">랙별 ASN 이 달라 AS-path 내용이 다르면 탈락</text>
+<text x="745.0" y="486.5" font-size="20.0" fill="#FFFFFF" text-anchor="middle" font-weight="bold">1개</text>
+<text x="1010.0" y="484.75" font-size="16.5" fill="#201E1F" text-anchor="middle" font-weight="bold">bestpath as-path multipath-relax</text>
+<text x="1285.0" y="486.5" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">V개</text>
+<text x="125.0" y="580.25" font-size="15.5" fill="#201E1F" text-anchor="middle" font-weight="bold">⑤ IGP metric 비교</text>
+<text x="445.0" y="582.5" font-size="20.0" fill="#201E1F" text-anchor="middle">VTEP 까지 IGP cost 가 다르면 탈락</text>
+<text x="745.0" y="582.5" font-size="20.0" fill="#FFFFFF" text-anchor="middle" font-weight="bold">1개</text>
+<text x="1010.0" y="579.0" font-size="13.0" fill="#201E1F" text-anchor="middle" font-weight="bold">bestpath igp-metric ignore (I Lake 적용 완료)</text>
+<text x="1285.0" y="582.5" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">V개</text>
+<text x="125.0" y="678.5" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">⑥ 설치 수 제한</text>
+<text x="445.0" y="678.5" font-size="20.0" fill="#201E1F" text-anchor="middle">maximum-paths 기본값 1</text>
+<text x="745.0" y="678.5" font-size="20.0" fill="#FFFFFF" text-anchor="middle" font-weight="bold">1개</text>
+<text x="1010.0" y="676.0" font-size="15.0" fill="#201E1F" text-anchor="middle" font-weight="bold">maximum-paths 64 (ipv4 · evpn · VRF)</text>
+<text x="1285.0" y="678.5" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">V개</text>
+<text x="40" y="761.0" font-size="17.0" fill="#201E1F" text-anchor="start">읽는 법</text>
+<text x="40" y="783.0" font-size="17.0" fill="#201E1F" text-anchor="start">· 한 단계라도 막히면 그 아래는 1개 → Border 가 랙 1개로만 보냄 (그림 1-1 의 쏠림이 랙 전체로 확대)</text>
+<text x="40" y="805.0" font-size="17.0" fill="#201E1F" text-anchor="start">· 2-5 진단 명령으로 I Lake 에서 어느 단계가 빠졌는지 확인 → 빠진 설정만 Y1 에 [개선], 있는 것은 [동일 유지]</text>
+<text x="40" y="827.0" font-size="17.0" fill="#201E1F" text-anchor="start">· ⑤ 는 I Lake 에 igp-metric ignore 적용 완료 → Y1 동일 유지. ② ③ ⑥ 은 I Lake 설정 대조 후 판단</text>
+</svg>

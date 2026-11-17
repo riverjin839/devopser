@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 540" width="1400" height="540" font-family="Noto Sans CJK KR, Malgun Gothic, sans-serif">
+<defs>
+<marker id="mhot" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#CC501A"/></marker>
+<marker id="mgood" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F8B5A"/></marker>
+<marker id="mnorm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#817E7B"/></marker>
+<marker id="midle" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ACA8A4"/></marker>
+<marker id="mback" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F8B5A"/></marker>
+</defs>
+<rect x="20" y="14" width="1360" height="44" rx="5" fill="#201E1F" stroke="#201E1F" stroke-width="1"/>
+<rect x="20" y="62" width="1360" height="30" rx="5" fill="#ECDDB9" stroke="#D4A941" stroke-width="2"/>
+<rect x="30" y="120" width="206" height="50" rx="5" fill="#201E1F" stroke="#201E1F" stroke-width="1"/>
+<rect x="30" y="182" width="206" height="120" rx="5" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<rect x="256" y="120" width="206" height="50" rx="5" fill="#201E1F" stroke="#201E1F" stroke-width="1"/>
+<rect x="256" y="182" width="206" height="120" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<rect x="482" y="120" width="206" height="50" rx="5" fill="#201E1F" stroke="#201E1F" stroke-width="1"/>
+<rect x="482" y="182" width="206" height="120" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<rect x="708" y="120" width="206" height="50" rx="5" fill="#201E1F" stroke="#201E1F" stroke-width="1"/>
+<rect x="708" y="182" width="206" height="120" rx="5" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<rect x="934" y="120" width="206" height="50" rx="5" fill="#201E1F" stroke="#201E1F" stroke-width="1"/>
+<rect x="934" y="182" width="206" height="120" rx="5" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<rect x="1160" y="120" width="206" height="50" rx="5" fill="#201E1F" stroke="#201E1F" stroke-width="1"/>
+<rect x="1160" y="182" width="206" height="120" rx="5" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<rect x="30" y="326" width="660" height="180" rx="5" fill="#EFE3C6" stroke="#D4A941" stroke-width="2.5"/>
+<rect x="710" y="326" width="660" height="180" rx="5" fill="#EEEAE4" stroke="#B6B3AE" stroke-width="1"/>
+<line x1="236" y1="145.0" x2="256" y2="145.0" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)"/>
+<line x1="462" y1="145.0" x2="482" y2="145.0" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)"/>
+<line x1="688" y1="145.0" x2="708" y2="145.0" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)"/>
+<line x1="914" y1="145.0" x2="934" y2="145.0" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)"/>
+<line x1="1140" y1="145.0" x2="1160" y2="145.0" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)"/>
+<text x="700.0" y="45.5" font-size="24.0" fill="#F7F3EC" text-anchor="middle" font-weight="bold">그림 9-2. 노드 작업 절차 : 광고 철회 → drain → 작업 → 복구</text>
+<text x="700.0" y="83.0" font-size="17.0" fill="#201E1F" text-anchor="middle" font-weight="bold">바로 재부팅하면 BGP hold(12초) 또는 GR(15초) 동안 그 노드로 가는 트래픽이 사라짐 → 광고부터 먼저 거둠</text>
+<text x="133.0" y="154.5" font-size="24.0" fill="#F7F3EC" text-anchor="middle" font-weight="bold">① cordon</text>
+<text x="133.0" y="249.5" font-size="20.0" fill="#201E1F" text-anchor="middle">새 Pod 배치 중지</text>
+<text x="359.0" y="154.5" font-size="24.0" fill="#F7F3EC" text-anchor="middle" font-weight="bold">② 광고 철회</text>
+<text x="359.0" y="227.0" font-size="15.0" fill="#201E1F" text-anchor="middle">BGP 대상 라벨 제거</text>
+<text x="359.0" y="247.0" font-size="15.0" fill="#201E1F" text-anchor="middle">→ 세션 정상 종료</text>
+<text x="359.0" y="267.0" font-size="15.0" fill="#201E1F" text-anchor="middle">→ leaf 경로 즉시 삭제</text>
+<text x="585.0" y="154.5" font-size="24.0" fill="#F7F3EC" text-anchor="middle" font-weight="bold">③ 경로 확인</text>
+<text x="585.0" y="237.0" font-size="19.5" fill="#201E1F" text-anchor="middle">leaf 에서 그 노드</text>
+<text x="585.0" y="261.5" font-size="19.5" fill="#201E1F" text-anchor="middle">next-hop 사라짐</text>
+<text x="811.0" y="154.5" font-size="24.0" fill="#F7F3EC" text-anchor="middle" font-weight="bold">④ 연결 drain</text>
+<text x="811.0" y="237.0" font-size="16.5" fill="#201E1F" text-anchor="middle">기존 연결 종료 대기</text>
+<text x="811.0" y="258.5" font-size="16.5" fill="#201E1F" text-anchor="middle">(모니터링으로 확인)</text>
+<text x="1037.0" y="153.25" font-size="21.5" fill="#F7F3EC" text-anchor="middle" font-weight="bold">⑤ drain · 작업</text>
+<text x="1037.0" y="237.0" font-size="18.5" fill="#201E1F" text-anchor="middle">Pod 이동 후</text>
+<text x="1037.0" y="260.5" font-size="18.5" fill="#201E1F" text-anchor="middle">커널 · 펌웨어 작업</text>
+<text x="1263.0" y="154.5" font-size="24.0" fill="#F7F3EC" text-anchor="middle" font-weight="bold">⑥ 복구</text>
+<text x="1263.0" y="237.0" font-size="14.0" fill="#201E1F" text-anchor="middle">라벨 복구 → 세션 · 광고</text>
+<text x="1263.0" y="256.0" font-size="14.0" fill="#201E1F" text-anchor="middle">→ uncordon</text>
+<text x="40" y="347.0" font-size="13.0" fill="#201E1F" text-anchor="start">전제 · 주의</text>
+<text x="40" y="365.0" font-size="13.0" fill="#201E1F" text-anchor="start">· CiliumBGPClusterConfig nodeSelector 에 작업용 라벨 조건 (예 : bgp.example/enabled=true)</text>
+<text x="40" y="383.0" font-size="13.0" fill="#201E1F" text-anchor="start">· 라벨 제거 시 PodCIDR 광고도 빠짐 → 반드시 cordon 뒤, drain 과 묶어서</text>
+<text x="40" y="401.0" font-size="13.0" fill="#201E1F" text-anchor="start">· 세션을 정상 종료하면 GR 이 적용되지 않음 → 즉시 철회</text>
+<text x="40" y="419.0" font-size="13.0" fill="#201E1F" text-anchor="start">· Maglev 가 있으면 다른 노드가 같은 백엔드를 골라 연결 유지</text>
+<text x="40" y="437.0" font-size="13.0" fill="#201E1F" text-anchor="start">· 검증 : T13 (부하 중 절차 수행, 끊김 · 오류 0)</text>
+<text x="720" y="354.0" font-size="20.0" fill="#201E1F" text-anchor="start">바로 재부팅할 때 (현행 위험)</text>
+<text x="720" y="379.0" font-size="20.0" fill="#201E1F" text-anchor="start">· 세션이 비정상 종료 → leaf 는 hold 12초 동안 경로 유지</text>
+<text x="720" y="404.0" font-size="20.0" fill="#201E1F" text-anchor="start">· GR 이 걸리면 15초 동안 유지 (I Lake 값)</text>
+<text x="720" y="429.0" font-size="20.0" fill="#201E1F" text-anchor="start">· 그 사이 그 노드로 ECMP 된 흐름은 블랙홀</text>
+<text x="720" y="454.0" font-size="20.0" fill="#201E1F" text-anchor="start">· random LB 면 재해시된 연결은 다른 백엔드 → 끊김</text>
+<text x="720" y="479.0" font-size="20.0" fill="#201E1F" text-anchor="start">· I Lake 판단 : 절차 유무 확인 후 결정</text>
+</svg>
