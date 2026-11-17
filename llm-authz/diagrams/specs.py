@@ -64,4 +64,16 @@ SPECS = {
                E("pns", "pwiki", "읽기 · 쓰기", "emphasis"), E("pns", "exec", "실행"),
                E("pns", "team", "참조", "dashed"), E("pwiki", "promote", "공유 요청", "dashed"),
                E("promote", "team", "반영")]),
+    "llm-authz-scale-out": dict(
+        title="1만 명 규모 확장", hero=["router"], strong=["pool"], io=["users"],
+        nodes=[N("users", "external", "사용자 1만 명", "동시 요청 수가 기준", 0, 0, "1"),
+               N("gw", "backend", "LLM 게이트웨이", "HPA · 팀별 쿼터", 1, 0, "2"),
+               N("ret", "backend", "팀별 Retriever", "레플리카 · 읽기 복제", 2, 0),
+               N("router", "backend", "추론 라우터", "KV 캐시 · 대기열 인지", 1, 1, "3"),
+               N("pool", "backend", "vLLM 일반 풀", "레플리카 N · 오토스케일", 0, 1, "4"),
+               N("secpool", "security", "보안 전용 풀", "L4 분리", 2, 1),
+               N("gpu", "cloud", "B300 GPU 노드", "Kueue 쿼터", 1, 2)],
+        edges=[E("users", "gw", "요청"), E("gw", "ret", "검색"),
+               E("gw", "router", "컨텍스트", "emphasis"), E("router", "pool", "캐시 우선", "emphasis", "left", "right"),
+               E("router", "secpool", "sec", "dashed", "right", "left"), E("pool", "gpu"), E("secpool", "gpu")]),
 }
