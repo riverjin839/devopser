@@ -1,0 +1,175 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 880" width="1400" height="880" font-family="Noto Sans CJK KR, Malgun Gothic, sans-serif">
+<defs>
+<marker id="mhot" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#CC501A"/></marker>
+<marker id="mgood" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F8B5A"/></marker>
+<marker id="mnorm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#817E7B"/></marker>
+<marker id="midle" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ACA8A4"/></marker>
+<marker id="mback" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F8B5A"/></marker>
+</defs>
+<rect x="20" y="14" width="1360" height="44" rx="5" fill="#201E1F" stroke="#201E1F" stroke-width="1"/>
+<rect x="20" y="62" width="1360" height="30" rx="5" fill="#ECDDB9" stroke="#D4A941" stroke-width="2"/>
+<rect x="30" y="104" width="660" height="750" rx="5" fill="none" stroke="#969390" stroke-width="1.2" stroke-dasharray="6 4"/>
+<polygon points="230,150 240,140 490,140 480,150" fill="#F1EFEC" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="480,150 490,140 490,192 480,202" fill="#E2E0DD" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<rect x="230" y="150" width="250" height="52" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<line x1="230" y1="175.0" x2="480" y2="175.0" stroke="#605E5C" stroke-width="1"/>
+<polygon points="210,262 220,252 510,252 500,262" fill="#C34E1A" stroke="#CC501A" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="500,262 510,252 510,304 500,314" fill="#B74A1B" stroke="#CC501A" stroke-width="3" stroke-linejoin="round"/>
+<rect x="210" y="262" width="290" height="52" fill="#CC501A" stroke="#CC501A" stroke-width="3"/>
+<line x1="210" y1="287.0" x2="500" y2="287.0" stroke="#FFFFFF" stroke-width="1"/>
+<polygon points="70,380 80,370 250,370 240,380" fill="#F1EFEC" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="240,380 250,370 250,422 240,432" fill="#E2E0DD" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<rect x="70" y="380" width="170" height="52" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<line x1="70" y1="405.0" x2="240" y2="405.0" stroke="#605E5C" stroke-width="1"/>
+<polygon points="70,480 80,470 250,470 240,480" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="240,480 250,470 250,522 240,532" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="70" y="480" width="170" height="52" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="70" y1="505.0" x2="240" y2="505.0" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="270,380 280,370 450,370 440,380" fill="#F1EFEC" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="440,380 450,370 450,422 440,432" fill="#E2E0DD" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<rect x="270" y="380" width="170" height="52" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<line x1="270" y1="405.0" x2="440" y2="405.0" stroke="#605E5C" stroke-width="1"/>
+<polygon points="270,480 280,470 450,470 440,480" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="440,480 450,470 450,522 440,532" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="270" y="480" width="170" height="52" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="270" y1="505.0" x2="440" y2="505.0" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="470,380 480,370 650,370 640,380" fill="#F1EFEC" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="640,380 650,370 650,422 640,432" fill="#E2E0DD" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<rect x="470" y="380" width="170" height="52" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<line x1="470" y1="405.0" x2="640" y2="405.0" stroke="#605E5C" stroke-width="1"/>
+<polygon points="470,480 480,470 650,470 640,480" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="640,480 650,470 650,522 640,532" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="470" y="480" width="170" height="52" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="470" y1="505.0" x2="640" y2="505.0" stroke="#A19E9A" stroke-width="1"/>
+<rect x="50" y="556" width="620" height="284" rx="5" fill="#CC501A" stroke="#CC501A" stroke-width="3"/>
+<rect x="710" y="104" width="660" height="750" rx="5" fill="none" stroke="#969390" stroke-width="1.2" stroke-dasharray="6 4"/>
+<polygon points="910,150 920,140 1170,140 1160,150" fill="#F1EFEC" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="1160,150 1170,140 1170,192 1160,202" fill="#E2E0DD" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<rect x="910" y="150" width="250" height="52" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<line x1="910" y1="175.0" x2="1160" y2="175.0" stroke="#605E5C" stroke-width="1"/>
+<polygon points="890,262 900,252 1190,252 1180,262" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="1180,262 1190,252 1190,304 1180,314" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="890" y="262" width="290" height="52" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="890" y1="287.0" x2="1180" y2="287.0" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="750,380 760,370 930,370 920,380" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="920,380 930,370 930,422 920,432" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="750" y="380" width="170" height="52" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="750" y1="405.0" x2="920" y2="405.0" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="750,480 760,470 930,470 920,480" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="920,480 930,470 930,522 920,532" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="750" y="480" width="170" height="52" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="750" y1="505.0" x2="920" y2="505.0" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="950,380 960,370 1130,370 1120,380" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="1120,380 1130,370 1130,422 1120,432" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="950" y="380" width="170" height="52" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="950" y1="405.0" x2="1120" y2="405.0" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="950,480 960,470 1130,470 1120,480" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="1120,480 1130,470 1130,522 1120,532" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="950" y="480" width="170" height="52" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="950" y1="505.0" x2="1120" y2="505.0" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="1150,380 1160,370 1330,370 1320,380" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="1320,380 1330,370 1330,422 1320,432" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="1150" y="380" width="170" height="52" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="1150" y1="405.0" x2="1320" y2="405.0" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="1150,480 1160,470 1330,470 1320,480" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="1320,480 1330,470 1330,522 1320,532" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="1150" y="480" width="170" height="52" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="1150" y1="505.0" x2="1320" y2="505.0" stroke="#A19E9A" stroke-width="1"/>
+<rect x="730" y="556" width="620" height="284" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="360.0" y1="202" x2="360.0" y2="252" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)" marker-start="url(#mnorm)"/>
+<rect x="306.32800000000003" y="217.0" width="107.34399999999998" height="20" fill="#FCFAF7"/>
+<text x="360.0" y="232.0" font-size="13" font-weight="bold" fill="#817E7B" text-anchor="middle">iBGP + OSPF</text>
+<line x1="360.0" y1="314" x2="160.0" y2="370" stroke="#CC501A" stroke-width="5" marker-end="url(#mhot)"/>
+<rect x="230.04" y="332.0" width="59.92" height="20" fill="#FCFAF7"/>
+<text x="260.0" y="347.0" font-size="13" font-weight="bold" fill="#CC501A" text-anchor="middle">best 1</text>
+<line x1="160.0" y1="432" x2="160.0" y2="470" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)" marker-start="url(#mnorm)"/>
+<rect x="135.656" y="441.0" width="48.68800000000001" height="20" fill="#FCFAF7"/>
+<text x="160.0" y="456.0" font-size="13" font-weight="bold" fill="#817E7B" text-anchor="middle">eBGP</text>
+<line x1="360.0" y1="314" x2="360.0" y2="370" stroke="#ACA8A4" stroke-width="1.2" stroke-dasharray="7 5" marker-end="url(#midle)"/>
+<rect x="331.6" y="332.0" width="56.8" height="20" fill="#FCFAF7"/>
+<text x="360.0" y="347.0" font-size="13" font-weight="bold" fill="#ACA8A4" text-anchor="middle">미전달</text>
+<line x1="360.0" y1="432" x2="360.0" y2="470" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)" marker-start="url(#mnorm)"/>
+<rect x="335.656" y="441.0" width="48.68800000000001" height="20" fill="#FCFAF7"/>
+<text x="360.0" y="456.0" font-size="13" font-weight="bold" fill="#817E7B" text-anchor="middle">eBGP</text>
+<line x1="360.0" y1="314" x2="560.0" y2="370" stroke="#ACA8A4" stroke-width="1.2" stroke-dasharray="7 5" marker-end="url(#midle)"/>
+<rect x="431.6" y="332.0" width="56.8" height="20" fill="#FCFAF7"/>
+<text x="460.0" y="347.0" font-size="13" font-weight="bold" fill="#ACA8A4" text-anchor="middle">미전달</text>
+<line x1="560.0" y1="432" x2="560.0" y2="470" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)" marker-start="url(#mnorm)"/>
+<rect x="535.656" y="441.0" width="48.68800000000001" height="20" fill="#FCFAF7"/>
+<text x="560.0" y="456.0" font-size="13" font-weight="bold" fill="#817E7B" text-anchor="middle">eBGP</text>
+<line x1="1040.0" y1="202" x2="1040.0" y2="252" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)" marker-start="url(#mgood)"/>
+<rect x="1015.656" y="217.0" width="48.68800000000001" height="20" fill="#FCFAF7"/>
+<text x="1040.0" y="232.0" font-size="13" font-weight="bold" fill="#5F8B5A" text-anchor="middle">eBGP</text>
+<line x1="1040.0" y1="314" x2="840.0" y2="370" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)" marker-start="url(#mgood)"/>
+<rect x="915.656" y="332.0" width="48.68800000000001" height="20" fill="#FCFAF7"/>
+<text x="940.0" y="347.0" font-size="13" font-weight="bold" fill="#5F8B5A" text-anchor="middle">eBGP</text>
+<line x1="840.0" y1="432" x2="840.0" y2="470" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)" marker-start="url(#mnorm)"/>
+<rect x="815.656" y="441.0" width="48.68800000000001" height="20" fill="#FCFAF7"/>
+<text x="840.0" y="456.0" font-size="13" font-weight="bold" fill="#817E7B" text-anchor="middle">eBGP</text>
+<line x1="1040.0" y1="314" x2="1040.0" y2="370" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)" marker-start="url(#mgood)"/>
+<rect x="1015.656" y="332.0" width="48.68800000000001" height="20" fill="#FCFAF7"/>
+<text x="1040.0" y="347.0" font-size="13" font-weight="bold" fill="#5F8B5A" text-anchor="middle">eBGP</text>
+<line x1="1040.0" y1="432" x2="1040.0" y2="470" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)" marker-start="url(#mnorm)"/>
+<rect x="1015.656" y="441.0" width="48.68800000000001" height="20" fill="#FCFAF7"/>
+<text x="1040.0" y="456.0" font-size="13" font-weight="bold" fill="#817E7B" text-anchor="middle">eBGP</text>
+<line x1="1040.0" y1="314" x2="1240.0" y2="370" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)" marker-start="url(#mgood)"/>
+<rect x="1115.656" y="332.0" width="48.68800000000001" height="20" fill="#FCFAF7"/>
+<text x="1140.0" y="347.0" font-size="13" font-weight="bold" fill="#5F8B5A" text-anchor="middle">eBGP</text>
+<line x1="1240.0" y1="432" x2="1240.0" y2="470" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)" marker-start="url(#mnorm)"/>
+<rect x="1215.656" y="441.0" width="48.68800000000001" height="20" fill="#FCFAF7"/>
+<text x="1240.0" y="456.0" font-size="13" font-weight="bold" fill="#817E7B" text-anchor="middle">eBGP</text>
+<text x="700.0" y="45.5" font-size="24.0" fill="#F7F3EC" text-anchor="middle" font-weight="bold">그림 2-3. 패브릭 BGP 구조 : iBGP + RR + IGP → eBGP 단일화</text>
+<text x="700.0" y="83.0" font-size="17.0" fill="#201E1F" text-anchor="middle" font-weight="bold">계층마다 ASN 을 나눠 eBGP 로 통일 → RR · IGP 없이 모든 경로가 그대로 전달되고, 장비별 장애가 독립</text>
+<text x="360.0" y="129.0" font-size="17.0" fill="#201E1F" text-anchor="middle" font-weight="bold">I Lake : iBGP · eBGP 혼합 (확인됨)</text>
+<text x="355.0" y="169.0" font-size="16.0" fill="#201E1F" text-anchor="middle" font-weight="bold">Super Spine</text>
+<text x="355.0" y="193.0" font-size="16.0" fill="#201E1F" text-anchor="middle">iBGP 구간</text>
+<text x="355.0" y="281.0" font-size="16.0" fill="#FFFFFF" text-anchor="middle" font-weight="bold">Spine</text>
+<text x="355.0" y="305.0" font-size="16.0" fill="#FFFFFF" text-anchor="middle">iBGP RR · best 1 반사</text>
+<text x="155.0" y="399.0" font-size="16.0" fill="#201E1F" text-anchor="middle" font-weight="bold">leaf 랙 1</text>
+<text x="155.0" y="423.0" font-size="16.0" fill="#201E1F" text-anchor="middle">iBGP 구간</text>
+<text x="155.0" y="499.0" font-size="16.0" fill="#201E1F" text-anchor="middle" font-weight="bold">노드 M대</text>
+<text x="155.0" y="523.0" font-size="16.0" fill="#201E1F" text-anchor="middle">클러스터 ASN</text>
+<text x="355.0" y="399.0" font-size="16.0" fill="#201E1F" text-anchor="middle" font-weight="bold">leaf 랙 2</text>
+<text x="355.0" y="423.0" font-size="16.0" fill="#201E1F" text-anchor="middle">iBGP 구간</text>
+<text x="355.0" y="499.0" font-size="16.0" fill="#201E1F" text-anchor="middle" font-weight="bold">노드 M대</text>
+<text x="355.0" y="523.0" font-size="16.0" fill="#201E1F" text-anchor="middle">클러스터 ASN</text>
+<text x="555.0" y="399.0" font-size="16.0" fill="#201E1F" text-anchor="middle" font-weight="bold">leaf 랙 3</text>
+<text x="555.0" y="423.0" font-size="16.0" fill="#201E1F" text-anchor="middle">iBGP 구간</text>
+<text x="555.0" y="499.0" font-size="16.0" fill="#201E1F" text-anchor="middle" font-weight="bold">노드 M대</text>
+<text x="555.0" y="523.0" font-size="16.0" fill="#201E1F" text-anchor="middle">클러스터 ASN</text>
+<text x="60" y="583.0" font-size="19.0" fill="#FFFFFF" text-anchor="start">구조</text>
+<text x="60" y="607.0" font-size="19.0" fill="#FFFFFF" text-anchor="start">· underlay : OSPF (또는 IS-IS)</text>
+<text x="60" y="631.0" font-size="19.0" fill="#FFFFFF" text-anchor="start">· overlay : iBGP, spine 이 RR</text>
+<text x="60" y="655.0" font-size="19.0" fill="#FFFFFF" text-anchor="start">· 노드 ↔ leaf 만 eBGP → VRF 안에서 eBGP · iBGP 혼재</text>
+<text x="60" y="679.0" font-size="19.0" fill="#FFFFFF" text-anchor="start">문제</text>
+<text x="60" y="703.0" font-size="19.0" fill="#FFFFFF" text-anchor="start">· RR 이 best 1개만 반사 (RD 공통 시)</text>
+<text x="60" y="727.0" font-size="19.0" fill="#FFFFFF" text-anchor="start">· eBGP &gt; iBGP 단계에서 로컬 경로만 선택</text>
+<text x="60" y="751.0" font-size="19.0" fill="#FFFFFF" text-anchor="start">· maximum-paths ibgp 누락 시 1개 설치</text>
+<text x="60" y="775.0" font-size="19.0" fill="#FFFFFF" text-anchor="start">· IGP cost 차이로 multipath 탈락</text>
+<text x="1040.0" y="129.0" font-size="17.0" fill="#201E1F" text-anchor="middle" font-weight="bold">Y1 : underlay · overlay 모두 eBGP [개선]</text>
+<text x="1035.0" y="169.0" font-size="16.0" fill="#201E1F" text-anchor="middle" font-weight="bold">Super Spine</text>
+<text x="1035.0" y="193.0" font-size="16.0" fill="#201E1F" text-anchor="middle">계층 ASN</text>
+<text x="1035.0" y="281.0" font-size="16.0" fill="#201E1F" text-anchor="middle" font-weight="bold">Spine</text>
+<text x="1035.0" y="305.0" font-size="16.0" fill="#201E1F" text-anchor="middle">Pod 별 ASN</text>
+<text x="835.0" y="399.0" font-size="16.0" fill="#201E1F" text-anchor="middle" font-weight="bold">leaf 랙 1</text>
+<text x="835.0" y="423.0" font-size="16.0" fill="#201E1F" text-anchor="middle">랙 별 ASN</text>
+<text x="835.0" y="499.0" font-size="16.0" fill="#201E1F" text-anchor="middle" font-weight="bold">노드 M대</text>
+<text x="835.0" y="523.0" font-size="16.0" fill="#201E1F" text-anchor="middle">클러스터 ASN</text>
+<text x="1035.0" y="399.0" font-size="16.0" fill="#201E1F" text-anchor="middle" font-weight="bold">leaf 랙 2</text>
+<text x="1035.0" y="423.0" font-size="16.0" fill="#201E1F" text-anchor="middle">랙 별 ASN</text>
+<text x="1035.0" y="499.0" font-size="16.0" fill="#201E1F" text-anchor="middle" font-weight="bold">노드 M대</text>
+<text x="1035.0" y="523.0" font-size="16.0" fill="#201E1F" text-anchor="middle">클러스터 ASN</text>
+<text x="1235.0" y="399.0" font-size="16.0" fill="#201E1F" text-anchor="middle" font-weight="bold">leaf 랙 3</text>
+<text x="1235.0" y="423.0" font-size="16.0" fill="#201E1F" text-anchor="middle">랙 별 ASN</text>
+<text x="1235.0" y="499.0" font-size="16.0" fill="#201E1F" text-anchor="middle" font-weight="bold">노드 M대</text>
+<text x="1235.0" y="523.0" font-size="16.0" fill="#201E1F" text-anchor="middle">클러스터 ASN</text>
+<text x="740" y="578.0" font-size="14.0" fill="#201E1F" text-anchor="start">구성</text>
+<text x="740" y="597.0" font-size="14.0" fill="#201E1F" text-anchor="start">· underlay : 링크 /31 eBGP, 루프백 · VTEP 광고</text>
+<text x="740" y="616.0" font-size="14.0" fill="#201E1F" text-anchor="start">· overlay : l2vpn evpn eBGP, spine 은 next-hop unchanged</text>
+<text x="740" y="635.0" font-size="14.0" fill="#201E1F" text-anchor="start">· 계층별 ASN : super spine / spine Pod 별 / leaf 랙 별 / 노드 클러스터 별</text>
+<text x="740" y="654.0" font-size="14.0" fill="#201E1F" text-anchor="start">· 전 계층 maximum-paths 64 + multipath-relax</text>
+<text x="740" y="673.0" font-size="14.0" fill="#201E1F" text-anchor="start">· BFD (패브릭 링크), 노드 구간은 timers 3 9</text>
+<text x="740" y="692.0" font-size="14.0" fill="#201E1F" text-anchor="start">효과</text>
+<text x="740" y="711.0" font-size="14.0" fill="#201E1F" text-anchor="start">· RR · IGP 없음 → 경로 숨김 · cost 문제 원천 제거</text>
+<text x="740" y="730.0" font-size="14.0" fill="#201E1F" text-anchor="start">· 장비 1대 장애 = 그 세션만 영향</text>
+</svg>

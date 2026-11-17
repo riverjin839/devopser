@@ -1,0 +1,233 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 760" width="1400" height="760" font-family="Noto Sans CJK KR, Malgun Gothic, sans-serif">
+<defs>
+<marker id="mhot" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#CC501A"/></marker>
+<marker id="mgood" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F8B5A"/></marker>
+<marker id="mnorm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#817E7B"/></marker>
+<marker id="midle" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ACA8A4"/></marker>
+<marker id="mback" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F8B5A"/></marker>
+</defs>
+<rect x="20" y="14" width="1360" height="44" rx="5" fill="#201E1F" stroke="#201E1F" stroke-width="1"/>
+<rect x="20" y="62" width="1360" height="30" rx="5" fill="#ECDDB9" stroke="#D4A941" stroke-width="2"/>
+<rect x="30" y="104" width="660" height="630" rx="5" fill="none" stroke="#969390" stroke-width="1.2" stroke-dasharray="6 4"/>
+<rect x="50" y="140" width="620" height="30" rx="5" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="50,192 60,182 120,182 110,192" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="110,192 120,182 120,242 110,252" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="50" y="192" width="60" height="60" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="50" y1="215.0" x2="110" y2="215.0" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="128,192 138,182 198,182 188,192" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="188,192 198,182 198,242 188,252" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="128" y="192" width="60" height="60" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="128" y1="215.0" x2="188" y2="215.0" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="206,192 216,182 276,182 266,192" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="266,192 276,182 276,242 266,252" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="206" y="192" width="60" height="60" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="206" y1="215.0" x2="266" y2="215.0" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="284,192 294,182 354,182 344,192" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="344,192 354,182 354,242 344,252" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="284" y="192" width="60" height="60" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="284" y1="215.0" x2="344" y2="215.0" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="362,192 372,182 432,182 422,192" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="422,192 432,182 432,242 422,252" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="362" y="192" width="60" height="60" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="362" y1="215.0" x2="422" y2="215.0" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="440,192 450,182 510,182 500,192" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="500,192 510,182 510,242 500,252" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="440" y="192" width="60" height="60" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="440" y1="215.0" x2="500" y2="215.0" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="518,192 528,182 588,182 578,192" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="578,192 588,182 588,242 578,252" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="518" y="192" width="60" height="60" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="518" y1="215.0" x2="578" y2="215.0" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="596,192 606,182 666,182 656,192" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="656,192 666,182 666,242 656,252" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="596" y="192" width="60" height="60" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="596" y1="215.0" x2="656" y2="215.0" stroke="#A19E9A" stroke-width="1"/>
+<rect x="50" y="270" width="620" height="30" rx="5" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="50,322 60,312 120,312 110,322" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="110,322 120,312 120,372 110,382" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="50" y="322" width="60" height="60" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="50" y1="345.0" x2="110" y2="345.0" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="128,322 138,312 198,312 188,322" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="188,322 198,312 198,372 188,382" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="128" y="322" width="60" height="60" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="128" y1="345.0" x2="188" y2="345.0" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="206,322 216,312 276,312 266,322" fill="#C34E1A" stroke="#CC501A" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="266,322 276,312 276,372 266,382" fill="#B74A1B" stroke="#CC501A" stroke-width="3" stroke-linejoin="round"/>
+<rect x="206" y="322" width="60" height="60" fill="#CC501A" stroke="#CC501A" stroke-width="3"/>
+<line x1="206" y1="345.0" x2="266" y2="345.0" stroke="#FFFFFF" stroke-width="1"/>
+<polygon points="284,322 294,312 354,312 344,322" fill="#C34E1A" stroke="#CC501A" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="344,322 354,312 354,372 344,382" fill="#B74A1B" stroke="#CC501A" stroke-width="3" stroke-linejoin="round"/>
+<rect x="284" y="322" width="60" height="60" fill="#CC501A" stroke="#CC501A" stroke-width="3"/>
+<line x1="284" y1="345.0" x2="344" y2="345.0" stroke="#FFFFFF" stroke-width="1"/>
+<polygon points="362,322 372,312 432,312 422,322" fill="#C34E1A" stroke="#CC501A" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="422,322 432,312 432,372 422,382" fill="#B74A1B" stroke="#CC501A" stroke-width="3" stroke-linejoin="round"/>
+<rect x="362" y="322" width="60" height="60" fill="#CC501A" stroke="#CC501A" stroke-width="3"/>
+<line x1="362" y1="345.0" x2="422" y2="345.0" stroke="#FFFFFF" stroke-width="1"/>
+<polygon points="440,322 450,312 510,312 500,322" fill="#C34E1A" stroke="#CC501A" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="500,322 510,312 510,372 500,382" fill="#B74A1B" stroke="#CC501A" stroke-width="3" stroke-linejoin="round"/>
+<rect x="440" y="322" width="60" height="60" fill="#CC501A" stroke="#CC501A" stroke-width="3"/>
+<line x1="440" y1="345.0" x2="500" y2="345.0" stroke="#FFFFFF" stroke-width="1"/>
+<polygon points="518,322 528,312 588,312 578,322" fill="#C34E1A" stroke="#CC501A" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="578,322 588,312 588,372 578,382" fill="#B74A1B" stroke="#CC501A" stroke-width="3" stroke-linejoin="round"/>
+<rect x="518" y="322" width="60" height="60" fill="#CC501A" stroke="#CC501A" stroke-width="3"/>
+<line x1="518" y1="345.0" x2="578" y2="345.0" stroke="#FFFFFF" stroke-width="1"/>
+<polygon points="596,322 606,312 666,312 656,322" fill="#C34E1A" stroke="#CC501A" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="656,322 666,312 666,372 656,382" fill="#B74A1B" stroke="#CC501A" stroke-width="3" stroke-linejoin="round"/>
+<rect x="596" y="322" width="60" height="60" fill="#CC501A" stroke="#CC501A" stroke-width="3"/>
+<line x1="596" y1="345.0" x2="656" y2="345.0" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="50" y="404" width="620" height="90" rx="5" fill="#CC501A" stroke="#CC501A" stroke-width="3"/>
+<rect x="50" y="512" width="620" height="200" rx="5" fill="#EEEAE4" stroke="#B6B3AE" stroke-width="1"/>
+<rect x="710" y="104" width="660" height="630" rx="5" fill="none" stroke="#969390" stroke-width="1.2" stroke-dasharray="6 4"/>
+<rect x="730" y="140" width="620" height="30" rx="5" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="730,192 740,182 800,182 790,192" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="790,192 800,182 800,242 790,252" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="730" y="192" width="60" height="60" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="730" y1="215.0" x2="790" y2="215.0" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="808,192 818,182 878,182 868,192" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="868,192 878,182 878,242 868,252" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="808" y="192" width="60" height="60" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="808" y1="215.0" x2="868" y2="215.0" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="886,192 896,182 956,182 946,192" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="946,192 956,182 956,242 946,252" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="886" y="192" width="60" height="60" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="886" y1="215.0" x2="946" y2="215.0" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="964,192 974,182 1034,182 1024,192" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="1024,192 1034,182 1034,242 1024,252" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="964" y="192" width="60" height="60" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="964" y1="215.0" x2="1024" y2="215.0" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="1042,192 1052,182 1112,182 1102,192" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="1102,192 1112,182 1112,242 1102,252" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="1042" y="192" width="60" height="60" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="1042" y1="215.0" x2="1102" y2="215.0" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="1120,192 1130,182 1190,182 1180,192" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="1180,192 1190,182 1190,242 1180,252" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="1120" y="192" width="60" height="60" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="1120" y1="215.0" x2="1180" y2="215.0" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="1198,192 1208,182 1268,182 1258,192" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="1258,192 1268,182 1268,242 1258,252" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="1198" y="192" width="60" height="60" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="1198" y1="215.0" x2="1258" y2="215.0" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="1276,192 1286,182 1346,182 1336,192" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="1336,192 1346,182 1346,242 1336,252" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="1276" y="192" width="60" height="60" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="1276" y1="215.0" x2="1336" y2="215.0" stroke="#A19E9A" stroke-width="1"/>
+<rect x="730" y="270" width="620" height="30" rx="5" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="730,322 740,312 800,312 790,322" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="790,322 800,312 800,372 790,382" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="730" y="322" width="60" height="60" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="730" y1="345.0" x2="790" y2="345.0" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="808,322 818,312 878,312 868,322" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="868,322 878,312 878,372 868,382" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="808" y="322" width="60" height="60" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="808" y1="345.0" x2="868" y2="345.0" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="886,322 896,312 956,312 946,322" fill="#C34E1A" stroke="#CC501A" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="946,322 956,312 956,372 946,382" fill="#B74A1B" stroke="#CC501A" stroke-width="3" stroke-linejoin="round"/>
+<rect x="886" y="322" width="60" height="60" fill="#CC501A" stroke="#CC501A" stroke-width="3"/>
+<line x1="886" y1="345.0" x2="946" y2="345.0" stroke="#FFFFFF" stroke-width="1"/>
+<polygon points="964,322 974,312 1034,312 1024,322" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="1024,322 1034,312 1034,372 1024,382" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="964" y="322" width="60" height="60" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="964" y1="345.0" x2="1024" y2="345.0" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="1042,322 1052,312 1112,312 1102,322" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="1102,322 1112,312 1112,372 1102,382" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="1042" y="322" width="60" height="60" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="1042" y1="345.0" x2="1102" y2="345.0" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="1120,322 1130,312 1190,312 1180,322" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="1180,322 1190,312 1190,372 1180,382" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="1120" y="322" width="60" height="60" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="1120" y1="345.0" x2="1180" y2="345.0" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="1198,322 1208,312 1268,312 1258,322" fill="#C34E1A" stroke="#CC501A" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1258,322 1268,312 1268,372 1258,382" fill="#B74A1B" stroke="#CC501A" stroke-width="3" stroke-linejoin="round"/>
+<rect x="1198" y="322" width="60" height="60" fill="#CC501A" stroke="#CC501A" stroke-width="3"/>
+<line x1="1198" y1="345.0" x2="1258" y2="345.0" stroke="#FFFFFF" stroke-width="1"/>
+<polygon points="1276,322 1286,312 1346,312 1336,322" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="1336,322 1346,312 1346,372 1336,382" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="1276" y="322" width="60" height="60" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="1276" y1="345.0" x2="1336" y2="345.0" stroke="#5F8B5A" stroke-width="1"/>
+<rect x="730" y="404" width="620" height="90" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<rect x="730" y="512" width="620" height="200" rx="5" fill="#EFE3C6" stroke="#D4A941" stroke-width="2.5"/>
+<text x="700.0" y="45.5" font-size="24.0" fill="#F7F3EC" text-anchor="middle" font-weight="bold">그림 3-1. ECMP 멤버 제거 시 재해시 : 일반 해시 → resilient hashing</text>
+<text x="700.0" y="83.0" font-size="17.0" fill="#201E1F" text-anchor="middle" font-weight="bold">노드 3 이 빠질 때 일반 해시는 살아 있는 노드로 가던 흐름까지 섞음. resilient 는 빠진 노드 몫만 옮김 (NW 적용 예정)</text>
+<text x="360.0" y="129.0" font-size="17.0" fill="#201E1F" text-anchor="middle" font-weight="bold">I Lake : 일반 해시 (확인 후 결정)</text>
+<text x="360.0" y="161.0" font-size="17.0" fill="#201E1F" text-anchor="middle" font-weight="bold">해시 버킷 8개 → 담당 노드 (멤버 4개 : 노드 1 ~ 4)</text>
+<text x="80.0" y="209.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">b0</text>
+<text x="80.0" y="237.0" font-size="14.0" fill="#201E1F" text-anchor="middle">노드 1</text>
+<text x="158.0" y="209.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">b1</text>
+<text x="158.0" y="237.0" font-size="14.0" fill="#201E1F" text-anchor="middle">노드 2</text>
+<text x="236.0" y="209.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">b2</text>
+<text x="236.0" y="237.0" font-size="14.0" fill="#201E1F" text-anchor="middle">노드 3</text>
+<text x="314.0" y="209.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">b3</text>
+<text x="314.0" y="237.0" font-size="14.0" fill="#201E1F" text-anchor="middle">노드 4</text>
+<text x="392.0" y="209.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">b4</text>
+<text x="392.0" y="237.0" font-size="14.0" fill="#201E1F" text-anchor="middle">노드 1</text>
+<text x="470.0" y="209.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">b5</text>
+<text x="470.0" y="237.0" font-size="14.0" fill="#201E1F" text-anchor="middle">노드 2</text>
+<text x="548.0" y="209.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">b6</text>
+<text x="548.0" y="237.0" font-size="14.0" fill="#201E1F" text-anchor="middle">노드 3</text>
+<text x="626.0" y="209.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">b7</text>
+<text x="626.0" y="237.0" font-size="14.0" fill="#201E1F" text-anchor="middle">노드 4</text>
+<text x="360.0" y="291.0" font-size="17.0" fill="#201E1F" text-anchor="middle" font-weight="bold">노드 3 제거 후 (멤버 3개)</text>
+<text x="80.0" y="339.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">b0</text>
+<text x="80.0" y="367.0" font-size="14.0" fill="#201E1F" text-anchor="middle">노드 1</text>
+<text x="158.0" y="339.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">b1</text>
+<text x="158.0" y="367.0" font-size="14.0" fill="#201E1F" text-anchor="middle">노드 2</text>
+<text x="236.0" y="339.0" font-size="14.0" fill="#FFFFFF" text-anchor="middle" font-weight="bold">b2</text>
+<text x="236.0" y="367.0" font-size="14.0" fill="#FFFFFF" text-anchor="middle">노드 4</text>
+<text x="314.0" y="339.0" font-size="14.0" fill="#FFFFFF" text-anchor="middle" font-weight="bold">b3</text>
+<text x="314.0" y="367.0" font-size="14.0" fill="#FFFFFF" text-anchor="middle">노드 1</text>
+<text x="392.0" y="339.0" font-size="14.0" fill="#FFFFFF" text-anchor="middle" font-weight="bold">b4</text>
+<text x="392.0" y="367.0" font-size="14.0" fill="#FFFFFF" text-anchor="middle">노드 2</text>
+<text x="470.0" y="339.0" font-size="14.0" fill="#FFFFFF" text-anchor="middle" font-weight="bold">b5</text>
+<text x="470.0" y="367.0" font-size="14.0" fill="#FFFFFF" text-anchor="middle">노드 4</text>
+<text x="548.0" y="339.0" font-size="14.0" fill="#FFFFFF" text-anchor="middle" font-weight="bold">b6</text>
+<text x="548.0" y="367.0" font-size="14.0" fill="#FFFFFF" text-anchor="middle">노드 1</text>
+<text x="626.0" y="339.0" font-size="14.0" fill="#FFFFFF" text-anchor="middle" font-weight="bold">b7</text>
+<text x="626.0" y="367.0" font-size="14.0" fill="#FFFFFF" text-anchor="middle">노드 2</text>
+<text x="360.0" y="444.0" font-size="19.0" fill="#FFFFFF" text-anchor="middle" font-weight="bold">8개 중 6개 이동 → 살아 있는 노드의 연결까지 다른 노드로</text>
+<text x="360.0" y="468.0" font-size="19.0" fill="#FFFFFF" text-anchor="middle" font-weight="bold">Maglev 가 없으면 이동한 연결은 다른 백엔드로 가서 끊김</text>
+<text x="60" y="540.0" font-size="20.0" fill="#201E1F" text-anchor="start">동작</text>
+<text x="60" y="565.0" font-size="20.0" fill="#201E1F" text-anchor="start">· 버킷 = hash(5-tuple) mod 멤버 수</text>
+<text x="60" y="590.0" font-size="20.0" fill="#201E1F" text-anchor="start">· 멤버 수가 바뀌면 mod 결과가 대부분 바뀜</text>
+<text x="60" y="615.0" font-size="20.0" fill="#201E1F" text-anchor="start">· 노드 · leaf 작업 때마다 대량 재배치</text>
+<text x="1040.0" y="129.0" font-size="17.0" fill="#201E1F" text-anchor="middle" font-weight="bold">Y1 : resilient hashing (NW 적용 예정)</text>
+<text x="1040.0" y="161.0" font-size="17.0" fill="#201E1F" text-anchor="middle" font-weight="bold">해시 버킷 8개 → 담당 노드 (멤버 4개 : 노드 1 ~ 4)</text>
+<text x="760.0" y="209.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">b0</text>
+<text x="760.0" y="237.0" font-size="14.0" fill="#201E1F" text-anchor="middle">노드 1</text>
+<text x="838.0" y="209.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">b1</text>
+<text x="838.0" y="237.0" font-size="14.0" fill="#201E1F" text-anchor="middle">노드 2</text>
+<text x="916.0" y="209.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">b2</text>
+<text x="916.0" y="237.0" font-size="14.0" fill="#201E1F" text-anchor="middle">노드 3</text>
+<text x="994.0" y="209.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">b3</text>
+<text x="994.0" y="237.0" font-size="14.0" fill="#201E1F" text-anchor="middle">노드 4</text>
+<text x="1072.0" y="209.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">b4</text>
+<text x="1072.0" y="237.0" font-size="14.0" fill="#201E1F" text-anchor="middle">노드 1</text>
+<text x="1150.0" y="209.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">b5</text>
+<text x="1150.0" y="237.0" font-size="14.0" fill="#201E1F" text-anchor="middle">노드 2</text>
+<text x="1228.0" y="209.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">b6</text>
+<text x="1228.0" y="237.0" font-size="14.0" fill="#201E1F" text-anchor="middle">노드 3</text>
+<text x="1306.0" y="209.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">b7</text>
+<text x="1306.0" y="237.0" font-size="14.0" fill="#201E1F" text-anchor="middle">노드 4</text>
+<text x="1040.0" y="291.0" font-size="17.0" fill="#201E1F" text-anchor="middle" font-weight="bold">노드 3 제거 후 (멤버 3개)</text>
+<text x="760.0" y="339.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">b0</text>
+<text x="760.0" y="367.0" font-size="14.0" fill="#201E1F" text-anchor="middle">노드 1</text>
+<text x="838.0" y="339.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">b1</text>
+<text x="838.0" y="367.0" font-size="14.0" fill="#201E1F" text-anchor="middle">노드 2</text>
+<text x="916.0" y="339.0" font-size="14.0" fill="#FFFFFF" text-anchor="middle" font-weight="bold">b2</text>
+<text x="916.0" y="367.0" font-size="14.0" fill="#FFFFFF" text-anchor="middle">노드 1</text>
+<text x="994.0" y="339.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">b3</text>
+<text x="994.0" y="367.0" font-size="14.0" fill="#201E1F" text-anchor="middle">노드 4</text>
+<text x="1072.0" y="339.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">b4</text>
+<text x="1072.0" y="367.0" font-size="14.0" fill="#201E1F" text-anchor="middle">노드 1</text>
+<text x="1150.0" y="339.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">b5</text>
+<text x="1150.0" y="367.0" font-size="14.0" fill="#201E1F" text-anchor="middle">노드 2</text>
+<text x="1228.0" y="339.0" font-size="14.0" fill="#FFFFFF" text-anchor="middle" font-weight="bold">b6</text>
+<text x="1228.0" y="367.0" font-size="14.0" fill="#FFFFFF" text-anchor="middle">노드 2</text>
+<text x="1306.0" y="339.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">b7</text>
+<text x="1306.0" y="367.0" font-size="14.0" fill="#201E1F" text-anchor="middle">노드 4</text>
+<text x="1040.0" y="444.0" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">노드 3 몫 2개만 이동, 나머지 6개 그대로</text>
+<text x="1040.0" y="469.0" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">+ Maglev 로 이동한 연결도 같은 백엔드 → 유지</text>
+<text x="740" y="537.0" font-size="17.0" fill="#201E1F" text-anchor="start">동작</text>
+<text x="740" y="559.0" font-size="17.0" fill="#201E1F" text-anchor="start">· 버킷 표를 고정해 두고 빠진 멤버 칸만 다시 채움</text>
+<text x="740" y="581.0" font-size="17.0" fill="#201E1F" text-anchor="start">· 설정 : hardware profile ecmp resilient (모델 · 버전 확인)</text>
+<text x="740" y="603.0" font-size="17.0" fill="#201E1F" text-anchor="start">· export-gateway-ip 와 함께 쓰면 노드 단위 ECMP 에도 적용</text>
+</svg>

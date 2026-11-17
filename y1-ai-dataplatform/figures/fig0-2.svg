@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 740" width="1400" height="740" font-family="Noto Sans CJK KR, Malgun Gothic, sans-serif">
+<defs>
+<marker id="mhot" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#CC501A"/></marker>
+<marker id="mgood" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F8B5A"/></marker>
+<marker id="mnorm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#817E7B"/></marker>
+<marker id="midle" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ACA8A4"/></marker>
+<marker id="mback" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F8B5A"/></marker>
+</defs>
+<rect x="20" y="14" width="1360" height="44" rx="5" fill="#201E1F" stroke="#201E1F" stroke-width="1"/>
+<rect x="20" y="62" width="1360" height="30" rx="5" fill="#ECDDB9" stroke="#D4A941" stroke-width="2"/>
+<rect x="30" y="104" width="420" height="40" rx="5" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<rect x="490" y="104" width="420" height="40" rx="5" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<rect x="950" y="104" width="420" height="40" rx="5" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<rect x="20" y="160" width="1360" height="270" rx="5" fill="none" stroke="#969390" stroke-width="1.2" stroke-dasharray="6 4"/>
+<rect x="30" y="196" width="420" height="150" rx="5" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<rect x="30" y="360" width="420" height="50" rx="5" fill="#CC501A" stroke="#CC501A" stroke-width="3"/>
+<rect x="490" y="196" width="420" height="150" rx="5" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<rect x="490" y="360" width="420" height="50" rx="5" fill="#CC501A" stroke="#CC501A" stroke-width="3"/>
+<rect x="950" y="196" width="420" height="150" rx="5" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<rect x="950" y="360" width="420" height="50" rx="5" fill="#EEEAE4" stroke="#B6B3AE" stroke-width="1"/>
+<rect x="20" y="450" width="1360" height="270" rx="5" fill="none" stroke="#969390" stroke-width="1.2" stroke-dasharray="6 4"/>
+<rect x="30" y="486" width="420" height="150" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<rect x="30" y="650" width="420" height="50" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<rect x="490" y="486" width="420" height="150" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<rect x="490" y="650" width="420" height="50" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<rect x="950" y="486" width="420" height="150" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<rect x="950" y="650" width="420" height="50" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="450" y1="271.0" x2="490" y2="271.0" stroke="#CC501A" stroke-width="5" marker-end="url(#mhot)"/>
+<line x1="910" y1="271.0" x2="950" y2="271.0" stroke="#CC501A" stroke-width="5" marker-end="url(#mhot)"/>
+<line x1="450" y1="561.0" x2="490" y2="561.0" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)"/>
+<line x1="910" y1="561.0" x2="950" y2="561.0" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)"/>
+<text x="700.0" y="45.5" font-size="24.0" fill="#F7F3EC" text-anchor="middle" font-weight="bold">그림 0-2. 분산 3단계 : I Lake → Y1</text>
+<text x="700.0" y="83.0" font-size="17.0" fill="#201E1F" text-anchor="middle" font-weight="bold">인입 노드(패브릭) · 백엔드(L4) · 송신 멤버(bond) 세 단계가 모두 고르게 나뉘어야 AIStor 전체가 고르게 일함</text>
+<text x="240.0" y="130.75" font-size="18.5" fill="#201E1F" text-anchor="middle" font-weight="bold">① 패브릭 ECMP : 어느 노드로 들어오나</text>
+<text x="700.0" y="130.25" font-size="17.5" fill="#201E1F" text-anchor="middle" font-weight="bold">② L4 LB : 어느 AIStor Pod 가 처리하나</text>
+<text x="1160.0" y="131.5" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">③ 노드 · bond : 어느 링크로 나가나</text>
+<text x="700.0" y="185.0" font-size="17.0" fill="#201E1F" text-anchor="middle" font-weight="bold">I Lake (현행)</text>
+<text x="40" y="254.0" font-size="19.0" fill="#201E1F" text-anchor="start">· 랙 혼재 → 랙마다 AIStor 수 다름</text>
+<text x="40" y="278.0" font-size="19.0" fill="#201E1F" text-anchor="start">· igp-metric ignore 적용</text>
+<text x="40" y="302.0" font-size="19.0" fill="#201E1F" text-anchor="start">· RD · maximum-paths : NW 확인 대기</text>
+<text x="240.0" y="392.5" font-size="20.0" fill="#FFFFFF" text-anchor="middle" font-weight="bold">랙별 몫 불균등</text>
+<text x="500" y="254.75" font-size="17.5" fill="#201E1F" text-anchor="start">· random (Maglev 미사용)</text>
+<text x="500" y="277.25" font-size="17.5" fill="#201E1F" text-anchor="start">· SNAT (응답이 인입 노드 경유)</text>
+<text x="500" y="299.75" font-size="17.5" fill="#201E1F" text-anchor="start">· eTP Local Service 4개 · 소켓 LB off</text>
+<text x="700.0" y="392.5" font-size="20.0" fill="#FFFFFF" text-anchor="middle" font-weight="bold">인입 쏠림 → 처리 쏠림</text>
+<text x="960" y="253.5" font-size="20.0" fill="#201E1F" text-anchor="start">· 802.3ad · layer3+4 (정상)</text>
+<text x="960" y="278.5" font-size="20.0" fill="#201E1F" text-anchor="start">· LACP slow · MTU 1500</text>
+<text x="960" y="303.5" font-size="20.0" fill="#201E1F" text-anchor="start">· cubic · 버퍼 25M · tuned 없음</text>
+<text x="1160.0" y="392.5" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">분산 정상, 감지 · 대역 개선</text>
+<text x="700.0" y="475.0" font-size="17.0" fill="#201E1F" text-anchor="middle" font-weight="bold">Y1 (개선)</text>
+<text x="40" y="543.5" font-size="20.0" fill="#201E1F" text-anchor="start">· 역할별 랙 분리 · 랙당 동일</text>
+<text x="40" y="568.5" font-size="20.0" fill="#201E1F" text-anchor="start">· RD 고유 · maximum-paths 64</text>
+<text x="40" y="593.5" font-size="20.0" fill="#201E1F" text-anchor="start">· export-gateway-ip · resilient</text>
+<text x="240.0" y="682.5" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">노드당 몫 동일</text>
+<text x="500" y="544.0" font-size="19.0" fill="#201E1F" text-anchor="start">· Maglev (AIStor VIP annotation)</text>
+<text x="500" y="568.0" font-size="19.0" fill="#201E1F" text-anchor="start">· DSR Geneve (응답 직접)</text>
+<text x="500" y="592.0" font-size="19.0" fill="#201E1F" text-anchor="start">· eTP Cluster · 소켓 LB on</text>
+<text x="700.0" y="682.5" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">인입 무관 전체 Pod 균등</text>
+<text x="960" y="543.5" font-size="20.0" fill="#201E1F" text-anchor="start">· 802.3ad · layer3+4 (유지)</text>
+<text x="960" y="568.5" font-size="20.0" fill="#201E1F" text-anchor="start">· LACP fast · MTU 9000</text>
+<text x="960" y="593.5" font-size="20.0" fill="#201E1F" text-anchor="start">· BBR + fq · 128M · IRQ NUMA</text>
+<text x="1160.0" y="682.5" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">감지 3초 · 100G 대역</text>
+</svg>

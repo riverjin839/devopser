@@ -1,0 +1,259 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 910" width="1400" height="910" font-family="Noto Sans CJK KR, Malgun Gothic, sans-serif">
+<defs>
+<marker id="mhot" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#CC501A"/></marker>
+<marker id="mgood" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F8B5A"/></marker>
+<marker id="mnorm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#817E7B"/></marker>
+<marker id="midle" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ACA8A4"/></marker>
+<marker id="mback" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F8B5A"/></marker>
+</defs>
+<rect x="20" y="14" width="1360" height="44" rx="5" fill="#201E1F" stroke="#201E1F" stroke-width="1"/>
+<rect x="20" y="62" width="1360" height="30" rx="5" fill="#ECDDB9" stroke="#D4A941" stroke-width="2"/>
+<rect x="30" y="104" width="1340" height="360" rx="5" fill="none" stroke="#969390" stroke-width="1.2" stroke-dasharray="6 4"/>
+<polygon points="570,144 580,134 830,134 820,144" fill="#F1EFEC" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="820,144 830,134 830,186 820,196" fill="#E2E0DD" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<rect x="570" y="144" width="250" height="52" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<line x1="570" y1="169.0" x2="820" y2="169.0" stroke="#605E5C" stroke-width="1"/>
+<polygon points="62,240 72,230 222,230 212,240" fill="#F1EFEC" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="212,240 222,230 222,284 212,294" fill="#E2E0DD" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<rect x="62" y="240" width="150" height="54" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<line x1="62" y1="262.5" x2="212" y2="262.5" stroke="#605E5C" stroke-width="1"/>
+<polygon points="62,332 72,322 222,322 212,332" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="212,332 222,322 222,394 212,404" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="62" y="332" width="150" height="72" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="62" y1="356.5" x2="212" y2="356.5" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="248,240 258,230 408,230 398,240" fill="#F1EFEC" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="398,240 408,230 408,284 398,294" fill="#E2E0DD" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<rect x="248" y="240" width="150" height="54" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<line x1="248" y1="262.5" x2="398" y2="262.5" stroke="#605E5C" stroke-width="1"/>
+<polygon points="248,332 258,322 408,322 398,332" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="398,332 408,322 408,394 398,404" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="248" y="332" width="150" height="72" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="248" y1="356.5" x2="398" y2="356.5" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="434,240 444,230 594,230 584,240" fill="#F1EFEC" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="584,240 594,230 594,284 584,294" fill="#E2E0DD" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<rect x="434" y="240" width="150" height="54" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<line x1="434" y1="262.5" x2="584" y2="262.5" stroke="#605E5C" stroke-width="1"/>
+<polygon points="434,332 444,322 594,322 584,332" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="584,332 594,322 594,394 584,404" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="434" y="332" width="150" height="72" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="434" y1="356.5" x2="584" y2="356.5" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="620,240 630,230 780,230 770,240" fill="#F1EFEC" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="770,240 780,230 780,284 770,294" fill="#E2E0DD" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<rect x="620" y="240" width="150" height="54" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<line x1="620" y1="262.5" x2="770" y2="262.5" stroke="#605E5C" stroke-width="1"/>
+<polygon points="620,332 630,322 780,322 770,332" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="770,332 780,322 780,394 770,404" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="620" y="332" width="150" height="72" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="620" y1="356.5" x2="770" y2="356.5" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="806,240 816,230 966,230 956,240" fill="#F1EFEC" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="956,240 966,230 966,284 956,294" fill="#E2E0DD" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<rect x="806" y="240" width="150" height="54" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<line x1="806" y1="262.5" x2="956" y2="262.5" stroke="#605E5C" stroke-width="1"/>
+<polygon points="806,332 816,322 966,322 956,332" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="956,332 966,322 966,394 956,404" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="806" y="332" width="150" height="72" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="806" y1="356.5" x2="956" y2="356.5" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="992,240 1002,230 1152,230 1142,240" fill="#F1EFEC" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="1142,240 1152,230 1152,284 1142,294" fill="#E2E0DD" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<rect x="992" y="240" width="150" height="54" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<line x1="992" y1="262.5" x2="1142" y2="262.5" stroke="#605E5C" stroke-width="1"/>
+<polygon points="992,332 1002,322 1152,322 1142,332" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="1142,332 1152,322 1152,394 1142,404" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="992" y="332" width="150" height="72" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="992" y1="356.5" x2="1142" y2="356.5" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="1178,240 1188,230 1338,230 1328,240" fill="#F1EFEC" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="1328,240 1338,230 1338,284 1328,294" fill="#E2E0DD" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<rect x="1178" y="240" width="150" height="54" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<line x1="1178" y1="261.0" x2="1328" y2="261.0" stroke="#605E5C" stroke-width="1"/>
+<polygon points="1178,332 1188,322 1338,322 1328,332" fill="#C34E1A" stroke="#CC501A" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1328,332 1338,322 1338,394 1328,404" fill="#B74A1B" stroke="#CC501A" stroke-width="3" stroke-linejoin="round"/>
+<rect x="1178" y="332" width="150" height="72" fill="#CC501A" stroke="#CC501A" stroke-width="3"/>
+<line x1="1178" y1="356.5" x2="1328" y2="356.5" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="60" y="410" width="1280" height="44" rx="5" fill="#EEEAE4" stroke="#B6B3AE" stroke-width="1"/>
+<rect x="30" y="484" width="1340" height="400" rx="5" fill="none" stroke="#969390" stroke-width="1.2" stroke-dasharray="6 4"/>
+<polygon points="570,524 580,514 830,514 820,524" fill="#F1EFEC" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="820,524 830,514 830,566 820,576" fill="#E2E0DD" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<rect x="570" y="524" width="250" height="52" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<line x1="570" y1="549.0" x2="820" y2="549.0" stroke="#605E5C" stroke-width="1"/>
+<polygon points="62,620 72,610 222,610 212,620" fill="#F1EFEC" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="212,620 222,610 222,664 212,674" fill="#E2E0DD" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<rect x="62" y="620" width="150" height="54" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<line x1="62" y1="642.5" x2="212" y2="642.5" stroke="#605E5C" stroke-width="1"/>
+<polygon points="62,712 72,702 222,702 212,712" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="212,712 222,702 222,774 212,784" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="62" y="712" width="150" height="72" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="62" y1="736.5" x2="212" y2="736.5" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="248,620 258,610 408,610 398,620" fill="#F1EFEC" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="398,620 408,610 408,664 398,674" fill="#E2E0DD" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<rect x="248" y="620" width="150" height="54" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<line x1="248" y1="642.5" x2="398" y2="642.5" stroke="#605E5C" stroke-width="1"/>
+<polygon points="248,712 258,702 408,702 398,712" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="398,712 408,702 408,774 398,784" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="248" y="712" width="150" height="72" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="248" y1="736.5" x2="398" y2="736.5" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="434,620 444,610 594,610 584,620" fill="#F1EFEC" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="584,620 594,610 594,664 584,674" fill="#E2E0DD" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<rect x="434" y="620" width="150" height="54" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<line x1="434" y1="642.5" x2="584" y2="642.5" stroke="#605E5C" stroke-width="1"/>
+<polygon points="434,712 444,702 594,702 584,712" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="584,712 594,702 594,774 584,784" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="434" y="712" width="150" height="72" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="434" y1="736.5" x2="584" y2="736.5" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="620,620 630,610 780,610 770,620" fill="#F1EFEC" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="770,620 780,610 780,664 770,674" fill="#E2E0DD" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<rect x="620" y="620" width="150" height="54" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<line x1="620" y1="642.5" x2="770" y2="642.5" stroke="#605E5C" stroke-width="1"/>
+<polygon points="620,712 630,702 780,702 770,712" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="770,712 780,702 780,774 770,784" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="620" y="712" width="150" height="72" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="620" y1="736.5" x2="770" y2="736.5" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="806,620 816,610 966,610 956,620" fill="#F1EFEC" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="956,620 966,610 966,664 956,674" fill="#E2E0DD" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<rect x="806" y="620" width="150" height="54" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<line x1="806" y1="642.5" x2="956" y2="642.5" stroke="#605E5C" stroke-width="1"/>
+<polygon points="806,712 816,702 966,702 956,712" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="956,712 966,702 966,774 956,784" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="806" y="712" width="150" height="72" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="806" y1="736.5" x2="956" y2="736.5" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="992,620 1002,610 1152,610 1142,620" fill="#F1EFEC" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="1142,620 1152,610 1152,664 1142,674" fill="#E2E0DD" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<rect x="992" y="620" width="150" height="54" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<line x1="992" y1="642.5" x2="1142" y2="642.5" stroke="#605E5C" stroke-width="1"/>
+<polygon points="992,712 1002,702 1152,702 1142,712" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="1142,712 1152,702 1152,774 1142,784" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="992" y="712" width="150" height="72" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="992" y1="736.5" x2="1142" y2="736.5" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="1178,620 1188,610 1338,610 1328,620" fill="#F1EFEC" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="1328,620 1338,610 1338,664 1328,674" fill="#E2E0DD" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<rect x="1178" y="620" width="150" height="54" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<line x1="1178" y1="641.0" x2="1328" y2="641.0" stroke="#605E5C" stroke-width="1"/>
+<polygon points="1178,712 1188,702 1338,702 1328,712" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="1328,712 1338,702 1338,774 1328,784" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="1178" y="712" width="150" height="72" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="1178" y1="736.5" x2="1328" y2="736.5" stroke="#5F8B5A" stroke-width="1"/>
+<rect x="60" y="790" width="1280" height="80" rx="5" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="700.0" y1="196" x2="142.0" y2="230" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)"/>
+<rect x="401.648" y="203.0" width="38.70400000000001" height="20" fill="#FCFAF7"/>
+<text x="421.0" y="218.0" font-size="13" font-weight="bold" fill="#817E7B" text-anchor="middle">1/R</text>
+<line x1="142.0" y1="294" x2="142.0" y2="322" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)"/>
+<line x1="700.0" y1="196" x2="328.0" y2="230" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)"/>
+<rect x="494.648" y="203.0" width="38.70400000000001" height="20" fill="#FCFAF7"/>
+<text x="514.0" y="218.0" font-size="13" font-weight="bold" fill="#817E7B" text-anchor="middle">1/R</text>
+<line x1="328.0" y1="294" x2="328.0" y2="322" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)"/>
+<line x1="700.0" y1="196" x2="514.0" y2="230" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)"/>
+<rect x="587.648" y="203.0" width="38.70400000000001" height="20" fill="#FCFAF7"/>
+<text x="607.0" y="218.0" font-size="13" font-weight="bold" fill="#817E7B" text-anchor="middle">1/R</text>
+<line x1="514.0" y1="294" x2="514.0" y2="322" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)"/>
+<line x1="700.0" y1="196" x2="700.0" y2="230" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)"/>
+<rect x="680.648" y="203.0" width="38.70400000000001" height="20" fill="#FCFAF7"/>
+<text x="700.0" y="218.0" font-size="13" font-weight="bold" fill="#817E7B" text-anchor="middle">1/R</text>
+<line x1="700.0" y1="294" x2="700.0" y2="322" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)"/>
+<line x1="700.0" y1="196" x2="886.0" y2="230" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)"/>
+<rect x="773.648" y="203.0" width="38.70400000000001" height="20" fill="#FCFAF7"/>
+<text x="793.0" y="218.0" font-size="13" font-weight="bold" fill="#817E7B" text-anchor="middle">1/R</text>
+<line x1="886.0" y1="294" x2="886.0" y2="322" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)"/>
+<line x1="700.0" y1="196" x2="1072.0" y2="230" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)"/>
+<rect x="866.648" y="203.0" width="38.70400000000001" height="20" fill="#FCFAF7"/>
+<text x="886.0" y="218.0" font-size="13" font-weight="bold" fill="#817E7B" text-anchor="middle">1/R</text>
+<line x1="1072.0" y1="294" x2="1072.0" y2="322" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)"/>
+<line x1="700.0" y1="196" x2="1258.0" y2="230" stroke="#CC501A" stroke-width="5" marker-end="url(#mhot)"/>
+<rect x="959.648" y="203.0" width="38.70400000000001" height="20" fill="#FCFAF7"/>
+<text x="979.0" y="218.0" font-size="13" font-weight="bold" fill="#CC501A" text-anchor="middle">1/R</text>
+<line x1="1258.0" y1="294" x2="1258.0" y2="322" stroke="#CC501A" stroke-width="5" marker-end="url(#mhot)"/>
+<line x1="700.0" y1="576" x2="142.0" y2="610" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)"/>
+<rect x="401.648" y="583.0" width="38.70400000000001" height="20" fill="#FCFAF7"/>
+<text x="421.0" y="598.0" font-size="13" font-weight="bold" fill="#5F8B5A" text-anchor="middle">1/R</text>
+<line x1="142.0" y1="674" x2="142.0" y2="702" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)"/>
+<line x1="700.0" y1="576" x2="328.0" y2="610" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)"/>
+<rect x="494.648" y="583.0" width="38.70400000000001" height="20" fill="#FCFAF7"/>
+<text x="514.0" y="598.0" font-size="13" font-weight="bold" fill="#5F8B5A" text-anchor="middle">1/R</text>
+<line x1="328.0" y1="674" x2="328.0" y2="702" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)"/>
+<line x1="700.0" y1="576" x2="514.0" y2="610" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)"/>
+<rect x="587.648" y="583.0" width="38.70400000000001" height="20" fill="#FCFAF7"/>
+<text x="607.0" y="598.0" font-size="13" font-weight="bold" fill="#5F8B5A" text-anchor="middle">1/R</text>
+<line x1="514.0" y1="674" x2="514.0" y2="702" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)"/>
+<line x1="700.0" y1="576" x2="700.0" y2="610" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)"/>
+<rect x="680.648" y="583.0" width="38.70400000000001" height="20" fill="#FCFAF7"/>
+<text x="700.0" y="598.0" font-size="13" font-weight="bold" fill="#5F8B5A" text-anchor="middle">1/R</text>
+<line x1="700.0" y1="674" x2="700.0" y2="702" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)"/>
+<line x1="700.0" y1="576" x2="886.0" y2="610" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)"/>
+<rect x="773.648" y="583.0" width="38.70400000000001" height="20" fill="#FCFAF7"/>
+<text x="793.0" y="598.0" font-size="13" font-weight="bold" fill="#5F8B5A" text-anchor="middle">1/R</text>
+<line x1="886.0" y1="674" x2="886.0" y2="702" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)"/>
+<line x1="700.0" y1="576" x2="1072.0" y2="610" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)"/>
+<rect x="866.648" y="583.0" width="38.70400000000001" height="20" fill="#FCFAF7"/>
+<text x="886.0" y="598.0" font-size="13" font-weight="bold" fill="#5F8B5A" text-anchor="middle">1/R</text>
+<line x1="1072.0" y1="674" x2="1072.0" y2="702" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)"/>
+<line x1="700.0" y1="576" x2="1258.0" y2="610" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)"/>
+<rect x="959.648" y="583.0" width="38.70400000000001" height="20" fill="#FCFAF7"/>
+<text x="979.0" y="598.0" font-size="13" font-weight="bold" fill="#5F8B5A" text-anchor="middle">1/R</text>
+<line x1="1258.0" y1="674" x2="1258.0" y2="702" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)"/>
+<text x="700.0" y="45.5" font-size="24.0" fill="#F7F3EC" text-anchor="middle" font-weight="bold">그림 1-1. 랙 서버 균등 분배 : 인입 분산</text>
+<text x="700.0" y="83.0" font-size="17.0" fill="#201E1F" text-anchor="middle" font-weight="bold">패브릭은 랙(VTEP) 단위로 똑같이 나눔 → 랙당 서버 수가 다르면 서버당 부하가 달라짐. 랙당 서버 수 = 분산의 전제</text>
+<text x="700.0" y="129.0" font-size="17.0" fill="#201E1F" text-anchor="middle" font-weight="bold">I Lake : 배치 정책 없음 (DCNY03 Storage 랙 M대 + 증설 랙 G 만 M/2대)</text>
+<text x="695.0" y="163.0" font-size="16.0" fill="#201E1F" text-anchor="middle" font-weight="bold">Border / Super Spine</text>
+<text x="695.0" y="187.0" font-size="16.0" fill="#201E1F" text-anchor="middle">외부 ETL 인입 (VIP)</text>
+<text x="137.0" y="256.5" font-size="13.5" fill="#201E1F" text-anchor="middle" font-weight="bold">Storage 랙 A</text>
+<text x="137.0" y="281.5" font-size="13.5" fill="#201E1F" text-anchor="middle">leaf 쌍 (VTEP 2)</text>
+<text x="137.0" y="350.5" font-size="15.5" fill="#201E1F" text-anchor="middle" font-weight="bold">서버 M대</text>
+<text x="137.0" y="384.5" font-size="15.5" fill="#201E1F" text-anchor="middle">서버당 1/(R·M)</text>
+<text x="323.0" y="256.5" font-size="13.5" fill="#201E1F" text-anchor="middle" font-weight="bold">Storage 랙 B</text>
+<text x="323.0" y="281.5" font-size="13.5" fill="#201E1F" text-anchor="middle">leaf 쌍 (VTEP 2)</text>
+<text x="323.0" y="350.5" font-size="15.5" fill="#201E1F" text-anchor="middle" font-weight="bold">서버 M대</text>
+<text x="323.0" y="384.5" font-size="15.5" fill="#201E1F" text-anchor="middle">서버당 1/(R·M)</text>
+<text x="509.0" y="256.5" font-size="13.5" fill="#201E1F" text-anchor="middle" font-weight="bold">Storage 랙 C</text>
+<text x="509.0" y="281.5" font-size="13.5" fill="#201E1F" text-anchor="middle">leaf 쌍 (VTEP 2)</text>
+<text x="509.0" y="350.5" font-size="15.5" fill="#201E1F" text-anchor="middle" font-weight="bold">서버 M대</text>
+<text x="509.0" y="384.5" font-size="15.5" fill="#201E1F" text-anchor="middle">서버당 1/(R·M)</text>
+<text x="695.0" y="256.5" font-size="13.5" fill="#201E1F" text-anchor="middle" font-weight="bold">Storage 랙 D</text>
+<text x="695.0" y="281.5" font-size="13.5" fill="#201E1F" text-anchor="middle">leaf 쌍 (VTEP 2)</text>
+<text x="695.0" y="350.5" font-size="15.5" fill="#201E1F" text-anchor="middle" font-weight="bold">서버 M대</text>
+<text x="695.0" y="384.5" font-size="15.5" fill="#201E1F" text-anchor="middle">서버당 1/(R·M)</text>
+<text x="881.0" y="256.5" font-size="13.5" fill="#201E1F" text-anchor="middle" font-weight="bold">Storage 랙 E</text>
+<text x="881.0" y="281.5" font-size="13.5" fill="#201E1F" text-anchor="middle">leaf 쌍 (VTEP 2)</text>
+<text x="881.0" y="350.5" font-size="15.5" fill="#201E1F" text-anchor="middle" font-weight="bold">서버 M대</text>
+<text x="881.0" y="384.5" font-size="15.5" fill="#201E1F" text-anchor="middle">서버당 1/(R·M)</text>
+<text x="1067.0" y="256.5" font-size="13.5" fill="#201E1F" text-anchor="middle" font-weight="bold">Storage 랙 F</text>
+<text x="1067.0" y="281.5" font-size="13.5" fill="#201E1F" text-anchor="middle">leaf 쌍 (VTEP 2)</text>
+<text x="1067.0" y="350.5" font-size="15.5" fill="#201E1F" text-anchor="middle" font-weight="bold">서버 M대</text>
+<text x="1067.0" y="384.5" font-size="15.5" fill="#201E1F" text-anchor="middle">서버당 1/(R·M)</text>
+<text x="1253.0" y="255.0" font-size="12.0" fill="#201E1F" text-anchor="middle" font-weight="bold">Storage 랙 G (증설)</text>
+<text x="1253.0" y="280.0" font-size="12.0" fill="#201E1F" text-anchor="middle">leaf 쌍 (VTEP 2)</text>
+<text x="1253.0" y="350.5" font-size="15.5" fill="#FFFFFF" text-anchor="middle" font-weight="bold">서버 M/2대</text>
+<text x="1253.0" y="374.25" font-size="15.5" fill="#FFFFFF" text-anchor="middle">서버당 2/(R·M)</text>
+<text x="1253.0" y="394.75" font-size="15.5" fill="#FFFFFF" text-anchor="middle">(다른 랙의 2배)</text>
+<text x="700.0" y="438.75" font-size="18.5" fill="#201E1F" text-anchor="middle" font-weight="bold">랙 G 서버 M/2대가 다른 랙 M대와 같은 1/R 을 받음 → 서버당 2배. PUT 본문은 인입 서버를 지나므로 랙 G NIC 이 먼저 포화</text>
+<text x="700.0" y="509.0" font-size="17.0" fill="#201E1F" text-anchor="middle" font-weight="bold">Y1 : 원칙 = 역할별로 랙당 서버 수 균일 (DCNY03 Storage M대 · DCNY01 Compute N대), 증설은 랙 단위</text>
+<text x="695.0" y="543.0" font-size="16.0" fill="#201E1F" text-anchor="middle" font-weight="bold">Border / Super Spine</text>
+<text x="695.0" y="567.0" font-size="16.0" fill="#201E1F" text-anchor="middle">외부 ETL 인입 (VIP)</text>
+<text x="137.0" y="636.5" font-size="13.5" fill="#201E1F" text-anchor="middle" font-weight="bold">Storage 랙 A</text>
+<text x="137.0" y="661.5" font-size="13.5" fill="#201E1F" text-anchor="middle">leaf 쌍 (VTEP 2)</text>
+<text x="137.0" y="730.5" font-size="15.5" fill="#201E1F" text-anchor="middle" font-weight="bold">서버 M대</text>
+<text x="137.0" y="764.5" font-size="15.5" fill="#201E1F" text-anchor="middle">서버당 1/(R·M)</text>
+<text x="323.0" y="636.5" font-size="13.5" fill="#201E1F" text-anchor="middle" font-weight="bold">Storage 랙 B</text>
+<text x="323.0" y="661.5" font-size="13.5" fill="#201E1F" text-anchor="middle">leaf 쌍 (VTEP 2)</text>
+<text x="323.0" y="730.5" font-size="15.5" fill="#201E1F" text-anchor="middle" font-weight="bold">서버 M대</text>
+<text x="323.0" y="764.5" font-size="15.5" fill="#201E1F" text-anchor="middle">서버당 1/(R·M)</text>
+<text x="509.0" y="636.5" font-size="13.5" fill="#201E1F" text-anchor="middle" font-weight="bold">Storage 랙 C</text>
+<text x="509.0" y="661.5" font-size="13.5" fill="#201E1F" text-anchor="middle">leaf 쌍 (VTEP 2)</text>
+<text x="509.0" y="730.5" font-size="15.5" fill="#201E1F" text-anchor="middle" font-weight="bold">서버 M대</text>
+<text x="509.0" y="764.5" font-size="15.5" fill="#201E1F" text-anchor="middle">서버당 1/(R·M)</text>
+<text x="695.0" y="636.5" font-size="13.5" fill="#201E1F" text-anchor="middle" font-weight="bold">Storage 랙 D</text>
+<text x="695.0" y="661.5" font-size="13.5" fill="#201E1F" text-anchor="middle">leaf 쌍 (VTEP 2)</text>
+<text x="695.0" y="730.5" font-size="15.5" fill="#201E1F" text-anchor="middle" font-weight="bold">서버 M대</text>
+<text x="695.0" y="764.5" font-size="15.5" fill="#201E1F" text-anchor="middle">서버당 1/(R·M)</text>
+<text x="881.0" y="636.5" font-size="13.5" fill="#201E1F" text-anchor="middle" font-weight="bold">Storage 랙 E</text>
+<text x="881.0" y="661.5" font-size="13.5" fill="#201E1F" text-anchor="middle">leaf 쌍 (VTEP 2)</text>
+<text x="881.0" y="730.5" font-size="15.5" fill="#201E1F" text-anchor="middle" font-weight="bold">서버 M대</text>
+<text x="881.0" y="764.5" font-size="15.5" fill="#201E1F" text-anchor="middle">서버당 1/(R·M)</text>
+<text x="1067.0" y="636.5" font-size="13.5" fill="#201E1F" text-anchor="middle" font-weight="bold">Storage 랙 F</text>
+<text x="1067.0" y="661.5" font-size="13.5" fill="#201E1F" text-anchor="middle">leaf 쌍 (VTEP 2)</text>
+<text x="1067.0" y="730.5" font-size="15.5" fill="#201E1F" text-anchor="middle" font-weight="bold">서버 M대</text>
+<text x="1067.0" y="764.5" font-size="15.5" fill="#201E1F" text-anchor="middle">서버당 1/(R·M)</text>
+<text x="1253.0" y="635.0" font-size="12.0" fill="#201E1F" text-anchor="middle" font-weight="bold">Storage 랙 G (증설)</text>
+<text x="1253.0" y="660.0" font-size="12.0" fill="#201E1F" text-anchor="middle">leaf 쌍 (VTEP 2)</text>
+<text x="1253.0" y="730.5" font-size="15.5" fill="#201E1F" text-anchor="middle" font-weight="bold">서버 M대</text>
+<text x="1253.0" y="764.5" font-size="15.5" fill="#201E1F" text-anchor="middle">서버당 1/(R·M)</text>
+<text x="700.0" y="825.0" font-size="15.0" fill="#201E1F" text-anchor="middle" font-weight="bold">모든 서버 1/(R·M) 로 동일 → 그 위에서 Maglev 가 전체 AIStor 백엔드로 고르게 분배</text>
+<text x="700.0" y="845.0" font-size="15.0" fill="#201E1F" text-anchor="middle" font-weight="bold">랙마다 서버 수가 다를 수밖에 없을 때 : export-gateway-ip → 랙 단위가 아닌 서버 수 비례로 분산 (랙 몫 = 랙 서버 수 ÷ 전체 서버 수, 서버당 모두 동일)</text>
+</svg>

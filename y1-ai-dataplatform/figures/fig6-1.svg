@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 860" width="1400" height="860" font-family="Noto Sans CJK KR, Malgun Gothic, sans-serif">
+<defs>
+<marker id="mhot" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#CC501A"/></marker>
+<marker id="mgood" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F8B5A"/></marker>
+<marker id="mnorm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#817E7B"/></marker>
+<marker id="midle" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ACA8A4"/></marker>
+<marker id="mback" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F8B5A"/></marker>
+</defs>
+<rect x="20" y="14" width="1360" height="44" rx="5" fill="#201E1F" stroke="#201E1F" stroke-width="1"/>
+<rect x="20" y="62" width="1360" height="30" rx="5" fill="#ECDDB9" stroke="#D4A941" stroke-width="2"/>
+<rect x="30" y="104" width="660" height="730" rx="5" fill="none" stroke="#969390" stroke-width="1.2" stroke-dasharray="6 4"/>
+<polygon points="250,150 260,140 470,140 460,150" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="460,150 470,140 470,186 460,196" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="250" y="150" width="210" height="46" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="250" y1="175.5" x2="460" y2="175.5" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="200,240 210,230 520,230 510,240" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="510,240 520,230 520,284 510,294" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="200" y="240" width="310" height="54" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="200" y1="266.0" x2="510" y2="266.0" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="200,334 210,324 520,324 510,334" fill="#F1EFEC" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="510,334 520,324 520,378 510,388" fill="#E2E0DD" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="200" y="334" width="310" height="54" fill="#FCFAF7" stroke="#A19E9A" stroke-width="1"/>
+<line x1="200" y1="360.0" x2="510" y2="360.0" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="70,434 80,424 340,424 330,434" fill="#C34E1A" stroke="#CC501A" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="330,434 340,424 340,500 330,510" fill="#B74A1B" stroke="#CC501A" stroke-width="3" stroke-linejoin="round"/>
+<rect x="70" y="434" width="260" height="76" fill="#CC501A" stroke="#CC501A" stroke-width="3"/>
+<line x1="70" y1="460.0" x2="330" y2="460.0" stroke="#FFFFFF" stroke-width="1"/>
+<polygon points="380,434 390,424 650,424 640,434" fill="#C34E1A" stroke="#CC501A" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="640,434 650,424 650,500 640,510" fill="#B74A1B" stroke="#CC501A" stroke-width="3" stroke-linejoin="round"/>
+<rect x="380" y="434" width="260" height="76" fill="#CC501A" stroke="#CC501A" stroke-width="3"/>
+<line x1="380" y1="460.0" x2="640" y2="460.0" stroke="#FFFFFF" stroke-width="1"/>
+<polygon points="200,558 210,548 520,548 510,558" fill="#F1EFEC" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="510,558 520,548 520,594 510,604" fill="#E2E0DD" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<rect x="200" y="558" width="310" height="46" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<line x1="200" y1="582.0" x2="510" y2="582.0" stroke="#605E5C" stroke-width="1"/>
+<rect x="50" y="626" width="620" height="190" rx="5" fill="#EEEAE4" stroke="#B6B3AE" stroke-width="1"/>
+<rect x="710" y="104" width="660" height="730" rx="5" fill="none" stroke="#969390" stroke-width="1.2" stroke-dasharray="6 4"/>
+<polygon points="930,150 940,140 1150,140 1140,150" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="1140,150 1150,140 1150,186 1140,196" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="930" y="150" width="210" height="46" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="930" y1="175.5" x2="1140" y2="175.5" stroke="#A19E9A" stroke-width="1"/>
+<polygon points="880,240 890,230 1200,230 1190,240" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="1190,240 1200,230 1200,284 1190,294" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="880" y="240" width="310" height="54" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="880" y1="266.0" x2="1190" y2="266.0" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="880,334 890,324 1200,324 1190,334" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="1190,334 1200,324 1200,378 1190,388" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="880" y="334" width="310" height="54" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="880" y1="360.0" x2="1190" y2="360.0" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="750,434 760,424 1020,424 1010,434" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="1010,434 1020,424 1020,500 1010,510" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="750" y="434" width="260" height="76" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="750" y1="459.5" x2="1010" y2="459.5" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="1060,434 1070,424 1330,424 1320,434" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="1320,434 1330,424 1330,500 1320,510" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="1060" y="434" width="260" height="76" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="1060" y1="459.5" x2="1320" y2="459.5" stroke="#5F8B5A" stroke-width="1"/>
+<polygon points="880,558 890,548 1200,548 1190,558" fill="#F1EFEC" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="1190,558 1200,548 1200,594 1190,604" fill="#E2E0DD" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<rect x="880" y="558" width="310" height="46" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<line x1="880" y1="582.0" x2="1190" y2="582.0" stroke="#605E5C" stroke-width="1"/>
+<rect x="730" y="626" width="620" height="190" rx="5" fill="#EFE3C6" stroke="#D4A941" stroke-width="2.5"/>
+<line x1="360.0" y1="196" x2="360.0" y2="230" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)"/>
+<line x1="360.0" y1="294" x2="360.0" y2="324" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)"/>
+<line x1="360.0" y1="388" x2="205.0" y2="424" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)"/>
+<rect x="236.94" y="396.0" width="91.11999999999999" height="20" fill="#FCFAF7"/>
+<text x="282.5" y="411.0" font-size="13" font-weight="bold" fill="#817E7B" text-anchor="middle">외부 · 응답</text>
+<line x1="360.0" y1="388" x2="515.0" y2="424" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)"/>
+<rect x="379.46" y="396.0" width="116.08" height="20" fill="#FCFAF7"/>
+<text x="437.5" y="411.0" font-size="13" font-weight="bold" fill="#817E7B" text-anchor="middle">내부 · AIStor</text>
+<line x1="205.0" y1="510" x2="360.0" y2="548" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)" marker-start="url(#mnorm)"/>
+<line x1="515.0" y1="510" x2="360.0" y2="548" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)" marker-start="url(#mnorm)"/>
+<line x1="1040.0" y1="196" x2="1040.0" y2="230" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)"/>
+<line x1="1040.0" y1="294" x2="1040.0" y2="324" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)"/>
+<line x1="1040.0" y1="388" x2="885.0" y2="424" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)"/>
+<rect x="916.94" y="396.0" width="91.11999999999999" height="20" fill="#FCFAF7"/>
+<text x="962.5" y="411.0" font-size="13" font-weight="bold" fill="#5F8B5A" text-anchor="middle">외부 · 응답</text>
+<line x1="1040.0" y1="388" x2="1195.0" y2="424" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)"/>
+<rect x="1059.46" y="396.0" width="116.08" height="20" fill="#FCFAF7"/>
+<text x="1117.5" y="411.0" font-size="13" font-weight="bold" fill="#5F8B5A" text-anchor="middle">내부 · AIStor</text>
+<line x1="885.0" y1="510" x2="1040.0" y2="548" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)" marker-start="url(#mnorm)"/>
+<line x1="1195.0" y1="510" x2="1040.0" y2="548" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)" marker-start="url(#mnorm)"/>
+<text x="700.0" y="45.5" font-size="24.0" fill="#F7F3EC" text-anchor="middle" font-weight="bold">그림 6-1. 노드 : I Lake → Y1 (bond 802.3ad 유지)</text>
+<text x="700.0" y="83.0" font-size="17.0" fill="#201E1F" text-anchor="middle" font-weight="bold">netkit · bond 해시는 이미 좋음 → 유지. LACP · MTU · TCP · tuned · IRQ 를 100G 기준으로 개선</text>
+<text x="360.0" y="129.0" font-size="17.0" fill="#201E1F" text-anchor="middle" font-weight="bold">I Lake (Storage K8s 실측)</text>
+<text x="355.0" y="169.5" font-size="16.5" fill="#201E1F" text-anchor="middle" font-weight="bold">Pod (S3 · 학습 I/O)</text>
+<text x="355.0" y="260.0" font-size="17.0" fill="#201E1F" text-anchor="middle" font-weight="bold">netkit (Pod 장치)</text>
+<text x="355.0" y="285.0" font-size="17.0" fill="#201E1F" text-anchor="middle">적용됨 ✓</text>
+<text x="355.0" y="354.0" font-size="17.0" fill="#201E1F" text-anchor="middle" font-weight="bold">host routing</text>
+<text x="355.0" y="379.0" font-size="17.0" fill="#201E1F" text-anchor="middle">값 확인 필요 (?)</text>
+<text x="200.0" y="454.0" font-size="17.0" fill="#FFFFFF" text-anchor="middle" font-weight="bold">bond0 (PUBLIC)</text>
+<text x="200.0" y="479.0" font-size="17.0" fill="#FFFFFF" text-anchor="middle">802.3ad · layer3+4 ✓</text>
+<text x="200.0" y="501.0" font-size="17.0" fill="#FFFFFF" text-anchor="middle">LACP slow · MTU 1500</text>
+<text x="510.0" y="454.0" font-size="17.0" fill="#FFFFFF" text-anchor="middle" font-weight="bold">bond1 (PRIVATE)</text>
+<text x="510.0" y="479.0" font-size="17.0" fill="#FFFFFF" text-anchor="middle">802.3ad · layer3+4 ✓</text>
+<text x="510.0" y="501.0" font-size="17.0" fill="#FFFFFF" text-anchor="middle">LACP slow · MTU 1500</text>
+<text x="355.0" y="576.0" font-size="15.0" fill="#201E1F" text-anchor="middle" font-weight="bold">leaf 쌍 (EVPN · 이중화 방식 확인)</text>
+<text x="60" y="653.0" font-size="19.0" fill="#201E1F" text-anchor="start">I Lake 실측</text>
+<text x="60" y="677.0" font-size="19.0" fill="#201E1F" text-anchor="start">· cubic · fq_codel, rmem · wmem 25M, backlog 16384</text>
+<text x="60" y="701.0" font-size="19.0" fill="#201E1F" text-anchor="start">· tuned 없음, irqbalance active</text>
+<text x="60" y="725.0" font-size="19.0" fill="#201E1F" text-anchor="start">· 큐 96 · NIC NUMA n0 · n1 (멤버가 서로 다른 NUMA)</text>
+<text x="60" y="749.0" font-size="19.0" fill="#201E1F" text-anchor="start">· devices auto · bandwidth-manager · BBR off</text>
+<text x="1040.0" y="129.0" font-size="17.0" fill="#201E1F" text-anchor="middle" font-weight="bold">Y1</text>
+<text x="1035.0" y="169.5" font-size="16.5" fill="#201E1F" text-anchor="middle" font-weight="bold">Pod (S3 · 학습 I/O)</text>
+<text x="1035.0" y="260.0" font-size="17.0" fill="#201E1F" text-anchor="middle" font-weight="bold">netkit (Pod 장치)</text>
+<text x="1035.0" y="285.0" font-size="17.0" fill="#201E1F" text-anchor="middle">유지</text>
+<text x="1035.0" y="354.0" font-size="17.0" fill="#201E1F" text-anchor="middle" font-weight="bold">host routing</text>
+<text x="1035.0" y="379.0" font-size="17.0" fill="#201E1F" text-anchor="middle">BPF 확인 · 유지</text>
+<text x="880.0" y="453.5" font-size="16.5" fill="#201E1F" text-anchor="middle" font-weight="bold">bond0 (PUBLIC)</text>
+<text x="880.0" y="478.75" font-size="16.5" fill="#201E1F" text-anchor="middle">802.3ad · layer3+4 유지</text>
+<text x="880.0" y="500.25" font-size="16.5" fill="#201E1F" text-anchor="middle">LACP fast · MTU 9000</text>
+<text x="1190.0" y="453.5" font-size="16.5" fill="#201E1F" text-anchor="middle" font-weight="bold">bond1 (PRIVATE)</text>
+<text x="1190.0" y="478.75" font-size="16.5" fill="#201E1F" text-anchor="middle">802.3ad · layer3+4 유지</text>
+<text x="1190.0" y="500.25" font-size="16.5" fill="#201E1F" text-anchor="middle">LACP fast · MTU 9000</text>
+<text x="1035.0" y="576.0" font-size="15.0" fill="#201E1F" text-anchor="middle" font-weight="bold">leaf 쌍 (EVPN · 이중화 방식 확인)</text>
+<text x="740" y="649.5" font-size="15.5" fill="#201E1F" text-anchor="start">Y1 설정</text>
+<text x="740" y="670.0" font-size="15.5" fill="#201E1F" text-anchor="start">· sysctl : bbr + fq, rmem · wmem 128M, backlog 250000</text>
+<text x="740" y="690.5" font-size="15.5" fill="#201E1F" text-anchor="start">· tuned network-throughput, NIC IRQ NUMA 로컬 고정</text>
+<text x="740" y="711.0" font-size="15.5" fill="#201E1F" text-anchor="start">· 큐 수 = NIC NUMA 로컬 코어 수 (ice)</text>
+<text x="740" y="731.5" font-size="15.5" fill="#201E1F" text-anchor="start">· Cilium devices = bond0, bond1 명시 · BBR(bandwidth-manager)</text>
+</svg>
