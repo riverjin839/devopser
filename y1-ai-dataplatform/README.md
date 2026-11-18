@@ -22,6 +22,8 @@ Y1 AI DATAPLATFORM 인프라 아키텍처 설계 제안 (Compute K8s · GPU · S
 
 ### 도구
 
+- [lake-check/](./lake-check) : 제안서 항목 기준 현재 Lake 상태 점검 시트(.xlsx) · 일괄 점검 → 레포트 스크립트 (`sudo python3 lake_check.py`)
+
 | 파일 | 내용 |
 |---|---|
 | `tools/gen_v3.py` · `gen_v2.py` · `figlib2.py` | 그림 생성기 (draw.io · SVG 동시 생성). `cd tools && USE_KEY=1 python3 gen_v3.py` |
