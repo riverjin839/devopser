@@ -21,6 +21,12 @@
 
 ![그림 0-1. Y1 전체 구조](figures/fig0-1.svg)
 
+- 외부 ETL client : FA Core → Super Spine(Border) → AIStor VIP (PUBLIC, bond0)
+- 내부 client (Compute · GPU Pod) : ClusterMesh Global Service **global-svc** 로 요청 → AIStor Pod 로 직접 연결 (PRIVATE, **bond1**). 외부 VIP · FA Core 를 거치지 않음
+- ClusterMesh : global-svc 의 Service · Endpoint 를 세 클러스터에 동기화 (KVStoreMesh · clustermesh-apiserver 2개)
+- 분산 3단계 : ① 패브릭 (인입 노드 선택) → ② L4 LB (백엔드 선택) → ③ 노드 · bond (송신 · 감지)
+- S3 · ETL · 학습 I/O 가 모두 DCNY03 으로 모임 → DCNY03 구간 간 링크 = Compute + GPU 합계 이상
+
 ### 1-1. 배경
 
 - I Lake 는 VXLAN EVPN 패브릭 위에 Cilium BGP native routing · netkit · ClusterMesh 를 적용한 1차 설계로 안정 운영 중

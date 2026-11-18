@@ -10,35 +10,40 @@ OUT = os.path.dirname(os.path.abspath(__file__)) + "/.."
 
 # ================================================================ 0 : 요약용
 def fig0_1():
-    p = Page("그림 0-1 전체 구조", 1400, 900)
-    p.title("그림 0-1. Y1 전체 구조와 개선 위치",
-            "DCNY01 Compute · DCNY02 GPU · DCNY03 Storage(AIStor). 노드는 bond0(PUBLIC) · bond1(PRIVATE). 분산은 패브릭 → L4 → 노드 3단계")
-    cl = p.box(250, 104, 260, 54, "외부 ETL client\n원천 소스", "plain", size=12, cube=True)
-    fa = p.box(570, 104, 260, 54, "FA Core\nDC 코어 · 방화벽", "device", size=12, cube=True)
+    # 그림 = 구조만 (제목 · 설명은 .md 캡션). ClusterMesh · 내부 client → global-svc 경로 포함
+    p = Page("그림 0-1 전체 구조", 1400, 760)
+    d = -84
+    cl = p.box(250, 104 + d, 260, 54, "외부 ETL client\n원천 소스", "plain", size=12, cube=True)
+    fa = p.box(570, 104 + d, 260, 54, "FA Core\nDC 코어 · 방화벽", "device", size=12, cube=True)
     p.edge(cl, fa, "S3 443", "norm")
-    ss = p.box(400, 184, 600, 58, "Super Spine (세 구간에 걸친 같은 패브릭)\nBorder · VRF PUBLIC / PRIVATE", "device", size=12, cube=True)
+    ss = p.box(400, 184 + d, 600, 58, "Super Spine (세 구간에 걸친 같은 패브릭)\nBorder · VRF PUBLIC / PRIVATE", "device", size=12, cube=True)
     p.edge(fa, ss, "", "norm")
-    zones = [(30, "DCNY01 (Compute K8s)", "Compute 노드\nSpark · Airflow · ETL\nbond0 · bond1", "Compute K8s (Cilium)\nPod → AIStor : 소켓 LB 직결"),
-             (490, "DCNY02 (GPU)", "GPU 노드\nAI 학습 · 추론\nbond0 · bond1", "GPU K8s (Cilium 1.20.2)\nClusterMesh 로 AIStor 직결"),
-             (950, "DCNY03 (Storage K8s)", "AIStor 노드\nVIP /32 BGP 광고\nbond0 · bond1", "Storage K8s (AIStor)\nVIP : Maglev · DSR · eTP Cluster")]
-    for x0, zn, nd, lb in zones:
-        p.box(x0, 270, 420, 420, zn, "zone", bold=True, size=13, valign="top", align="left")   # 제목 왼쪽 : 상단 연결선과 겹침 방지
-        sp = p.box(x0 + 100, 304, 220, 50, "Spine", "device", size=12, cube=True)
-        lf = p.box(x0 + 80, 384, 260, 56, "ToR leaf 쌍 (VTEP)\n랙당 서버 수 동일", "device", size=12, cube=True)
-        n = p.box(x0 + 60, 470, 300, 92, nd, "good" if "AIStor" in nd else "node", size=12, cube=True)
-        p.box(x0 + 30, 586, 360, 84, lb, "note", size=12)
-        p.edge(ss, sp, "", "norm", both=True, anc=(0.5, 1, 0.85, 0))
+    zones = [(30, "DCNY01 (Compute K8s)", "Compute 노드\nSpark · Airflow · ETL\nbond0 · bond1",
+              ("Compute K8s (Cilium)\nETL client Pod\nSpark · Airflow · Arrow Flight", "key", 120)),
+             (490, "DCNY02 (GPU)", "GPU 노드\nAI 학습 · 추론\nbond0 · bond1",
+              ("GPU K8s (Cilium)\n학습 Pod\nS3 읽기 · 체크포인트", "note", 92)),
+             (950, "DCNY03 (Storage K8s)", "AIStor 노드\nVIP /32 BGP 광고\nbond0 · bond1",
+              ("Storage K8s (AIStor)\nglobal-svc (Global Service)\n→ AIStor Pod", "good", 120))]
+    cbox = []
+    for x0, zn, nd, (ct, ck, ch) in zones:
+        p.box(x0, 270 + d, 420, 462, zn, "zone", bold=True, size=13, valign="top", align="right" if x0 == 950 else "left")
+        sp = p.box(x0 + 100, 304 + d, 220, 50, "Spine", "device", size=12, cube=True)
+        lf = p.box(x0 + 80, 384 + d, 260, 56, "ToR leaf 쌍 (VTEP)\n랙당 서버 수 동일", "device", size=12, cube=True)
+        n = p.box(x0 + 60, 470 + d, 300, 92, nd, "good" if "AIStor" in nd else "node", size=12, cube=True)
+        c = p.box(x0 + 30, 590 + d, 360, ch, ct, ck, size=12)
+        cbox.append(c)
+        sx, tx = {30: (0.05, 0.85), 490: (0.5, 0.85), 950: (1.0, 0.1)}[x0]   # 구역 제목과 교차 방지 (DCNY03 제목은 오른쪽)
+        p.edge(ss, sp, "", "norm", both=True, anc=(sx, 1, tx, 0))
         p.edge(sp, lf, "", "norm", both=True)
         p.edge(lf, n, "802.3ad", "norm", both=True)
-    marks = [("① 패브릭 (인입 노드 선택)", "역할별 랙 분리 · 랙당 동일\nRD 고유 · maximum-paths · igp-metric\nexport-gateway-ip · resilient hashing"),
-             ("② L4 LB (백엔드 선택)", "Maglev (AIStor VIP) · DSR (Geneve)\neTP Cluster · 소켓 LB on\nXDP best-effort (유지)"),
-             ("③ 노드 · bond (송신 · 감지)", "802.3ad · layer3+4 (유지) · LACP fast\nMTU 9000 · BBR · fq · 버퍼\nIRQ · NUMA · tuned")]
-    for i, (h, b) in enumerate(marks):
-        x = 30 + i * 460
-        p.box(x, 706, 420, 34, h, "key", bold=True, size=13)
-        p.box(x, 744, 420, 76, b, "plain", size=12)
-    p.box(30, 832, 1340, 40, "S3 · ETL · 학습 I/O 는 모두 DCNY03 으로 모임 → DCNY03 구간 간 링크 = Compute + GPU 합계 (non-blocking · RTT ≤ 0.2 ms · MTU 9216)",
-          "key", bold=True, size=13)
+        p.edge(n, c, "", "norm", both=True)
+    # 내부 client → global-svc : 외부 VIP 미경유, Pod IP 직결 (bond1 PRIVATE, 패브릭 경유)
+    p.edge(cbox[0], cbox[2], "S3 적재 → global-svc\nbond1 PRIVATE", "hot", anc=(1, 0.95, 0, 0.95))
+    # ClusterMesh : Service · Endpoint 동기화 (제어)
+    cm = p.box(30, 750 + d, 1340, 60, "ClusterMesh : KVStoreMesh · clustermesh-apiserver × 2\nglobal-svc Service · Endpoint 를 세 클러스터에 동기화", "device", size=13, cube=True)
+    p.edge(cbox[0], cm, "동기화", "idle", both=True, anc=(0.5, 1, 0.163, 0))
+    p.edge(cbox[1], cm, "", "idle", both=True, anc=(0.1, 1, 0.399, 0))
+    p.edge(cbox[2], cm, "동기화", "idle", both=True, anc=(0.5, 1, 0.849, 0))
     return p
 
 

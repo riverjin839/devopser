@@ -14,13 +14,12 @@
 
 ![그림 0-1. Y1 전체 구조](figures/fig0-1.svg)
 
-| 목표 | 목표값 |
-|---|---|
-| AIStor Pod 별 요청 편차 | ±10% 이내 |
-| 노드 작업 · 경로 변경 시 끊긴 연결 | 0 (계획 작업) |
-| bond 멤버 장애 전환 | 3초 이내 |
-| GET 응답 경로 | 인입 노드 미경유 |
-| DCNY03 구간 간 링크 사용률 | 70% 이하 |
+- 외부 ETL client : FA Core → Super Spine(Border) → AIStor VIP (PUBLIC, bond0)
+- 내부 client (Compute · GPU Pod) : ClusterMesh Global Service **global-svc** 로 요청 → AIStor Pod 로 직접 연결 (PRIVATE, **bond1**). 외부 VIP · FA Core 를 거치지 않음
+- ClusterMesh : global-svc 의 Service · Endpoint 를 세 클러스터에 동기화 (KVStoreMesh · clustermesh-apiserver 2개)
+- 분산 3단계 : ① 패브릭 (인입 노드 선택) → ② L4 LB (백엔드 선택) → ③ 노드 · bond (송신 · 감지)
+- S3 · ETL · 학습 I/O 가 모두 DCNY03 으로 모임 → DCNY03 구간 간 링크 = Compute + GPU 합계 이상
+- VIP = CiliumLoadBalancerIPPool + BGP 광고 (I Lake 와 동일)
 
 ## 2. 현행 관찰 : 분산 편차는 어디서 오나
 
