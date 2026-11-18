@@ -79,6 +79,68 @@ def fig0_2():
     return p
 
 
+# ================================================================ 0-3 · 0-4 : 패킷 흐름 (client IP → 대상 S3)
+def _flow(p, top, req, resp, req_title, resp_title, req_labels, resp_labels):
+    """req : 8 단계, resp : 4 단계. 단계 = (글자, 종류, 패킷 헤더). 위 줄 → 오른쪽, 둘째 줄 ← 왼쪽, 응답 줄 → 오른쪽."""
+    X = [50, 390, 730, 1070]
+    W, SH, PH = 300, 96, 76
+    p.box(20, top, 1360, 462, req_title, "zone", bold=True, size=13, valign="top", align="left")
+    p.box(20, top + 482, 1360, 236, resp_title, "zone", bold=True, size=13, valign="top", align="right")   # ⑧→⑨ 연결선과 겹침 방지
+    rows = [(top + 32, X, req[:4]), (top + 262, X[::-1], req[4:]), (top + 514, X, resp)]
+    S, P = [], []
+    for y, xs, steps in rows:
+        for x, (txt, k, pk) in zip(xs, steps):
+            S.append(p.box(x, y, W, SH, txt, k, size=13, cube=True))
+            P.append(p.box(x, y + SH + 12, W, PH, pk, "note", size=12))
+    labels = req_labels + [None] + resp_labels
+    for i in range(len(S) - 1):
+        a, b = (P[i], S[i + 1]) if i in (3, 7) else (S[i], S[i + 1])
+        kind = "good" if i >= 8 else ("back" if i == 7 else "norm")
+        lab = (labels[i] or "") if i == 3 and labels[i] else ""      # 가로 연결선은 라벨 없음 (패킷 상자에 같은 정보)
+        p.edge(a, b, lab, kind)
+    return S, P
+
+
+def fig0_3():
+    p = Page("그림 0-3 외부 client 패킷 흐름", 1400, 760)
+    req = [("① 외부 ETL client\nC-IP\nS3 요청 (TCP 443)", "plain", "C-IP : sport → VIP : 443"),
+           ("② FA Core\n방화벽 허용\nVIP 대역 → Border", "device", "C-IP → VIP\n(변경 없음)"),
+           ("③ Border (Super Spine)\nVIP/32 Type-5 · ECMP V 경로\n5-tuple 해시 → leaf 선택", "device", "바깥 : Border VTEP → leaf VTEP\nUDP 4789 · L3VNI PUBLIC\n안 : C-IP → VIP"),
+           ("④ Spine\nunderlay 라우팅\n바깥 IP(VTEP) 만 봄", "device", "바깥 : Border VTEP → leaf VTEP\n안 : C-IP → VIP"),
+           ("⑤ Storage leaf (VTEP)\nVXLAN 풂 · VRF PUBLIC\nVIP/32 → 노드 BGP multipath", "device", "C-IP → VIP\n→ 인입 노드 N1 bond0 (802.3ad)"),
+           ("⑥ 인입 노드 N1 (bond0)\nCilium XDP · tc\nMaglev → AIStor Pod (N2)", "key", "바깥 : N1 → N2 (Geneve UDP 6081)\n안 : C-IP → VIP (보존)"),
+           ("⑦ 백엔드 노드 N2\nGeneve 풂 · VIP → P-IP\nnetkit 로 Pod 전달", "node", "C-IP → P-IP : 포트\n(client IP 보존)"),
+           ("⑧ AIStor Pod\nS3 처리\nclient IP = C-IP", "good", "응답 생성\nP-IP → C-IP")]
+    resp = [("⑨ N2 역 NAT\nsrc P-IP → VIP\nbond0 로 직접 송신", "good", "VIP : 443 → C-IP : sport\n인입 노드 N1 미경유 (DSR)"),
+            ("⑩ Storage leaf\nVRF PUBLIC\nVXLAN 감쌈 → Border", "device", "바깥 : leaf VTEP → Border VTEP\n안 : VIP → C-IP"),
+            ("⑪ Border · FA Core\nVXLAN 풂\n방화벽 세션 일치", "device", "VIP → C-IP"),
+            ("⑫ 외부 ETL client\n응답 수신\nsrc = VIP", "plain", "VIP : 443 → C-IP : sport")]
+    _flow(p, 14, req, resp, "요청 : C-IP → VIP (PUBLIC · bond0)", "응답 : VIP → C-IP (DSR, 인입 노드 미경유)",
+          ["S3 443", "VRF PUBLIC", "VXLAN", "VXLAN", "802.3ad", "Geneve", "netkit"], ["", "", ""])
+    return p
+
+
+def fig0_4():
+    p = Page("그림 0-4 내부 client 패킷 흐름", 1400, 860)
+    cm = p.box(390, 14, 640, 58, "ClusterMesh (제어) : KVStoreMesh\nglobal-svc 백엔드 · identity 를 Compute 클러스터에 동기화", "device", size=13, cube=True)
+    req = [("① ETL client Pod\nPod-IP-c (Compute K8s)\nglobal-svc 로 요청", "key", "Pod-IP-c → global-svc : 443\n(ClusterIP · DNS)"),
+           ("② Compute 노드 소켓 LB\nGlobal Service 백엔드\n= AIStor Pod (원격)", "node", "connect() 시 목적지 변경\nPod-IP-c → P-IP : 포트"),
+           ("③ Compute 노드 라우팅\neBPF host routing\nStorage PodCIDR → bond1", "node", "Pod-IP-c → P-IP\n(NAT 없음) · bond1 (802.3ad)"),
+           ("④ Compute leaf (VTEP)\nVRF PRIVATE\nPodCIDR Type-5 → VXLAN", "device", "바깥 : leaf VTEP(01) → leaf VTEP(03)\nUDP 4789 · L3VNI PRIVATE\n안 : Pod-IP-c → P-IP"),
+           ("⑤ Spine · Super Spine\nDCNY01 → DCNY03\n구간 간 링크 · ECMP", "device", "바깥 : leaf VTEP(01) → leaf VTEP(03)\n안 : Pod-IP-c → P-IP"),
+           ("⑥ Storage leaf (VTEP)\nVXLAN 풂 · VRF PRIVATE\nPodCIDR → 소유 노드 N2", "device", "Pod-IP-c → P-IP\n→ N2 bond1 (802.3ad)"),
+           ("⑦ Storage 노드 N2 (bond1)\neBPF host routing\n정책 확인 → netkit", "node", "Pod-IP-c → P-IP\nidentity : ClusterMesh 동기화"),
+           ("⑧ AIStor Pod\nS3 PUT 처리\nclient IP = Pod-IP-c", "good", "응답 생성\nP-IP → Pod-IP-c")]
+    resp = [("⑨ N2 (bond1)\n역방향 그대로\nNAT 없음", "good", "P-IP → Pod-IP-c\nbond1 PRIVATE"),
+            ("⑩ Storage leaf · Spine\nVRF PRIVATE\nVXLAN → Compute leaf", "device", "바깥 : leaf VTEP(03) → leaf VTEP(01)\n안 : P-IP → Pod-IP-c"),
+            ("⑪ Compute leaf\nVXLAN 풂\n→ Compute 노드 bond1", "device", "P-IP → Pod-IP-c"),
+            ("⑫ ETL client Pod\n소켓은 global-svc 로\n연결된 것으로 인식", "key", "P-IP → Pod-IP-c\n(소켓 LB 가 주소 복원)")]
+    S, P = _flow(p, 112, req, resp, "요청 : Pod-IP-c → global-svc → P-IP (PRIVATE · bond1)", "응답 : P-IP → Pod-IP-c (같은 경로 역방향)",
+                 ["", "", "802.3ad", "VXLAN", "VXLAN", "802.3ad", "netkit"], ["", "", ""])
+    p.edge(cm, S[1], "백엔드 동기화", "idle", anc=(0.234, 1, 0.5, 0))
+    return p
+
+
 # ================================================================ 3 : ECMP · 수렴
 def fig3_1():
     p = Page("그림 3-1 resilient hashing", 1400, 760)
@@ -540,7 +602,7 @@ def fig9_2():
     return p
 
 
-FIGS = [("fig0-1", fig0_1), ("fig0-2", fig0_2),
+FIGS = [("fig0-1", fig0_1), ("fig0-2", fig0_2), ("fig0-3", fig0_3), ("fig0-4", fig0_4),
         ("fig1-1", g2.fig1_1), ("fig1-2", g2.fig1_2), ("fig1-3", g2.fig1_3), ("fig1-4", g2.fig1_4),
         ("fig2-1", g2.fig2_1), ("fig2-2", g2.fig2_2), ("fig2-3", g2.fig2_3),
         ("fig3-1", fig3_1), ("fig3-2", fig3_2), ("fig3-3", fig3_3),

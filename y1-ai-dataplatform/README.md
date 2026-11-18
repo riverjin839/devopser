@@ -15,9 +15,9 @@ Y1 AI DATAPLATFORM 인프라 아키텍처 설계 제안 (Compute K8s · GPU · S
 
 | 경로 | 내용 |
 |---|---|
-| `figures/` | 그림 23종 SVG (문서 본문에서 참조) |
+| `figures/` | 그림 25종 SVG (문서 본문에서 참조) |
 | `preview/` · `preview-contact-sheet.png` | PNG 목업 |
-| `drawio/` · `y1-ai-dataplatform-all-figures.drawio` | draw.io 원본 (단독 23개 · 통합본) |
+| `drawio/` · `y1-ai-dataplatform-all-figures.drawio` | draw.io 원본 (단독 25개 · 통합본) |
 | `drawio-gliffy/` · `y1-ai-dataplatform-all-figures-gliffy.drawio` | Confluence Gliffy 가져오기용 (cube 회전 속성 제거) |
 
 ### 도구
