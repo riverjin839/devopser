@@ -10,35 +10,40 @@ OUT = os.path.dirname(os.path.abspath(__file__)) + "/.."
 
 # ================================================================ 0 : 요약용
 def fig0_1():
-    p = Page("그림 0-1 전체 구조", 1400, 900)
-    p.title("그림 0-1. Y1 전체 구조와 개선 위치",
-            "DCNY01 Compute · DCNY02 GPU · DCNY03 Storage(AIStor). 노드는 bond0(PUBLIC) · bond1(PRIVATE). 분산은 패브릭 → L4 → 노드 3단계")
-    cl = p.box(250, 104, 260, 54, "외부 ETL client\n원천 소스", "plain", size=12, cube=True)
-    fa = p.box(570, 104, 260, 54, "FA Core\nDC 코어 · 방화벽", "device", size=12, cube=True)
+    # 그림 = 구조만 (제목 · 설명은 .md 캡션). ClusterMesh · 내부 client → global-svc 경로 포함
+    p = Page("그림 0-1 전체 구조", 1400, 760)
+    d = -84
+    cl = p.box(250, 104 + d, 260, 54, "외부 ETL client\n원천 소스", "plain", size=12, cube=True)
+    fa = p.box(570, 104 + d, 260, 54, "FA Core\nDC 코어 · 방화벽", "device", size=12, cube=True)
     p.edge(cl, fa, "S3 443", "norm")
-    ss = p.box(400, 184, 600, 58, "Super Spine (세 구간에 걸친 같은 패브릭)\nBorder · VRF PUBLIC / PRIVATE", "device", size=12, cube=True)
+    ss = p.box(400, 184 + d, 600, 58, "Super Spine (세 구간에 걸친 같은 패브릭)\nBorder · VRF PUBLIC / PRIVATE", "device", size=12, cube=True)
     p.edge(fa, ss, "", "norm")
-    zones = [(30, "DCNY01 (Compute K8s)", "Compute 노드\nSpark · Airflow · ETL\nbond0 · bond1", "Compute K8s (Cilium)\nPod → AIStor : 소켓 LB 직결"),
-             (490, "DCNY02 (GPU)", "GPU 노드\nAI 학습 · 추론\nbond0 · bond1", "GPU K8s (Cilium 1.20.2)\nClusterMesh 로 AIStor 직결"),
-             (950, "DCNY03 (Storage K8s)", "AIStor 노드\nVIP /32 BGP 광고\nbond0 · bond1", "Storage K8s (AIStor)\nVIP : Maglev · DSR · eTP Cluster")]
-    for x0, zn, nd, lb in zones:
-        p.box(x0, 270, 420, 420, zn, "zone", bold=True, size=13, valign="top", align="left")   # 제목 왼쪽 : 상단 연결선과 겹침 방지
-        sp = p.box(x0 + 100, 304, 220, 50, "Spine", "device", size=12, cube=True)
-        lf = p.box(x0 + 80, 384, 260, 56, "ToR leaf 쌍 (VTEP)\n랙당 서버 수 동일", "device", size=12, cube=True)
-        n = p.box(x0 + 60, 470, 300, 92, nd, "good" if "AIStor" in nd else "node", size=12, cube=True)
-        p.box(x0 + 30, 586, 360, 84, lb, "note", size=12)
-        p.edge(ss, sp, "", "norm", both=True, anc=(0.5, 1, 0.85, 0))
+    zones = [(30, "DCNY01 (Compute K8s)", "Compute 노드\nSpark · Airflow · ETL\nbond0 · bond1",
+              ("Compute K8s (Cilium)\nETL client Pod\nSpark · Airflow · Arrow Flight", "key", 120)),
+             (490, "DCNY02 (GPU)", "GPU 노드\nAI 학습 · 추론\nbond0 · bond1",
+              ("GPU K8s (Cilium)\n학습 Pod\nS3 읽기 · 체크포인트", "note", 92)),
+             (950, "DCNY03 (Storage K8s)", "AIStor 노드\nVIP /32 BGP 광고\nbond0 · bond1",
+              ("Storage K8s (AIStor)\nglobal-svc (Global Service)\n→ AIStor Pod", "good", 120))]
+    cbox = []
+    for x0, zn, nd, (ct, ck, ch) in zones:
+        p.box(x0, 270 + d, 420, 462, zn, "zone", bold=True, size=13, valign="top", align="right" if x0 == 950 else "left")
+        sp = p.box(x0 + 100, 304 + d, 220, 50, "Spine", "device", size=12, cube=True)
+        lf = p.box(x0 + 80, 384 + d, 260, 56, "ToR leaf 쌍 (VTEP)\n랙당 서버 수 동일", "device", size=12, cube=True)
+        n = p.box(x0 + 60, 470 + d, 300, 92, nd, "good" if "AIStor" in nd else "node", size=12, cube=True)
+        c = p.box(x0 + 30, 590 + d, 360, ch, ct, ck, size=12)
+        cbox.append(c)
+        sx, tx = {30: (0.05, 0.85), 490: (0.5, 0.85), 950: (1.0, 0.1)}[x0]   # 구역 제목과 교차 방지 (DCNY03 제목은 오른쪽)
+        p.edge(ss, sp, "", "norm", both=True, anc=(sx, 1, tx, 0))
         p.edge(sp, lf, "", "norm", both=True)
         p.edge(lf, n, "802.3ad", "norm", both=True)
-    marks = [("① 패브릭 (인입 노드 선택)", "역할별 랙 분리 · 랙당 동일\nRD 고유 · maximum-paths · igp-metric\nexport-gateway-ip · resilient hashing"),
-             ("② L4 LB (백엔드 선택)", "Maglev (AIStor VIP) · DSR (Geneve)\neTP Cluster · 소켓 LB on\nXDP best-effort (유지)"),
-             ("③ 노드 · bond (송신 · 감지)", "802.3ad · layer3+4 (유지) · LACP fast\nMTU 9000 · BBR · fq · 버퍼\nIRQ · NUMA · tuned")]
-    for i, (h, b) in enumerate(marks):
-        x = 30 + i * 460
-        p.box(x, 706, 420, 34, h, "key", bold=True, size=13)
-        p.box(x, 744, 420, 76, b, "plain", size=12)
-    p.box(30, 832, 1340, 40, "S3 · ETL · 학습 I/O 는 모두 DCNY03 으로 모임 → DCNY03 구간 간 링크 = Compute + GPU 합계 (non-blocking · RTT ≤ 0.2 ms · MTU 9216)",
-          "key", bold=True, size=13)
+        p.edge(n, c, "", "norm", both=True)
+    # 내부 client → global-svc : 외부 VIP 미경유, Pod IP 직결 (bond1 PRIVATE, 패브릭 경유)
+    p.edge(cbox[0], cbox[2], "S3 적재 → global-svc\nbond1 PRIVATE", "hot", anc=(1, 0.95, 0, 0.95))
+    # ClusterMesh : Service · Endpoint 동기화 (제어)
+    cm = p.box(30, 750 + d, 1340, 60, "ClusterMesh : KVStoreMesh · clustermesh-apiserver × 2\nglobal-svc Service · Endpoint 를 세 클러스터에 동기화", "device", size=13, cube=True)
+    p.edge(cbox[0], cm, "동기화", "idle", both=True, anc=(0.5, 1, 0.163, 0))
+    p.edge(cbox[1], cm, "", "idle", both=True, anc=(0.1, 1, 0.399, 0))
+    p.edge(cbox[2], cm, "동기화", "idle", both=True, anc=(0.5, 1, 0.849, 0))
     return p
 
 
@@ -71,6 +76,68 @@ def fig0_2():
                 p.edge(prev, b, "", "hot" if label.startswith("I") else "good")
             prev = b
         y += 290
+    return p
+
+
+# ================================================================ 0-3 · 0-4 : 패킷 흐름 (client IP → 대상 S3)
+def _flow(p, top, req, resp, req_title, resp_title, req_labels, resp_labels):
+    """req : 8 단계, resp : 4 단계. 단계 = (글자, 종류, 패킷 헤더). 위 줄 → 오른쪽, 둘째 줄 ← 왼쪽, 응답 줄 → 오른쪽."""
+    X = [50, 390, 730, 1070]
+    W, SH, PH = 300, 96, 76
+    p.box(20, top, 1360, 462, req_title, "zone", bold=True, size=13, valign="top", align="left")
+    p.box(20, top + 482, 1360, 236, resp_title, "zone", bold=True, size=13, valign="top", align="right")   # ⑧→⑨ 연결선과 겹침 방지
+    rows = [(top + 32, X, req[:4]), (top + 262, X[::-1], req[4:]), (top + 514, X, resp)]
+    S, P = [], []
+    for y, xs, steps in rows:
+        for x, (txt, k, pk) in zip(xs, steps):
+            S.append(p.box(x, y, W, SH, txt, k, size=13, cube=True))
+            P.append(p.box(x, y + SH + 12, W, PH, pk, "note", size=12))
+    labels = req_labels + [None] + resp_labels
+    for i in range(len(S) - 1):
+        a, b = (P[i], S[i + 1]) if i in (3, 7) else (S[i], S[i + 1])
+        kind = "good" if i >= 8 else ("back" if i == 7 else "norm")
+        lab = (labels[i] or "") if i == 3 and labels[i] else ""      # 가로 연결선은 라벨 없음 (패킷 상자에 같은 정보)
+        p.edge(a, b, lab, kind)
+    return S, P
+
+
+def fig0_3():
+    p = Page("그림 0-3 외부 client 패킷 흐름", 1400, 760)
+    req = [("① 외부 ETL client\nC-IP\nS3 요청 (TCP 443)", "plain", "C-IP : sport → VIP : 443"),
+           ("② FA Core\n방화벽 허용\nVIP 대역 → Border", "device", "C-IP → VIP\n(변경 없음)"),
+           ("③ Border (Super Spine)\nVIP/32 Type-5 · ECMP V 경로\n5-tuple 해시 → leaf 선택", "device", "바깥 : Border VTEP → leaf VTEP\nUDP 4789 · L3VNI PUBLIC\n안 : C-IP → VIP"),
+           ("④ Spine\nunderlay 라우팅\n바깥 IP(VTEP) 만 봄", "device", "바깥 : Border VTEP → leaf VTEP\n안 : C-IP → VIP"),
+           ("⑤ Storage leaf (VTEP)\nVXLAN 풂 · VRF PUBLIC\nVIP/32 → 노드 BGP multipath", "device", "C-IP → VIP\n→ 인입 노드 N1 bond0 (802.3ad)"),
+           ("⑥ 인입 노드 N1 (bond0)\nCilium XDP · tc\nMaglev → AIStor Pod (N2)", "key", "바깥 : N1 → N2 (Geneve UDP 6081)\n안 : C-IP → VIP (보존)"),
+           ("⑦ 백엔드 노드 N2\nGeneve 풂 · VIP → P-IP\nnetkit 로 Pod 전달", "node", "C-IP → P-IP : 포트\n(client IP 보존)"),
+           ("⑧ AIStor Pod\nS3 처리\nclient IP = C-IP", "good", "응답 생성\nP-IP → C-IP")]
+    resp = [("⑨ N2 역 NAT\nsrc P-IP → VIP\nbond0 로 직접 송신", "good", "VIP : 443 → C-IP : sport\n인입 노드 N1 미경유 (DSR)"),
+            ("⑩ Storage leaf\nVRF PUBLIC\nVXLAN 감쌈 → Border", "device", "바깥 : leaf VTEP → Border VTEP\n안 : VIP → C-IP"),
+            ("⑪ Border · FA Core\nVXLAN 풂\n방화벽 세션 일치", "device", "VIP → C-IP"),
+            ("⑫ 외부 ETL client\n응답 수신\nsrc = VIP", "plain", "VIP : 443 → C-IP : sport")]
+    _flow(p, 14, req, resp, "요청 : C-IP → VIP (PUBLIC · bond0)", "응답 : VIP → C-IP (DSR, 인입 노드 미경유)",
+          ["S3 443", "VRF PUBLIC", "VXLAN", "VXLAN", "802.3ad", "Geneve", "netkit"], ["", "", ""])
+    return p
+
+
+def fig0_4():
+    p = Page("그림 0-4 내부 client 패킷 흐름", 1400, 860)
+    cm = p.box(390, 14, 640, 58, "ClusterMesh (제어) : KVStoreMesh\nglobal-svc 백엔드 · identity 를 Compute 클러스터에 동기화", "device", size=13, cube=True)
+    req = [("① ETL client Pod\nPod-IP-c (Compute K8s)\nglobal-svc 로 요청", "key", "Pod-IP-c → global-svc : 443\n(ClusterIP · DNS)"),
+           ("② Compute 노드 소켓 LB\nGlobal Service 백엔드\n= AIStor Pod (원격)", "node", "connect() 시 목적지 변경\nPod-IP-c → P-IP : 포트"),
+           ("③ Compute 노드 라우팅\neBPF host routing\nStorage PodCIDR → bond1", "node", "Pod-IP-c → P-IP\n(NAT 없음) · bond1 (802.3ad)"),
+           ("④ Compute leaf (VTEP)\nVRF PRIVATE\nPodCIDR Type-5 → VXLAN", "device", "바깥 : leaf VTEP(01) → leaf VTEP(03)\nUDP 4789 · L3VNI PRIVATE\n안 : Pod-IP-c → P-IP"),
+           ("⑤ Spine · Super Spine\nDCNY01 → DCNY03\n구간 간 링크 · ECMP", "device", "바깥 : leaf VTEP(01) → leaf VTEP(03)\n안 : Pod-IP-c → P-IP"),
+           ("⑥ Storage leaf (VTEP)\nVXLAN 풂 · VRF PRIVATE\nPodCIDR → 소유 노드 N2", "device", "Pod-IP-c → P-IP\n→ N2 bond1 (802.3ad)"),
+           ("⑦ Storage 노드 N2 (bond1)\neBPF host routing\n정책 확인 → netkit", "node", "Pod-IP-c → P-IP\nidentity : ClusterMesh 동기화"),
+           ("⑧ AIStor Pod\nS3 PUT 처리\nclient IP = Pod-IP-c", "good", "응답 생성\nP-IP → Pod-IP-c")]
+    resp = [("⑨ N2 (bond1)\n역방향 그대로\nNAT 없음", "good", "P-IP → Pod-IP-c\nbond1 PRIVATE"),
+            ("⑩ Storage leaf · Spine\nVRF PRIVATE\nVXLAN → Compute leaf", "device", "바깥 : leaf VTEP(03) → leaf VTEP(01)\n안 : P-IP → Pod-IP-c"),
+            ("⑪ Compute leaf\nVXLAN 풂\n→ Compute 노드 bond1", "device", "P-IP → Pod-IP-c"),
+            ("⑫ ETL client Pod\n소켓은 global-svc 로\n연결된 것으로 인식", "key", "P-IP → Pod-IP-c\n(소켓 LB 가 주소 복원)")]
+    S, P = _flow(p, 112, req, resp, "요청 : Pod-IP-c → global-svc → P-IP (PRIVATE · bond1)", "응답 : P-IP → Pod-IP-c (같은 경로 역방향)",
+                 ["", "", "802.3ad", "VXLAN", "VXLAN", "802.3ad", "netkit"], ["", "", ""])
+    p.edge(cm, S[1], "백엔드 동기화", "idle", anc=(0.234, 1, 0.5, 0))
     return p
 
 
@@ -535,7 +602,7 @@ def fig9_2():
     return p
 
 
-FIGS = [("fig0-1", fig0_1), ("fig0-2", fig0_2),
+FIGS = [("fig0-1", fig0_1), ("fig0-2", fig0_2), ("fig0-3", fig0_3), ("fig0-4", fig0_4),
         ("fig1-1", g2.fig1_1), ("fig1-2", g2.fig1_2), ("fig1-3", g2.fig1_3), ("fig1-4", g2.fig1_4),
         ("fig2-1", g2.fig2_1), ("fig2-2", g2.fig2_2), ("fig2-3", g2.fig2_3),
         ("fig3-1", fig3_1), ("fig3-2", fig3_2), ("fig3-3", fig3_3),

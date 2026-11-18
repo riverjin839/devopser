@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 860" width="1400" height="860" font-family="Noto Sans CJK KR, Malgun Gothic, sans-serif">
+<defs>
+<marker id="mhot" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#CC501A"/></marker>
+<marker id="mgood" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F8B5A"/></marker>
+<marker id="mnorm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#817E7B"/></marker>
+<marker id="midle" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ACA8A4"/></marker>
+<marker id="mback" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5F8B5A"/></marker>
+</defs>
+<polygon points="390,24 400,14 1030,14 1020,24" fill="#F1EFEC" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="1020,24 1030,14 1030,62 1020,72" fill="#E2E0DD" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<rect x="390" y="24" width="630" height="48" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<line x1="390" y1="47.0" x2="1020" y2="47.0" stroke="#605E5C" stroke-width="1"/>
+<rect x="20" y="112" width="1360" height="462" rx="5" fill="none" stroke="#969390" stroke-width="1.2" stroke-dasharray="6 4"/>
+<rect x="20" y="594" width="1360" height="236" rx="5" fill="none" stroke="#969390" stroke-width="1.2" stroke-dasharray="6 4"/>
+<polygon points="50,154 60,144 350,144 340,154" fill="#E5D9BE" stroke="#D4A941" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="340,154 350,144 350,230 340,240" fill="#D6CBB2" stroke="#D4A941" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="50" y="154" width="290" height="86" fill="#EFE3C6" stroke="#D4A941" stroke-width="2.5"/>
+<line x1="50" y1="181.5" x2="340" y2="181.5" stroke="#D4A941" stroke-width="1"/>
+<rect x="50" y="252" width="300" height="76" rx="5" fill="#EEEAE4" stroke="#B6B3AE" stroke-width="1"/>
+<polygon points="390,154 400,144 690,144 680,154" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="680,154 690,144 690,230 680,240" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="390" y="154" width="290" height="86" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="390" y1="183.0" x2="680" y2="183.0" stroke="#A19E9A" stroke-width="1"/>
+<rect x="390" y="252" width="300" height="76" rx="5" fill="#EEEAE4" stroke="#B6B3AE" stroke-width="1"/>
+<polygon points="730,154 740,144 1030,144 1020,154" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="1020,154 1030,144 1030,230 1020,240" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="730" y="154" width="290" height="86" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="730" y1="180.5" x2="1020" y2="180.5" stroke="#A19E9A" stroke-width="1"/>
+<rect x="730" y="252" width="300" height="76" rx="5" fill="#EEEAE4" stroke="#B6B3AE" stroke-width="1"/>
+<polygon points="1070,154 1080,144 1370,144 1360,154" fill="#F1EFEC" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="1360,154 1370,144 1370,230 1360,240" fill="#E2E0DD" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<rect x="1070" y="154" width="290" height="86" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<line x1="1070" y1="180.5" x2="1360" y2="180.5" stroke="#605E5C" stroke-width="1"/>
+<rect x="1070" y="252" width="300" height="76" rx="5" fill="#EEEAE4" stroke="#B6B3AE" stroke-width="1"/>
+<polygon points="1070,384 1080,374 1370,374 1360,384" fill="#F1EFEC" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="1360,384 1370,374 1370,460 1360,470" fill="#E2E0DD" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<rect x="1070" y="384" width="290" height="86" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<line x1="1070" y1="413.0" x2="1360" y2="413.0" stroke="#605E5C" stroke-width="1"/>
+<rect x="1070" y="482" width="300" height="76" rx="5" fill="#EEEAE4" stroke="#B6B3AE" stroke-width="1"/>
+<polygon points="730,384 740,374 1030,374 1020,384" fill="#F1EFEC" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="1020,384 1030,374 1030,460 1020,470" fill="#E2E0DD" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<rect x="730" y="384" width="290" height="86" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<line x1="730" y1="411.5" x2="1020" y2="411.5" stroke="#605E5C" stroke-width="1"/>
+<rect x="730" y="482" width="300" height="76" rx="5" fill="#EEEAE4" stroke="#B6B3AE" stroke-width="1"/>
+<polygon points="390,384 400,374 690,374 680,384" fill="#DEDAD4" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="680,384 690,374 690,460 680,470" fill="#D0CCC7" stroke="#A19E9A" stroke-width="1" stroke-linejoin="round"/>
+<rect x="390" y="384" width="290" height="86" fill="#E8E4DE" stroke="#A19E9A" stroke-width="1"/>
+<line x1="390" y1="410.0" x2="680" y2="410.0" stroke="#A19E9A" stroke-width="1"/>
+<rect x="390" y="482" width="300" height="76" rx="5" fill="#EEEAE4" stroke="#B6B3AE" stroke-width="1"/>
+<polygon points="50,384 60,374 350,374 340,384" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="340,384 350,374 350,460 340,470" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="50" y="384" width="290" height="86" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="50" y1="413.0" x2="340" y2="413.0" stroke="#5F8B5A" stroke-width="1"/>
+<rect x="50" y="482" width="300" height="76" rx="5" fill="#EEEAE4" stroke="#B6B3AE" stroke-width="1"/>
+<polygon points="50,636 60,626 350,626 340,636" fill="#D0D4C6" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="340,636 350,626 350,712 340,722" fill="#C3C7BA" stroke="#5F8B5A" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="50" y="636" width="290" height="86" fill="#D9DECF" stroke="#5F8B5A" stroke-width="2.5"/>
+<line x1="50" y1="665.0" x2="340" y2="665.0" stroke="#5F8B5A" stroke-width="1"/>
+<rect x="50" y="734" width="300" height="76" rx="5" fill="#EEEAE4" stroke="#B6B3AE" stroke-width="1"/>
+<polygon points="390,636 400,626 690,626 680,636" fill="#F1EFEC" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="680,636 690,626 690,712 680,722" fill="#E2E0DD" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<rect x="390" y="636" width="290" height="86" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<line x1="390" y1="664.5" x2="680" y2="664.5" stroke="#605E5C" stroke-width="1"/>
+<rect x="390" y="734" width="300" height="76" rx="5" fill="#EEEAE4" stroke="#B6B3AE" stroke-width="1"/>
+<polygon points="730,636 740,626 1030,626 1020,636" fill="#F1EFEC" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<polygon points="1020,636 1030,626 1030,712 1020,722" fill="#E2E0DD" stroke="#605E5C" stroke-width="1.5" stroke-linejoin="round"/>
+<rect x="730" y="636" width="290" height="86" fill="#FCFAF7" stroke="#605E5C" stroke-width="1.5"/>
+<line x1="730" y1="665.0" x2="1020" y2="665.0" stroke="#605E5C" stroke-width="1"/>
+<rect x="730" y="734" width="300" height="76" rx="5" fill="#EEEAE4" stroke="#B6B3AE" stroke-width="1"/>
+<polygon points="1070,636 1080,626 1370,626 1360,636" fill="#E5D9BE" stroke="#D4A941" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="1360,636 1370,626 1370,712 1360,722" fill="#D6CBB2" stroke="#D4A941" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="1070" y="636" width="290" height="86" fill="#EFE3C6" stroke="#D4A941" stroke-width="2.5"/>
+<line x1="1070" y1="665.0" x2="1360" y2="665.0" stroke="#D4A941" stroke-width="1"/>
+<rect x="1070" y="734" width="300" height="76" rx="5" fill="#EEEAE4" stroke="#B6B3AE" stroke-width="1"/>
+<line x1="350" y1="192.0" x2="390" y2="192.0" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)"/>
+<line x1="690" y1="192.0" x2="730" y2="192.0" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)"/>
+<line x1="1030" y1="192.0" x2="1070" y2="192.0" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)"/>
+<line x1="1220.0" y1="328" x2="1220.0" y2="374" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)"/>
+<rect x="1190.04" y="341.0" width="59.92" height="20" fill="#FCFAF7"/>
+<text x="1220.0" y="356.0" font-size="13" font-weight="bold" fill="#817E7B" text-anchor="middle">VXLAN</text>
+<line x1="1070" y1="422.0" x2="1030" y2="422.0" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)"/>
+<line x1="730" y1="422.0" x2="690" y2="422.0" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)"/>
+<line x1="390" y1="422.0" x2="350" y2="422.0" stroke="#817E7B" stroke-width="1.5" marker-end="url(#mnorm)"/>
+<line x1="200.0" y1="558" x2="200.0" y2="626" stroke="#5F8B5A" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#mback)"/>
+<line x1="350" y1="674.0" x2="390" y2="674.0" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)"/>
+<line x1="690" y1="674.0" x2="730" y2="674.0" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)"/>
+<line x1="1030" y1="674.0" x2="1070" y2="674.0" stroke="#5F8B5A" stroke-width="2.5" marker-end="url(#mgood)"/>
+<line x1="539.76" y1="72" x2="540.0" y2="144" stroke="#ACA8A4" stroke-width="1.2" stroke-dasharray="7 5" marker-end="url(#midle)"/>
+<rect x="485.584" y="98.0" width="108.592" height="20" fill="#FCFAF7"/>
+<text x="539.88" y="113.0" font-size="13" font-weight="bold" fill="#ACA8A4" text-anchor="middle">백엔드 동기화</text>
+<text x="705.0" y="41.0" font-size="14.0" fill="#201E1F" text-anchor="middle" font-weight="bold">ClusterMesh (제어) : KVStoreMesh</text>
+<text x="705.0" y="63.0" font-size="14.0" fill="#201E1F" text-anchor="middle">global-svc 백엔드 · identity 를 Compute 클러스터에 동기화</text>
+<text x="30" y="137.0" font-size="17.0" fill="#201E1F" text-anchor="start" font-weight="bold">요청 : Pod-IP-c → global-svc → P-IP (PRIVATE · bond1)</text>
+<text x="1370" y="619.0" font-size="17.0" fill="#201E1F" text-anchor="end" font-weight="bold">응답 : P-IP → Pod-IP-c (같은 경로 역방향)</text>
+<text x="195.0" y="175.5" font-size="18.5" fill="#201E1F" text-anchor="middle" font-weight="bold">① ETL client Pod</text>
+<text x="195.0" y="204.75" font-size="18.5" fill="#201E1F" text-anchor="middle">Pod-IP-c (Compute K8s)</text>
+<text x="195.0" y="228.25" font-size="18.5" fill="#201E1F" text-anchor="middle">global-svc 로 요청</text>
+<text x="200.0" y="285.0" font-size="14.5" fill="#201E1F" text-anchor="middle">Pod-IP-c → global-svc : 443</text>
+<text x="200.0" y="304.5" font-size="14.5" fill="#201E1F" text-anchor="middle">(ClusterIP · DNS)</text>
+<text x="535.0" y="177.0" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">② Compute 노드 소켓 LB</text>
+<text x="535.0" y="205.5" font-size="20.0" fill="#201E1F" text-anchor="middle">Global Service 백엔드</text>
+<text x="535.0" y="230.5" font-size="20.0" fill="#201E1F" text-anchor="middle">= AIStor Pod (원격)</text>
+<text x="540.0" y="285.0" font-size="19.5" fill="#201E1F" text-anchor="middle">connect() 시 목적지 변경</text>
+<text x="540.0" y="309.5" font-size="19.5" fill="#201E1F" text-anchor="middle">Pod-IP-c → P-IP : 포트</text>
+<text x="875.0" y="174.5" font-size="17.5" fill="#201E1F" text-anchor="middle" font-weight="bold">③ Compute 노드 라우팅</text>
+<text x="875.0" y="204.25" font-size="17.5" fill="#201E1F" text-anchor="middle">eBPF host routing</text>
+<text x="875.0" y="226.75" font-size="17.5" fill="#201E1F" text-anchor="middle">Storage PodCIDR → bond1</text>
+<text x="880.0" y="285.0" font-size="15.5" fill="#201E1F" text-anchor="middle">Pod-IP-c → P-IP</text>
+<text x="880.0" y="305.5" font-size="15.5" fill="#201E1F" text-anchor="middle">(NAT 없음) · bond1 (802.3ad)</text>
+<text x="1215.0" y="174.5" font-size="17.5" fill="#201E1F" text-anchor="middle" font-weight="bold">④ Compute leaf (VTEP)</text>
+<text x="1215.0" y="204.25" font-size="17.5" fill="#201E1F" text-anchor="middle">VRF PRIVATE</text>
+<text x="1215.0" y="226.75" font-size="17.5" fill="#201E1F" text-anchor="middle">PodCIDR Type-5 → VXLAN</text>
+<text x="1220.0" y="276.5" font-size="12.0" fill="#201E1F" text-anchor="middle">바깥 : leaf VTEP(01) → leaf VTEP(03)</text>
+<text x="1220.0" y="293.5" font-size="12.0" fill="#201E1F" text-anchor="middle">UDP 4789 · L3VNI PRIVATE</text>
+<text x="1220.0" y="310.5" font-size="12.0" fill="#201E1F" text-anchor="middle">안 : Pod-IP-c → P-IP</text>
+<text x="1215.0" y="407.0" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">⑤ Spine · Super Spine</text>
+<text x="1215.0" y="435.5" font-size="20.0" fill="#201E1F" text-anchor="middle">DCNY01 → DCNY03</text>
+<text x="1215.0" y="460.5" font-size="20.0" fill="#201E1F" text-anchor="middle">구간 간 링크 · ECMP</text>
+<text x="1220.0" y="515.0" font-size="12.0" fill="#201E1F" text-anchor="middle">바깥 : leaf VTEP(01) → leaf VTEP(03)</text>
+<text x="1220.0" y="532.0" font-size="12.0" fill="#201E1F" text-anchor="middle">안 : Pod-IP-c → P-IP</text>
+<text x="875.0" y="405.5" font-size="18.5" fill="#201E1F" text-anchor="middle" font-weight="bold">⑥ Storage leaf (VTEP)</text>
+<text x="875.0" y="434.75" font-size="18.5" fill="#201E1F" text-anchor="middle">VXLAN 풂 · VRF PRIVATE</text>
+<text x="875.0" y="458.25" font-size="18.5" fill="#201E1F" text-anchor="middle">PodCIDR → 소유 노드 N2</text>
+<text x="880.0" y="515.0" font-size="20.0" fill="#201E1F" text-anchor="middle">Pod-IP-c → P-IP</text>
+<text x="880.0" y="540.0" font-size="20.0" fill="#201E1F" text-anchor="middle">→ N2 bond1 (802.3ad)</text>
+<text x="535.0" y="404.0" font-size="17.0" fill="#201E1F" text-anchor="middle" font-weight="bold">⑦ Storage 노드 N2 (bond1)</text>
+<text x="535.0" y="434.0" font-size="17.0" fill="#201E1F" text-anchor="middle">eBPF host routing</text>
+<text x="535.0" y="456.0" font-size="17.0" fill="#201E1F" text-anchor="middle">정책 확인 → netkit</text>
+<text x="540.0" y="515.0" font-size="15.5" fill="#201E1F" text-anchor="middle">Pod-IP-c → P-IP</text>
+<text x="540.0" y="535.5" font-size="15.5" fill="#201E1F" text-anchor="middle">identity : ClusterMesh 동기화</text>
+<text x="195.0" y="407.0" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">⑧ AIStor Pod</text>
+<text x="195.0" y="435.5" font-size="20.0" fill="#201E1F" text-anchor="middle">S3 PUT 처리</text>
+<text x="195.0" y="460.5" font-size="20.0" fill="#201E1F" text-anchor="middle">client IP = Pod-IP-c</text>
+<text x="200.0" y="515.0" font-size="20.0" fill="#201E1F" text-anchor="middle">응답 생성</text>
+<text x="200.0" y="540.0" font-size="20.0" fill="#201E1F" text-anchor="middle">P-IP → Pod-IP-c</text>
+<text x="195.0" y="659.0" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">⑨ N2 (bond1)</text>
+<text x="195.0" y="687.5" font-size="20.0" fill="#201E1F" text-anchor="middle">역방향 그대로</text>
+<text x="195.0" y="712.5" font-size="20.0" fill="#201E1F" text-anchor="middle">NAT 없음</text>
+<text x="200.0" y="767.0" font-size="20.0" fill="#201E1F" text-anchor="middle">P-IP → Pod-IP-c</text>
+<text x="200.0" y="792.0" font-size="20.0" fill="#201E1F" text-anchor="middle">bond1 PRIVATE</text>
+<text x="535.0" y="658.5" font-size="19.5" fill="#201E1F" text-anchor="middle" font-weight="bold">⑩ Storage leaf · Spine</text>
+<text x="535.0" y="687.25" font-size="19.5" fill="#201E1F" text-anchor="middle">VRF PRIVATE</text>
+<text x="535.0" y="711.75" font-size="19.5" fill="#201E1F" text-anchor="middle">VXLAN → Compute leaf</text>
+<text x="540.0" y="767.0" font-size="12.0" fill="#201E1F" text-anchor="middle">바깥 : leaf VTEP(03) → leaf VTEP(01)</text>
+<text x="540.0" y="784.0" font-size="12.0" fill="#201E1F" text-anchor="middle">안 : P-IP → Pod-IP-c</text>
+<text x="875.0" y="659.0" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">⑪ Compute leaf</text>
+<text x="875.0" y="687.5" font-size="20.0" fill="#201E1F" text-anchor="middle">VXLAN 풂</text>
+<text x="875.0" y="712.5" font-size="20.0" fill="#201E1F" text-anchor="middle">→ Compute 노드 bond1</text>
+<text x="880.0" y="779.5" font-size="20.0" fill="#201E1F" text-anchor="middle">P-IP → Pod-IP-c</text>
+<text x="1215.0" y="659.0" font-size="20.0" fill="#201E1F" text-anchor="middle" font-weight="bold">⑫ ETL client Pod</text>
+<text x="1215.0" y="687.5" font-size="20.0" fill="#201E1F" text-anchor="middle">소켓은 global-svc 로</text>
+<text x="1215.0" y="712.5" font-size="20.0" fill="#201E1F" text-anchor="middle">연결된 것으로 인식</text>
+<text x="1220.0" y="767.0" font-size="20.0" fill="#201E1F" text-anchor="middle">P-IP → Pod-IP-c</text>
+<text x="1220.0" y="792.0" font-size="20.0" fill="#201E1F" text-anchor="middle">(소켓 LB 가 주소 복원)</text>
+</svg>

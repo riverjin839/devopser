@@ -39,6 +39,43 @@
 - 세 단계가 **모두** 고르게 나눠야 최종 균등. 어느 하나라도 좁으면 그 뒤는 소용없음
 - ③ 에서 eTP Cluster + Maglev 면 ①② 의 치우침을 상당 부분 흡수 → Y1 이 L4 LB 를 핵심으로 보는 이유
 
+### 1-1. client IP 기준 패킷 흐름
+
+![그림 0-3. 외부 client 패킷 흐름](figures/fig0-3.svg)
+
+| 단계 | 지점 | 결정 · 처리 | 패킷 (바깥 / 안) |
+|---|---|---|---|
+| ① | 외부 client | S3 요청 | C-IP:sport → VIP:443 |
+| ② | FA Core | 방화벽 허용, VIP 대역 → Border | 변경 없음 |
+| ③ | Border | VIP/32 Type-5 경로 V 개 중 5-tuple 해시로 leaf 선택 | 바깥 Border VTEP → leaf VTEP (UDP 4789, L3VNI PUBLIC) |
+| ④ | Spine | 바깥 IP(VTEP) 로만 라우팅 | 동일 |
+| ⑤ | Storage leaf | VXLAN 해제, VRF PUBLIC 에서 VIP/32 → 노드 BGP multipath | C-IP → VIP → 인입 노드 N1 bond0 |
+| ⑥ | 인입 노드 N1 | XDP · tc 에서 Maglev 로 백엔드 선택. 다른 노드면 Geneve 로 전달 (같은 노드면 바로 DNAT) | 바깥 N1 → N2 (UDP 6081) / 안 C-IP → VIP |
+| ⑦ | 백엔드 노드 N2 | Geneve 해제, VIP → P-IP DNAT, netkit 로 Pod 전달 | C-IP → P-IP |
+| ⑧ | AIStor Pod | S3 처리, client IP = C-IP | - |
+| ⑨ ~ ⑫ | N2 → client | 역 NAT (src P-IP → VIP), bond0 로 직접 송신 → leaf → Border → FA Core | VIP:443 → C-IP:sport |
+
+- I Lake (SNAT) 와 차이 : ⑥ 에서 src 를 N1 주소로 바꿔 보내므로 Pod 는 client IP 를 모르고, 응답이 N1 을 거쳐 돌아감
+- FA Core 방화벽은 요청 · 응답이 모두 Border 를 지나므로 세션이 맞음. leaf 는 응답 src(VIP) 가 들어온 경로와 달라 **uRPF loose** 필요
+
+![그림 0-4. 내부 client 패킷 흐름](figures/fig0-4.svg)
+
+| 단계 | 지점 | 결정 · 처리 | 패킷 (바깥 / 안) |
+|---|---|---|---|
+| ① | ETL client Pod | global-svc DNS → ClusterIP | Pod-IP-c → ClusterIP:443 |
+| ② | Compute 노드 소켓 LB | connect() 시 Global Service 백엔드(원격 AIStor Pod) 중 선택, 목적지를 P-IP 로 변경 | Pod-IP-c → P-IP |
+| ③ | Compute 노드 | eBPF host routing, Storage PodCIDR 경로(BGP 학습) → bond1 | NAT 없음 |
+| ④ | Compute leaf | VRF PRIVATE, PodCIDR Type-5 → VXLAN | 바깥 leaf VTEP(01) → leaf VTEP(03) (L3VNI PRIVATE) |
+| ⑤ | Spine · Super Spine | 구간 간 링크 ECMP | 동일 |
+| ⑥ | Storage leaf | VXLAN 해제, PodCIDR → 소유 노드 N2 | Pod-IP-c → P-IP |
+| ⑦ | Storage 노드 N2 | host routing, NetworkPolicy (identity 는 ClusterMesh 로 동기화) → netkit | 동일 |
+| ⑧ | AIStor Pod | S3 PUT 처리, client IP = Pod-IP-c | - |
+| ⑨ ~ ⑫ | 역방향 | 같은 경로, NAT 없음. 소켓 LB 가 응답 주소를 global-svc 로 보이게 복원 | P-IP → Pod-IP-c |
+
+- 외부 VIP 를 쓰지 않으므로 Maglev · DSR 과 무관, 분산은 ② 소켓 LB 가 연결 단위로 결정
+- ClusterMesh 는 제어(백엔드 목록 · identity) 만 동기화, 데이터는 패브릭으로 직접
+- 경로 확인 : `hubble observe --from-pod <ns>/<client> --to-ip <P-IP>`, `cilium-dbg bpf lb list | grep <global-svc ClusterIP>`
+
 ### 1-근거
 
 | 구분 | 근거 |

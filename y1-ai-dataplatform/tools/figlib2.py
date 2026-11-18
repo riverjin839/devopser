@@ -269,7 +269,12 @@ def svg(p):
         lines = b["text"].split("\n")
         lh = b["size"] + 5
         y0 = b["y"] + 8 + b["size"] if b["valign"] == "top" else b["y"] + b["h"] / 2 - len(lines) * lh / 2 + b["size"]
-        x0, anc = (b["x"] + 10, "start") if b["align"] == "left" else (b["x"] + b["w"] / 2, "middle")
+        if b["align"] == "left":
+            x0, anc = b["x"] + 10, "start"
+        elif b["align"] == "right":
+            x0, anc = b["x"] + b["w"] - 10, "end"
+        else:
+            x0, anc = b["x"] + b["w"] / 2, "middle"
         fw = ' font-weight="bold"' if b["bold"] else ""
         for i, l in enumerate(lines):
             o.append(f'<text x="{x0}" y="{y0+i*lh}" font-size="{b["size"]}" fill="{fc}" text-anchor="{anc}"{fw}>'

@@ -21,6 +21,12 @@
 
 ![그림 0-1. Y1 전체 구조](figures/fig0-1.svg)
 
+- 외부 ETL client : FA Core → Super Spine(Border) → AIStor VIP (PUBLIC, bond0)
+- 내부 client (Compute · GPU Pod) : ClusterMesh Global Service **global-svc** 로 요청 → AIStor Pod 로 직접 연결 (PRIVATE, **bond1**). 외부 VIP · FA Core 를 거치지 않음
+- ClusterMesh : global-svc 의 Service · Endpoint 를 세 클러스터에 동기화 (KVStoreMesh · clustermesh-apiserver 2개)
+- 분산 3단계 : ① 패브릭 (인입 노드 선택) → ② L4 LB (백엔드 선택) → ③ 노드 · bond (송신 · 감지)
+- S3 · ETL · 학습 I/O 가 모두 DCNY03 으로 모임 → DCNY03 구간 간 링크 = Compute + GPU 합계 이상
+
 ### 1-1. 배경
 
 - I Lake 는 VXLAN EVPN 패브릭 위에 Cilium BGP native routing · netkit · ClusterMesh 를 적용한 1차 설계로 안정 운영 중
@@ -280,6 +286,21 @@
 | 내부 · 외부 VIP · DNS 분리 | 내부 트래픽이 PUBLIC 망을 쓰지 않음 → 보안 경계 명확 · PUBLIC 대역 여유 | 망별 트래픽 비율 |
 | leaf 수신 필터 · 접근 제한 | 내부 대역의 외부 노출 방지 | 광고 · 수신 prefix 점검 |
 
+
+### 패킷 흐름 : client IP → 대상 S3
+
+![그림 0-3. 외부 client 패킷 흐름](figures/fig0-3.svg)
+
+- 외부 client 는 PUBLIC VIP 로 요청 → Border 가 VIP/32 경로 V 개로 leaf 를 고르고, leaf 가 랙 안 노드를 고름
+- 인입 노드는 Maglev 로 AIStor Pod 를 고르고 Geneve 로 넘김 (client IP 보존)
+- 응답은 Pod 가 있는 노드가 VIP 주소로 바로 보냄 → 인입 노드를 다시 거치지 않음 (DSR)
+
+![그림 0-4. 내부 client 패킷 흐름](figures/fig0-4.svg)
+
+- 내부 client Pod 는 global-svc(ClusterMesh Global Service) 로 요청 → 연결 시점에 AIStor Pod 주소로 바로 바뀜 (소켓 LB)
+- 이후 패킷은 NAT 없이 Pod 주소 그대로 bond1 PRIVATE → VXLAN(L3VNI PRIVATE) → Storage 노드로 감
+- 외부 VIP · FA Core · bond0 를 거치지 않음. 백엔드 목록과 정책용 identity 는 ClusterMesh 가 동기화
+
 ---
 
 ## 6. 노드 OS · 네트워크
@@ -489,6 +510,7 @@
 |---|---|---|---|
 | 0-1 | 전체 구조 | 3-3 | 장애 감지 시간 |
 | 0-2 | 분산 3단계 | 4-1 | VIP 처리 경로 |
+| 0-3 | 외부 client 패킷 흐름 | 0-4 | 내부 client 패킷 흐름 |
 | 1-1 | 랙당 서버 수 · 인입 | 4-2 | Maglev |
 | 1-2 | 장애 범위 | 4-3 | eTP Local vs Cluster |
 | 1-3 | 증설 배치 | 4-4 | 소켓 LB |
