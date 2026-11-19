@@ -32,6 +32,27 @@ LINK = {  # 종류 : (색, 굵기, 점선, 화살표)
 }
 
 
+def text_w(line, sz):
+    w = 0.0
+    for ch in line:
+        o = ord(ch)
+        w += 1.0 if (o >= 0x1100 and not 0x2000 <= o <= 0x206F) else (0.32 if ch == " " else (0.64 if (ch.isupper() or ch.isdigit()) else 0.56))
+    return w * sz * 1.2          # PC 글꼴 여유 20%
+
+
+def fit(t, w, h, base, cap=20):
+    """상자 안에 들어가는 가장 큰 글자 크기 (base 이상, cap 이하)."""
+    lines = t.split("\n")
+    best, s = base, base
+    while s <= cap:
+        if max(text_w(l, s) for l in lines) <= w - 14 and len(lines) * s * 1.3 <= h - 6:
+            best = s
+        else:
+            break
+        s += 0.5
+    return best
+
+
 def esc(t):
     return html.escape(html.escape(t).replace("\n", "<br>"))
 
@@ -48,7 +69,7 @@ class Diagram:
         self.n += 1
         return f"c{self.n}"
 
-    def dev(self, kind, x, y, label, size=12, bold=True):
+    def dev(self, kind, x, y, label, size=14, bold=True):
         shape, w, h = ICON[kind]
         st = CISCO + f"shape={shape};fontFamily={FONT};fontSize={size};fontColor={INK};labelBackgroundColor={PAPER};" + ("fontStyle=1;" if bold else "")
         if kind == "cloud":
@@ -76,6 +97,8 @@ class Diagram:
         self.text(x + 6, ty, len(title) * size * 0.95 + 20, size + 12, title, size=size, bold=True)
 
     def box(self, x, y, w, h, t, fill="#F2EFE6", stroke=MUTE, size=11, align="left", bold=False):
+        if t:
+            size = fit(t, w, h, size)
         st = (f"rounded=1;arcSize=6;html=1;whiteSpace=wrap;fillColor={fill};strokeColor={stroke};align={align};verticalAlign=middle;"
               f"spacing=5;fontFamily={FONT};fontSize={size};fontColor={INK};" + ("fontStyle=1;" if bold else ""))
         self.cells.append(f'<mxCell id="{self._id()}" value="{esc(t)}" style="{st}" vertex="1" parent="1">'
@@ -156,7 +179,6 @@ def n0():
     mixed2 = [("Compute", "cp"), ("AIStor", "st"), ("AIStor", "st"), ("AIStor", "st"), ("Compute", "cp")]
     rack(g, 40, 80, "Rack a", mixed, uh=24)
     rack(g, 180, 80, "Rack b", mixed2, uh=24)
-    g.text(26, 336, 290, 30, "Uneven AIStor per rack", size=11, color=PUB, bold=True)
     secs = [(350, "DCNY01 · Compute", "Compute", "cp", "Compute only · equal per rack"),
             (770, "DCNY02 · GPU", "GPU", "gpu", "GPU only · equal per rack"),
             (1190, "DCNY03 · Storage", "AIStor", "st", "AIStor only · M per rack (must)")]
@@ -164,42 +186,27 @@ def n0():
         g.zone(x0, 20, 410, 350, title, color=PRIV if k == "st" else MUTE)
         for i in range(3):
             rack(g, x0 + 20 + i * 130, 80, f"Rack {i + 1}" if i < 2 else "Rack R", [(nm, k)] * 4 + [("…", "dots")], leaf=False, uh=24)
-        g.text(x0 + 10, 300, 390, 30, note, size=12, color=PRIV if k == "st" else INK, bold=True)
     g.line((322, 200), (346, 200), "fpriv")
-    g.zone(20, 400, 1600, 380, "DCNY03 rack elevation : R racks × M nodes (≈ 100)", color=PRIV)
+    g.zone(20, 400, 760, 380, "DCNY03 rack elevation : R racks × M nodes (≈ 100)", color=PRIV)
     units = [(f"AIStor-{i:02d}", "st") for i in (1, 2, 3)] + [("…", "dots"), ("AIStor-M", "st")]
     for i, x in enumerate([40, 190, 340, 580]):
         rack(g, x, 470, f"Rack {i + 1}" if i < 3 else "Rack R", units)
     g.text(470, 590, 100, 30, "… × R", size=14, bold=True, align="center")
-    rb = g.box(760, 450, 840, 300,
-               "Placement\n"
-               "· Same M AIStor nodes in every rack\n"
-               "· ToR Leaf pair per rack (vPC)\n"
-               "· bond0 / bond1 : 1 port → Leaf-A, 1 port → Leaf-B\n"
-               "· Node label rack=<physical rack>\n\n"
-               "Expansion\n"
-               "· Add the same count to every rack, or add racks in sets\n\n"
-               "Why\n"
-               "· ECMP splits per rack → equal racks = equal nodes",
-               fill="#FFFFFF", stroke=PRIV, size=13)
-    g.cells[-1] = g.cells[-1].replace("verticalAlign=middle", "verticalAlign=top")
     return g
 
 
 # ================================================================ N-1 전체 토폴로지
 def n1():
-    g = Diagram("N-1 Topology", 1640, 1000)
+    g = Diagram("N-1 Topology", 1640, 920)
     cl = g.dev("cloud", 745, 14, "External client", size=12)
     fw = g.dev("fw", 807, 140, "FA Core")
     g.line(bot(cl), top(fw), "pub", "S3 443")
     ss = [g.dev("l3", 690, 262, "Super Spine-1\n(Border)"), g.dev("l3", 900, 262, "Super Spine-2\n(Border)")]
     for s in ss:
         g.line(at(fw, 0.5, 1), top(s), "pub")
-    g.text(1000, 256, 340, 64, "eBGP · EVPN Type-5\nVIP/32 ECMP × V · resilient hash", size=11, box=True)
-    g.text(370, 256, 300, 64, "External traffic enters via Spine only\nBFD · MTU 9216", size=11, box=True)
     secs = [(20, "DCNY01 · Compute K8s", "Compute"), (560, "DCNY02 · GPU", "GPU"), (1100, "DCNY03 · Storage K8s", "AIStor")]
     for x0, title, nd in secs:
-        g.zone(x0, 400, 520, 580, title)
+        g.zone(x0, 400, 520, 500, title)
         sp = [g.dev("l3", x0 + 130, 450, "Spine-A"), g.dev("l3", x0 + 342, 450, "Spine-B")]
         for s in ss:
             for p in sp:
@@ -218,21 +225,18 @@ def n1():
             la, lb = (lv[0], lv[1]) if i < 2 else (lv[2], lv[3])
             g.line(at(la, 0.5, 1.0), at(sv_, 0.35, 0), "pub")
             g.line(at(lb, 0.5, 1.0), at(sv_, 0.65, 0), "priv")
-        g.text(x0 + 30, 900, 470, 64, "bond0 PUBLIC · bond1 PRIVATE\n802.3ad · LACP fast · Cilium BGP per bond", size=11, box=True)
     legend(g, 20, 120, [("phys", "Fabric 100G"), ("pc", "vPC peer-link"), ("pub", "bond0 · PUBLIC"), ("priv", "bond1 · PRIVATE")])
     return g
 
 
 # ================================================================ N-2 랙 · 노드 연결
 def n2():
-    g = Diagram("N-2 Rack & node links", 1640, 680)
+    g = Diagram("N-2 Rack & node links", 1640, 600)
     la = g.dev("l3", 600, 40, "Leaf-A")
     lb = g.dev("l3", 990, 40, "Leaf-B")
     g.line(right(la), left(lb), "pc", "vPC")
-    g.text(40, 30, 500, 64, "VRF PUBLIC ↔ bond0 · VRF PRIVATE ↔ bond1\nLACP fast · MTU 9216", size=11, box=True)
-    g.text(1100, 30, 500, 64, "Cilium BGP : hold 12 · keepalive 4 · GR 15\nNo BFD on node links", size=11, box=True)
     for k, x0 in enumerate((80, 860)):
-        g.zone(x0, 290, 700, 370, f"Storage node {k + 1}", title_at="bottom")
+        g.zone(x0, 290, 700, 300, f"Storage node {k + 1}", title_at="bottom")
         g.dev("srv", x0 + 30, 340, "")
         b0 = g.box(x0 + 120, 320, 250, 44, "bond0 · PUBLIC", fill="#F6E3D8", stroke=PUB, size=12, align="center", bold=True)
         b1 = g.box(x0 + 410, 320, 250, 44, "bond1 · PRIVATE", fill="#E3ECE0", stroke=PRIV, size=12, align="center", bold=True)
@@ -244,13 +248,12 @@ def n2():
         g.line(at(b1, 0.5, 1), at(ag, 0.78, 0), "priv")
         pod = g.box(x0 + 270, 500, 240, 44, "AIStor Pod", fill="#E3ECE0", stroke=PRIV, size=12, align="center", bold=True)
         g.line(at(ag, 0.5, 1), top(pod), "phys")
-        g.text(x0 + 30, 560, 640, 50, "External → bond0 → local pod · Shards / internal → bond1", size=11, bold=True)
     return g
 
 
 # ================================================================ N-3 eBGP · EVPN 제어
 def n3():
-    g = Diagram("N-3 eBGP only · EVPN", 1640, 860)
+    g = Diagram("N-3 eBGP only · EVPN", 1640, 720)
     ss = [g.dev("l3", 700, 30, "Super Spine-1"), g.dev("l3", 900, 30, "Super Spine-2")]
     g.text(1000, 36, 200, 26, "ASN <SS>", size=12, bold=True)
     rows = [(20, "DCNY01", "Compute"), (560, "DCNY02", "GPU"), (1100, "DCNY03", "Storage")]
@@ -273,12 +276,6 @@ def n3():
             g.line(bot(l), top(nd), "bgp")
         adv = "VIP/32 (bond0) · PodCIDR (bond1)" if role == "Storage" else "PodCIDR (bond1)"
         g.text(x0 + 60, 622, 400, 30, adv, size=11, align="center", color=PUB if role == "Storage" else PRIV, bold=True)
-    g.box(20, 720, 1600, 110,
-          "Basics\n"
-          "· eBGP only : AS-path prevents loops → no iBGP/eBGP mixed multipath\n"
-          "· Unique RD per leaf (rd auto) → Border keeps all V paths · max-paths ≥ V · multipath-relax · rewrite-evpn-rt-asn",
-          fill="#FFFFFF", size=12)
-    g.cells[-1] = g.cells[-1].replace("verticalAlign=middle", "verticalAlign=top")
     legend(g, 20, 20, [("bgp", "eBGP session")])
     return g
 
@@ -312,8 +309,6 @@ def n4():
     cm = g.box(700, 610, 240, 50, "ClusterMesh", fill="#FBF3DE", stroke=KEY, size=12, align="center", bold=True)
     g.line(at(cm, 0, 0.5), at(cn, 1, 0.3), "ctrl")
     g.line(at(cm, 1, 0.5), at(sn, 0, 0.3), "ctrl")
-    g.text(40, 420, 200, 90, "Internal Ⓐ–Ⓔ\nglobal svc · socket LB\nbond1 · no NAT", size=11, box=True)
-    g.text(1080, 600, 200, 90, "External ①–⑤\nPUBLIC VIP · eTP Local\nlocal pod · bond0", size=11, box=True)
     legend(g, 40, 120, [("fpub", "External · PUBLIC"), ("fpriv", "Internal · PRIVATE"), ("priv", "AIStor shards"), ("ctrl", "ClusterMesh sync")])
     return g
 
