@@ -74,10 +74,10 @@ def bonds(g, x, y, gap=40):
 
 # ================================================================ C-1 Storage 노드 내부
 def c1():
-    g = Diagram("C-1 Storage 노드 내부", 1400, 700)
-    node(g, 20, 20, 1360, 660, "Node · Storage K8s")
+    g = Diagram("C-1 Storage node internals", 1400, 760)
+    node(g, 20, 20, 1360, 720, "Node · Storage K8s")
     p1, e1 = pod(g, 90, 80, 260, "AIStor", "10.30.1.15", "netkit nk1")
-    p2, e2 = pod(g, 450, 80, 260, "기타", "10.30.1.16", "netkit nk2")
+    p2, e2 = pod(g, 450, 80, 260, "other", "10.30.1.16", "netkit nk2")
     rt = rtable(g, 70, 300, 820, [
         "10.30.1.15/32  via nk1",
         "10.30.1.16/32  via nk2",
@@ -93,40 +93,42 @@ def c1():
     b0, b1 = bonds(g, 160, 560, gap=150)
     g.line(bot(lb), top(b0), "pub")
     g.line(bot(hr), top(b1), "priv")
-    agent(g, 960, 60, 400, 420, ["BGP ① bond0", "BGP ② bond1", "Service LB", "소켓 LB", "ClusterMesh", "eBPF 적재"])
+    agent(g, 960, 60, 400, 420, ["BGP#1 bond0 : VIP/32", "BGP#2 bond1 : PodCIDR", "Service LB : eTP Local", "Socket LB", "ClusterMesh (KVStoreMesh)", "eBPF programs"])
+    g.text(960, 500, 400, 120, "Basics\n· External → bond0 → local pod\n· Pod-to-pod · shards → bond1\n· No DSR · no Maglev", size=12, box=True)
     return g
 
 
 # ================================================================ C-2 외부 요청 처리
 def c2():
-    g = Diagram("C-2 외부 요청 처리 (eTP Local)", 1400, 660)
-    node(g, 20, 20, 1360, 620, "Node · Storage K8s")
+    g = Diagram("C-2 External request (eTP Local)", 1400, 700)
+    node(g, 20, 20, 1360, 660, "Node · Storage K8s")
     p1, e1 = pod(g, 260, 80, 300, "AIStor", "10.30.1.15", "netkit nk1")
     lb = g.box(160, 320, 500, 54, "eBPF LB (XDP · tc)\nVIP → P-IP", fill=BPF_F, stroke=BPF_S, size=12, align="center", bold=True)
-    b0, b1 = bonds(g, 160, 520, gap=100)
+    b0, b1 = bonds(g, 160, 540, gap=100)
     g.line(top(b0), at(lb, 0.25, 1), "fpub", "①")
     g.line(at(lb, 0.5, 0), bot(e1), "fpub", "②")
-    shard = g.box(700, 200, 200, 44, "다른 노드 AIStor", fill="#FFFFFF", stroke=PRIV, size=11, align="center")
+    shard = g.box(700, 200, 200, 44, "other AIStor nodes", fill="#FFFFFF", stroke=PRIV, size=11, align="center")
     g.line(right(p1, 0.6), left(shard), "priv", "③")
     g.line(bot(shard), top(b1), "priv")
     g.line(at(lb, 0.1, 1), at(b0, 0.1, 0), "fpub", "④")
-    agent(g, 960, 60, 400, 260, ["BGP ① bond0 : VIP/32", "eTP Local"])
+    agent(g, 960, 60, 400, 240, ["BGP#1 bond0 : VIP/32", "eTP Local"])
+    g.text(960, 330, 400, 170, "Basics\n① C-IP → VIP on bond0\n② VIP → local pod (no hop)\n③ shards via bond1\n④ reply src VIP · client IP kept", size=12, box=True)
     return g
 
 
 # ================================================================ C-3 내부 client → AIStor
 def c3():
-    g = Diagram("C-3 내부 client → AIStor", 1640, 840)
+    g = Diagram("C-3 Internal client → AIStor", 1640, 900)
     cm = g.box(670, 20, 300, 50, "ClusterMesh", fill=AG_F, stroke=KEY, size=12, align="center", bold=True)
     node(g, 20, 100, 640, 720, "Node · Compute K8s")
     pc, ec = pod(g, 180, 160, 300, "ETL client", "10.10.4.21", "netkit")
-    sl = g.box(160, 390, 340, 44, "eBPF 소켓 LB", fill=BPF_F, stroke=BPF_S, size=12, align="center", bold=True)
+    sl = g.box(160, 390, 340, 44, "eBPF socket LB", fill=BPF_F, stroke=BPF_S, size=12, align="center", bold=True)
     rt = rtable(g, 80, 470, 500, ["10.10.4.21/32  via netkit", "10.30.0.0/16  via bond1", "default  via bond0"])
     b1c = g.box(230, 680, 200, 34, "bond1 · PRIVATE", fill=B1_F, stroke=PRIV, size=11, align="center", bold=True)
     g.line(bot(ec), top(sl), "fpriv", "Ⓐ")
     g.line(bot(sl), top(rt), "fpriv", "Ⓑ")
     g.line(bot(rt), top(b1c), "fpriv", "Ⓒ")
-    fab = g.box(690, 650, 260, 70, "패브릭\nVRF PRIVATE", fill="#FFFFFF", stroke=MUTE, size=12, align="center", bold=True)
+    fab = g.box(690, 650, 260, 70, "Fabric\nVRF PRIVATE", fill="#FFFFFF", stroke=MUTE, size=12, align="center", bold=True)
     node(g, 980, 100, 640, 720, "Node · Storage K8s")
     b1s = g.box(1200, 680, 200, 34, "bond1 · PRIVATE", fill=B1_F, stroke=PRIV, size=11, align="center", bold=True)
     rs = rtable(g, 1040, 470, 520, ["10.30.1.15/32  via nk1", "10.10.0.0/16  via bond1", "default  via bond0"])
@@ -139,6 +141,7 @@ def c3():
     g.line(top(hr), bot(es), "fpriv", "Ⓕ")
     g.line(at(cm, 0.2, 1), at(sl, 0.8, 0), "ctrl")
     g.line(at(cm, 0.8, 1), at(hr, 0.3, 0), "ctrl")
+    g.text(20, 836, 1600, 50, "Basics : connect(global svc) → socket LB picks an AIStor pod → Pod IP over bond1 · no NAT · reply same path", size=12, bold=True)
     return g
 
 
