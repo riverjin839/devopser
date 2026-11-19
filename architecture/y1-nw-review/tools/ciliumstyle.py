@@ -57,8 +57,8 @@ def agent(g, x, y, w, h, items):
     out = []
     for t in items:
         n = t.count("\n") + 1
-        out.append(g.box(x + 12, yy, w - 24, 16 * n + 16, t, fill="#FFFFFF", stroke=AG_S, size=10))
-        yy += 16 * n + 26
+        out.append(g.box(x + 12, yy, w - 24, 18 * n + 18, t, fill="#FFFFFF", stroke=AG_S, size=12, align="center", bold=True))
+        yy += 18 * n + 30
     return out
 
 
@@ -74,88 +74,71 @@ def bonds(g, x, y, gap=40):
 
 # ================================================================ C-1 Storage 노드 내부
 def c1():
-    g = Diagram("C-1 Storage 노드 내부", 1400, 760)
-    node(g, 20, 20, 1360, 720, "Node · Storage K8s (AIStor 1 Pod / 노드)")
-    p1, e1 = pod(g, 90, 80, 260, "AIStor", "10.30.1.15 (P-IP)", "netkit (nk1)")
-    p2, e2 = pod(g, 450, 80, 260, "기타 (예 : exporter)", "10.30.1.16", "netkit (nk2)")
+    g = Diagram("C-1 Storage 노드 내부", 1400, 700)
+    node(g, 20, 20, 1360, 660, "Node · Storage K8s")
+    p1, e1 = pod(g, 90, 80, 260, "AIStor", "10.30.1.15", "netkit nk1")
+    p2, e2 = pod(g, 450, 80, 260, "기타", "10.30.1.16", "netkit nk2")
     rt = rtable(g, 70, 300, 820, [
-        "10.30.1.15/32  via netkit nk1          (로컬 Pod)",
-        "10.30.1.16/32  via netkit nk2",
-        "10.30.0.0/16 · 10.10.0.0/16  via bond1 → Leaf   (다른 노드 PodCIDR · PRIVATE)",
-        "default  via bond0 → Leaf   (외부 · PUBLIC)",
-        "VIP 203.0.113.10/32 (예시)  : 로컬 처리 · eTP Local"])
+        "10.30.1.15/32  via nk1",
+        "10.30.1.16/32  via nk2",
+        "10.30.0.0/16 · 10.10.0.0/16  via bond1",
+        "default  via bond0",
+        "VIP 203.0.113.10/32  local"])
     g.line(bot(e1), at(rt, 0.17, 0), "phys")
     g.line(bot(e2), at(rt, 0.54, 0), "phys")
-    lb = g.box(110, 470, 300, 54, "eBPF LB (XDP · tc)\nVIP → 로컬 AIStor Pod", fill=BPF_F, stroke=BPF_S, size=11, align="center", bold=True)
-    hr = g.box(500, 470, 300, 54, "eBPF host routing\nPod ↔ bond1 직접 전달", fill=BPF_F, stroke=BPF_S, size=11, align="center", bold=True)
+    lb = g.box(110, 460, 300, 44, "eBPF LB (XDP · tc)", fill=BPF_F, stroke=BPF_S, size=12, align="center", bold=True)
+    hr = g.box(500, 460, 300, 44, "eBPF host routing", fill=BPF_F, stroke=BPF_S, size=12, align="center", bold=True)
     g.line(at(rt, 0.3, 1), top(lb), "phys")
     g.line(at(rt, 0.75, 1), top(hr), "phys")
-    b0, b1 = bonds(g, 160, 570, gap=150)
+    b0, b1 = bonds(g, 160, 560, gap=150)
     g.line(bot(lb), top(b0), "pub")
     g.line(bot(hr), top(b1), "priv")
-    ag = agent(g, 960, 60, 400, 600, [
-        "BGP 인스턴스 ① (bond0)\nPUBLIC VIP/32 광고 — 이 노드에 AIStor Pod 있을 때만",
-        "BGP 인스턴스 ② (bond1)\nPodCIDR · PRIVATE VIP 광고",
-        "Service LB\neTP Local · Maglev · DSR 없음 · LB 맵 상향",
-        "소켓 LB\n노드 안 Pod 의 Service 연결을 connect() 때 변환",
-        "ClusterMesh (KVStoreMesh)\nglobal-svc 백엔드 · identity 동기화",
-        "hold 12 · keepalive 4 · GR 15\nBFD 없음 → 감지는 hold · LACP fast",
-        "eBPF 프로그램 적재\nnetkit · LB · host routing 에 설치"])
-    g.text(70, 670, 860, 50, "Pod 간 기본 통신 · AIStor erasure 조각 : bond1\n외부 S3 요청 · 응답 : bond0", size=11, bold=True)
+    agent(g, 960, 60, 400, 420, ["BGP ① bond0", "BGP ② bond1", "Service LB", "소켓 LB", "ClusterMesh", "eBPF 적재"])
     return g
 
 
-# ================================================================ C-2 외부 요청 처리 (eTP Local)
+# ================================================================ C-2 외부 요청 처리
 def c2():
-    g = Diagram("C-2 외부 요청 처리 (eTP Local)", 1400, 700)
-    node(g, 20, 20, 1360, 660, "Node · Storage K8s — 외부 S3 요청 (C-IP → VIP)")
-    p1, e1 = pod(g, 260, 80, 300, "AIStor", "10.30.1.15 (P-IP)", "netkit (nk1)")
-    lb = g.box(160, 320, 500, 70, "eBPF LB (XDP · tc)\n② VIP:443 → P-IP (로컬 백엔드만 : eTP Local)\n⑤ 응답 src P-IP → VIP 복원", fill=BPF_F, stroke=BPF_S, size=11, align="center", bold=True)
-    b0, b1 = bonds(g, 160, 540, gap=100)
-    g.line(top(b0), at(lb, 0.25, 1), "fpub", "① C-IP → VIP")
-    g.line(at(lb, 0.5, 0), bot(e1), "fpub", "③ C-IP → P-IP")
-    shard = g.box(700, 200, 220, 60, "④ erasure 조각 송수신\n다른 노드 AIStor Pod", fill="#FFFFFF", stroke=PRIV, size=10, align="center")
-    g.line(right(p1, 0.6), left(shard), "priv")
-    g.line(bot(shard), top(b1), "priv", "bond1")
-    g.line(at(lb, 0.1, 1), at(b0, 0.1, 0), "fpub", "⑤ VIP → C-IP")
-    agent(g, 960, 60, 400, 270, [
-        "BGP 인스턴스 ① (bond0)\nVIP/32 광고 — 로컬 AIStor Pod 준비 시",
-        "Pod 종료 · drain 시\nVIP 광고 철회 → 신규 연결은 다른 노드",
-        "노드 간 추가 경유 없음\nclient IP (C-IP) 보존"])
-    g.text(960, 350, 400, 150, "판단 근거\n· 노드당 AIStor 1 Pod · 어느 Pod 든 처리 가능\n· 외부는 Spine 방향만 진입 → 랙 균등이면 인입 균등\n· eTP Cluster 는 요청 약 99% 가 bond1 로 다른 노드 경유\n  (AIStor 조각 트래픽과 경합 · PUBLIC → PRIVATE)\n· Maglev 는 eTP Cluster 에만 적용 → 불필요", size=11, box=True)
+    g = Diagram("C-2 외부 요청 처리 (eTP Local)", 1400, 660)
+    node(g, 20, 20, 1360, 620, "Node · Storage K8s")
+    p1, e1 = pod(g, 260, 80, 300, "AIStor", "10.30.1.15", "netkit nk1")
+    lb = g.box(160, 320, 500, 54, "eBPF LB (XDP · tc)\nVIP → P-IP", fill=BPF_F, stroke=BPF_S, size=12, align="center", bold=True)
+    b0, b1 = bonds(g, 160, 520, gap=100)
+    g.line(top(b0), at(lb, 0.25, 1), "fpub", "①")
+    g.line(at(lb, 0.5, 0), bot(e1), "fpub", "②")
+    shard = g.box(700, 200, 200, 44, "다른 노드 AIStor", fill="#FFFFFF", stroke=PRIV, size=11, align="center")
+    g.line(right(p1, 0.6), left(shard), "priv", "③")
+    g.line(bot(shard), top(b1), "priv")
+    g.line(at(lb, 0.1, 1), at(b0, 0.1, 0), "fpub", "④")
+    agent(g, 960, 60, 400, 260, ["BGP ① bond0 : VIP/32", "eTP Local"])
     return g
 
 
 # ================================================================ C-3 내부 client → AIStor
 def c3():
-    g = Diagram("C-3 내부 client → AIStor (global-svc)", 1640, 900)
-    cm = g.box(620, 20, 400, 64, "ClusterMesh (KVStoreMesh)\nglobal-svc 백엔드 = 원격 AIStor Pod · identity 동기화", fill=AG_F, stroke=KEY, size=11, align="center", bold=True)
-    # 왼쪽 Compute 노드
-    node(g, 20, 110, 640, 760, "Node · Compute K8s")
-    pc, ec = pod(g, 180, 170, 300, "ETL client (Spark · Airflow)", "10.10.4.21 (Pod-IP-c)", "netkit")
-    sl = g.box(110, 400, 440, 60, "eBPF 소켓 LB\nconnect(global-svc:443) → P-IP 10.30.1.15:포트 로 변경", fill=BPF_F, stroke=BPF_S, size=11, align="center", bold=True)
-    rt = rtable(g, 80, 500, 500, ["10.10.4.21/32  via netkit", "10.30.0.0/16  via bond1 → Leaf  (Storage PodCIDR, BGP)", "default  via bond0"])
+    g = Diagram("C-3 내부 client → AIStor", 1640, 840)
+    cm = g.box(670, 20, 300, 50, "ClusterMesh", fill=AG_F, stroke=KEY, size=12, align="center", bold=True)
+    node(g, 20, 100, 640, 720, "Node · Compute K8s")
+    pc, ec = pod(g, 180, 160, 300, "ETL client", "10.10.4.21", "netkit")
+    sl = g.box(160, 390, 340, 44, "eBPF 소켓 LB", fill=BPF_F, stroke=BPF_S, size=12, align="center", bold=True)
+    rt = rtable(g, 80, 470, 500, ["10.10.4.21/32  via netkit", "10.30.0.0/16  via bond1", "default  via bond0"])
     b1c = g.box(230, 680, 200, 34, "bond1 · PRIVATE", fill=B1_F, stroke=PRIV, size=11, align="center", bold=True)
     g.line(bot(ec), top(sl), "fpriv", "Ⓐ")
-    g.line(bot(sl), top(rt), "fpriv", "Ⓑ Pod-IP-c → P-IP")
-    g.line(bot(rt), top(b1c), "fpriv", "Ⓒ NAT 없음")
-    g.text(60, 760, 580, 90, "· 분산 : 소켓 LB 가 연결마다 AIStor Pod 100 개 중 선택\n· 외부 VIP · FA Core · bond0 사용 안 함", size=11, bold=True)
-    # 가운데 패브릭
-    fab = g.box(690, 640, 260, 110, "패브릭 (VRF PRIVATE)\nLeaf → Spine → Super Spine\n→ 구간 간 링크 → Spine → Leaf\nVXLAN · L3VNI PRIVATE", fill="#FFFFFF", stroke=MUTE, size=10, align="center")
-    # 오른쪽 Storage 노드
-    node(g, 980, 110, 640, 760, "Node · Storage K8s")
+    g.line(bot(sl), top(rt), "fpriv", "Ⓑ")
+    g.line(bot(rt), top(b1c), "fpriv", "Ⓒ")
+    fab = g.box(690, 650, 260, 70, "패브릭\nVRF PRIVATE", fill="#FFFFFF", stroke=MUTE, size=12, align="center", bold=True)
+    node(g, 980, 100, 640, 720, "Node · Storage K8s")
     b1s = g.box(1200, 680, 200, 34, "bond1 · PRIVATE", fill=B1_F, stroke=PRIV, size=11, align="center", bold=True)
-    rs = rtable(g, 1040, 500, 520, ["10.30.1.15/32  via netkit nk1", "10.10.0.0/16  via bond1 → Leaf  (Compute PodCIDR)", "default  via bond0"])
-    hr = g.box(1130, 400, 340, 60, "eBPF host routing · 정책 확인\n(원격 identity : ClusterMesh)", fill=BPF_F, stroke=BPF_S, size=11, align="center", bold=True)
-    ps, es = pod(g, 1150, 170, 300, "AIStor", "10.30.1.15 (P-IP)", "netkit (nk1)")
+    rs = rtable(g, 1040, 470, 520, ["10.30.1.15/32  via nk1", "10.10.0.0/16  via bond1", "default  via bond0"])
+    hr = g.box(1130, 390, 340, 44, "eBPF host routing", fill=BPF_F, stroke=BPF_S, size=12, align="center", bold=True)
+    ps, es = pod(g, 1150, 160, 300, "AIStor", "10.30.1.15", "netkit nk1")
     g.line(right(b1c), left(fab, 0.6), "fpriv", "Ⓓ")
     g.line(right(fab, 0.6), left(b1s), "fpriv", "Ⓔ")
     g.line(top(b1s), bot(rs), "fpriv")
     g.line(top(rs), bot(hr), "fpriv")
     g.line(top(hr), bot(es), "fpriv", "Ⓕ")
-    g.text(1020, 760, 580, 90, "· 응답 P-IP → Pod-IP-c : 같은 경로 역방향 (bond1)\n· erasure 조각도 bond1 로 다른 Storage 노드와 송수신", size=11, bold=True)
-    g.line(at(cm, 0.2, 1), at(sl, 0.8, 0), "ctrl", "백엔드 목록")
-    g.line(at(cm, 0.8, 1), at(hr, 0.3, 0), "ctrl", "identity")
+    g.line(at(cm, 0.2, 1), at(sl, 0.8, 0), "ctrl")
+    g.line(at(cm, 0.8, 1), at(hr, 0.3, 0), "ctrl")
     return g
 
 

@@ -8,7 +8,7 @@
 | 범위 | Y1 Lake 고도화 중 **서버 배치(DC 구간 · 랙)**, **Switch(N9K) 네트워크**, **K8s Cilium 네트워크** |
 | 기준 | I Lake (현행 운영 Lake) 대비 개선 · 유지 |
 | 회신 | 8장 검토 요청 표에 의견 · 값 기입 (8-1 서버 인프라 우선) |
-| 그림 | N-0 DC 구간 · 랙 배치 · N-1 전체 토폴로지 · N-2 랙 · 노드 연결 · N-3 eBGP · EVPN 제어 · N-4 트래픽 경로 (draw.io 원본 별첨) |
+| 그림 | 그림에는 구조만, 설명은 각 그림 아래 · N-0 DC 구간 · 랙 배치 · N-1 전체 토폴로지 · N-2 랙 · 노드 연결 · N-3 eBGP · EVPN 제어 · N-4 트래픽 경로 · C-1 ~ C-3 노드 내부 (draw.io 원본 별첨) |
 
 ---
 
@@ -33,6 +33,13 @@
 ## 1. 서버 인프라 : DC 구간 분리 · 랙 균등 배치 (최우선)
 
 ![그림 N-0. DC 구간 · 랙 배치](images/N-0.png)
+
+- 왼쪽 I Lake : 랙마다 AIStor 수가 달라 랙 단위로 같은 몫을 받아도 노드당 몫이 최대 수 배 차이
+- Y1 : 구간마다 한 역할만 실장. Storage 는 랙당 같은 수 M 대 (필수), Compute · GPU 는 랙당 같은 수 (권장)
+- 아래 실장도 : 랙 상단 ToR Leaf 쌍(vPC), 그 아래 AIStor-01 ~ M. R 랙 × M 대 ≈ 100 대
+- 케이블링 : 서버마다 bond0 2포트 · bond1 2포트를 Leaf-A 1 · Leaf-B 1 로 분산 (같은 NIC 두 포트를 한 Leaf 에 몰지 않음)
+- 증설 : 기존 랙마다 같은 수 추가, 또는 새 랙 여러 개를 같은 수로. 새 랙 1개에 일부만 실장 금지
+- 노드 라벨 `rack=<물리 랙>` = 실장 위치, Leaf 포트는 랙당 M × 4 × 100G + 업링크
 
 > **패브릭은 랙(Leaf 쌍) 단위로 같은 몫을 나눈다. 랙마다 역할이 섞이거나 서버 수가 다르면 스위치 · Cilium 설정으로는 노드 균등을 만들 수 없다.**
 
@@ -93,6 +100,26 @@
 
 ![그림 N-1. 전체 토폴로지](images/N-1.png)
 
+**그림 읽는 법 (N-0 ~ N-4 공통)**
+
+| 표시 | 뜻 |
+|---|---|
+| 파란 아이콘 | L3 스위치 (Super Spine · Spine · Leaf) · 방화벽 (FA Core) · 서버 |
+| 검은 실선 | 패브릭 링크 (100G) |
+| 검은 굵은 선 | vPC peer-link (Leaf 쌍) |
+| 오렌지 선 | 노드 bond0 · VRF PUBLIC (외부 요청) |
+| 그린 선 | 노드 bond1 · VRF PRIVATE (Pod 간 기본 통신 · AIStor 내부) |
+| 회색 점선 | eBGP 세션 (underlay · EVPN) |
+| 굵은 화살표 | 요청 흐름 (오렌지 외부 · 그린 내부) |
+| 머스터드 점선 | ClusterMesh 동기화 (제어) |
+
+- Super Spine (Border) : FA Core 와 VRF-lite eBGP (PUBLIC · PRIVATE), EVPN Type-5 중계 (next-hop unchanged)
+- 외부 client 진입은 Spine 방향만. PUBLIC VIP/32 경로 V 개 ECMP, resilient hashing · 계층별 해시 seed · BFD · MTU 9216
+- Spine : 구간 ASN, `retain route-target all`
+- Leaf 쌍 : 랙별 고유 ASN · `rd auto` · VTEP 공유(vPC), maximum-paths ≥ V · multipath-relax · LACP fast
+- 노드 : 랙당 같은 수, bond0 · bond1 각 2 × 100G (802.3ad · layer3+4 · LACP fast), Cilium BGP 로 bond 별 eBGP
+- 구간 간 링크 (DCNY01 · 02 → 03) : 대역 ≥ Compute + GPU 합, 2 경로 이상, RTT ≤ 0.2 ms
+
 - 3 계층 : Super Spine(Border) 2대 → 구간별 Spine 2대 → 랙별 Leaf 쌍(vPC) → 노드
 - 노드는 bond0 · bond1 각각 Leaf 쌍 두 대에 2 × 100G 로 연결 (802.3ad)
 - 외부 client 는 FA Core → Super Spine(Border) 로만 진입. 구간 간 링크로 DCNY01 · 02 → 03 트래픽이 모임
@@ -102,6 +129,11 @@
 ## 4. Switch N/W 고도화
 
 ![그림 N-3. eBGP · EVPN 제어 구조](images/N-3.png)
+
+- 계층별 ASN : Super Spine `<SS>` (2대 같은 ASN) · 구간 Spine `<SP-n>` · 랙 Leaf 쌍 `<LF-n-r>` · 클러스터 `<CL-n>`
+- Leaf 마다 RD 가 달라 (`rd auto`) Border 에 VIP/32 경로가 V 개 모두 전달 → ECMP V 설치
+- 광고 : Compute · GPU 는 PodCIDR (bond1), Storage 는 PUBLIC VIP/32 (bond0, eTP Local) · PodCIDR · PRIVATE VIP (bond1)
+- Leaf : maximum-paths ≥ V · as-path multipath-relax · `rewrite-evpn-rt-asn` · VRF 별 수신 prefix-list, `allowas-in` · `as-override` 사용 안 함
 
 | ID | 항목 | I Lake | Y1 제안 | 사유 |
 |---|---|---|---|---|
@@ -139,6 +171,14 @@
 
 ![그림 N-2. 랙 · 노드 연결 상세](images/N-2.png)
 
+- Leaf-A · Leaf-B : 랙별 고유 ASN (쌍은 같은 ASN), VRF PUBLIC 은 노드 bond0 대역과, VRF PRIVATE 는 bond1 대역과 eBGP
+- port-channel : LACP fast · MTU 9216 · VRF 별 수신 prefix-list · uRPF 방식 확인
+- bond0 · bond1 : 802.3ad · layer3+4 · LACP fast, MTU 9000 은 선택 (패브릭 9216 선행)
+- Cilium agent : native routing · netkit · eBPF host routing. BGP ① (bond0) = PUBLIC VIP/32, eTP Local 이라 AIStor Pod 있는 노드만 광고. BGP ② (bond1) = PodCIDR · PRIVATE VIP
+- hold 12 · keepalive 4 · GR 15 (I Lake 유지), BFD 미지원 → 노드 구간 감지는 hold · LACP
+- 외부 요청은 bond0 → 로컬 AIStor Pod (노드 간 추가 경유 없음), erasure 조각 · 내부 client 는 bond1
+- 작업 : drain → BGP 라벨 해제 → 철회 확인. PDB 로 AIStor 동시 중단 제한 · preStop 대기
+
 | ID | 항목 | I Lake | Y1 제안 | 사유 |
 |---|---|---|---|---|
 | C01 | 외부 VIP 정책 | Local 4 · Cluster 4 (AIStor VIP 확인 중) | AIStor VIP **eTP Local** | 노드당 1 Pod · 어느 Pod 든 처리 · 외부는 Spine 방향만 진입 → 랙 균등이면 인입 = 처리 균등. Cluster 는 요청 약 99% 가 bond1 로 노드 간 추가 경유 (AIStor 내부 트래픽과 경합, PUBLIC → PRIVATE 경계 넘음) |
@@ -162,12 +202,43 @@
 
 ![그림 N-4. 트래픽 경로](images/N-4.png)
 
+- 외부 ① ~ ⑤ : client → FA Core → Super Spine(Border) → VIP/32 ECMP → Storage Spine → Leaf 쌍 → 노드 bond0 → 로컬 AIStor Pod. 응답은 같은 경로 역방향
+- 내부 Ⓐ ~ Ⓔ : ETL Pod → 소켓 LB 가 연결 시 AIStor Pod 주소로 변경 → bond1 → VXLAN(PRIVATE) → 구간 간 링크 → Storage Leaf → 노드 bond1. NAT 없음
+- N1 ↔ N2 그린 선 : AIStor erasure 조각 송수신 (bond1)
+- ClusterMesh : global-svc 백엔드 · identity 동기화 (제어만)
+
 | 경로 | 흐름 | 망 |
 |---|---|---|
 | 외부 client → S3 (①~⑤) | FA Core → Super Spine(Border) → VIP/32 ECMP (V 경로) → Storage Spine → Leaf 쌍 → 노드 bond0 → **로컬 AIStor Pod** | PUBLIC · bond0. 응답 같은 경로 역방향 |
 | AIStor 내부 | 앞단 Pod ↔ 다른 노드 Pod (erasure 조각) | PRIVATE · bond1 |
 | 내부 client → global-svc (Ⓐ~Ⓔ) | ETL Pod → 소켓 LB 가 AIStor Pod 주소로 연결 → bond1 → Leaf → Spine → 구간 간 링크 → Storage Leaf → 노드 bond1 → Pod | PRIVATE · bond1, NAT 없음 |
 | ClusterMesh | global-svc 백엔드 · identity 를 Compute · GPU 클러스터에 동기화 | 제어만 (데이터는 패브릭) |
+
+
+### 6-1. 노드 내부 (Cilium)
+
+![그림 C-1. Storage 노드 내부](images/C-1.png)
+
+- Pod 마다 netkit 장치(nk1 · nk2)와 eBPF 프로그램이 붙음 (I Lake 유지)
+- Routing Table : 로컬 Pod /32 → netkit, 다른 노드 PodCIDR → bond1, default → bond0, VIP 는 로컬 처리 (IP 는 예시)
+- eBPF LB (XDP · tc) : bond0 로 들어온 VIP 요청을 로컬 AIStor Pod 로. eBPF host routing : Pod ↔ bond1 직접 전달
+- cilium agent : BGP ① bond0 (VIP/32) · BGP ② bond1 (PodCIDR · PRIVATE VIP) · Service LB (eTP Local, Maglev · DSR 없음, LB 맵 상향) · 소켓 LB · ClusterMesh (KVStoreMesh) · eBPF 프로그램 적재
+
+![그림 C-2. 외부 요청 처리](images/C-2.png)
+
+- ① bond0 수신 (C-IP → VIP) → eBPF LB 가 VIP → P-IP (로컬 백엔드만) → ② AIStor Pod
+- ③ AIStor 가 다른 노드와 erasure 조각 송수신 (bond1)
+- ④ 응답 : eBPF 가 src 를 VIP 로 복원해 bond0 로 송신. client IP (C-IP) 보존, 노드 간 추가 경유 없음
+- Pod 종료 · drain 시 이 노드의 VIP 광고 철회 → 신규 연결은 다른 노드
+- eTP Cluster 였다면 요청 약 99% 가 bond1 로 다른 노드를 거침 (AIStor 조각 트래픽과 경합 · PUBLIC → PRIVATE 경계 넘음), Maglev 는 eTP Cluster 에만 적용
+
+![그림 C-3. 내부 client → AIStor](images/C-3.png)
+
+- Ⓐ ETL Pod 가 global-svc:443 으로 connect() → eBPF 소켓 LB 가 AIStor Pod 주소(P-IP)로 바꿈 (연결마다 Pod 100 개 중 선택)
+- Ⓑ Ⓒ Pod-IP → P-IP 그대로 (NAT 없음), Storage PodCIDR 경로로 bond1
+- Ⓓ Ⓔ 패브릭 VRF PRIVATE (VXLAN · 구간 간 링크) → Storage 노드 bond1
+- Ⓕ eBPF host routing · 정책 확인 (원격 identity) → AIStor Pod. 응답은 같은 경로 역방향
+- ClusterMesh : 백엔드 목록은 Compute 노드 소켓 LB 로, identity 는 Storage 노드 정책으로 동기화
 
 ---
 
