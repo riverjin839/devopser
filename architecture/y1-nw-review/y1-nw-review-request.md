@@ -8,6 +8,7 @@
 | 범위 | Y1 Lake 고도화 중 **서버 배치(DC 구간 · 랙)**, **Switch(N9K) 네트워크**, **K8s Cilium 네트워크** |
 | 기준 | I Lake (현행 운영 Lake) 대비 개선 · 유지 |
 | 회신 | 8장 검토 요청 표에 의견 · 값 기입 (8-1 서버 인프라 우선) |
+| 용어 | 부록 C (패브릭 · EVPN · ECMP · GR 등) |
 | 그림 | 그림에는 구조만, 설명은 각 그림 아래 · N-0 DC 구간 · 랙 배치 · N-1 전체 토폴로지 · N-2 랙 · 노드 연결 · N-3 eBGP · EVPN 제어 · N-4 트래픽 경로 · C-1 ~ C-3 노드 내부 (draw.io 원본 별첨) |
 
 ---
@@ -422,3 +423,41 @@ kubectl label node <node> --overwrite <bgp-라벨>=false     # CiliumBGPClusterC
 | N9K 해시 | `show ip load-sharing` · `show run \| include resilient` | seed · resilient |
 
 참고 : Cilium 공식 문서 *BGP Control Plane Operation Guide* (노드 작업 절차, Graceful Restart, 장애 시나리오, Maglev 적용 범위)
+
+## 부록 C. 용어
+
+### C-1. 패브릭이란
+
+> **패브릭(fabric)** : 여러 스위치를 Spine-Leaf 구조로 촘촘히 엮어, 밖에서 보기에 하나의 큰 스위치처럼 동작하게 만든 네트워크. 어느 서버에서 어느 서버로 가든 거치는 단계 수가 같고, 경로가 여러 개라 나눠 쓸 수 있다.
+
+- 패브릭 = **언더레이**(스위치 사이 물리 · IP 경로) 위에 **오버레이**(VXLAN 가상망)를 얹은 스위치 묶음
+- EVPN 은 오버레이 경로를 알리고, ECMP 는 그 경로들에 고르게 나눠 보낸다
+
+### C-2. 패브릭 구성 용어
+
+| 용어 | 뜻 | 이 구조에서 |
+|---|---|---|
+| Spine | Leaf 끼리 이어 주는 상위 스위치 | 구간마다 Spine-A · B |
+| Leaf (ToR) | 서버가 직접 붙는 랙 상단 스위치 | 랙마다 Leaf 쌍 |
+| Super Spine | 여러 Spine 묶음(구간)을 잇는 최상위 스위치 | DCNY01 · 02 · 03 연결, Border 겸함 |
+| Border | 패브릭과 외부망의 경계 스위치 | FA Core 와 VRF-lite eBGP |
+| vPC | 스위치 두 대를 서버 입장에서 한 대처럼 묶는 기능 | Leaf 쌍, 서버 bond 가 두 Leaf 에 하나씩 연결 |
+| Clos 구조 | Spine-Leaf 다단 구조의 정식 이름 | 3계층 (Super Spine · Spine · Leaf) |
+| Underlay | 스위치 사이 실제 물리 · IP 경로망 | eBGP 로 VTEP 주소끼리 통신 |
+| Overlay | 언더레이 위에 터널로 만든 가상망 | VXLAN EVPN, VRF PUBLIC · PRIVATE |
+| VTEP / TEP | 터널을 감싸고 푸는 끝점 | EVPN 은 Leaf, SDDC 는 호스트 |
+| VXLAN / Geneve | 패킷을 UDP 로 감싸 터널을 만드는 방식 | VXLAN UDP 4789, Geneve UDP 6081 |
+| VNI | 터널 안 가상망 번호 | VRF 마다 L3VNI |
+| VRF | 한 장비 안의 분리된 라우팅 테이블 | PUBLIC (bond0) · PRIVATE (bond1) |
+
+### C-3. 제어 · 분산 용어
+
+| 용어 | 뜻 | 이 구조에서 |
+|---|---|---|
+| EVPN | VXLAN 가상망에서 "어떤 주소가 어느 VTEP 뒤에 있는지"를 BGP 로 알리는 제어부 | Type-5 경로로 VIP/32 · PodCIDR 을 패브릭 전체에 알림 |
+| RD | 같은 경로라도 광고한 leaf 마다 다른 이름을 붙이는 꼬리표 | leaf 마다 달라야(`rd auto`) VIP 경로 V 개가 모두 살아남음 |
+| RT | 받은 경로를 어느 VRF 에 넣을지 정하는 표시 | 같은 VRF 끼리 같아야 함 |
+| ECMP | 비용이 같은 여러 경로에 흐름(5-tuple) 단위로 나눠 보냄 | Border → leaf V 개 → 랙 안 노드 M 대 (2단계) |
+| resilient hashing | 경로 하나가 빠질 때 그 몫만 다시 나누는 ECMP 방식 | 노드 100 대 중 하나가 빠져도 나머지 흐름 유지 |
+| GR (Graceful Restart) | BGP 만 재시작하는 동안 상대가 경로를 지우지 않고 기다리는 기능 | 15 초. Cilium agent 재시작 무중단, 실제 장애 시 최악 약 27 초 (hold 12 + GR 15) |
+| BFD | 링크 장애를 1 초 안에 감지하는 프로토콜 | 스위치 간에만 (Cilium 노드는 미지원) |
