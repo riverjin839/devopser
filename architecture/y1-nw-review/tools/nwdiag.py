@@ -8,6 +8,7 @@ import html
 import os
 
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
+GLIFFY = os.environ.get("GLIFFY") == "1"   # Gliffy 가져오기용 : 아이콘 → 글자 상자, 선 라벨 → 별도 글자 칸
 FONT = "Helvetica"   # 가져오기 도구(Confluence · Gliffy) 호환 : 기본 글꼴 1개
 INK, MUTE, PAPER = "#2B2A27", "#8A877E", "#FFFFFF"
 PUB, PRIV, KEY = "#CC501A", "#5F8B5A", "#D4A941"     # PUBLIC(bond0) · PRIVATE(bond1) · 제어/강조
@@ -55,6 +56,7 @@ def fit(t, w, h, base, cap=20):
 
 def esc(t):
     """일반 텍스트 라벨 (html=0) : 줄바꿈은 개행 문자."""
+    t = t.replace("<", "[").replace(">", "]")      # HTML 로 읽는 가져오기 도구에서 <...> 가 태그로 사라지지 않게
     return html.escape(t).replace("\n", "&#xa;")
 
 
@@ -72,6 +74,23 @@ class Diagram:
 
     def dev(self, kind, x, y, label, size=14, bold=True):
         shape, w, h = ICON[kind]
+        if GLIFFY:
+            if not label:
+                return dict(x=x, y=y, w=w, h=h)
+            lines = label.split("\n")
+            base = {"l3": 84, "srv": 76, "fw": 90, "cloud": 150}[kind]
+            bw = max(base, int(max(len(l) for l in lines) * 12 * 0.62) + 20)
+            bh = {"l3": 48, "srv": 44, "fw": 44, "cloud": 56}[kind] + (len(lines) - 1) * 14
+            bx, by = x + w / 2 - bw / 2, y + h / 2 - bh / 2
+            if kind == "l3":
+                b = self.box(bx, by, bw, bh, label, fill="#036897", stroke="#036897", size=12, align="center", bold=True)
+                self.cells[-1] = self.cells[-1].replace(f"fontColor={INK}", "fontColor=#FFFFFF")
+            elif kind == "srv":
+                st = "AIStor" in label
+                b = self.box(bx, by, bw, bh, label, fill="#E3ECE0" if st else "#ECEAE3", stroke=PRIV if st else MUTE, size=12, align="center", bold=True)
+            else:
+                b = self.box(bx, by, bw, bh, label, fill="#FFFFFF", stroke=INK, size=12, align="center", bold=True)
+            return b
         st = CISCO + f"shape={shape};"
         if kind == "cloud":
             st += f"fontFamily={FONT};fontSize={size};fontColor=#FFFFFF;fontStyle=1;verticalLabelPosition=middle;verticalAlign=middle;"
@@ -115,6 +134,11 @@ class Diagram:
 
     def line(self, p1, p2, kind="phys", label="", size=10):
         col, wd, dash, arrow = LINK[kind]
+        if GLIFFY and label:
+            mx, my = (p1[0] + p2[0]) / 2, (p1[1] + p2[1]) / 2
+            tw = max(24, int(len(label) * 13 * 0.62) + 14)
+            self.text(mx - tw / 2, my - 11, tw, 22, label, size=12, align="center", bold=True, color=col if col != MUTE else INK)
+            label = ""
         st = (f"edgeStyle=none;orthogonal=0;rounded=0;html=0;strokeColor={col};strokeWidth={wd};"
               f"endArrow={'block' if arrow else 'none'};endFill=1;startArrow=none;fontFamily={FONT};fontSize={size};"
               f"fontColor={col if col != MUTE else INK};fontStyle=1;labelBackgroundColor={PAPER};")
@@ -322,6 +346,9 @@ def n4():
 
 
 def write():
+    global OUT
+    if GLIFFY:
+        OUT = OUT + "-gliffy"
     os.makedirs(os.path.join(OUT, "drawio"), exist_ok=True)
     pages = [("N-0", n0()), ("N-1", n1()), ("N-2", n2()), ("N-3", n3()), ("N-4", n4())]
     head = '<mxfile host="app.diagrams.net" type="device">'

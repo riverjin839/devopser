@@ -9,6 +9,7 @@ Y1 AI DATAPLATFORM 네트워크 고도화 검토 요청 (서버 배치 · Switch
 | `y1-cilium-node-diagrams.drawio` | Cilium 문서 스타일 노드 다이어그램 3페이지 : C-1 ~ C-3 |
 | `drawio/` | 페이지별 단독 draw.io |
 | `images/` | 목업 PNG (draw.io 렌더링) |
+| `gliffy/` | Confluence Gliffy 가져오기용 세트 (아이콘 → 글자 상자, 선 라벨 → 별도 글자) |
 | `previous/` | 이전 버전 (그림 안에 한글 규칙 · 메모 포함) |
 | `tools/` | 다이어그램 생성기 (`nwdiag.py` · `ciliumstyle.py`) |
 
@@ -25,6 +26,6 @@ Y1 AI DATAPLATFORM 네트워크 고도화 검토 요청 (서버 배치 · Switch
 
 - 그림(draw.io) : 구조 · 영문 라벨만 (설명 문장 없음, 글자는 상자에 맞춰 최대 크기). 설명은 검토 요청서의 각 그림 아래
 - 가져오기 호환 (Confluence · Gliffy) : 글꼴 Helvetica 1개, 라벨은 일반 텍스트(html=0), 장비 이름은 아이콘 아래 별도 텍스트
-- IP 는 예시값, ASN 은 `<SS>` · `<SP-n>` · `<LF-n>` · `<CL-n>` 표기
+- IP 는 예시값, ASN 은 `[SS]` · `[SP-n]` · `<LF-n>` · `[CL-n]` 표기
 - 목업 PNG 의 Cisco 아이콘은 근사 모양 (draw.io 에서는 실제 Cisco 아이콘)
 - 재생성 : `cd tools && python3 nwdiag.py && python3 ciliumstyle.py`
