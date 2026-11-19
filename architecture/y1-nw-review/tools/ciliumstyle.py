@@ -133,7 +133,6 @@ def c1():
     g.line(bot(lb), top(b0), "pub")
     g.line(bot(hr), top(b1), "priv")
     h = agent2(g, 960, 20, 420, ["BGP#1 bond0 : VIP/32", "BGP#2 bond1 : PodCIDR", "Service LB : eTP Local", "Socket LB", "ClusterMesh (KVStoreMesh)"])
-    basics(g, 960, 40 + h, 420, 150, ["External → bond0 → local pod", "Pod-to-pod · shards → bond1", "No DSR · no Maglev"])
     return g
 
 
@@ -151,13 +150,12 @@ def c2():
     g.line(bot(sh), top(b1), "priv")
     g.line(at(lb, 0.1, 1), at(b0, 0.1, 0), "fpub", "④")
     h = agent2(g, 960, 20, 420, ["BGP#1 bond0 : VIP/32", "eTP Local"])
-    basics(g, 960, 40 + h, 420, 170, ["① C-IP → VIP on bond0", "② VIP → local pod (no extra hop)", "③ shards via bond1", "④ reply src VIP · client IP kept"])
     return g
 
 
 # ================================================================ C-3 내부 client → AIStor
 def c3():
-    g = Diagram("C-3 Internal client → AIStor", 1640, 820)
+    g = Diagram("C-3 Internal client → AIStor", 1640, 750)
     cm = cell(g, 670, 20, 300, 44, "ClusterMesh", "white")
     g.zone(20, 90, 640, 640, "Node · Compute K8s")
     pc, nc = pod2(g, 180, 140, 300, "ETL client pod", "10.10.4.21", "cp", "netkit")
@@ -180,7 +178,6 @@ def c3():
     g.line(top(hr), bot(ns), "fpriv", "Ⓕ")
     g.line(at(cm, 0.2, 1), at(sl, 0.8, 0), "ctrl")
     g.line(at(cm, 0.8, 1), at(hr, 0.3, 0), "ctrl")
-    basics(g, 20, 744, 1600, 64, ["connect(global svc) → socket LB picks an AIStor pod → Pod IP over bond1 · no NAT · reply on the same path"])
     return g
 
 

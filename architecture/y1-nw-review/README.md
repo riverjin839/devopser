@@ -23,7 +23,7 @@ Y1 AI DATAPLATFORM 네트워크 고도화 검토 요청 (서버 배치 · Switch
 | C-2 | 외부 요청 노드 처리 (eTP Local) |
 | C-3 | 내부 client → AIStor (소켓 LB · bond1 · NAT 없음) |
 
-- 그림(draw.io) : 핵심 다이어그램 + 기본 설명 (영문 위주), 자세한 설명은 검토 요청서의 각 그림 아래
+- 그림(draw.io) : 구조 · 영문 라벨만 (설명 문장 없음, 글자는 상자에 맞춰 최대 크기). 설명은 검토 요청서의 각 그림 아래
 - IP 는 예시값, ASN 은 `<SS>` · `<SP-n>` · `<LF-n>` · `<CL-n>` 표기
 - 목업 PNG 의 Cisco 아이콘은 근사 모양 (draw.io 에서는 실제 Cisco 아이콘)
 - 재생성 : `cd tools && python3 nwdiag.py && python3 ciliumstyle.py`
