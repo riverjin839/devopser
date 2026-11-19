@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 820" width="1400" height="820" font-family="Noto Sans CJK KR, Malgun Gothic, sans-serif">
+<rect width="1400" height="820" fill="#ffffff"/>
+<defs>
+<marker id="m3a7d34" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3a7d34"/></marker>
+<marker id="m3b6fb5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3b6fb5"/></marker>
+<marker id="mb85450" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b85450"/></marker>
+</defs>
+<rect x="20" y="14" width="1360" height="44" rx="6" fill="#1f3a5f" stroke="#1f3a5f" stroke-width="1.4"/>
+<rect x="20" y="62" width="1360" height="30" rx="6" fill="#fff2cc" stroke="#d6b656" stroke-width="1.4"/>
+<rect x="30" y="104" width="660" height="700" rx="6" fill="#f5f5f5" stroke="#999999" stroke-width="1.4" stroke-dasharray="6 4"/>
+<rect x="50" y="190" width="130" height="80" rx="6" fill="#e1d5e7" stroke="#9673a6" stroke-width="1.4"/>
+<rect x="265" y="150" width="200" height="80" rx="6" fill="#f8cecc" stroke="#b85450" stroke-width="1.4"/>
+<rect x="540" y="190" width="130" height="80" rx="6" fill="#ffe6cc" stroke="#d79b00" stroke-width="1.4"/>
+<rect x="50" y="300" width="620" height="90" rx="6" fill="#fff2cc" stroke="#d6b656" stroke-width="1.4"/>
+<rect x="50" y="410" width="150" height="62" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="210" y="410" width="460" height="62" rx="6" fill="#f8cecc" stroke="#b85450" stroke-width="1.4"/>
+<rect x="50" y="480" width="150" height="62" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="210" y="480" width="460" height="62" rx="6" fill="#f8cecc" stroke="#b85450" stroke-width="1.4"/>
+<rect x="50" y="550" width="150" height="62" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="210" y="550" width="460" height="62" rx="6" fill="#f8cecc" stroke="#b85450" stroke-width="1.4"/>
+<rect x="50" y="620" width="150" height="62" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="210" y="620" width="460" height="62" rx="6" fill="#f8cecc" stroke="#b85450" stroke-width="1.4"/>
+<rect x="50" y="690" width="150" height="62" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="210" y="690" width="460" height="62" rx="6" fill="#f8cecc" stroke="#b85450" stroke-width="1.4"/>
+<rect x="50" y="762" width="620" height="34" rx="6" fill="#fff2cc" stroke="#d6b656" stroke-width="1.4"/>
+<rect x="710" y="104" width="660" height="700" rx="6" fill="#f5f5f5" stroke="#999999" stroke-width="1.4" stroke-dasharray="6 4"/>
+<rect x="730" y="190" width="130" height="80" rx="6" fill="#e1d5e7" stroke="#9673a6" stroke-width="1.4"/>
+<rect x="945" y="150" width="200" height="80" rx="6" fill="#d5e8d4" stroke="#3a7d34" stroke-width="1.4"/>
+<rect x="1220" y="190" width="130" height="80" rx="6" fill="#ffe6cc" stroke="#d79b00" stroke-width="1.4"/>
+<rect x="730" y="300" width="620" height="90" rx="6" fill="#fff2cc" stroke="#d6b656" stroke-width="1.4"/>
+<rect x="730" y="410" width="150" height="62" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="890" y="410" width="460" height="62" rx="6" fill="#d5e8d4" stroke="#3a7d34" stroke-width="1.4"/>
+<rect x="730" y="480" width="150" height="62" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="890" y="480" width="460" height="62" rx="6" fill="#d5e8d4" stroke="#3a7d34" stroke-width="1.4"/>
+<rect x="730" y="550" width="150" height="62" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="890" y="550" width="460" height="62" rx="6" fill="#d5e8d4" stroke="#3a7d34" stroke-width="1.4"/>
+<rect x="730" y="620" width="150" height="62" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="890" y="620" width="460" height="62" rx="6" fill="#d5e8d4" stroke="#3a7d34" stroke-width="1.4"/>
+<rect x="730" y="690" width="150" height="62" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="890" y="690" width="460" height="62" rx="6" fill="#d5e8d4" stroke="#3a7d34" stroke-width="1.4"/>
+<rect x="730" y="762" width="620" height="34" rx="6" fill="#fff2cc" stroke="#d6b656" stroke-width="1.4"/>
+<line x1="180" y1="206.0" x2="265" y2="174.0" stroke="#3b6fb5" stroke-width="3" marker-end="url(#m3b6fb5)"/>
+<rect x="208.5" y="181.0" width="28" height="18" fill="#ffffff" opacity="0.9"/>
+<text x="222.5" y="194.0" font-size="11" fill="#3b6fb5" text-anchor="middle">요청</text>
+<line x1="465" y1="174.0" x2="540" y2="206.0" stroke="#3b6fb5" stroke-width="3" marker-end="url(#m3b6fb5)"/>
+<rect x="479.5" y="181.0" width="46" height="18" fill="#ffffff" opacity="0.9"/>
+<text x="502.5" y="194.0" font-size="11" fill="#3b6fb5" text-anchor="middle">SNAT</text>
+<line x1="540" y1="238.0" x2="465" y2="214.0" stroke="#b85450" stroke-width="3" stroke-dasharray="7 5" marker-end="url(#mb85450)"/>
+<rect x="488.5" y="217.0" width="28" height="18" fill="#ffffff" opacity="0.9"/>
+<text x="502.5" y="230.0" font-size="11" fill="#b85450" text-anchor="middle">응답</text>
+<line x1="265" y1="214.0" x2="180" y2="238.0" stroke="#b85450" stroke-width="3" stroke-dasharray="7 5" marker-end="url(#mb85450)"/>
+<rect x="195.0" y="217.0" width="55" height="18" fill="#ffffff" opacity="0.9"/>
+<text x="222.5" y="230.0" font-size="11" fill="#b85450" text-anchor="middle">응답 경유</text>
+<line x1="860" y1="206.0" x2="945" y2="174.0" stroke="#3b6fb5" stroke-width="3" marker-end="url(#m3b6fb5)"/>
+<rect x="888.5" y="181.0" width="28" height="18" fill="#ffffff" opacity="0.9"/>
+<text x="902.5" y="194.0" font-size="11" fill="#3b6fb5" text-anchor="middle">요청</text>
+<line x1="1145" y1="174.0" x2="1220" y2="206.0" stroke="#3b6fb5" stroke-width="3" marker-end="url(#m3b6fb5)"/>
+<rect x="1150.5" y="181.0" width="64" height="18" fill="#ffffff" opacity="0.9"/>
+<text x="1182.5" y="194.0" font-size="11" fill="#3b6fb5" text-anchor="middle">Geneve</text>
+<line x1="1220" y1="258.0" x2="860" y2="258.0" stroke="#3a7d34" stroke-width="3" stroke-dasharray="7 5" marker-end="url(#m3a7d34)"/>
+<rect x="936.0" y="249.0" width="208" height="18" fill="#ffffff" opacity="0.9"/>
+<text x="1040.0" y="262.0" font-size="11" fill="#3a7d34" text-anchor="middle">응답 직접 (DSR) : 인입 노드 우회</text>
+<text x="700.0" y="42.5" font-size="18" fill="#ffffff" text-anchor="middle" font-weight="bold">그림 4. L4 LB : SNAT + Random → Maglev + DSR(Geneve) + XDP</text>
+<text x="700.0" y="81.0" font-size="13" fill="#222222" text-anchor="middle" font-weight="bold">결론 : 인입 노드가 바뀌어도 같은 백엔드, 응답은 인입 노드 우회, VIP 처리는 드라이버 단계에서 종료</text>
+<text x="360.0" y="125" font-size="13" fill="#222222" text-anchor="middle" font-weight="bold">전 : 기본값</text>
+<text x="115.0" y="233.5" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">client</text>
+<text x="365.0" y="176.5" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">인입 노드</text>
+<text x="365.0" y="193.5" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">tc 단계 처리</text>
+<text x="365.0" y="210.5" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">Random 선택 + SNAT</text>
+<text x="605.0" y="225.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">백엔드 Pod</text>
+<text x="605.0" y="242.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">(다른 랙)</text>
+<text x="360.0" y="340.0" font-size="13" fill="#222222" text-anchor="middle">요청 · 응답 모두 인입 노드 경유</text>
+<text x="360.0" y="358.0" font-size="13" fill="#222222" text-anchor="middle">인입 노드 NIC 이 대용량 응답까지 부담 → 병목</text>
+<text x="125.0" y="444.5" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">백엔드 선택</text>
+<text x="220" y="436.0" font-size="12" fill="#222222" text-anchor="start">노드마다 독립 Random</text>
+<text x="220" y="453.0" font-size="12" fill="#222222" text-anchor="start">→ ECMP 재해시 때 연결 끊김</text>
+<text x="125.0" y="514.5" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">응답 경로</text>
+<text x="220" y="514.5" font-size="12" fill="#222222" text-anchor="start">인입 노드 경유 (NIC 2배 사용)</text>
+<text x="125.0" y="584.5" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">client IP</text>
+<text x="220" y="584.5" font-size="12" fill="#222222" text-anchor="start">SNAT 로 소실</text>
+<text x="125.0" y="654.5" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">처리 위치</text>
+<text x="220" y="654.5" font-size="12" fill="#222222" text-anchor="start">커널 스택 (tc)</text>
+<text x="125.0" y="724.5" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">적용 범위</text>
+<text x="220" y="724.5" font-size="12" fill="#222222" text-anchor="start">전역 동일</text>
+<text x="360.0" y="782.5" font-size="12" fill="#222222" text-anchor="middle">증상 : 노드 장애 · 경로 변화 때 무관한 연결까지 재설정</text>
+<text x="1040.0" y="125" font-size="13" fill="#222222" text-anchor="middle" font-weight="bold">후 : 2차 (Y1)</text>
+<text x="795.0" y="233.5" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">client</text>
+<text x="1045.0" y="176.5" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">인입 노드</text>
+<text x="1045.0" y="193.5" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">XDP 에서 VIP 변환</text>
+<text x="1045.0" y="210.5" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">Maglev 선택</text>
+<text x="1285.0" y="225.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">백엔드 Pod</text>
+<text x="1285.0" y="242.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">(다른 랙)</text>
+<text x="1040.0" y="340.0" font-size="13" fill="#222222" text-anchor="middle">요청만 인입 노드 경유. GET 응답(대용량)은 처리 Pod 가 직접 송신</text>
+<text x="1040.0" y="358.0" font-size="13" fill="#222222" text-anchor="middle">인입 노드 NIC = 요청 트래픽만 부담</text>
+<text x="805.0" y="444.5" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">백엔드 선택</text>
+<text x="900" y="436.0" font-size="12" fill="#222222" text-anchor="start">Maglev 표 16381 · 시드 고정</text>
+<text x="900" y="453.0" font-size="12" fill="#222222" text-anchor="start">→ 어느 노드든 같은 백엔드</text>
+<text x="805.0" y="514.5" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">응답 경로</text>
+<text x="900" y="514.5" font-size="12" fill="#222222" text-anchor="start">처리 Pod → client 직접</text>
+<text x="805.0" y="584.5" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">client IP</text>
+<text x="900" y="584.5" font-size="12" fill="#222222" text-anchor="start">보존 (감사 · 정책에 사용)</text>
+<text x="805.0" y="654.5" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">처리 위치</text>
+<text x="900" y="654.5" font-size="12" fill="#222222" text-anchor="start">NIC 드라이버 (native XDP)</text>
+<text x="805.0" y="724.5" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">적용 범위</text>
+<text x="900" y="724.5" font-size="12" fill="#222222" text-anchor="start">AIStor · StarRocks VIP 만 annotation</text>
+<text x="1040.0" y="782.5" font-size="12" fill="#222222" text-anchor="middle">주의 : 백엔드 증감 시 일부 연결 이동 (48개 기준 제거 약 0.9%, 추가 약 3%)</text>
+</svg>

@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 820" width="1400" height="820" font-family="Noto Sans CJK KR, Malgun Gothic, sans-serif">
+<rect width="1400" height="820" fill="#ffffff"/>
+<defs>
+<marker id="m3a7d34" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3a7d34"/></marker>
+<marker id="m3b6fb5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3b6fb5"/></marker>
+</defs>
+<rect x="20" y="14" width="1360" height="44" rx="6" fill="#1f3a5f" stroke="#1f3a5f" stroke-width="1.4"/>
+<rect x="20" y="62" width="1360" height="30" rx="6" fill="#fff2cc" stroke="#d6b656" stroke-width="1.4"/>
+<rect x="30" y="104" width="1340" height="300" rx="6" fill="#f5f5f5" stroke="#999999" stroke-width="1.4" stroke-dasharray="6 4"/>
+<rect x="60" y="160" width="230" height="80" rx="6" fill="#e1d5e7" stroke="#9673a6" stroke-width="1.4"/>
+<rect x="370" y="160" width="260" height="80" rx="6" fill="#d5e8d4" stroke="#3a7d34" stroke-width="1.4"/>
+<rect x="710" y="160" width="280" height="80" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="1070" y="160" width="270" height="80" rx="6" fill="#ffe6cc" stroke="#d79b00" stroke-width="1.4"/>
+<rect x="60" y="268" width="1280" height="116" rx="6" fill="#fff2cc" stroke="#d6b656" stroke-width="1.4"/>
+<rect x="30" y="420" width="1340" height="384" rx="6" fill="#f5f5f5" stroke="#999999" stroke-width="1.4" stroke-dasharray="6 4"/>
+<rect x="60" y="478" width="180" height="80" rx="6" fill="#e1d5e7" stroke="#9673a6" stroke-width="1.4"/>
+<rect x="290" y="478" width="210" height="80" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="550" y="478" width="200" height="80" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="800" y="478" width="240" height="80" rx="6" fill="#d5e8d4" stroke="#3a7d34" stroke-width="1.4"/>
+<rect x="1100" y="478" width="240" height="80" rx="6" fill="#ffe6cc" stroke="#d79b00" stroke-width="1.4"/>
+<rect x="430" y="610" width="520" height="50" rx="6" fill="#d5e8d4" stroke="#3a7d34" stroke-width="1.4"/>
+<rect x="60" y="680" width="1280" height="108" rx="6" fill="#fff2cc" stroke="#d6b656" stroke-width="1.4"/>
+<line x1="290" y1="200.0" x2="370" y2="200.0" stroke="#3a7d34" stroke-width="3" marker-end="url(#m3a7d34)"/>
+<line x1="630" y1="200.0" x2="710" y2="200.0" stroke="#3a7d34" stroke-width="3" marker-end="url(#m3a7d34)"/>
+<line x1="990" y1="200.0" x2="1070" y2="200.0" stroke="#3a7d34" stroke-width="3" marker-end="url(#m3a7d34)"/>
+<line x1="240" y1="518.0" x2="290" y2="518.0" stroke="#3b6fb5" stroke-width="3" marker-end="url(#m3b6fb5)"/>
+<line x1="500" y1="518.0" x2="550" y2="518.0" stroke="#3b6fb5" stroke-width="3" marker-end="url(#m3b6fb5)"/>
+<line x1="750" y1="518.0" x2="800" y2="518.0" stroke="#3b6fb5" stroke-width="3" marker-end="url(#m3b6fb5)"/>
+<line x1="1040" y1="518.0" x2="1100" y2="518.0" stroke="#3b6fb5" stroke-width="3" marker-end="url(#m3b6fb5)"/>
+<line x1="1220.0" y1="558" x2="690.0" y2="610" stroke="#3a7d34" stroke-width="3" stroke-dasharray="7 5" marker-end="url(#m3a7d34)"/>
+<line x1="690.0" y1="610" x2="150.0" y2="558" stroke="#3a7d34" stroke-width="3" stroke-dasharray="7 5" marker-end="url(#m3a7d34)"/>
+<text x="700.0" y="42.5" font-size="18" fill="#ffffff" text-anchor="middle" font-weight="bold">그림 3. ETL 적재 흐름 : 내부망 · 외부망 모두 LB 보장</text>
+<text x="700.0" y="81.0" font-size="13" fill="#222222" text-anchor="middle" font-weight="bold">결론 : 내부 Pod = 소켓 LB 로 Pod IP 직결 / 외부 = VIP + 패브릭 ECMP + Maglev + DSR. 두 경로 모두 백엔드 48개에 균등</text>
+<text x="700.0" y="125" font-size="13" fill="#222222" text-anchor="middle" font-weight="bold">A. 내부 ETL (Com K8s Pod : Airflow · StarRocks CN · Spark) → AIStor</text>
+<text x="175.0" y="195.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">ETL Pod</text>
+<text x="175.0" y="212.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">(S3 SDK · connect())</text>
+<text x="500.0" y="186.5" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">소켓 LB (cgroup eBPF)</text>
+<text x="500.0" y="203.5" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">Global Service → 백엔드 선택</text>
+<text x="500.0" y="220.5" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">VIP · NAT 없음</text>
+<text x="850.0" y="186.5" font-size="12" fill="#222222" text-anchor="middle">PRIVATE VRF</text>
+<text x="850.0" y="203.5" font-size="12" fill="#222222" text-anchor="middle">Com leaf → Spine → Super Spine</text>
+<text x="850.0" y="220.5" font-size="12" fill="#222222" text-anchor="middle">→ Storage Spine → leaf (5-tuple ECMP)</text>
+<text x="1205.0" y="195.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">AIStor Pod 48개 중 1개</text>
+<text x="1205.0" y="212.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">Pod IP 직결 · 캡슐화 없음</text>
+<text x="70" y="304.0" font-size="12" fill="#222222" text-anchor="start">해석</text>
+<text x="70" y="321.0" font-size="12" fill="#222222" text-anchor="start">· 분산 시점 = connect(). 연결 단위 균등 → 연결이 오래 살면 쏠림. S3 client 커넥션 풀 수명 · 최대 연결 수 제한 필수</text>
+<text x="70" y="338.0" font-size="12" fill="#222222" text-anchor="start">· Com 클러스터에는 AIStor 백엔드 없음 → Global Service 가 전부 AIStor 클러스터로 보냄 (service.cilium.io/global=true)</text>
+<text x="70" y="355.0" font-size="12" fill="#222222" text-anchor="start">· 전제 : ClusterMesh 양쪽 PodCIDR 비중복, PodCIDR 를 PRIVATE VRF 에 BGP 광고</text>
+<text x="700.0" y="441" font-size="13" fill="#222222" text-anchor="middle" font-weight="bold">B. 외부 ETL (원천 소스 · K8s 밖 서버) → AIStor VIP</text>
+<text x="150.0" y="513.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">외부 ETL client</text>
+<text x="150.0" y="530.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">(S3 443)</text>
+<text x="395.0" y="513.0" font-size="12" fill="#222222" text-anchor="middle">FA Core → Super Spine</text>
+<text x="395.0" y="530.0" font-size="12" fill="#222222" text-anchor="middle">Storage VTEP 12개 ECMP</text>
+<text x="650.0" y="513.0" font-size="12" fill="#222222" text-anchor="middle">Storage leaf</text>
+<text x="650.0" y="530.0" font-size="12" fill="#222222" text-anchor="middle">로컬 노드 8-way ECMP</text>
+<text x="920.0" y="504.5" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">인입 노드 (VIP /32 수신)</text>
+<text x="920.0" y="521.5" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">XDP + Maglev</text>
+<text x="920.0" y="538.5" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">→ Geneve 로 전달</text>
+<text x="1220.0" y="513.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">처리 AIStor Pod</text>
+<text x="1220.0" y="530.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">(48개 중 1개)</text>
+<text x="690.0" y="638.5" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">응답 : 처리 Pod → 자기 랙 leaf → client 로 직접 (DSR, 인입 노드 우회)</text>
+<text x="70" y="712.0" font-size="12" fill="#222222" text-anchor="start">해석</text>
+<text x="70" y="729.0" font-size="12" fill="#222222" text-anchor="start">· ETL 적재 = PUT 위주. PUT 본문은 인입 노드를 지남 (DSR 은 응답만 우회) → 패브릭 인입 ECMP 균등이 곧 적재 성능</text>
+<text x="70" y="746.0" font-size="12" fill="#222222" text-anchor="start">· 그래서 그림 2 의 iBGP · eBGP 정리가 선행 조건. XDP 가속으로 인입 노드 전달 비용 최소화</text>
+<text x="70" y="763.0" font-size="12" fill="#222222" text-anchor="start">· 대량 적재는 가능하면 A 경로(K8s Job) 로 유도. 외부 경로는 5-tuple 이 다양하도록 다중 연결(멀티파트 병렬) 사용</text>
+</svg>

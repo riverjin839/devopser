@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 820" width="1400" height="820" font-family="Noto Sans CJK KR, Malgun Gothic, sans-serif">
+<rect width="1400" height="820" fill="#ffffff"/>
+<defs>
+<marker id="m888888" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#888888"/></marker>
+</defs>
+<rect x="20" y="14" width="1360" height="44" rx="6" fill="#1f3a5f" stroke="#1f3a5f" stroke-width="1.4"/>
+<rect x="20" y="62" width="1360" height="30" rx="6" fill="#fff2cc" stroke="#d6b656" stroke-width="1.4"/>
+<rect x="30" y="130" width="210" height="50" rx="6" fill="#1f3a5f" stroke="#1f3a5f" stroke-width="1.4"/>
+<rect x="30" y="196" width="210" height="150" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="30" y="362" width="210" height="80" rx="6" fill="#fff2cc" stroke="#d6b656" stroke-width="1.4"/>
+<rect x="256" y="130" width="210" height="50" rx="6" fill="#1f3a5f" stroke="#1f3a5f" stroke-width="1.4"/>
+<rect x="256" y="196" width="210" height="150" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="256" y="362" width="210" height="80" rx="6" fill="#fff2cc" stroke="#d6b656" stroke-width="1.4"/>
+<rect x="482" y="130" width="210" height="50" rx="6" fill="#1f3a5f" stroke="#1f3a5f" stroke-width="1.4"/>
+<rect x="482" y="196" width="210" height="150" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="482" y="362" width="210" height="80" rx="6" fill="#fff2cc" stroke="#d6b656" stroke-width="1.4"/>
+<rect x="708" y="130" width="210" height="50" rx="6" fill="#1f3a5f" stroke="#1f3a5f" stroke-width="1.4"/>
+<rect x="708" y="196" width="210" height="150" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="708" y="362" width="210" height="80" rx="6" fill="#fff2cc" stroke="#d6b656" stroke-width="1.4"/>
+<rect x="934" y="130" width="210" height="50" rx="6" fill="#1f3a5f" stroke="#1f3a5f" stroke-width="1.4"/>
+<rect x="934" y="196" width="210" height="150" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="934" y="362" width="210" height="80" rx="6" fill="#fff2cc" stroke="#d6b656" stroke-width="1.4"/>
+<rect x="1160" y="130" width="210" height="50" rx="6" fill="#1f3a5f" stroke="#1f3a5f" stroke-width="1.4"/>
+<rect x="1160" y="196" width="210" height="150" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="1160" y="362" width="210" height="80" rx="6" fill="#fff2cc" stroke="#d6b656" stroke-width="1.4"/>
+<rect x="30" y="470" width="1340" height="150" rx="6" fill="#ffffff" stroke="#666666" stroke-width="1.4"/>
+<rect x="30" y="640" width="1340" height="150" rx="6" fill="#fff2cc" stroke="#d6b656" stroke-width="1.4"/>
+<line x1="240" y1="155.0" x2="256" y2="155.0" stroke="#888888" stroke-width="3" marker-end="url(#m888888)"/>
+<line x1="466" y1="155.0" x2="482" y2="155.0" stroke="#888888" stroke-width="3" marker-end="url(#m888888)"/>
+<line x1="692" y1="155.0" x2="708" y2="155.0" stroke="#888888" stroke-width="3" marker-end="url(#m888888)"/>
+<line x1="918" y1="155.0" x2="934" y2="155.0" stroke="#888888" stroke-width="3" marker-end="url(#m888888)"/>
+<line x1="1144" y1="155.0" x2="1160" y2="155.0" stroke="#888888" stroke-width="3" marker-end="url(#m888888)"/>
+<text x="700.0" y="42.5" font-size="18" fill="#ffffff" text-anchor="middle" font-weight="bold">그림 8. 2차 최적화 적용 순서</text>
+<text x="700.0" y="81.0" font-size="13" fill="#222222" text-anchor="middle" font-weight="bold">결론 : 패브릭 → 노드 OS → Cilium → Service 순. 단계마다 검증 통과 후 다음 단계</text>
+<text x="135.0" y="160.0" font-size="15" fill="#ffffff" text-anchor="middle" font-weight="bold">① 현행 진단</text>
+<text x="135.0" y="257.0" font-size="13" fill="#222222" text-anchor="middle">1차 설정 수집</text>
+<text x="135.0" y="275.0" font-size="13" fill="#222222" text-anchor="middle">VIP 경로 수 확인</text>
+<text x="135.0" y="293.0" font-size="13" fill="#222222" text-anchor="middle">불균형 원인 확정</text>
+<text x="135.0" y="388.5" font-size="12" fill="#222222" text-anchor="middle">확인</text>
+<text x="135.0" y="405.5" font-size="12" fill="#222222" text-anchor="middle">show bgp l2vpn evpn</text>
+<text x="135.0" y="422.5" font-size="12" fill="#222222" text-anchor="middle">show ip route vrf</text>
+<text x="361.0" y="160.0" font-size="15" fill="#ffffff" text-anchor="middle" font-weight="bold">② N9K 패브릭</text>
+<text x="361.0" y="239.0" font-size="13" fill="#222222" text-anchor="middle">eBGP 단일화 · 고유 RD</text>
+<text x="361.0" y="257.0" font-size="13" fill="#222222" text-anchor="middle">maximum-paths 64 · relax</text>
+<text x="361.0" y="275.0" font-size="13" fill="#222222" text-anchor="middle">계층별 seed · resilient</text>
+<text x="361.0" y="293.0" font-size="13" fill="#222222" text-anchor="middle">VRF 별 광고 · 수신 필터</text>
+<text x="361.0" y="311.0" font-size="13" fill="#222222" text-anchor="middle">ECMP 자원 확인</text>
+<text x="361.0" y="388.5" font-size="12" fill="#222222" text-anchor="middle">확인</text>
+<text x="361.0" y="405.5" font-size="12" fill="#222222" text-anchor="middle">show routing hash</text>
+<text x="361.0" y="422.5" font-size="12" fill="#222222" text-anchor="middle">show ip load-sharing</text>
+<text x="587.0" y="160.0" font-size="15" fill="#ffffff" text-anchor="middle" font-weight="bold">③ RHEL 노드</text>
+<text x="587.0" y="239.0" font-size="13" fill="#222222" text-anchor="middle">포트별 L3 · 루프백 /32</text>
+<text x="587.0" y="257.0" font-size="13" fill="#222222" text-anchor="middle">sysctl · ethtool · IRQ</text>
+<text x="587.0" y="275.0" font-size="13" fill="#222222" text-anchor="middle">랙 배치 균일 · 랙 라벨</text>
+<text x="587.0" y="293.0" font-size="13" fill="#222222" text-anchor="middle">응답 경로 정합성</text>
+<text x="587.0" y="311.0" font-size="13" fill="#222222" text-anchor="middle">MTU 9000</text>
+<text x="587.0" y="388.5" font-size="12" fill="#222222" text-anchor="middle">확인</text>
+<text x="587.0" y="405.5" font-size="12" fill="#222222" text-anchor="middle">ip route show</text>
+<text x="587.0" y="422.5" font-size="12" fill="#222222" text-anchor="middle">ethtool -S</text>
+<text x="813.0" y="160.0" font-size="15" fill="#ffffff" text-anchor="middle" font-weight="bold">④ Cilium 1.20</text>
+<text x="813.0" y="239.0" font-size="13" fill="#222222" text-anchor="middle">native · netkit · KPR</text>
+<text x="813.0" y="257.0" font-size="13" fill="#222222" text-anchor="middle">BGP CP v2 · VRF 별 분리</text>
+<text x="813.0" y="275.0" font-size="13" fill="#222222" text-anchor="middle">IPAM · LB 풀 분리</text>
+<text x="813.0" y="293.0" font-size="13" fill="#222222" text-anchor="middle">DSR(Geneve) · XDP</text>
+<text x="813.0" y="311.0" font-size="13" fill="#222222" text-anchor="middle">ClusterMesh HA</text>
+<text x="813.0" y="388.5" font-size="12" fill="#222222" text-anchor="middle">확인</text>
+<text x="813.0" y="405.5" font-size="12" fill="#222222" text-anchor="middle">cilium-dbg status</text>
+<text x="813.0" y="422.5" font-size="12" fill="#222222" text-anchor="middle">cilium bgp peers</text>
+<text x="1039.0" y="160.0" font-size="15" fill="#ffffff" text-anchor="middle" font-weight="bold">⑤ Service / LB</text>
+<text x="1039.0" y="239.0" font-size="13" fill="#222222" text-anchor="middle">Maglev · eTP Cluster</text>
+<text x="1039.0" y="257.0" font-size="13" fill="#222222" text-anchor="middle">Global Service</text>
+<text x="1039.0" y="275.0" font-size="13" fill="#222222" text-anchor="middle">랙 분산 스케줄</text>
+<text x="1039.0" y="293.0" font-size="13" fill="#222222" text-anchor="middle">TLS SAN · DNS</text>
+<text x="1039.0" y="311.0" font-size="13" fill="#222222" text-anchor="middle">readiness · 정책</text>
+<text x="1039.0" y="388.5" font-size="12" fill="#222222" text-anchor="middle">확인</text>
+<text x="1039.0" y="405.5" font-size="12" fill="#222222" text-anchor="middle">cilium-dbg service list</text>
+<text x="1039.0" y="422.5" font-size="12" fill="#222222" text-anchor="middle">cilium-dbg bpf lb maglev list</text>
+<text x="1265.0" y="160.0" font-size="15" fill="#ffffff" text-anchor="middle" font-weight="bold">⑥ 검증</text>
+<text x="1265.0" y="257.0" font-size="13" fill="#222222" text-anchor="middle">T1 ~ T13</text>
+<text x="1265.0" y="275.0" font-size="13" fill="#222222" text-anchor="middle">warp · TPC-H</text>
+<text x="1265.0" y="293.0" font-size="13" fill="#222222" text-anchor="middle">장애 주입 · drain</text>
+<text x="1265.0" y="388.5" font-size="12" fill="#222222" text-anchor="middle">확인</text>
+<text x="1265.0" y="405.5" font-size="12" fill="#222222" text-anchor="middle">편차 ±10%</text>
+<text x="1265.0" y="422.5" font-size="12" fill="#222222" text-anchor="middle">끊김 ≤ 9s</text>
+<text x="40" y="513.0" font-size="13" fill="#222222" text-anchor="start">게이트 (다음 단계 진입 조건)</text>
+<text x="40" y="531.0" font-size="13" fill="#222222" text-anchor="start">② → ③ : Border 에서 AIStor VIP 경로 수 = Storage VTEP 수 (12). 계층별 인터페이스 카운터 편차 ±10%</text>
+<text x="40" y="549.0" font-size="13" fill="#222222" text-anchor="start">③ → ④ : 노드 포트 1개 다운 시 루프백 IP 유지, iperf3 양 포트 분산, 랙별 노드 수 · 라벨 일치</text>
+<text x="40" y="567.0" font-size="13" fill="#222222" text-anchor="start">④ → ⑤ : cilium status 에서 netkit · XDP · DSR(Geneve) · BGP established 확인</text>
+<text x="40" y="585.0" font-size="13" fill="#222222" text-anchor="start">⑤ → ⑥ : 외부 · 내부 양쪽에서 AIStor 48 Pod 요청 수 균등, 랙 간 인입 편차 ±10%</text>
+<text x="40" y="665.0" font-size="13" fill="#222222" text-anchor="start">PoC 선행 항목 (적용 전 반드시 확인)</text>
+<text x="40" y="683.0" font-size="13" fill="#222222" text-anchor="start">· XDP + MTU 9000 : ice · bnxt_en 드라이버의 multi-buffer XDP 동작 (불가 시 acceleration=best-effort 또는 disabled)</text>
+<text x="40" y="701.0" font-size="13" fill="#222222" text-anchor="start">· XDP + Geneve DSR 조합, N9K 의 UDP 6081 통과 · uRPF</text>
+<text x="40" y="719.0" font-size="13" fill="#222222" text-anchor="start">· 루프백 노드 IP 에서 kubelet · Cilium · ClusterMesh 동작</text>
+<text x="40" y="737.0" font-size="13" fill="#222222" text-anchor="start">· graceful restart 중 노드 실제 장애 시 블랙홀 시간 → restartTime 결정</text>
+<text x="40" y="755.0" font-size="13" fill="#222222" text-anchor="start">· BIG TCP : 문서상 지원 NIC 은 mlx4 · mlx5 · ice. Broadcom 선택 시 미적용 가정</text>
+<text x="40" y="773.0" font-size="13" fill="#222222" text-anchor="start">· DSR 응답과 VRF 응답 경로 정합성 (필요 시 정책 라우팅), 노드 drain 시 광고 철회 절차</text>
+</svg>

@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 820" width="1400" height="820" font-family="Noto Sans CJK KR, Malgun Gothic, sans-serif">
+<rect width="1400" height="820" fill="#ffffff"/>
+<defs>
+<marker id="m3a7d34" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3a7d34"/></marker>
+<marker id="m888888" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#888888"/></marker>
+<marker id="mb85450" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b85450"/></marker>
+</defs>
+<rect x="20" y="14" width="1360" height="44" rx="6" fill="#1f3a5f" stroke="#1f3a5f" stroke-width="1.4"/>
+<rect x="20" y="62" width="1360" height="30" rx="6" fill="#fff2cc" stroke="#d6b656" stroke-width="1.4"/>
+<rect x="30" y="104" width="660" height="700" rx="6" fill="#f5f5f5" stroke="#999999" stroke-width="1.4" stroke-dasharray="6 4"/>
+<rect x="230" y="140" width="260" height="54" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="190" y="236" width="340" height="54" rx="6" fill="#f8cecc" stroke="#b85450" stroke-width="1.4"/>
+<rect x="50" y="356" width="190" height="54" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="50" y="462" width="190" height="62" rx="6" fill="#ffe6cc" stroke="#d79b00" stroke-width="1.4"/>
+<rect x="265" y="356" width="190" height="54" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="265" y="462" width="190" height="62" rx="6" fill="#ffe6cc" stroke="#d79b00" stroke-width="1.4"/>
+<rect x="480" y="356" width="190" height="54" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="480" y="462" width="190" height="62" rx="6" fill="#ffe6cc" stroke="#d79b00" stroke-width="1.4"/>
+<rect x="50" y="556" width="620" height="228" rx="6" fill="#fff2cc" stroke="#d6b656" stroke-width="1.4"/>
+<rect x="710" y="104" width="660" height="700" rx="6" fill="#f5f5f5" stroke="#999999" stroke-width="1.4" stroke-dasharray="6 4"/>
+<rect x="910" y="140" width="260" height="54" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="870" y="236" width="340" height="54" rx="6" fill="#d5e8d4" stroke="#3a7d34" stroke-width="1.4"/>
+<rect x="730" y="356" width="190" height="54" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="730" y="462" width="190" height="62" rx="6" fill="#ffe6cc" stroke="#d79b00" stroke-width="1.4"/>
+<rect x="945" y="356" width="190" height="54" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="945" y="462" width="190" height="62" rx="6" fill="#ffe6cc" stroke="#d79b00" stroke-width="1.4"/>
+<rect x="1160" y="356" width="190" height="54" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="1160" y="462" width="190" height="62" rx="6" fill="#ffe6cc" stroke="#d79b00" stroke-width="1.4"/>
+<rect x="730" y="556" width="620" height="228" rx="6" fill="#fff2cc" stroke="#d6b656" stroke-width="1.4"/>
+<line x1="360.0" y1="194" x2="360.0" y2="236" stroke="#b85450" stroke-width="3" marker-end="url(#mb85450)"/>
+<line x1="360.0" y1="290" x2="145.0" y2="356" stroke="#b85450" stroke-width="6" marker-end="url(#mb85450)"/>
+<rect x="216.0" y="314.0" width="73" height="18" fill="#ffffff" opacity="0.9"/>
+<text x="252.5" y="327.0" font-size="11" fill="#b85450" text-anchor="middle">거의 100%</text>
+<line x1="145.0" y1="410" x2="145.0" y2="462" stroke="#b85450" stroke-width="6" marker-end="url(#mb85450)"/>
+<rect x="126.5" y="427.0" width="37" height="18" fill="#ffffff" opacity="0.9"/>
+<text x="145.0" y="440.0" font-size="11" fill="#b85450" text-anchor="middle">과부하</text>
+<line x1="360.0" y1="290" x2="360.0" y2="356" stroke="#888888" stroke-width="1" stroke-dasharray="7 5" marker-end="url(#m888888)"/>
+<rect x="337.0" y="314.0" width="46" height="18" fill="#ffffff" opacity="0.9"/>
+<text x="360.0" y="327.0" font-size="11" fill="#888888" text-anchor="middle">≈ 0%</text>
+<line x1="360.0" y1="410" x2="360.0" y2="462" stroke="#888888" stroke-width="1" stroke-dasharray="7 5" marker-end="url(#m888888)"/>
+<rect x="346.0" y="427.0" width="28" height="18" fill="#ffffff" opacity="0.9"/>
+<text x="360.0" y="440.0" font-size="11" fill="#888888" text-anchor="middle">유휴</text>
+<line x1="360.0" y1="290" x2="575.0" y2="356" stroke="#888888" stroke-width="1" stroke-dasharray="7 5" marker-end="url(#m888888)"/>
+<rect x="444.5" y="314.0" width="46" height="18" fill="#ffffff" opacity="0.9"/>
+<text x="467.5" y="327.0" font-size="11" fill="#888888" text-anchor="middle">≈ 0%</text>
+<line x1="575.0" y1="410" x2="575.0" y2="462" stroke="#888888" stroke-width="1" stroke-dasharray="7 5" marker-end="url(#m888888)"/>
+<rect x="561.0" y="427.0" width="28" height="18" fill="#ffffff" opacity="0.9"/>
+<text x="575.0" y="440.0" font-size="11" fill="#888888" text-anchor="middle">유휴</text>
+<line x1="1040.0" y1="194" x2="1040.0" y2="236" stroke="#3a7d34" stroke-width="3" marker-end="url(#m3a7d34)"/>
+<line x1="1040.0" y1="290" x2="825.0" y2="356" stroke="#3a7d34" stroke-width="3" marker-end="url(#m3a7d34)"/>
+<rect x="914.0" y="314.0" width="37" height="18" fill="#ffffff" opacity="0.9"/>
+<text x="932.5" y="327.0" font-size="11" fill="#3a7d34" text-anchor="middle">1/N</text>
+<line x1="825.0" y1="410" x2="825.0" y2="462" stroke="#3a7d34" stroke-width="3" marker-end="url(#m3a7d34)"/>
+<rect x="775.0" y="427.0" width="100" height="18" fill="#ffffff" opacity="0.9"/>
+<text x="825.0" y="440.0" font-size="11" fill="#3a7d34" text-anchor="middle">8-way ECMP</text>
+<line x1="1040.0" y1="290" x2="1040.0" y2="356" stroke="#3a7d34" stroke-width="3" marker-end="url(#m3a7d34)"/>
+<rect x="1021.5" y="314.0" width="37" height="18" fill="#ffffff" opacity="0.9"/>
+<text x="1040.0" y="327.0" font-size="11" fill="#3a7d34" text-anchor="middle">1/N</text>
+<line x1="1040.0" y1="410" x2="1040.0" y2="462" stroke="#3a7d34" stroke-width="3" marker-end="url(#m3a7d34)"/>
+<rect x="990.0" y="427.0" width="100" height="18" fill="#ffffff" opacity="0.9"/>
+<text x="1040.0" y="440.0" font-size="11" fill="#3a7d34" text-anchor="middle">8-way ECMP</text>
+<line x1="1040.0" y1="290" x2="1255.0" y2="356" stroke="#3a7d34" stroke-width="3" marker-end="url(#m3a7d34)"/>
+<rect x="1129.0" y="314.0" width="37" height="18" fill="#ffffff" opacity="0.9"/>
+<text x="1147.5" y="327.0" font-size="11" fill="#3a7d34" text-anchor="middle">1/N</text>
+<line x1="1255.0" y1="410" x2="1255.0" y2="462" stroke="#3a7d34" stroke-width="3" marker-end="url(#m3a7d34)"/>
+<rect x="1205.0" y="427.0" width="100" height="18" fill="#ffffff" opacity="0.9"/>
+<text x="1255.0" y="440.0" font-size="11" fill="#3a7d34" text-anchor="middle">8-way ECMP</text>
+<text x="700.0" y="42.5" font-size="18" fill="#ffffff" text-anchor="middle" font-weight="bold">그림 2. iBGP · eBGP 구간 불균형 : 전 → 후</text>
+<text x="700.0" y="81.0" font-size="13" fill="#222222" text-anchor="middle" font-weight="bold">결론 : 불균형은 Cilium 이 아니라 패브릭 경로 선택에서 생김. eBGP 단일화 + 다중 경로 3종 설정으로 VTEP 전체 ECMP 확보</text>
+<text x="360.0" y="125" font-size="13" fill="#222222" text-anchor="middle" font-weight="bold">전 : 1차 (현행 Lake 추정)</text>
+<text x="360.0" y="162.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">Super Spine / Border</text>
+<text x="360.0" y="179.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">(외부 ETL 인입)</text>
+<text x="360.0" y="258.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">Spine = iBGP RR</text>
+<text x="360.0" y="275.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">같은 RD → best 1개만 반사</text>
+<text x="145.0" y="378.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">Storage leaf 1</text>
+<text x="145.0" y="395.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">(VTEP 1)</text>
+<text x="145.0" y="488.0" font-size="12" fill="#222222" text-anchor="middle">랙 1 노드 8대</text>
+<text x="145.0" y="505.0" font-size="12" fill="#222222" text-anchor="middle">VIP /32 광고 (eBGP)</text>
+<text x="360.0" y="378.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">Storage leaf 2</text>
+<text x="360.0" y="395.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">(VTEP 2)</text>
+<text x="360.0" y="488.0" font-size="12" fill="#222222" text-anchor="middle">랙 2 노드 8대</text>
+<text x="360.0" y="505.0" font-size="12" fill="#222222" text-anchor="middle">VIP /32 광고 (eBGP)</text>
+<text x="575.0" y="378.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">Storage leaf 3</text>
+<text x="575.0" y="395.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">(VTEP 3)</text>
+<text x="575.0" y="488.0" font-size="12" fill="#222222" text-anchor="middle">랙 3 노드 8대</text>
+<text x="575.0" y="505.0" font-size="12" fill="#222222" text-anchor="middle">VIP /32 광고 (eBGP)</text>
+<text x="60" y="611.0" font-size="13" fill="#222222" text-anchor="start">원인 (현행 확인 대상)</text>
+<text x="60" y="629.0" font-size="13" fill="#222222" text-anchor="start">① maximum-paths ibgp 누락 → 원격 VTEP 1개만 선택</text>
+<text x="60" y="647.0" font-size="13" fill="#222222" text-anchor="start">② RR 이 같은 RD 경로 중 best 1개만 반사</text>
+<text x="60" y="665.0" font-size="13" fill="#222222" text-anchor="start">③ BGP 경로 선택에서 로컬 eBGP 가 원격 iBGP 를 이김</text>
+<text x="60" y="683.0" font-size="13" fill="#222222" text-anchor="start">    → 같은 leaf 인입은 그 랙 노드로만</text>
+<text x="60" y="701.0" font-size="13" fill="#222222" text-anchor="start">④ VTEP 단위 ECMP → 랙당 노드 수가 다르면 노드별 불균등</text>
+<text x="60" y="719.0" font-size="13" fill="#222222" text-anchor="start">⑤ VTEP 까지 IGP cost 차이 → multipath 탈락 (igp-metric)</text>
+<text x="60" y="737.0" font-size="13" fill="#222222" text-anchor="start">⑥ ETL PUT 은 인입 노드를 지남 → 인입 쏠림 = NIC 포화</text>
+<text x="1040.0" y="125" font-size="13" fill="#222222" text-anchor="middle" font-weight="bold">후 : 2차 (Y1 적용안)</text>
+<text x="1040.0" y="162.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">Super Spine / Border</text>
+<text x="1040.0" y="179.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">(외부 ETL 인입)</text>
+<text x="1040.0" y="258.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">Spine (eBGP, next-hop unchanged)</text>
+<text x="1040.0" y="275.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">leaf 별 고유 RD → 경로 N개 전달</text>
+<text x="825.0" y="378.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">Storage leaf 1</text>
+<text x="825.0" y="395.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">(VTEP 1)</text>
+<text x="825.0" y="488.0" font-size="12" fill="#222222" text-anchor="middle">랙 1 노드 8대</text>
+<text x="825.0" y="505.0" font-size="12" fill="#222222" text-anchor="middle">VIP /32 광고 (eBGP)</text>
+<text x="1040.0" y="378.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">Storage leaf 2</text>
+<text x="1040.0" y="395.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">(VTEP 2)</text>
+<text x="1040.0" y="488.0" font-size="12" fill="#222222" text-anchor="middle">랙 2 노드 8대</text>
+<text x="1040.0" y="505.0" font-size="12" fill="#222222" text-anchor="middle">VIP /32 광고 (eBGP)</text>
+<text x="1255.0" y="378.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">Storage leaf 3</text>
+<text x="1255.0" y="395.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">(VTEP 3)</text>
+<text x="1255.0" y="488.0" font-size="12" fill="#222222" text-anchor="middle">랙 3 노드 8대</text>
+<text x="1255.0" y="505.0" font-size="12" fill="#222222" text-anchor="middle">VIP /32 광고 (eBGP)</text>
+<text x="740" y="620.0" font-size="13" fill="#222222" text-anchor="start">적용 설정</text>
+<text x="740" y="638.0" font-size="13" fill="#222222" text-anchor="start">① overlay eBGP 단일화 (iBGP · RR 제거), IGP 없음</text>
+<text x="740" y="656.0" font-size="13" fill="#222222" text-anchor="start">② 전 계층 maximum-paths 64 + bestpath igp-metric ignore</text>
+<text x="740" y="674.0" font-size="13" fill="#222222" text-anchor="start">③ bestpath as-path multipath-relax (랙별 ASN 이 달라도 ECMP)</text>
+<text x="740" y="692.0" font-size="13" fill="#222222" text-anchor="start">④ VRF rd auto → leaf 별 고유 RD</text>
+<text x="740" y="710.0" font-size="13" fill="#222222" text-anchor="start">⑤ 랙당 노드 수가 다르면 export-gateway-ip + maximum-paths mixed</text>
+<text x="740" y="728.0" font-size="13" fill="#222222" text-anchor="start">⑥ 인입 쏠림이 남아도 Maglev 가 백엔드 48개에 균등 분배</text>
+</svg>

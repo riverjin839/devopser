@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 820" width="1400" height="820" font-family="Noto Sans CJK KR, Malgun Gothic, sans-serif">
+<rect width="1400" height="820" fill="#ffffff"/>
+<defs>
+<marker id="m3a7d34" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3a7d34"/></marker>
+<marker id="m888888" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#888888"/></marker>
+<marker id="mb85450" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b85450"/></marker>
+</defs>
+<rect x="20" y="14" width="1360" height="44" rx="6" fill="#1f3a5f" stroke="#1f3a5f" stroke-width="1.4"/>
+<rect x="20" y="62" width="1360" height="30" rx="6" fill="#fff2cc" stroke="#d6b656" stroke-width="1.4"/>
+<rect x="30" y="104" width="660" height="700" rx="6" fill="#f5f5f5" stroke="#999999" stroke-width="1.4" stroke-dasharray="6 4"/>
+<rect x="240" y="140" width="240" height="50" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="90" y="250" width="220" height="50" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="410" y="250" width="220" height="50" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="50" y="380" width="140" height="50" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="210" y="380" width="140" height="50" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="370" y="380" width="140" height="50" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="530" y="380" width="140" height="50" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="50" y="480" width="620" height="300" rx="6" fill="#fff2cc" stroke="#d6b656" stroke-width="1.4"/>
+<rect x="710" y="104" width="660" height="700" rx="6" fill="#f5f5f5" stroke="#999999" stroke-width="1.4" stroke-dasharray="6 4"/>
+<rect x="920" y="140" width="240" height="50" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="770" y="250" width="220" height="50" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="1090" y="250" width="220" height="50" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="730" y="380" width="140" height="50" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="890" y="380" width="140" height="50" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="1050" y="380" width="140" height="50" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="1210" y="380" width="140" height="50" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="730" y="480" width="620" height="300" rx="6" fill="#fff2cc" stroke="#d6b656" stroke-width="1.4"/>
+<line x1="360.0" y1="190" x2="200.0" y2="250" stroke="#b85450" stroke-width="3" marker-end="url(#mb85450)"/>
+<rect x="261.5" y="211.0" width="37" height="18" fill="#ffffff" opacity="0.9"/>
+<text x="280.0" y="224.0" font-size="11" fill="#b85450" text-anchor="middle">50%</text>
+<line x1="360.0" y1="190" x2="520.0" y2="250" stroke="#b85450" stroke-width="3" marker-end="url(#mb85450)"/>
+<rect x="421.5" y="211.0" width="37" height="18" fill="#ffffff" opacity="0.9"/>
+<text x="440.0" y="224.0" font-size="11" fill="#b85450" text-anchor="middle">50%</text>
+<line x1="200.0" y1="300" x2="120.0" y2="380" stroke="#b85450" stroke-width="6" marker-end="url(#mb85450)"/>
+<rect x="141.5" y="331.0" width="37" height="18" fill="#ffffff" opacity="0.9"/>
+<text x="160.0" y="344.0" font-size="11" fill="#b85450" text-anchor="middle">50%</text>
+<line x1="200.0" y1="300" x2="280.0" y2="380" stroke="#888888" stroke-width="1" stroke-dasharray="7 5" marker-end="url(#m888888)"/>
+<rect x="226.0" y="331.0" width="28" height="18" fill="#ffffff" opacity="0.9"/>
+<text x="240.0" y="344.0" font-size="11" fill="#888888" text-anchor="middle">0%</text>
+<line x1="520.0" y1="300" x2="440.0" y2="380" stroke="#b85450" stroke-width="6" marker-end="url(#mb85450)"/>
+<rect x="461.5" y="331.0" width="37" height="18" fill="#ffffff" opacity="0.9"/>
+<text x="480.0" y="344.0" font-size="11" fill="#b85450" text-anchor="middle">50%</text>
+<line x1="520.0" y1="300" x2="600.0" y2="380" stroke="#888888" stroke-width="1" stroke-dasharray="7 5" marker-end="url(#m888888)"/>
+<rect x="546.0" y="331.0" width="28" height="18" fill="#ffffff" opacity="0.9"/>
+<text x="560.0" y="344.0" font-size="11" fill="#888888" text-anchor="middle">0%</text>
+<line x1="1040.0" y1="190" x2="880.0" y2="250" stroke="#3a7d34" stroke-width="3" marker-end="url(#m3a7d34)"/>
+<rect x="941.5" y="211.0" width="37" height="18" fill="#ffffff" opacity="0.9"/>
+<text x="960.0" y="224.0" font-size="11" fill="#3a7d34" text-anchor="middle">50%</text>
+<line x1="1040.0" y1="190" x2="1200.0" y2="250" stroke="#3a7d34" stroke-width="3" marker-end="url(#m3a7d34)"/>
+<rect x="1101.5" y="211.0" width="37" height="18" fill="#ffffff" opacity="0.9"/>
+<text x="1120.0" y="224.0" font-size="11" fill="#3a7d34" text-anchor="middle">50%</text>
+<line x1="880.0" y1="300" x2="800.0" y2="380" stroke="#3a7d34" stroke-width="3" marker-end="url(#m3a7d34)"/>
+<rect x="821.5" y="331.0" width="37" height="18" fill="#ffffff" opacity="0.9"/>
+<text x="840.0" y="344.0" font-size="11" fill="#3a7d34" text-anchor="middle">25%</text>
+<line x1="880.0" y1="300" x2="960.0" y2="380" stroke="#3a7d34" stroke-width="3" marker-end="url(#m3a7d34)"/>
+<rect x="901.5" y="331.0" width="37" height="18" fill="#ffffff" opacity="0.9"/>
+<text x="920.0" y="344.0" font-size="11" fill="#3a7d34" text-anchor="middle">25%</text>
+<line x1="1200.0" y1="300" x2="1120.0" y2="380" stroke="#3a7d34" stroke-width="3" marker-end="url(#m3a7d34)"/>
+<rect x="1141.5" y="331.0" width="37" height="18" fill="#ffffff" opacity="0.9"/>
+<text x="1160.0" y="344.0" font-size="11" fill="#3a7d34" text-anchor="middle">25%</text>
+<line x1="1200.0" y1="300" x2="1280.0" y2="380" stroke="#3a7d34" stroke-width="3" marker-end="url(#m3a7d34)"/>
+<rect x="1221.5" y="331.0" width="37" height="18" fill="#ffffff" opacity="0.9"/>
+<text x="1240.0" y="344.0" font-size="11" fill="#3a7d34" text-anchor="middle">25%</text>
+<text x="700.0" y="42.5" font-size="18" fill="#ffffff" text-anchor="middle" font-weight="bold">그림 6. 패브릭 ECMP 해시 : 단일 seed → 계층별 seed + resilient hashing</text>
+<text x="700.0" y="81.0" font-size="13" fill="#222222" text-anchor="middle" font-weight="bold">결론 : 다단 ECMP 쏠림(polarization) 제거, 노드 1대 제거 시 살아 있는 연결은 그대로</text>
+<text x="360.0" y="125" font-size="13" fill="#222222" text-anchor="middle" font-weight="bold">전 : 1차</text>
+<text x="360.0" y="160.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">Super Spine</text>
+<text x="360.0" y="177.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">seed = 기본값</text>
+<text x="200.0" y="270.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">Spine 1</text>
+<text x="200.0" y="287.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">seed = 기본값</text>
+<text x="520.0" y="270.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">Spine 2</text>
+<text x="520.0" y="287.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">seed = 기본값</text>
+<text x="120.0" y="408.5" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">leaf 1</text>
+<text x="280.0" y="408.5" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">leaf 2</text>
+<text x="440.0" y="408.5" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">leaf 3</text>
+<text x="600.0" y="408.5" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">leaf 4</text>
+<text x="60" y="589.0" font-size="13" fill="#222222" text-anchor="start">증상</text>
+<text x="60" y="607.0" font-size="13" fill="#222222" text-anchor="start">· 상위 계층과 같은 해시 → 하위 계층에서 같은 쪽만 선택</text>
+<text x="60" y="625.0" font-size="13" fill="#222222" text-anchor="start">· 장비 수는 늘었는데 링크 절반이 유휴</text>
+<text x="60" y="643.0" font-size="13" fill="#222222" text-anchor="start">· ECMP 멤버 1개 제거 시 전체 재해시</text>
+<text x="60" y="661.0" font-size="13" fill="#222222" text-anchor="start">   → 무관한 연결까지 다른 노드로 이동</text>
+<text x="60" y="679.0" font-size="13" fill="#222222" text-anchor="start">· Maglev 가 없으면 이동한 연결은 끊김</text>
+<text x="1040.0" y="125" font-size="13" fill="#222222" text-anchor="middle" font-weight="bold">후 : 2차 (Y1)</text>
+<text x="1040.0" y="160.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">Super Spine</text>
+<text x="1040.0" y="177.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">seed = 101</text>
+<text x="880.0" y="270.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">Spine 1</text>
+<text x="880.0" y="287.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">seed = 201</text>
+<text x="1200.0" y="270.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">Spine 2</text>
+<text x="1200.0" y="287.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">seed = 201</text>
+<text x="800.0" y="408.5" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">leaf 1</text>
+<text x="960.0" y="408.5" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">leaf 2</text>
+<text x="1120.0" y="408.5" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">leaf 3</text>
+<text x="1280.0" y="408.5" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">leaf 4</text>
+<text x="740" y="580.0" font-size="13" fill="#222222" text-anchor="start">적용</text>
+<text x="740" y="598.0" font-size="13" fill="#222222" text-anchor="start">· ip load-sharing address source-destination port source-destination</text>
+<text x="740" y="616.0" font-size="13" fill="#222222" text-anchor="start">   universal-id &lt;계층별 값&gt; : 계층마다 다른 해시 결과</text>
+<text x="740" y="634.0" font-size="13" fill="#222222" text-anchor="start">· hardware profile ecmp resilient : 멤버 제거 시 해당 버킷만 재배치</text>
+<text x="740" y="652.0" font-size="13" fill="#222222" text-anchor="start">· 5-tuple 유지 (SNAT 된 client 도 포트로 분산)</text>
+<text x="740" y="670.0" font-size="13" fill="#222222" text-anchor="start">· Geneve DSR 구간 : 외부 UDP 소스 포트가 내부 흐름 해시 → ECMP 유지</text>
+<text x="740" y="688.0" font-size="13" fill="#222222" text-anchor="start">검증 : show routing hash, 인터페이스 카운터 편차 ±10%</text>
+</svg>

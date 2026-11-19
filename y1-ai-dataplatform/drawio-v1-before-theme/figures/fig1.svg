@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 820" width="1400" height="820" font-family="Noto Sans CJK KR, Malgun Gothic, sans-serif">
+<rect width="1400" height="820" fill="#ffffff"/>
+<defs>
+<marker id="m3a7d34" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3a7d34"/></marker>
+<marker id="m3b6fb5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3b6fb5"/></marker>
+<marker id="m888888" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#888888"/></marker>
+</defs>
+<rect x="20" y="14" width="1360" height="44" rx="6" fill="#1f3a5f" stroke="#1f3a5f" stroke-width="1.4"/>
+<rect x="20" y="62" width="1360" height="30" rx="6" fill="#fff2cc" stroke="#d6b656" stroke-width="1.4"/>
+<rect x="40" y="112" width="190" height="60" rx="6" fill="#e1d5e7" stroke="#9673a6" stroke-width="1.4"/>
+<rect x="520" y="112" width="360" height="60" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="420" y="212" width="560" height="56" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="40" y="300" width="420" height="400" rx="6" fill="#f5f5f5" stroke="#999999" stroke-width="1.4" stroke-dasharray="6 4"/>
+<rect x="100" y="336" width="300" height="50" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="70" y="430" width="360" height="56" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="70" y="540" width="360" height="70" rx="6" fill="#d5e8d4" stroke="#82b366" stroke-width="1.4"/>
+<rect x="70" y="624" width="360" height="56" rx="6" fill="#ffffff" stroke="#666666" stroke-width="1.4"/>
+<rect x="490" y="300" width="420" height="400" rx="6" fill="#f5f5f5" stroke="#999999" stroke-width="1.4" stroke-dasharray="6 4"/>
+<rect x="550" y="336" width="300" height="50" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="520" y="430" width="360" height="56" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="520" y="540" width="360" height="70" rx="6" fill="#d5e8d4" stroke="#82b366" stroke-width="1.4"/>
+<rect x="520" y="624" width="360" height="56" rx="6" fill="#ffffff" stroke="#666666" stroke-width="1.4"/>
+<rect x="940" y="300" width="420" height="400" rx="6" fill="#f5f5f5" stroke="#999999" stroke-width="1.4" stroke-dasharray="6 4"/>
+<rect x="1000" y="336" width="300" height="50" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="970" y="430" width="360" height="56" rx="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.4"/>
+<rect x="970" y="540" width="360" height="70" rx="6" fill="#ffe6cc" stroke="#d79b00" stroke-width="1.4"/>
+<rect x="970" y="624" width="360" height="56" rx="6" fill="#ffffff" stroke="#666666" stroke-width="1.4"/>
+<rect x="40" y="716" width="870" height="40" rx="6" fill="#d5e8d4" stroke="#82b366" stroke-width="1.4"/>
+<rect x="940" y="716" width="420" height="40" rx="6" fill="#ffe6cc" stroke="#d79b00" stroke-width="1.4"/>
+<rect x="40" y="768" width="1320" height="36" rx="6" fill="#fff2cc" stroke="#d6b656" stroke-width="1.4"/>
+<line x1="230" y1="142.0" x2="520" y2="142.0" stroke="#3b6fb5" stroke-width="3" marker-end="url(#m3b6fb5)"/>
+<rect x="293.5" y="133.0" width="163" height="18" fill="#ffffff" opacity="0.9"/>
+<text x="375.0" y="146.0" font-size="11" fill="#3b6fb5" text-anchor="middle">S3 443 / SQL 9030</text>
+<line x1="700.0" y1="172" x2="700.0" y2="212" stroke="#3b6fb5" stroke-width="3" marker-end="url(#m3b6fb5)"/>
+<rect x="650.0" y="183.0" width="100" height="18" fill="#ffffff" opacity="0.9"/>
+<text x="700.0" y="196.0" font-size="11" fill="#3b6fb5" text-anchor="middle">PUBLIC VRF</text>
+<line x1="700.0" y1="268" x2="250.0" y2="336" stroke="#888888" stroke-width="2" marker-end="url(#m888888)" marker-start="url(#m888888)"/>
+<rect x="429.5" y="293.0" width="91" height="18" fill="#ffffff" opacity="0.9"/>
+<text x="475.0" y="306.0" font-size="11" fill="#888888" text-anchor="middle">100G ECMP</text>
+<line x1="250.0" y1="386" x2="250.0" y2="430" stroke="#888888" stroke-width="2" marker-end="url(#m888888)" marker-start="url(#m888888)"/>
+<rect x="182.0" y="399.0" width="136" height="18" fill="#ffffff" opacity="0.9"/>
+<text x="250.0" y="412.0" font-size="11" fill="#888888" text-anchor="middle">100G × 4 spine</text>
+<line x1="250.0" y1="486" x2="250.0" y2="540" stroke="#3a7d34" stroke-width="2" marker-end="url(#m3a7d34)" marker-start="url(#m3a7d34)"/>
+<rect x="182.0" y="504.0" width="136" height="18" fill="#ffffff" opacity="0.9"/>
+<text x="250.0" y="517.0" font-size="11" fill="#3a7d34" text-anchor="middle">노드 ↔ leaf eBGP</text>
+<line x1="700.0" y1="268" x2="700.0" y2="336" stroke="#888888" stroke-width="2" marker-end="url(#m888888)" marker-start="url(#m888888)"/>
+<rect x="654.5" y="293.0" width="91" height="18" fill="#ffffff" opacity="0.9"/>
+<text x="700.0" y="306.0" font-size="11" fill="#888888" text-anchor="middle">100G ECMP</text>
+<line x1="700.0" y1="386" x2="700.0" y2="430" stroke="#888888" stroke-width="2" marker-end="url(#m888888)" marker-start="url(#m888888)"/>
+<rect x="632.0" y="399.0" width="136" height="18" fill="#ffffff" opacity="0.9"/>
+<text x="700.0" y="412.0" font-size="11" fill="#888888" text-anchor="middle">100G × 4 spine</text>
+<line x1="700.0" y1="486" x2="700.0" y2="540" stroke="#3a7d34" stroke-width="2" marker-end="url(#m3a7d34)" marker-start="url(#m3a7d34)"/>
+<rect x="632.0" y="504.0" width="136" height="18" fill="#ffffff" opacity="0.9"/>
+<text x="700.0" y="517.0" font-size="11" fill="#3a7d34" text-anchor="middle">노드 ↔ leaf eBGP</text>
+<line x1="700.0" y1="268" x2="1150.0" y2="336" stroke="#888888" stroke-width="2" marker-end="url(#m888888)" marker-start="url(#m888888)"/>
+<rect x="879.5" y="293.0" width="91" height="18" fill="#ffffff" opacity="0.9"/>
+<text x="925.0" y="306.0" font-size="11" fill="#888888" text-anchor="middle">100G ECMP</text>
+<line x1="1150.0" y1="386" x2="1150.0" y2="430" stroke="#888888" stroke-width="2" marker-end="url(#m888888)" marker-start="url(#m888888)"/>
+<rect x="1082.0" y="399.0" width="136" height="18" fill="#ffffff" opacity="0.9"/>
+<text x="1150.0" y="412.0" font-size="11" fill="#888888" text-anchor="middle">100G × 4 spine</text>
+<line x1="1150.0" y1="486" x2="1150.0" y2="540" stroke="#3a7d34" stroke-width="2" marker-end="url(#m3a7d34)" marker-start="url(#m3a7d34)"/>
+<rect x="1082.0" y="504.0" width="136" height="18" fill="#ffffff" opacity="0.9"/>
+<text x="1150.0" y="517.0" font-size="11" fill="#3a7d34" text-anchor="middle">노드 ↔ leaf eBGP</text>
+<text x="700.0" y="42.5" font-size="18" fill="#ffffff" text-anchor="middle" font-weight="bold">그림 1. Y1 전체 토폴로지 (랙 열 뷰, 전 구간 100G)</text>
+<text x="700.0" y="81.0" font-size="13" fill="#222222" text-anchor="middle" font-weight="bold">결론 : 3계층 eBGP 패브릭 + 포트별 L3 노드. 어디서 들어와도 가까운 leaf 까지만 올라가고 처리 Pod 는 전체에서 고름</text>
+<text x="135.0" y="137.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">외부 ETL client</text>
+<text x="135.0" y="154.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">(원천 소스 · 사내망)</text>
+<text x="700.0" y="137.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">FA Core × 2</text>
+<text x="700.0" y="154.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">DC 코어 · 방화벽 경계 · VRF-lite eBGP</text>
+<text x="700.0" y="235.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">Super Spine × 4 (AS 65000)</text>
+<text x="700.0" y="252.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">Pod 간 연결 · Border 역할</text>
+<text x="250.0" y="321" font-size="13" fill="#222222" text-anchor="middle" font-weight="bold">Com-1 Pod</text>
+<text x="250.0" y="364.5" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">Spine × 4 (AS 65011)</text>
+<text x="250.0" y="453.0" font-size="12" fill="#222222" text-anchor="middle">ToR leaf 쌍 (랙별 고유 ASN)</text>
+<text x="250.0" y="470.0" font-size="12" fill="#222222" text-anchor="middle">Row A · 7랙 · 랙당 18노드</text>
+<text x="250.0" y="570.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">Com 노드 126</text>
+<text x="250.0" y="587.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">StarRocks FE · CN / Spark / Trino / Airflow</text>
+<text x="250.0" y="647.0" font-size="11" fill="#222222" text-anchor="middle">NIC 100G × 4 : PRIVATE 2 + PUBLIC 2</text>
+<text x="250.0" y="663.0" font-size="11" fill="#222222" text-anchor="middle">포트별 L3 · eBGP 2세션 · 루프백 /32 · netkit</text>
+<text x="700.0" y="321" font-size="13" fill="#222222" text-anchor="middle" font-weight="bold">Com-2 Pod</text>
+<text x="700.0" y="364.5" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">Spine × 4 (AS 65012)</text>
+<text x="700.0" y="453.0" font-size="12" fill="#222222" text-anchor="middle">ToR leaf 쌍 (랙별 고유 ASN)</text>
+<text x="700.0" y="470.0" font-size="12" fill="#222222" text-anchor="middle">Row B · 7랙 · 랙당 18노드</text>
+<text x="700.0" y="570.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">Com 노드 126</text>
+<text x="700.0" y="587.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">StarRocks FE · CN / Spark / Trino / Airflow</text>
+<text x="700.0" y="647.0" font-size="11" fill="#222222" text-anchor="middle">NIC 100G × 4 : PRIVATE 2 + PUBLIC 2</text>
+<text x="700.0" y="663.0" font-size="11" fill="#222222" text-anchor="middle">포트별 L3 · eBGP 2세션 · 루프백 /32 · netkit</text>
+<text x="1150.0" y="321" font-size="13" fill="#222222" text-anchor="middle" font-weight="bold">Storage Pod</text>
+<text x="1150.0" y="364.5" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">Spine × 4 (AS 65013)</text>
+<text x="1150.0" y="453.0" font-size="12" fill="#222222" text-anchor="middle">ToR leaf 쌍 (랙별 고유 ASN)</text>
+<text x="1150.0" y="470.0" font-size="12" fill="#222222" text-anchor="middle">Row C · 6랙 · 랙당 8노드</text>
+<text x="1150.0" y="570.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">AIStor 노드 48</text>
+<text x="1150.0" y="587.0" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">AIStor Pod 48 (DaemonSet · 노드당 1)</text>
+<text x="1150.0" y="647.0" font-size="11" fill="#222222" text-anchor="middle">NIC 100G × 6 : PRIVATE 4 + PUBLIC 2</text>
+<text x="1150.0" y="663.0" font-size="11" fill="#222222" text-anchor="middle">포트별 L3 · eBGP 2세션 · 루프백 /32 · netkit</text>
+<text x="475.0" y="739.5" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">ydl-com K8s (AS 65101) : 252 노드 · ETL 내부 client(Airflow · StarRocks · Spark) 위치</text>
+<text x="1150.0" y="739.5" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">ydl-aistor K8s (AS 65102) : 48 노드</text>
+<text x="700.0" y="789.5" font-size="12" fill="#222222" text-anchor="middle" font-weight="bold">ClusterMesh (KVStoreMesh) : Global Service 로 Com Pod → AIStor Pod IP 직결 (PRIVATE VRF, 캡슐화 없음)</text>
+</svg>
