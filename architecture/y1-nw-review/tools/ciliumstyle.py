@@ -72,76 +72,115 @@ def bonds(g, x, y, gap=40):
     return b0, b1
 
 
+# ---------------------------------------------------------------- N-0 양식 부품
+BLUE, ST_F, CP_F = "#036897", "#E3ECE0", "#ECEAE3"
+
+
+def cell(g, x, y, w, h, t, kind="white", size=12, bold=True, align="center"):
+    fill, stroke, fc = {"st": (ST_F, PRIV, INK), "cp": (CP_F, MUTE, INK), "blue": (BLUE, BLUE, "#FFFFFF"),
+                        "white": ("#FFFFFF", INK, INK), "rule": ("#FFFFFF", PRIV, INK)}[kind]
+    b = g.box(x, y, w, h, t, fill=fill, stroke=stroke, size=size, align=align, bold=bold)
+    if fc != INK:
+        g.cells[-1] = g.cells[-1].replace(f"fontColor={INK}", f"fontColor={fc}")
+    return b
+
+
+def pod2(g, x, y, w, name, ip, kind, iface):
+    p = cell(g, x, y, w, 56, f"{name}\n{ip}", kind)
+    n = cell(g, x + w / 2 - 60, y + 86, 120, 30, iface, "white", size=11, bold=False)
+    g.line(bot(p), top(n), "phys")
+    return p, n
+
+
+def bond2(g, x, y):
+    b0 = cell(g, x, y, 200, 36, "bond0 · PUBLIC", "blue")
+    b1 = cell(g, x + 240, y, 200, 36, "bond1 · PRIVATE", "blue")
+    for b in (b0, b1):
+        for i, nm in enumerate(("p1 → Leaf-A", "p2 → Leaf-B")):
+            m = cell(g, b["x"] + i * 104, y + 56, 96, 24, nm, "white", size=10, bold=False)
+            g.line(at(b, 0.25 + 0.5 * i, 1), top(m), "phys")
+    return b0, b1
+
+
+def agent2(g, x, y, w, items):
+    h = 50 + len(items) * 46
+    g.zone(x, y, w, h, "cilium agent")
+    for i, t in enumerate(items):
+        cell(g, x + 14, y + 42 + i * 46, w - 28, 36, t, "white", size=12, bold=False)
+    return h
+
+
+def basics(g, x, y, w, h, lines):
+    b = cell(g, x, y, w, h, "Basics\n" + "\n".join("· " + l for l in lines), "rule", size=12, bold=False, align="left")
+    g.cells[-1] = g.cells[-1].replace("verticalAlign=middle", "verticalAlign=top")
+    return b
+
+
 # ================================================================ C-1 Storage 노드 내부
 def c1():
-    g = Diagram("C-1 Storage node internals", 1400, 760)
-    node(g, 20, 20, 1360, 720, "Node · Storage K8s")
-    p1, e1 = pod(g, 90, 80, 260, "AIStor", "10.30.1.15", "netkit nk1")
-    p2, e2 = pod(g, 450, 80, 260, "other", "10.30.1.16", "netkit nk2")
-    rt = rtable(g, 70, 300, 820, [
-        "10.30.1.15/32  via nk1",
-        "10.30.1.16/32  via nk2",
-        "10.30.0.0/16 · 10.10.0.0/16  via bond1",
-        "default  via bond0",
-        "VIP 203.0.113.10/32  local"])
-    g.line(bot(e1), at(rt, 0.17, 0), "phys")
-    g.line(bot(e2), at(rt, 0.54, 0), "phys")
-    lb = g.box(110, 460, 300, 44, "eBPF LB (XDP · tc)", fill=BPF_F, stroke=BPF_S, size=12, align="center", bold=True)
-    hr = g.box(500, 460, 300, 44, "eBPF host routing", fill=BPF_F, stroke=BPF_S, size=12, align="center", bold=True)
+    g = Diagram("C-1 Storage node internals", 1400, 720)
+    g.zone(20, 20, 900, 680, "Node · Storage K8s", color=PRIV)
+    p1, n1 = pod2(g, 90, 80, 260, "AIStor pod", "10.30.1.15", "st", "netkit nk1")
+    p2, n2 = pod2(g, 470, 80, 260, "other pod", "10.30.1.16", "cp", "netkit nk2")
+    rt = cell(g, 70, 250, 820, 120, "Routing table\n10.30.1.15/32 via nk1 · 10.30.1.16/32 via nk2\n10.30.0.0/16 · 10.10.0.0/16 via bond1\ndefault via bond0 · VIP 203.0.113.10/32 local", "white", size=12, bold=False, align="left")
+    g.line(bot(n1), at(rt, 0.17, 0), "phys")
+    g.line(bot(n2), at(rt, 0.55, 0), "phys")
+    lb = cell(g, 110, 420, 300, 44, "eBPF LB (XDP · tc)", "white")
+    hr = cell(g, 530, 420, 300, 44, "eBPF host routing", "white")
     g.line(at(rt, 0.3, 1), top(lb), "phys")
-    g.line(at(rt, 0.75, 1), top(hr), "phys")
-    b0, b1 = bonds(g, 160, 560, gap=150)
+    g.line(at(rt, 0.83, 1), top(hr), "phys")
+    b0, b1 = bond2(g, 210, 540)
     g.line(bot(lb), top(b0), "pub")
     g.line(bot(hr), top(b1), "priv")
-    agent(g, 960, 60, 400, 420, ["BGP#1 bond0 : VIP/32", "BGP#2 bond1 : PodCIDR", "Service LB : eTP Local", "Socket LB", "ClusterMesh (KVStoreMesh)", "eBPF programs"])
-    g.text(960, 500, 400, 120, "Basics\n· External → bond0 → local pod\n· Pod-to-pod · shards → bond1\n· No DSR · no Maglev", size=12, box=True)
+    h = agent2(g, 960, 20, 420, ["BGP#1 bond0 : VIP/32", "BGP#2 bond1 : PodCIDR", "Service LB : eTP Local", "Socket LB", "ClusterMesh (KVStoreMesh)"])
+    basics(g, 960, 40 + h, 420, 150, ["External → bond0 → local pod", "Pod-to-pod · shards → bond1", "No DSR · no Maglev"])
     return g
 
 
 # ================================================================ C-2 외부 요청 처리
 def c2():
-    g = Diagram("C-2 External request (eTP Local)", 1400, 700)
-    node(g, 20, 20, 1360, 660, "Node · Storage K8s")
-    p1, e1 = pod(g, 260, 80, 300, "AIStor", "10.30.1.15", "netkit nk1")
-    lb = g.box(160, 320, 500, 54, "eBPF LB (XDP · tc)\nVIP → P-IP", fill=BPF_F, stroke=BPF_S, size=12, align="center", bold=True)
-    b0, b1 = bonds(g, 160, 540, gap=100)
+    g = Diagram("C-2 External request (eTP Local)", 1400, 640)
+    g.zone(20, 20, 900, 600, "Node · Storage K8s", color=PRIV)
+    p1, n1 = pod2(g, 270, 70, 300, "AIStor pod", "10.30.1.15", "st", "netkit nk1")
+    lb = cell(g, 170, 290, 500, 54, "eBPF LB (XDP · tc)\nVIP → P-IP (local only)", "white")
+    b0, b1 = bond2(g, 190, 470)
     g.line(top(b0), at(lb, 0.25, 1), "fpub", "①")
-    g.line(at(lb, 0.5, 0), bot(e1), "fpub", "②")
-    shard = g.box(700, 200, 200, 44, "other AIStor nodes", fill="#FFFFFF", stroke=PRIV, size=11, align="center")
-    g.line(right(p1, 0.6), left(shard), "priv", "③")
-    g.line(bot(shard), top(b1), "priv")
+    g.line(at(lb, 0.5, 0), bot(n1), "fpub", "②")
+    sh = cell(g, 690, 150, 200, 44, "other AIStor nodes", "st", size=11, bold=False)
+    g.line(right(p1, 0.5), left(sh), "priv", "③")
+    g.line(bot(sh), top(b1), "priv")
     g.line(at(lb, 0.1, 1), at(b0, 0.1, 0), "fpub", "④")
-    agent(g, 960, 60, 400, 240, ["BGP#1 bond0 : VIP/32", "eTP Local"])
-    g.text(960, 330, 400, 170, "Basics\n① C-IP → VIP on bond0\n② VIP → local pod (no hop)\n③ shards via bond1\n④ reply src VIP · client IP kept", size=12, box=True)
+    h = agent2(g, 960, 20, 420, ["BGP#1 bond0 : VIP/32", "eTP Local"])
+    basics(g, 960, 40 + h, 420, 170, ["① C-IP → VIP on bond0", "② VIP → local pod (no extra hop)", "③ shards via bond1", "④ reply src VIP · client IP kept"])
     return g
 
 
 # ================================================================ C-3 내부 client → AIStor
 def c3():
-    g = Diagram("C-3 Internal client → AIStor", 1640, 900)
-    cm = g.box(670, 20, 300, 50, "ClusterMesh", fill=AG_F, stroke=KEY, size=12, align="center", bold=True)
-    node(g, 20, 100, 640, 720, "Node · Compute K8s")
-    pc, ec = pod(g, 180, 160, 300, "ETL client", "10.10.4.21", "netkit")
-    sl = g.box(160, 390, 340, 44, "eBPF socket LB", fill=BPF_F, stroke=BPF_S, size=12, align="center", bold=True)
-    rt = rtable(g, 80, 470, 500, ["10.10.4.21/32  via netkit", "10.30.0.0/16  via bond1", "default  via bond0"])
-    b1c = g.box(230, 680, 200, 34, "bond1 · PRIVATE", fill=B1_F, stroke=PRIV, size=11, align="center", bold=True)
-    g.line(bot(ec), top(sl), "fpriv", "Ⓐ")
+    g = Diagram("C-3 Internal client → AIStor", 1640, 820)
+    cm = cell(g, 670, 20, 300, 44, "ClusterMesh", "white")
+    g.zone(20, 90, 640, 640, "Node · Compute K8s")
+    pc, nc = pod2(g, 180, 140, 300, "ETL client pod", "10.10.4.21", "cp", "netkit")
+    sl = cell(g, 160, 330, 340, 44, "eBPF socket LB", "white")
+    rt = cell(g, 80, 420, 500, 84, "Routing table\n10.30.0.0/16 via bond1 · default via bond0", "white", size=12, bold=False, align="left")
+    b1c = cell(g, 230, 600, 200, 36, "bond1 · PRIVATE", "blue")
+    g.line(bot(nc), top(sl), "fpriv", "Ⓐ")
     g.line(bot(sl), top(rt), "fpriv", "Ⓑ")
     g.line(bot(rt), top(b1c), "fpriv", "Ⓒ")
-    fab = g.box(690, 650, 260, 70, "Fabric\nVRF PRIVATE", fill="#FFFFFF", stroke=MUTE, size=12, align="center", bold=True)
-    node(g, 980, 100, 640, 720, "Node · Storage K8s")
-    b1s = g.box(1200, 680, 200, 34, "bond1 · PRIVATE", fill=B1_F, stroke=PRIV, size=11, align="center", bold=True)
-    rs = rtable(g, 1040, 470, 520, ["10.30.1.15/32  via nk1", "10.10.0.0/16  via bond1", "default  via bond0"])
-    hr = g.box(1130, 390, 340, 44, "eBPF host routing", fill=BPF_F, stroke=BPF_S, size=12, align="center", bold=True)
-    ps, es = pod(g, 1150, 160, 300, "AIStor", "10.30.1.15", "netkit nk1")
+    fab = cell(g, 690, 580, 260, 70, "Fabric\nVRF PRIVATE", "white")
+    g.zone(980, 90, 640, 640, "Node · Storage K8s", color=PRIV)
+    ps, ns = pod2(g, 1150, 140, 300, "AIStor pod", "10.30.1.15", "st", "netkit nk1")
+    hr = cell(g, 1130, 330, 340, 44, "eBPF host routing", "white")
+    rs = cell(g, 1040, 420, 520, 84, "Routing table\n10.10.0.0/16 via bond1 · default via bond0", "white", size=12, bold=False, align="left")
+    b1s = cell(g, 1200, 600, 200, 36, "bond1 · PRIVATE", "blue")
     g.line(right(b1c), left(fab, 0.6), "fpriv", "Ⓓ")
     g.line(right(fab, 0.6), left(b1s), "fpriv", "Ⓔ")
     g.line(top(b1s), bot(rs), "fpriv")
     g.line(top(rs), bot(hr), "fpriv")
-    g.line(top(hr), bot(es), "fpriv", "Ⓕ")
+    g.line(top(hr), bot(ns), "fpriv", "Ⓕ")
     g.line(at(cm, 0.2, 1), at(sl, 0.8, 0), "ctrl")
     g.line(at(cm, 0.8, 1), at(hr, 0.3, 0), "ctrl")
-    g.text(20, 836, 1600, 50, "Basics : connect(global svc) → socket LB picks an AIStor pod → Pod IP over bond1 · no NAT · reply same path", size=12, bold=True)
+    basics(g, 20, 744, 1600, 64, ["connect(global svc) → socket LB picks an AIStor pod → Pod IP over bond1 · no NAT · reply on the same path"])
     return g
 
 
