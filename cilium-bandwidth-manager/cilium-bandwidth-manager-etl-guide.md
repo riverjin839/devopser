@@ -373,7 +373,55 @@ kubectl -n kube-system rollout restart ds/cilium
 | BBR 활성화 후 혼잡제어 미변경 | 기존 파드는 바뀌지 않음. BBR은 새로 뜨는 파드부터 적용 | 파드 재생성. 커널 5.18+ 및 Host Routing BPF 확인 |
 | Job 실행 시간이 크게 늘어남 | 제한값이 너무 낮음 | 4.1 수식으로 재산정, `activeDeadlineSeconds` 조정 |
 
-## 7. 체크리스트 및 참고자료
+## 7. I 지역 Target 클러스터 적용 예시 (구간 10G, ETL 1G)
+
+**결론:** W 지역 SRC와 I 지역 Target 클러스터 사이 구간 회선은 10G입니다. ETL이 이 구간에서 쓰는 합계를 1G로 묶고, 그 1G를 동시에 뜨는 Spark executor 수로 나눠 파드별 상한을 겁니다. 흐름도는 [i-region-etl-bandwidth.drawio](./i-region-etl-bandwidth.drawio)(데이터 흐름, 대역폭 제어 적용 지점 2페이지)를 참고합니다.
+
+**데이터 흐름**
+
+1. Airflow가 Spark ETL Job을 실행합니다.
+2. Spark executor가 W 지역 SRC 데이터를 가져옵니다. 구간 10G 회선을 지나며, executor 파드 기준으로는 **ingress**입니다.
+3. Spark가 결과를 I 지역 AIStor(S3)에 저장합니다. executor 파드 기준으로는 **egress**입니다.
+4. Airflow가 StarRocks에 적재 SQL(Broker Load, INSERT FROM FILES)을 보냅니다.
+5. StarRocks(shared-data)가 AIStor에서 읽고 테이블 데이터를 AIStor에 씁니다.
+
+**파드별 상한 계산**
+
+```
+파드당 상한 = 1G ÷ (Airflow 동시 Spark Job 수 × Job당 executor 수)
+```
+
+| 동시 Spark Job | Job당 executor | 파드당 ingress / egress | 구간 합계 |
+| --- | --- | --- | --- |
+| 1 | 4 | `250M` | 1G |
+| 1 | 8 | `125M` | 1G |
+| 2 | 4 | `125M` | 1G |
+
+- executor 수가 바뀌면 합계가 1G를 넘습니다. Spark dynamic allocation을 쓰면 `spark.dynamicAllocation.maxExecutors`로 상한을 고정합니다.
+- Airflow pool로 이 ETL의 동시 Spark Job 수를 고정합니다(예: pool slot 1).
+- driver는 SRC 데이터를 직접 받지 않으므로 작은 값(예: `50M`)만 겁니다.
+
+**Spark 설정 예시 (동시 Job 1개, executor 4개)**
+
+```bash
+spark-submit \
+  --conf spark.executor.instances=4 \
+  --conf spark.dynamicAllocation.enabled=false \
+  --conf spark.kubernetes.executor.annotation.kubernetes.io/ingress-bandwidth=250M \
+  --conf spark.kubernetes.executor.annotation.kubernetes.io/egress-bandwidth=250M \
+  --conf spark.kubernetes.driver.annotation.kubernetes.io/egress-bandwidth=50M \
+  ...
+```
+
+**주의사항**
+
+- **추출(②)은 ingress 제한:** ingress는 토큰 버킷이 초과분을 버립니다. RTT가 큰 지역 간 회선에서는 재전송이 늘어 실제 처리량이 상한보다 크게 떨어질 수 있습니다. executor 수와 파티션 수(JDBC `numPartitions`, 파일 분할)로 먼저 속도를 맞추고, ingress 제한은 1G를 넘지 않게 막는 보호선으로 둡니다. 5.2 iperf3 테스트를 W ↔ I 구간에서 한 번 실측해 둡니다.
+- **NIC 구성:** 외부 경로(W 지역)와 내부 경로(AIStor)가 다른 NIC로 나뉘어 있다면(예: bond0 / bond1) `devices`에 둘 다 넣습니다. 자동 감지는 기본 라우트 NIC만 잡을 수 있습니다.
+- **같은 노드의 AIStor:** 같은 노드에 있는 AIStor 파드로 가는 트래픽은 NIC를 거치지 않아 egress 제한이 걸리지 않습니다.
+- **StarRocks · AIStor는 제외:** 공용 스토리지와 쿼리 엔진이라 파드 제한을 걸면 다른 사용자까지 느려집니다. StarRocks 적재(④ · ⑤)는 적재 동시성과 리소스 그룹으로 조절합니다.
+- **구간 실사용량 확인:** 구간 회선의 실제 사용량은 Cilium이 아니라 네트워크 장비(구간 라우터 인터페이스 카운터)에서 확인해 1G 이내인지 봅니다.
+
+## 8. 체크리스트 및 참고자료
 
 **적용 전**
 
