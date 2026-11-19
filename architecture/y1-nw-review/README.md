@@ -24,6 +24,7 @@ Y1 AI DATAPLATFORM 네트워크 고도화 검토 요청 (서버 배치 · Switch
 | C-3 | 내부 client → AIStor (소켓 LB · bond1 · NAT 없음) |
 
 - 그림(draw.io) : 구조 · 영문 라벨만 (설명 문장 없음, 글자는 상자에 맞춰 최대 크기). 설명은 검토 요청서의 각 그림 아래
+- 가져오기 호환 (Confluence · Gliffy) : 글꼴 Helvetica 1개, 라벨은 일반 텍스트(html=0), 장비 이름은 아이콘 아래 별도 텍스트
 - IP 는 예시값, ASN 은 `<SS>` · `<SP-n>` · `<LF-n>` · `<CL-n>` 표기
 - 목업 PNG 의 Cisco 아이콘은 근사 모양 (draw.io 에서는 실제 Cisco 아이콘)
 - 재생성 : `cd tools && python3 nwdiag.py && python3 ciliumstyle.py`

@@ -8,11 +8,11 @@ import html
 import os
 
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
-FONT = "Noto Sans KR,Malgun Gothic,Apple SD Gothic Neo,sans-serif"
+FONT = "Helvetica"   # 가져오기 도구(Confluence · Gliffy) 호환 : 기본 글꼴 1개
 INK, MUTE, PAPER = "#2B2A27", "#8A877E", "#FFFFFF"
 PUB, PRIV, KEY = "#CC501A", "#5F8B5A", "#D4A941"     # PUBLIC(bond0) · PRIVATE(bond1) · 제어/강조
 
-CISCO = ("sketch=0;html=1;pointerEvents=1;dashed=0;fillColor=#036897;strokeColor=#ffffff;strokeWidth=2;"
+CISCO = ("sketch=0;html=0;pointerEvents=1;dashed=0;fillColor=#036897;strokeColor=#ffffff;strokeWidth=2;"
          "verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;")
 ICON = {  # 종류 : (shape, w, h)
     "l3": ("mxgraph.cisco.switches.layer_3_switch", 48, 48),
@@ -54,7 +54,8 @@ def fit(t, w, h, base, cap=20):
 
 
 def esc(t):
-    return html.escape(html.escape(t).replace("\n", "<br>"))
+    """일반 텍스트 라벨 (html=0) : 줄바꿈은 개행 문자."""
+    return html.escape(t).replace("\n", "&#xa;")
 
 
 class Diagram:
@@ -71,15 +72,22 @@ class Diagram:
 
     def dev(self, kind, x, y, label, size=14, bold=True):
         shape, w, h = ICON[kind]
-        st = CISCO + f"shape={shape};fontFamily={FONT};fontSize={size};fontColor={INK};labelBackgroundColor={PAPER};" + ("fontStyle=1;" if bold else "")
+        st = CISCO + f"shape={shape};"
         if kind == "cloud":
-            st = st.replace("verticalLabelPosition=bottom;verticalAlign=top;", "verticalLabelPosition=middle;verticalAlign=middle;").replace(f"fontColor={INK}", "fontColor=#FFFFFF").replace(f"labelBackgroundColor={PAPER};", "")
-        self.cells.append(f'<mxCell id="{self._id()}" value="{esc(label)}" style="{st}" vertex="1" parent="1">'
+            st += f"fontFamily={FONT};fontSize={size};fontColor=#FFFFFF;fontStyle=1;verticalLabelPosition=middle;verticalAlign=middle;"
+            self.cells.append(f'<mxCell id="{self._id()}" value="{esc(label)}" style="{st}" vertex="1" parent="1">'
+                              f'<mxGeometry x="{x}" y="{y}" width="{w}" height="{h}" as="geometry"/></mxCell>')
+            return dict(x=x, y=y, w=w, h=h)
+        self.cells.append(f'<mxCell id="{self._id()}" value="" style="{st}" vertex="1" parent="1">'
                           f'<mxGeometry x="{x}" y="{y}" width="{w}" height="{h}" as="geometry"/></mxCell>')
+        if label:
+            lines = label.split("\n")
+            tw = max(60, int(max(len(l) for l in lines) * size * 0.62) + 16)
+            self.text(x + w / 2 - tw / 2, y + h + 2, tw, len(lines) * (size + 5) + 6, label, size=size, align="center", bold=bold)
         return dict(x=x, y=y, w=w, h=h)
 
     def text(self, x, y, w, h, t, size=11, color=INK, align="left", bold=False, box=False, valign="top"):
-        st = (f"text;html=1;whiteSpace=wrap;align={align};verticalAlign={valign};spacing=4;fontFamily={FONT};"
+        st = (f"text;html=0;whiteSpace=wrap;align={align};verticalAlign={valign};spacing=4;fontFamily={FONT};"
               f"fontSize={size};fontColor={color};" + ("fontStyle=1;" if bold else ""))
         if box:
             st += f"fillColor={PAPER};strokeColor={MUTE};rounded=1;arcSize=4;"
@@ -89,7 +97,7 @@ class Diagram:
                           f'<mxGeometry x="{x}" y="{y}" width="{w}" height="{h}" as="geometry"/></mxCell>')
 
     def zone(self, x, y, w, h, title, color=MUTE, size=13, title_at="top"):
-        st = (f"rounded=1;arcSize=2;html=1;fillColor=none;strokeColor={color};dashed=1;dashPattern=6 4;strokeWidth=1.5;"
+        st = (f"rounded=1;arcSize=2;html=0;fillColor=none;strokeColor={color};dashed=1;dashPattern=6 4;strokeWidth=1.5;"
               f"align=left;verticalAlign=top;spacingLeft=8;spacingTop=2;fontFamily={FONT};fontSize={size};fontStyle=1;fontColor={INK};")
         self.zones.append(f'<mxCell id="{self._id()}" value="" style="{st}" vertex="1" parent="1">'
                           f'<mxGeometry x="{x}" y="{y}" width="{w}" height="{h}" as="geometry"/></mxCell>')
@@ -99,7 +107,7 @@ class Diagram:
     def box(self, x, y, w, h, t, fill="#F2EFE6", stroke=MUTE, size=11, align="left", bold=False):
         if t:
             size = fit(t, w, h, size)
-        st = (f"rounded=1;arcSize=6;html=1;whiteSpace=wrap;fillColor={fill};strokeColor={stroke};align={align};verticalAlign=middle;"
+        st = (f"rounded=1;arcSize=6;html=0;whiteSpace=wrap;fillColor={fill};strokeColor={stroke};align={align};verticalAlign=middle;"
               f"spacing=5;fontFamily={FONT};fontSize={size};fontColor={INK};" + ("fontStyle=1;" if bold else ""))
         self.cells.append(f'<mxCell id="{self._id()}" value="{esc(t)}" style="{st}" vertex="1" parent="1">'
                           f'<mxGeometry x="{x}" y="{y}" width="{w}" height="{h}" as="geometry"/></mxCell>')
@@ -107,7 +115,7 @@ class Diagram:
 
     def line(self, p1, p2, kind="phys", label="", size=10):
         col, wd, dash, arrow = LINK[kind]
-        st = (f"edgeStyle=none;orthogonal=0;rounded=0;html=1;strokeColor={col};strokeWidth={wd};"
+        st = (f"edgeStyle=none;orthogonal=0;rounded=0;html=0;strokeColor={col};strokeWidth={wd};"
               f"endArrow={'block' if arrow else 'none'};endFill=1;startArrow=none;fontFamily={FONT};fontSize={size};"
               f"fontColor={col if col != MUTE else INK};fontStyle=1;labelBackgroundColor={PAPER};")
         if dash:
