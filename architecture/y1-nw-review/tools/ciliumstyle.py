@@ -5,7 +5,7 @@ nwdiag.Diagram 재사용. IP 는 예시값. 로고 대신 글자 표기.
 """
 import os
 
-from nwdiag import Diagram, INK, MUTE, PUB, PRIV, KEY, at, top, bot, left, right
+from nwdiag import GLIFFY, Diagram, INK, MUTE, PUB, PRIV, KEY, at, top, bot, left, right
 
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 NODE_F, NODE_S = "#F6F6F6", "#BDBDBD"
@@ -182,6 +182,9 @@ def c3():
 
 
 def write():
+    global OUT
+    if GLIFFY:
+        OUT = OUT + "-gliffy"
     os.makedirs(os.path.join(OUT, "drawio"), exist_ok=True)
     pages = [("C-1", c1()), ("C-2", c2()), ("C-3", c3())]
     head = '<mxfile host="app.diagrams.net" type="device">'

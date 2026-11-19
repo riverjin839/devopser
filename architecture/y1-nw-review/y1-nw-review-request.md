@@ -130,7 +130,7 @@
 
 ![그림 N-3. eBGP · EVPN 제어 구조](images/N-3.png)
 
-- 계층별 ASN : Super Spine `<SS>` (2대 같은 ASN) · 구간 Spine `<SP-n>` · 랙 Leaf 쌍 `<LF-n-r>` · 클러스터 `<CL-n>`
+- 계층별 ASN : Super Spine `[SS]` (2대 같은 ASN) · 구간 Spine `[SP-n]` · 랙 Leaf 쌍 `[LF-n-r]` · 클러스터 `[CL-n]`
 - Leaf 마다 RD 가 달라 (`rd auto`) Border 에 VIP/32 경로가 V 개 모두 전달 → ECMP V 설치
 - 광고 : Compute · GPU 는 PodCIDR (bond1), Storage 는 PUBLIC VIP/32 (bond0, eTP Local) · PodCIDR · PRIVATE VIP (bond1)
 - Leaf : maximum-paths ≥ V · as-path multipath-relax · `rewrite-evpn-rt-asn` · VRF 별 수신 prefix-list, `allowas-in` · `as-override` 사용 안 함
