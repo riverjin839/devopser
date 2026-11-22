@@ -41,7 +41,7 @@
 
 | 계층 | 내용 | 누가 씀 |
 |---|---|---|
-| raw/ | 책 PDF, 기사, 음성 메모 전사, 이미지 | 사람이 넣음. 읽기 전용 |
+| raw/ | 책 PDF, 기사, 음성 메모(Whisper 텍스트), 이미지 | 사람이 넣음. 읽기 전용 |
 | wiki/ | sources/(원본 요약), concepts/(개념), analyses/(질의 결과), `index.md`, `log.md` | LLM(+코드) |
 | `AGENTS.md` | 위키 규칙. 언어, 개념 이름 규칙, 근거 표기 방식 | 사람과 LLM 이 같이 다듬음 |
 
@@ -95,7 +95,7 @@
 
 | 계층 | 구성 | 책 근거 |
 |---|---|---|
-| 입력 | PDF·MD 는 raw/ 에 복사, 음성 메모는 MLX Whisper 로 전사 후 raw/voice/ | 9장 |
+| 입력 | PDF·MD 는 raw/ 에 복사, 음성 메모 → MLX Whisper 로 텍스트 변환 → raw/voice/ | 9장 |
 | 모델 | Ollama `localhost:11434`, gemma3:4b 기본 / 8B Q4 상한 | 4장, 12장 RAM 표 |
 | 모델 설정 | Modelfile 로 wiki 전용 모델. SYSTEM 에 `AGENTS.md` 요약, `num_ctx 8192`, 낮은 temperature | 13장 |
 | 위키 엔진 | `wiki.py` (ingest · query · lint) | 이 글 5장 |
@@ -112,7 +112,7 @@
 | llama3.1:8b Q4 + num_ctx 8192 | ~7GB | 요약 품질 우선일 때 |
 | 8B + whisper medium + qmd 모델 | ~10GB 이상 | GPU 사용 가능 ~10.7GB 에 근접 → 동시에 돌리지 말 것 |
 
-- 전사(Whisper) → 수집(Ollama) → 색인(qmd) 을 순서대로 돌리면 한 번에 한 모델만 메모리에 올라감
+- 텍스트 변환(Whisper) → 수집(Ollama) → 색인(qmd) 을 순서대로 돌리면 한 번에 한 모델만 메모리에 올라감
 - `ollama ps` 로 실제 컨텍스트 할당 확인, `OLLAMA_KEEP_ALIVE` 를 짧게 두면 다음 단계 전에 내려감
 
 ### 3-2. 대안 구성 비교
@@ -264,7 +264,7 @@ ingest 완료 : sources/notes.md, 개념 신규 0 · 추가 0 · 중복 2     �
 ### 5-6. 음성 메모를 원본으로 (책 9장)
 
 ```python
-# voice_to_raw.py - 개념 코드. 녹음 파일을 전사해서 raw/voice/ 에 넣음
+# voice_to_raw.py - 개념 코드. 음성 메모 → Whisper 텍스트 → raw/voice/
 import mlx_whisper, pathlib, sys
 src = pathlib.Path(sys.argv[1])
 r = mlx_whisper.transcribe(str(src), path_or_hf_repo="mlx-community/whisper-medium-mlx", language="ko")
@@ -384,7 +384,7 @@ spec:
 | Mac 버전 원칙 | LLM 은 JSON 내용만, 파일·링크·index·log 는 코드 |
 | 모델 | gemma3:4b 기본, 8B Q4 상한, Modelfile 로 num_ctx·temperature 고정 |
 | 검색 확장 | `index.md`, qmd, ChromaDB 순 |
-| 입력 확장 | MLX Whisper 전사 결과를 raw/voice 로 |
+| 입력 확장 | 음성 메모 → Whisper 텍스트를 raw/voice 로 |
 | 사내 확장 | AIStor 원본, 클러스터 Ollama, Git 위키, lint CronJob, 권한 단위 분리 |
 
 **작은 로컬 모델로도 LLM Wiki 는 돌아가고, 조건은 모델에게 위키 관리를 맡기지 않고 내용만 받는 구조로 짜는 것이다**

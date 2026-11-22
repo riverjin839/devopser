@@ -2,7 +2,7 @@ SPECS = {
     "llmwiki-overview": dict(
         size=[260, 110], stepx=400, stepy=200, strong=["wiki"], io=["raw", "you"],
         title="LLM Wiki on Mac - 원본, 위키, 규칙 세 계층", hero=["llm"],
-        nodes=[N("raw", "external", "raw/ 원본", "PDF · MD · 음성 전사", 0, 0),
+        nodes=[N("raw", "external", "raw/ 원본", "PDF · MD · 음성 메모", 0, 0),
                N("llm", "backend", "Ollama", "gemma3:4b · 로컬", 1, 0),
                N("wiki", "database", "wiki/", "요약 · 개념 · 분석", 2, 0),
                N("schema", "security", "AGENTS.md", "위키 규칙", 1, 1),
@@ -33,7 +33,7 @@ SPECS = {
                N("qmd", "database", "qmd 검색", "BM25 · 벡터 · rerank", 0, 1),
                N("obs", "external", "Obsidian", "그래프 · 백링크", 1, 2),
                N("git", "security", "git", "이력 · 되돌리기", 2, 2)],
-        edges=[E("voice", "raw", "전사"), E("raw", "engine", "원본"),
+        edges=[E("voice", "raw", "텍스트"), E("raw", "engine", "원본"),
                E("engine", "ollama", "JSON 요청", "emphasis"), E("qmd", "engine", "페이지 후보"),
                E("engine", "obs", "마크다운", "emphasis"), E("engine", "git", "커밋", "dashed")]),
 
