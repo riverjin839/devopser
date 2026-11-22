@@ -42,8 +42,8 @@
 | 계층 | 내용 | 누가 씀 |
 |---|---|---|
 | raw/ | 책 PDF, 기사, 음성 메모 전사, 이미지 | 사람이 넣음. 읽기 전용 |
-| wiki/ | sources/(원본 요약), concepts/(개념), analyses/(질의 결과), index.md, log.md | LLM(+코드) |
-| AGENTS.md | 위키 규칙. 언어, 개념 이름 규칙, 근거 표기 방식 | 사람과 LLM 이 같이 다듬음 |
+| wiki/ | sources/(원본 요약), concepts/(개념), analyses/(질의 결과), `index.md`, `log.md` | LLM(+코드) |
+| `AGENTS.md` | 위키 규칙. 언어, 개념 이름 규칙, 근거 표기 방식 | 사람과 LLM 이 같이 다듬음 |
 
 | 동작 | gist 정의 | Mac 버전 구현 |
 |---|---|---|
@@ -51,9 +51,9 @@
 | Query | index 먼저 읽고 관련 페이지 → 인용 포함 답 | index → 페이지 고르기(JSON) → 존재 확인 → 답 → `--save` 로 analyses 저장 |
 | Lint | 모순, 오래된 주장, 고아, 빠진 링크 | 고아·깨진 링크·미수집 원본은 코드로, 모순은 LLM 으로 |
 
-- index.md = 내용 목록(카탈로그). 페이지마다 링크 + 한 줄 요약
-- log.md = 시간순 기록. `## [2026-11-22] ingest | 제목` 접두어 → `grep "^## \[" log.md | tail -5` 로 바로 조회
-- gist 기준 index.md 만으로 원본 ~100개, 페이지 수백 개까지는 임베딩 검색 없이 동작
+- `index.md` = 내용 목록(카탈로그). 페이지마다 링크 + 한 줄 요약
+- `log.md` = 시간순 기록. `## [2026-11-22] ingest | 제목` 접두어 → `grep "^## \[" log.md | tail -5` 로 바로 조회
+- gist 기준 `index.md` 만으로 원본 ~100개, 페이지 수백 개까지는 임베딩 검색 없이 동작
 
 ### 2-3. 왜 Mac 에선 "LLM 은 내용, 코드는 관리" 인가
 
@@ -68,18 +68,18 @@
 |---|---|---|
 | 요약 문장, 개념 이름, 근거 메모 | LLM (JSON) | 언어 이해가 필요한 부분 |
 | 파일 경로, slug, `[[링크]]` 문법 | 코드 | 작은 모델이 자주 틀리는 형식 |
-| index.md 재생성 | 코드 | 매번 전체 재생성 → 어긋날 일 없음 |
-| log.md 추가 | 코드 | 날짜 형식 고정 |
+| `index.md` 재생성 | 코드 | 매번 전체 재생성 → 어긋날 일 없음 |
+| `log.md` 추가 | 코드 | 날짜 형식 고정 |
 | 개념 페이지 갱신 | 코드 (덧붙이기만) | 기존 내용 재작성 금지 → 정보 유실 방지 |
 | 모순 판단 | LLM | 근거 2개 이상 개념만 검사 |
 
 > 주의 : 개념 페이지를 LLM 에게 "다시 써 줘" 로 갱신시키면 4B 모델은 기존 근거를 빼먹는 경우가 많음. 덧붙이기 + 주기적 사람 검토가 안전함
 
-### 2-4. 검색 계층 - index.md 다음 단계
+### 2-4. 검색 계층 - `index.md` 다음 단계
 
 | 단계 | 방식 | 언제 |
 |---|---|---|
-| 1 | index.md 를 통째로 context 에 넣음 | 페이지 수백 개까지. num_ctx 8192 기준 index 한 줄 ~30토큰이면 ~200줄 |
+| 1 | `index.md` 를 통째로 context 에 넣음 | 페이지 수백 개까지. num_ctx 8192 기준 index 한 줄 ~30토큰이면 ~200줄 |
 | 2 | qmd (BM25 + 벡터 + LLM rerank, 전부 로컬 GGUF) | index 가 context 를 넘을 때. CLI·MCP 서버 제공 |
 | 3 | ChromaDB + Ollama 임베딩 (책 16.1) | 이미 RAG 코드가 있거나 Python 안에서 끝내고 싶을 때 |
 
@@ -97,9 +97,9 @@
 |---|---|---|
 | 입력 | PDF·MD 는 raw/ 에 복사, 음성 메모는 MLX Whisper 로 전사 후 raw/voice/ | 9장 |
 | 모델 | Ollama `localhost:11434`, gemma3:4b 기본 / 8B Q4 상한 | 4장, 12장 RAM 표 |
-| 모델 설정 | Modelfile 로 wiki 전용 모델. SYSTEM 에 AGENTS.md 요약, `num_ctx 8192`, 낮은 temperature | 13장 |
-| 위키 엔진 | wiki.py (ingest · query · lint) | 이 글 5장 |
-| 검색 | index.md → qmd → ChromaDB 순으로 확장 | 16.1 |
+| 모델 설정 | Modelfile 로 wiki 전용 모델. SYSTEM 에 `AGENTS.md` 요약, `num_ctx 8192`, 낮은 temperature | 13장 |
+| 위키 엔진 | `wiki.py` (ingest · query · lint) | 이 글 5장 |
+| 검색 | `index.md` → qmd → ChromaDB 순으로 확장 | 16.1 |
 | 보기 | Obsidian (그래프 뷰, 백링크), 질의 UI 는 Streamlit 채팅 | 8장 |
 | 이력 | wiki/ 를 git 으로 관리. ingest 마다 커밋 | gist |
 | 네트워크 | 모델 받은 뒤 Wi-Fi 끄고 전 과정 동작 확인 | 14장 |
@@ -120,7 +120,7 @@
 | 구성 | 장점 | 단점 | 언제 |
 |---|---|---|---|
 | Claude Code·Codex + 클라우드 모델 (gist 원형) | 에이전트가 위키 전체를 알아서 관리, 품질 최고 | 원본이 외부로 나감, 사용량 비용 | 공개 자료, 개인 학습 |
-| 완전 로컬 Ollama + wiki.py (이 글) | 데이터가 Mac 밖으로 안 나감, 비용 0, 오프라인 | 요약 품질이 모델 크기에 묶임, 수집 느림 | 사내 문서, 민감 메모 |
+| 완전 로컬 Ollama + `wiki.py` (이 글) | 데이터가 Mac 밖으로 안 나감, 비용 0, 오프라인 | 요약 품질이 모델 크기에 묶임, 수집 느림 | 사내 문서, 민감 메모 |
 | 하이브리드 | 수집은 로컬, 가끔 lint·재구성만 클라우드 | 어떤 페이지를 보낼지 관리 필요 | 품질과 보안 둘 다 필요할 때 |
 | 로컬 에이전트 (Ollama 도구 호출) | gist 와 같은 자율성 | 16GB 에선 도구 호출 신뢰도 낮음 | 32GB 이상 Mac, 14B 이상 모델 |
 
@@ -137,7 +137,7 @@
 3. 청크마다 `format=INGEST_SCHEMA` 로 `{title, summary[], concepts[{name, note}]}` 받음
 4. `sources/<slug>.md` 생성. frontmatter 에 원본 경로·수집일·청크 수
 5. 개념마다 `concepts/<slug>.md` → 없으면 생성, 있으면 `- [[sources/x]] : 근거` 한 줄 덧붙임, 같은 원본이면 건너뜀
-6. index.md 전체 재생성 → log.md 에 `ingest` 한 줄
+6. `index.md` 전체 재생성 → `log.md` 에 `ingest` 한 줄
 
 - 책 300쪽 PDF ≈ 60만 자 → 청크 100개 내외 → gemma3:4b 로 수십 분 단위. 밤에 돌리는 배치로 생각하는 게 맞음
 - 단, 장 단위로 PDF 를 쪼개 넣으면 source 페이지가 장별로 생겨 위키 구조가 좋아짐
@@ -146,7 +146,7 @@
 
 <!-- diagram: llmwiki-query.html -->
 
-1. index.md 를 읽고 `format=PICK_SCHEMA` 로 필요한 페이지 경로 최대 5개 받음
+1. `index.md` 를 읽고 `format=PICK_SCHEMA` 로 필요한 페이지 경로 최대 5개 받음
 2. 실제 파일이 있는 경로만 남김 → 모델이 지어낸 경로 제거
 3. 해당 페이지만 근거로 답, 문장마다 `[[경로]]` 인용
 4. `--save` 면 `analyses/` 에 저장 → index·log 갱신 → 다음 질문부터 이 답도 위키의 일부
@@ -285,7 +285,7 @@ qmd query "양자화 와 메모리" --json                 # BM25 + 벡터 + rer
 qmd mcp --http                                     # localhost:8181, 에이전트 도구로 연결
 ```
 
-- wiki.py query 에서 index.md 대신 `qmd query --json` 결과 상위 경로를 쓰면 1단계 → 2단계 전환 끝
+- `wiki.py` query 에서 `index.md` 대신 `qmd query --json` 결과 상위 경로를 쓰면 1단계 → 2단계 전환 끝
 - 첫 실행 때 HF 에서 GGUF 를 받음 → 오프라인 전에 한 번 돌려서 캐시해 둘 것
 
 ### 5-8. 보기 - Obsidian
@@ -310,7 +310,7 @@ qmd mcp --http                                     # localhost:8181, 에이전�
 <!-- diagram: llmwiki-team.html -->
 
 - raw/ = 장애 보고서, 런북, 회의록, 릴리즈 노트 → AIStor 버킷에 원본 불변 저장 (버킷 버전 관리 + 삭제 금지 정책)
-- 모델 = 클러스터 Ollama 또는 vLLM. wiki.py 는 `OLLAMA_HOST` 만 바꾸면 그대로 붙음
+- 모델 = 클러스터 Ollama 또는 vLLM. `wiki.py` 는 `OLLAMA_HOST` 만 바꾸면 그대로 붙음
 - qmd·임베딩 GGUF = HF 프록시(dmz-nexus) 경유 반입 → `~/.cache/qmd/models` 를 PVC 로 미리 채움
 - wiki/ = Git 저장소(사내 Git) → ArgoCD 와 무관하게 사람이 PR 로 검토, 위키 변경도 리뷰 대상
 - 보기 = Obsidian 대신 MkDocs·Wiki.js 로 정적 사이트, 인증은 Keycloak OIDC
@@ -349,7 +349,7 @@ spec:
 | 함정 | 증상 | 대응 |
 |---|---|---|
 | num_ctx 기본값 | 긴 청크 뒷부분 무시, 요약이 앞부분만 | 옵션이나 Modelfile 로 명시, `ollama ps` 확인 |
-| 개념 이름 흔들림 | "RAG", "검색 증강 생성", "Retrieval" 이 각각 페이지 | AGENTS.md 에 표준 이름 목록, lint 에서 유사 이름 묶기 |
+| 개념 이름 흔들림 | "RAG", "검색 증강 생성", "Retrieval" 이 각각 페이지 | `AGENTS.md` 에 표준 이름 목록, lint 에서 유사 이름 묶기 |
 | 요약 환각 | 원문에 없는 수치 | 근거 줄에 원본 링크 필수, 수치는 사람이 확인 |
 | PDF 추출 품질 | 코드블록·표가 깨진 텍스트 | 장 단위 MD 변환 후 넣기, 스캔본은 OCR 먼저 |
 | index 비대화 | 질의 첫 단계가 context 초과 | 2-4 단계표대로 qmd 전환 |
@@ -361,11 +361,11 @@ spec:
 
 - **LLM Wiki** : LLM 이 원본을 읽고 마크다운 위키를 계속 갱신하며 쌓아 가는 지식 저장 패턴
 - **원본(raw sources)** : 위키의 근거 자료. LLM 이 읽기만 하는 불변 계층
-- **스키마(schema)** : AGENTS.md·CLAUDE.md 처럼 위키 규칙을 적은 설정 문서
+- **스키마(schema)** : `AGENTS.md`·`CLAUDE.md` 처럼 위키 규칙을 적은 설정 문서
 - **수집(ingest)** : 원본 하나를 읽고 요약·개념·링크를 위키 여러 페이지에 반영하는 동작
 - **린트(lint)** : 모순, 고아 페이지, 깨진 링크, 빠진 원본을 찾는 위키 건강 검사
-- **index.md** : 위키 전체 페이지 목록과 한 줄 요약. 질의의 첫 단계
-- **log.md** : 수집·질의·린트를 시간순으로 남긴 추가 전용 기록
+- **`index.md`** : 위키 전체 페이지 목록과 한 줄 요약. 질의의 첫 단계
+- **`log.md`** : 수집·질의·린트를 시간순으로 남긴 추가 전용 기록
 - **구조화 출력(structured outputs)** : Ollama `format` 에 JSON 스키마를 넣어 응답 모양을 강제하는 기능
 - **슬러그(slug)** : 제목을 파일 이름용으로 바꾼 문자열
 - **고아 페이지(orphan page)** : 다른 페이지에서 들어오는 링크가 없는 페이지
@@ -379,11 +379,11 @@ spec:
 | 항목 | 핵심 |
 |---|---|
 | 아이디어 | 매번 검색하는 RAG 대신 LLM 이 위키를 고쳐 쓰며 지식을 쌓음 |
-| 세 계층 | raw/ 불변 원본, wiki/ LLM 산출물, AGENTS.md 규칙 |
+| 세 계층 | raw/ 불변 원본, wiki/ LLM 산출물, `AGENTS.md` 규칙 |
 | 세 동작 | ingest 로 반영, query 로 답하고 저장, lint 로 점검 |
 | Mac 버전 원칙 | LLM 은 JSON 내용만, 파일·링크·index·log 는 코드 |
 | 모델 | gemma3:4b 기본, 8B Q4 상한, Modelfile 로 num_ctx·temperature 고정 |
-| 검색 확장 | index.md, qmd, ChromaDB 순 |
+| 검색 확장 | `index.md`, qmd, ChromaDB 순 |
 | 입력 확장 | MLX Whisper 전사 결과를 raw/voice 로 |
 | 사내 확장 | AIStor 원본, 클러스터 Ollama, Git 위키, lint CronJob, 권한 단위 분리 |
 
