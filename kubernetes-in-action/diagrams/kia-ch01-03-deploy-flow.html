@@ -5106,8 +5106,12 @@ body { padding: 0 !important; margin: 0 !important; min-height: 0 !important; }
   box-shadow: none !important; background: transparent !important; background-image: none !important; overflow: hidden !important; }
 .diagram-container::before, .diagram-container::after { display: none !important; }
 html, body { overflow: hidden !important; }
+/* 노션 HTML 임베드는 높이가 고정(약 4:3)이라 내용이 짧으면 아래가 빔
+   → 프레임 전체를 채우고 SVG 를 가운데에 contain 으로 맞춤 */
+html, body, .container { height: 100% !important; }
+.diagram-container { height: 100vh !important; display: flex !important; align-items: center; justify-content: center; }
 .diagram-container > svg { width: 100% !important; min-width: 0 !important; max-width: 100% !important;
-  height: auto !important; transform: none !important; display: block; background: transparent !important; }
+  height: 100% !important; max-height: 100vh !important; transform: none !important; display: block; background: transparent !important; }
 .diagram-container svg rect[fill="url(#grid)"] { display: none !important; }
 
 /* 글씨 : 20px 이상, 굵게 */
@@ -5275,7 +5279,7 @@ rect.c-region { fill: transparent !important; stroke: var(--a3) !important; stro
     <!-- Main Diagram -->
     <div class="diagram-container" data-detail-level="read"
          data-preset-badge-editorial-plate="ARCHIFY / 도판 04">
-      <svg viewBox="0 0 990 548" role="img" lang="ko" aria-labelledby="archify-diagram-title archify-diagram-description" data-animation="trace" data-preset="classic" data-quality-profile="showcase" data-node-ui="" data-reader-fit="intrinsic-height" data-reader-min-text="7.5" data-reader-primary-text="14">
+      <svg viewBox="0 0 990 768" role="img" lang="ko" aria-labelledby="archify-diagram-title archify-diagram-description" data-animation="trace" data-preset="classic" data-quality-profile="showcase" data-node-ui="" data-reader-fit="intrinsic-height" data-reader-min-text="7.5" data-reader-primary-text="14">
         <title id="archify-diagram-title">앱 배포 순서 - 6단계</title>
         <desc id="archify-diagram-description">Archify로 생성한 아키텍처 다이어그램입니다.</desc>
         <!-- Definitions -->
@@ -5334,24 +5338,24 @@ rect.c-region { fill: transparent !important; stroke: var(--a3) !important; stro
           <path data-edge-from="api" data-edge-to="ctrl" data-edge-label="생성 통지" data-edge-key="1" data-edge-id="api-ctrl" data-composition-points="610,90;720,90" data-composition-crossover="halo" data-composition-independent="true" d="M 610 90 L 720 90" class="a-emphasis" data-animate="edge" style="--step:1" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:2">
-          <path data-graph-role="automatic-crossover-underlay" d="M 835 140 L 835 210" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="ctrl" data-edge-to="sched" data-edge-label="미배정 인스턴스" data-edge-key="2" data-edge-id="ctrl-sched" data-composition-points="835,140;835,210" data-composition-crossover="halo" data-composition-independent="true" d="M 835 140 L 835 210" class="a-emphasis" data-animate="edge" style="--step:2" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 835 140 L 835 320" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="ctrl" data-edge-to="sched" data-edge-label="미배정 인스턴스" data-edge-key="2" data-edge-id="ctrl-sched" data-composition-points="835,140;835,320" data-composition-crossover="halo" data-composition-independent="true" d="M 835 140 L 835 320" class="a-emphasis" data-animate="edge" style="--step:2" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:3">
-          <path data-graph-role="automatic-crossover-underlay" d="M 720 260 L 610 260" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="sched" data-edge-to="kubelet" data-edge-label="노드 지정" data-edge-key="3" data-edge-id="sched-kubelet" data-composition-points="720,260;610,260" data-composition-crossover="halo" data-composition-independent="true" d="M 720 260 L 610 260" class="a-emphasis" data-animate="edge" style="--step:3" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 720 370 L 610 370" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="sched" data-edge-to="kubelet" data-edge-label="노드 지정" data-edge-key="3" data-edge-id="sched-kubelet" data-composition-points="720,370;610,370" data-composition-crossover="halo" data-composition-independent="true" d="M 720 370 L 610 370" class="a-emphasis" data-animate="edge" style="--step:3" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:4">
-          <path data-graph-role="automatic-crossover-underlay" d="M 380 253 L 270 253" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="kubelet" data-edge-to="proxy" data-edge-label="Ready" data-edge-key="4" data-edge-id="kubelet-proxy" data-composition-points="380,253;270,253" data-composition-crossover="halo" data-composition-independent="true" d="M 380 253 L 270 253" class="a-default" data-animate="edge" style="--step:4" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 380 363 L 270 363" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="kubelet" data-edge-to="proxy" data-edge-label="Ready" data-edge-key="4" data-edge-id="kubelet-proxy" data-composition-points="380,363;270,363" data-composition-crossover="halo" data-composition-independent="true" d="M 380 363 L 270 363" class="a-default" data-animate="edge" style="--step:4" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:5">
-          <path data-graph-role="automatic-crossover-underlay" d="M 254 310 L 254 388 Q 254 396 262 396 L 380 396" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="proxy" data-edge-to="watch" data-edge-label="서비스 개시" data-edge-key="5" data-edge-id="proxy-watch" data-composition-points="254,310;254,396;380,396" data-composition-crossover="halo" data-composition-independent="true" d="M 254 310 L 254 388 Q 254 396 262 396 L 380 396" class="a-default" data-animate="edge" style="--step:5" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 254 420 L 254 608 Q 254 616 262 616 L 380 616" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="proxy" data-edge-to="watch" data-edge-label="서비스 개시" data-edge-key="5" data-edge-id="proxy-watch" data-composition-points="254,420;254,616;380,616" data-composition-crossover="halo" data-composition-independent="true" d="M 254 420 L 254 608 Q 254 616 262 616 L 380 616" class="a-default" data-animate="edge" style="--step:5" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:6">
-          <path data-graph-role="automatic-crossover-underlay" d="M 495 380 L 495 310" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="watch" data-edge-to="kubelet" data-edge-label="재시작" data-edge-key="6" data-edge-id="watch-kubelet" data-composition-points="495,380;495,310" data-composition-crossover="halo" data-composition-independent="true" d="M 495 380 L 495 310" class="a-dashed" data-animate="edge" style="--step:6" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 495 600 L 495 420" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="watch" data-edge-to="kubelet" data-edge-label="재시작" data-edge-key="6" data-edge-id="watch-kubelet" data-composition-points="495,600;495,420" data-composition-crossover="halo" data-composition-independent="true" d="M 495 600 L 495 420" class="a-dashed" data-animate="edge" style="--step:6" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
         </g>
 
         <!-- Components -->
@@ -5394,57 +5398,57 @@ rect.c-region { fill: transparent !important; stroke: var(--a3) !important; stro
 
         <g id="node-sched" data-node-id="sched" data-node-label="Scheduler" tabindex="0" role="button" aria-label="Scheduler 포커스, 인스턴스에 노드 배정, 아키텍처 구성요소" aria-pressed="false" data-node-kind="security" data-node-sublabel="인스턴스에 노드 배정" data-node-tag="3" data-node-context="아키텍처 구성요소">
           <title>Scheduler · 인스턴스에 노드 배정 · 아키텍처 구성요소 · 3</title>
-          <rect x="720" y="210" width="230" height="100" rx="8" class="c-mask"/>
-          <rect x="720" y="210" width="230" height="100" rx="8" class="c-security" data-animate="node" style="--step:3" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="security" class="semantic-sigil s-security" transform="translate(726 216) scale(0.6875)">
+          <rect x="720" y="320" width="230" height="100" rx="8" class="c-mask"/>
+          <rect x="720" y="320" width="230" height="100" rx="8" class="c-security" data-animate="node" style="--step:3" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="security" class="semantic-sigil s-security" transform="translate(726 326) scale(0.6875)">
             <path d="M8 2.2 13 4v3.5c0 3.1-1.8 5.4-5 6.5-3.2-1.1-5-3.4-5-6.5V4Z"/>
             <path d="m5.8 8 1.5 1.5 3-3"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="835" y="258" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Scheduler</text>
-        <text data-detail="context" x="835" y="274" class="t-muted" font-size="9" text-anchor="middle">인스턴스에 노드 배정</text>
-        <text data-detail="fine" x="835" y="302" class="t-security" font-size="7" text-anchor="middle">3</text>
+          <text data-node-label="" data-detail-anchor="" x="835" y="368" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Scheduler</text>
+        <text data-detail="context" x="835" y="384" class="t-muted" font-size="9" text-anchor="middle">인스턴스에 노드 배정</text>
+        <text data-detail="fine" x="835" y="412" class="t-security" font-size="7" text-anchor="middle">3</text>
         </g>
 
         <g id="node-kubelet" data-node-id="kubelet" data-node-label="Kubelet" tabindex="0" role="button" aria-label="Kubelet 포커스, 컨테이너 실행, 아키텍처 구성요소" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="컨테이너 실행" data-node-tag="4" data-node-context="아키텍처 구성요소">
           <title>Kubelet · 컨테이너 실행 · 아키텍처 구성요소 · 4</title>
-          <rect x="380" y="210" width="230" height="100" rx="8" class="c-mask"/>
-          <rect x="380" y="210" width="230" height="100" rx="8" class="c-frontend" data-animate="node" style="--step:4" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(386 216) scale(0.6875)">
+          <rect x="380" y="320" width="230" height="100" rx="8" class="c-mask"/>
+          <rect x="380" y="320" width="230" height="100" rx="8" class="c-frontend" data-animate="node" style="--step:4" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(386 326) scale(0.6875)">
             <rect x="2" y="3" width="12" height="10" rx="2"/>
             <path d="M2 6.5h12"/>
             <circle cx="4.1" cy="4.8" r=".7" class="sigil-fill"/>
             <circle cx="6.3" cy="4.8" r=".7" class="sigil-fill"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="495" y="258" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Kubelet</text>
-        <text data-detail="context" x="495" y="274" class="t-muted" font-size="9" text-anchor="middle">컨테이너 실행</text>
-        <text data-detail="fine" x="495" y="302" class="t-frontend" font-size="7" text-anchor="middle">4</text>
+          <text data-node-label="" data-detail-anchor="" x="495" y="368" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Kubelet</text>
+        <text data-detail="context" x="495" y="384" class="t-muted" font-size="9" text-anchor="middle">컨테이너 실행</text>
+        <text data-detail="fine" x="495" y="412" class="t-frontend" font-size="7" text-anchor="middle">4</text>
         </g>
 
         <g id="node-proxy" data-node-id="proxy" data-node-label="kube-proxy" tabindex="0" role="button" aria-label="kube-proxy 포커스, 단일 IP · LB 구성, 아키텍처 구성요소" aria-pressed="false" data-node-kind="messagebus" data-node-sublabel="단일 IP · LB 구성" data-node-tag="5" data-node-context="아키텍처 구성요소">
           <title>kube-proxy · 단일 IP · LB 구성 · 아키텍처 구성요소 · 5</title>
-          <rect x="40" y="210" width="230" height="100" rx="8" class="c-mask"/>
-          <rect x="40" y="210" width="230" height="100" rx="8" class="c-messagebus" data-animate="node" style="--step:5" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="messagebus" class="semantic-sigil s-messagebus" transform="translate(46 216) scale(0.6875)">
+          <rect x="40" y="320" width="230" height="100" rx="8" class="c-mask"/>
+          <rect x="40" y="320" width="230" height="100" rx="8" class="c-messagebus" data-animate="node" style="--step:5" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="messagebus" class="semantic-sigil s-messagebus" transform="translate(46 326) scale(0.6875)">
             <path d="M2.5 4.5h11M2.5 8h11M2.5 11.5h11"/>
             <circle cx="5" cy="4.5" r="1" class="sigil-fill"/>
             <circle cx="10.5" cy="8" r="1" class="sigil-fill"/>
             <circle cx="7" cy="11.5" r="1" class="sigil-fill"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="155" y="258" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">kube-proxy</text>
-        <text data-detail="context" x="155" y="274" class="t-muted" font-size="9" text-anchor="middle">단일 IP · LB 구성</text>
-        <text data-detail="fine" x="155" y="302" class="t-messagebus" font-size="7" text-anchor="middle">5</text>
+          <text data-node-label="" data-detail-anchor="" x="155" y="368" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">kube-proxy</text>
+        <text data-detail="context" x="155" y="384" class="t-muted" font-size="9" text-anchor="middle">단일 IP · LB 구성</text>
+        <text data-detail="fine" x="155" y="412" class="t-messagebus" font-size="7" text-anchor="middle">5</text>
         </g>
 
         <g id="node-watch" data-node-id="watch" data-node-label="감시 · 복구" tabindex="0" role="button" aria-label="감시 · 복구 포커스, Kubelet · 컨트롤러, 아키텍처 구성요소" aria-pressed="false" data-node-kind="cloud" data-node-sublabel="Kubelet · 컨트롤러" data-node-tag="6" data-node-context="아키텍처 구성요소">
           <title>감시 · 복구 · Kubelet · 컨트롤러 · 아키텍처 구성요소 · 6</title>
-          <rect x="380" y="380" width="230" height="100" rx="8" class="c-mask"/>
-          <rect x="380" y="380" width="230" height="100" rx="8" class="c-cloud" data-animate="node" style="--step:6" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="cloud" class="semantic-sigil s-cloud" transform="translate(386 386) scale(0.6875)">
+          <rect x="380" y="600" width="230" height="100" rx="8" class="c-mask"/>
+          <rect x="380" y="600" width="230" height="100" rx="8" class="c-cloud" data-animate="node" style="--step:6" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="cloud" class="semantic-sigil s-cloud" transform="translate(386 606) scale(0.6875)">
             <path d="M4.3 12.5h7.3a2.4 2.4 0 0 0 .2-4.8 4 4 0 0 0-7.5-1.3A3.1 3.1 0 0 0 4.3 12.5Z"/>
           </g>
-          <text data-node-label="" data-detail-anchor="" x="495" y="428" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">감시 · 복구</text>
-        <text data-detail="context" x="495" y="444" class="t-muted" font-size="9" text-anchor="middle">Kubelet · 컨트롤러</text>
-        <text data-detail="fine" x="495" y="472" class="t-cloud" font-size="7" text-anchor="middle">6</text>
+          <text data-node-label="" data-detail-anchor="" x="495" y="648" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">감시 · 복구</text>
+        <text data-detail="context" x="495" y="664" class="t-muted" font-size="9" text-anchor="middle">Kubelet · 컨트롤러</text>
+        <text data-detail="fine" x="495" y="692" class="t-cloud" font-size="7" text-anchor="middle">6</text>
         </g>
 
         <!-- Connection labels -->
@@ -5457,24 +5461,24 @@ rect.c-region { fill: transparent !important; stroke: var(--a3) !important; stro
           <text x="665" y="80" class="t-edge-emphasis" font-size="8" text-anchor="middle">생성 통지</text>
         </g>
         <g data-detail="context" data-edge-from="ctrl" data-edge-to="sched" data-edge-label="미배정 인스턴스" data-edge-key="2" data-edge-id="ctrl-sched">
-          <rect x="747" y="168" width="82" height="14" rx="3" class="c-mask"/>
-          <text x="788" y="178" class="t-edge-emphasis" font-size="8" text-anchor="middle">미배정 인스턴스</text>
+          <rect x="747" y="223" width="82" height="14" rx="3" class="c-mask"/>
+          <text x="788" y="233" class="t-edge-emphasis" font-size="8" text-anchor="middle">미배정 인스턴스</text>
         </g>
         <g data-detail="context" data-edge-from="sched" data-edge-to="kubelet" data-edge-label="노드 지정" data-edge-key="3" data-edge-id="sched-kubelet">
-          <rect x="638.4" y="240" width="53.199999999999996" height="14" rx="3" class="c-mask"/>
-          <text x="665" y="250" class="t-edge-emphasis" font-size="8" text-anchor="middle">노드 지정</text>
+          <rect x="638.4" y="350" width="53.199999999999996" height="14" rx="3" class="c-mask"/>
+          <text x="665" y="360" class="t-edge-emphasis" font-size="8" text-anchor="middle">노드 지정</text>
         </g>
         <g data-detail="context" data-edge-from="kubelet" data-edge-to="proxy" data-edge-label="Ready" data-edge-key="4" data-edge-id="kubelet-proxy">
-          <rect x="308" y="233" width="34" height="14" rx="3" class="c-mask"/>
-          <text x="325" y="243" class="t-edge-default" font-size="8" text-anchor="middle">Ready</text>
+          <rect x="308" y="343" width="34" height="14" rx="3" class="c-mask"/>
+          <text x="325" y="353" class="t-edge-default" font-size="8" text-anchor="middle">Ready</text>
         </g>
         <g data-detail="context" data-edge-from="proxy" data-edge-to="watch" data-edge-label="서비스 개시" data-edge-key="5" data-edge-id="proxy-watch">
-          <rect x="285.6" y="376" width="62.8" height="14" rx="3" class="c-mask"/>
-          <text x="317" y="386" class="t-edge-default" font-size="8" text-anchor="middle">서비스 개시</text>
+          <rect x="285.6" y="596" width="62.8" height="14" rx="3" class="c-mask"/>
+          <text x="317" y="606" class="t-edge-default" font-size="8" text-anchor="middle">서비스 개시</text>
         </g>
         <g data-detail="context" data-edge-from="watch" data-edge-to="kubelet" data-edge-label="재시작" data-edge-key="6" data-edge-id="watch-kubelet">
-          <rect x="475.6" y="360" width="38.8" height="14" rx="3" class="c-mask"/>
-          <text x="495" y="370" class="t-edge-dashed" font-size="8" text-anchor="middle">재시작</text>
+          <rect x="475.6" y="580" width="38.8" height="14" rx="3" class="c-mask"/>
+          <text x="495" y="590" class="t-edge-dashed" font-size="8" text-anchor="middle">재시작</text>
         </g>
 
         <!-- Boundary labels (foreground masks keep routes out of titles) -->
@@ -14966,10 +14970,12 @@ rect.c-region { fill: transparent !important; stroke: var(--a3) !important; stro
     var pad = 16;
     svg.setAttribute('viewBox', (b[0] - pad) + ' ' + (b[1] - pad) + ' ' + (b[2] - b[0] + pad * 2) + ' ' + (b[3] - b[1] + pad * 2));
     svg.removeAttribute('width'); svg.removeAttribute('height');
+    svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
     svg.setAttribute('data-green-fit', 'true');
   }
   function boot() { if (!decorate()) setTimeout(boot, 120); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
+  window.addEventListener('resize', function () { fit(); });
   window.addEventListener('load', function () { setTimeout(function () { decorate(); fit(); }, 60); setTimeout(function () { fit(); }, 600); });
 })();
 </script>

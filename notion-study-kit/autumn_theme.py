@@ -42,8 +42,12 @@ body { padding: 0 !important; margin: 0 !important; min-height: 0 !important; }
   box-shadow: none !important; background: transparent !important; background-image: none !important; overflow: hidden !important; }
 .diagram-container::before, .diagram-container::after { display: none !important; }
 html, body { overflow: hidden !important; }
+/* 노션 HTML 임베드는 높이가 고정(약 4:3)이라 내용이 짧으면 아래가 빔
+   → 프레임 전체를 채우고 SVG 를 가운데에 contain 으로 맞춤 */
+html, body, .container { height: 100% !important; }
+.diagram-container { height: 100vh !important; display: flex !important; align-items: center; justify-content: center; }
 .diagram-container > svg { width: 100% !important; min-width: 0 !important; max-width: 100% !important;
-  height: auto !important; transform: none !important; display: block; background: transparent !important; }
+  height: 100% !important; max-height: 100vh !important; transform: none !important; display: block; background: transparent !important; }
 .diagram-container svg rect[fill="url(#grid)"] { display: none !important; }
 
 /* 글씨 : 20px 이상, 굵게 */
@@ -202,10 +206,12 @@ JS = r"""
     var pad = 16;
     svg.setAttribute('viewBox', (b[0] - pad) + ' ' + (b[1] - pad) + ' ' + (b[2] - b[0] + pad * 2) + ' ' + (b[3] - b[1] + pad * 2));
     svg.removeAttribute('width'); svg.removeAttribute('height');
+    svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
     svg.setAttribute('data-green-fit', 'true');
   }
   function boot() { if (!decorate()) setTimeout(boot, 120); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
+  window.addEventListener('resize', function () { fit(); });
   window.addEventListener('load', function () { setTimeout(function () { decorate(); fit(); }, 60); setTimeout(function () { fit(); }, 600); });
 })();
 </script>
