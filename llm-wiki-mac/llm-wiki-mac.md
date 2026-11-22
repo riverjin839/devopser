@@ -16,7 +16,10 @@
 
 <!-- diagram: llmwiki-overview.html -->
 
-**작은 로컬 모델에게 위키 전체를 맡기지 않고, LLM 은 내용만 JSON 으로 내고 파일·링크·index·log 는 코드가 관리하는 게 Mac 버전의 핵심임**
+**작은 로컬 모델에게 위키 전체를 맡기지 않고 역할을 나누는 게 Mac 버전의 핵심임**
+
+- LLM : 요약 문장, 개념 이름, 근거 메모를 JSON 으로 써서 돌려준다
+- 코드 : 그걸 받아서 파일로 저장하고, 링크를 걸고, index·log 를 갱신한다
 
 ---
 
@@ -167,7 +170,10 @@
 - `log.md` = 시간순 기록. `## [2026-11-22] ingest | 제목` 접두어 → `grep "^## \[" log.md | tail -5` 로 바로 조회
 - gist 기준 `index.md` 만으로 원본 ~100개, 페이지 수백 개까지는 임베딩 검색 없이 동작
 
-### 2-3. 왜 Mac 에선 "LLM 은 내용, 코드는 관리" 인가
+### 2-3. 왜 Mac 에선 LLM 과 코드의 역할을 나누나
+
+- LLM : 요약 문장, 개념 이름, 근거 메모를 JSON 으로 써서 돌려준다
+- 코드 : 그걸 받아서 파일로 저장하고, 링크를 걸고, index·log 를 갱신한다
 
 - gist 의 LLM 은 Claude Code 급 에이전트 → 파일을 직접 열고 고치고 index 갱신까지 스스로 함
 - 책 16.5 기준 에이전트(도구 호출)는 7B 이상부터 쓸 만함, gemma3:4b 는 제한적
@@ -311,7 +317,7 @@ ollama create wiki-gemma -f Modelfile
 export WIKI_MODEL=wiki-gemma
 ```
 
-### 5-3. 핵심 코드 - 구조화 출력으로 내용만 받기
+### 5-3. 핵심 코드 - LLM 이 JSON 으로 써서 돌려주기
 
 ```python
 INGEST_SCHEMA = {                      # 응답 모양 강제
@@ -495,12 +501,12 @@ spec:
 | 아이디어 | 매번 검색하는 RAG 대신 LLM 이 위키를 고쳐 쓰며 지식을 쌓음 |
 | 세 계층 | raw/ 불변 원본, wiki/ LLM 산출물, `AGENTS.md` 규칙 |
 | 세 동작 | ingest 로 반영, query 로 답하고 저장, lint 로 점검 |
-| Mac 버전 원칙 | LLM 은 JSON 내용만, 파일·링크·index·log 는 코드 |
+| Mac 버전 원칙 | LLM 은 요약 문장, 개념 이름, 근거 메모를 JSON 으로 써서 돌려주고, 코드는 그걸 받아서 파일로 저장하고, 링크를 걸고, index·log 를 갱신한다 |
 | 모델 | gemma3:4b 기본, 8B Q4 상한, Modelfile 로 num_ctx·temperature 고정 |
 | 검색 확장 | `index.md`, qmd, ChromaDB 순 |
 | 입력 확장 | 음성 메모 → Whisper 텍스트를 raw/voice 로 |
 | 사내 확장 | AIStor 원본, 클러스터 Ollama, Git 위키, lint CronJob, 권한 단위 분리 |
 
-**작은 로컬 모델로도 LLM Wiki 는 돌아가고, 조건은 모델에게 위키 관리를 맡기지 않고 내용만 받는 구조로 짜는 것이다**
+**작은 로컬 모델로도 LLM Wiki 는 돌아가고, 조건은 LLM 이 JSON 으로 써서 돌려주고 저장·링크·index·log 갱신은 코드가 맡는 구조로 짜는 것이다**
 
 관련 글 : Local AI Models on a Mac - Ollama·Whisper·Streamlit 음성 챗봇 · Local AI Models on a Mac Ch15~18 - 문제 해결, RAG, Open WebUI, LangChain, 에이전트, 미세조정 · LLM Wiki · MacBook Pro M1 Pro 사양

@@ -6,7 +6,8 @@ wiki.py - Mac 로컬 LLM Wiki (Karpathy LLM Wiki 패턴을 Ollama 로 구현한 
   wiki/       LLM 이 쓰는 위키 (sources/, concepts/, analyses/, index.md, log.md)
   AGENTS.md   스키마 (위키 규칙, 사람이 다듬음)
 
-원칙 : LLM 은 "내용"만 JSON 으로 돌려주고, 파일 쓰기·링크·index·log 는 코드가 한다
+원칙 : LLM 은 요약 문장, 개념 이름, 근거 메모를 JSON 으로 써서 돌려준다
+      코드는 그걸 받아서 파일로 저장하고, 링크를 걸고, index·log 를 갱신한다
       → 작은 로컬 모델(4B~8B)도 위키를 망가뜨리지 않음
 
 사용

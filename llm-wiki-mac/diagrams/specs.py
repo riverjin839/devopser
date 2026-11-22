@@ -14,7 +14,7 @@ SPECS = {
 
     "llmwiki-split": dict(
         size=[260, 110], stepx=400, stepy=200, strong=["code"], io=["chunk", "files"],
-        title="LLM 은 내용, 코드는 관리 - 작은 모델용 분업", hero=["llm"],
+        title="LLM 은 JSON 으로 돌려주고, 코드는 저장·링크·갱신", hero=["llm"],
         nodes=[N("chunk", "external", "원문 청크", "6000자 단위", 0, 0, "1"),
                N("llm", "backend", "Ollama", "format=JSON 스키마", 1, 0, "2"),
                N("json", "frontend", "JSON 응답", "요약 · 개념 목록", 2, 0, "3"),
