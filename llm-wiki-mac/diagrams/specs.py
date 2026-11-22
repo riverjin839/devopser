@@ -74,4 +74,19 @@ SPECS = {
         edges=[E("docs", "s3", "업로드"), E("s3", "cron", "원본"),
                E("cron", "model", "JSON 요청", "emphasis"), E("cron", "git", "push", "emphasis"),
                E("user", "git", "열람 · 리뷰")]),
+
+    "llmwiki-kubespray": dict(
+        size=[260, 110], stepx=400, stepy=200, strong=["gen", "ans"], io=["docs", "vms"],
+        title="LLM Wiki 로 kubespray 설치 보조 - M1 Mac", hero=["wiki"],
+        nodes=[N("docs", "external", "kubespray 문서", "v2.32.0 · docs/", 0, 0, "1"),
+               N("wiki", "backend", "LLM Wiki", "Ollama · ingest · query", 1, 0, "2"),
+               N("gen", "security", "gen_vars.py", "JSON → 호환 검사", 2, 0, "3"),
+               N("inv", "database", "inventory", "zz-llm.yml · ini", 2, 1, "4"),
+               N("ans", "frontend", "ansible-playbook", "사람이 실행", 1, 1, "5"),
+               N("log", "database", "실패 로그", "fatal 줄만 추출", 0, 1, "7"),
+               N("vms", "external", "Lima VM 2대", "cp1 · w1 arm64", 1, 2, "6")],
+        edges=[E("docs", "wiki", "ingest", "emphasis"), E("wiki", "gen", "근거 페이지", "emphasis"),
+               E("gen", "inv", "검증 통과만"), E("inv", "ans", "cluster.yml", "emphasis"),
+               E("ans", "vms", "SSH · 설치", "emphasis"), E("ans", "log", "tee"),
+               E("log", "wiki", "raw/runs", "dashed")]),
 }

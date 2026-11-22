@@ -509,4 +509,248 @@ spec:
 
 **작은 로컬 모델로도 LLM Wiki 는 돌아가고, 조건은 LLM 이 JSON 으로 써서 돌려주고 저장·링크·index·log 갱신은 코드가 맡는 구조로 짜는 것이다**
 
+---
+
+## 9. 응용 - LLM Wiki 로 kubespray K8s 설치 보조
+
+> **목표** : kubespray 문서를 로컬 LLM Wiki 에 넣고, 그 위키를 근거로 설치 변수를 고르고 실행 로그를 다시 위키에 쌓는 구조가 가능한지 분석하고, M1 Pro Mac 의 VM 2대로 직접 실습함
+
+- 기준 버전 : kubespray v2.32.0 (Kubernetes 1.36.4, etcd 3.6.14, containerd 2.3.5, Calico 3.31.7, Cilium 1.20.2), ansible 12.3.0 = ansible-core 2.19, Lima v2.3.0 (2026-11 기준)
+- 실습 코드 : `llm-wiki-mac/gen_vars.py` (가짜 Ollama 테스트 통과), kubespray v2.32.0 `cluster.yml --syntax-check` 통과
+
+### 9-1. 가능한가 - 이론 분석
+
+| 질문 | 판단 | 근거 |
+|---|---|---|
+| M1 Mac 에서 kubespray 로 K8s 설치 | 가능 | Mac 은 Ansible 실행 머신만 맡고, 노드는 Lima 로 띄운 arm64 Ubuntu 24.04 VM. kubespray 지원 OS 에 Ubuntu 22.04·24.04·26.04 포함 |
+| arm64 노드에서 쓸 CNI | Calico, Cilium 만 | kubespray `docs/advanced/arch.md` 호환표 기준 arm64 단독 = Calico Y, Cilium Y, Flannel·kube-router N |
+| 메모리 | VM 2대가 현실적 | kubespray 최소값 = control plane 2GB, worker 1GB. Ollama 4B ~5GB 와 같이 쓰면 16GB 에서 VM 3대는 빠듯함 |
+| LLM Wiki 가 할 수 있는 일 | 문서 요약, 변수 선택 근거 제시, 에러 로그 정리 | 위키 = kubespray 문서 75개(약 2.2MB)를 개념 단위로 압축한 지식 |
+| LLM 이 설치를 직접 실행 | 하지 않음 | 4B~8B 는 도구 호출 신뢰도가 낮음(책 16.5). `cluster.yml` 은 되돌리기 어려운 작업이라 사람이 실행 |
+
+- 결론 = 설치 자체는 kubespray 가 함. LLM Wiki 는 "읽고 고르고 기록하는" 보조 역할로 붙이는 게 맞다
+- 단, 위키 내용은 kubespray 버전에 묶임 → 태그가 바뀌면 문서를 다시 ingest 하고 lint 로 오래된 주장을 찾아야 함
+
+### 9-2. 역할 나누기 - 이 글의 원칙을 kubespray 에 그대로
+
+- LLM : 요구사항과 위키 페이지를 읽고, 변수 선택과 근거를 JSON 으로 써서 돌려준다
+- 코드 : 허용값·CPU 아키텍처 호환을 검사하고, 통과하면 `group_vars` YAML 로 저장하고 log 에 남긴다
+- 사람 : 만들어진 파일을 보고 `ansible-playbook` 을 실행한다
+
+| 일 | 담당 | 이유 |
+|---|---|---|
+| kubespray 문서 요약·개념 정리 | LLM (ingest) | 75개 문서를 다 읽을 시간 절약 |
+| CNI·런타임·kube-proxy 모드 선택과 근거 | LLM (JSON, enum 제한) | 근거 문장과 위키 링크를 같이 받음 |
+| 허용값·arm64 호환 검사 | 코드 (`gen_vars.py`) | 호환표 같은 사실은 모델 판단에 맡기지 않음 |
+| inventory.ini (노드 IP·그룹) | 사람 | IP·그룹 오류는 바로 장애로 이어짐 |
+| `cluster.yml` 실행 | 사람 | 되돌리기 어려움, 실행 전 검토 필요 |
+| 실패 로그 정리·재발 방지 메모 | LLM (ingest) + 코드 (fatal 줄 추출) | 다음 설치 때 query 로 바로 찾음 |
+
+### 9-3. 아키텍처
+
+<!-- diagram: llmwiki-kubespray.html -->
+
+| 구성 | 내용 |
+|---|---|
+| 원본 | `raw/kubespray/` = kubespray v2.32.0 `README.md`, `docs/` 중 필요한 문서, `inventory/sample` 주석 |
+| 위키 | `wiki.py ingest` → sources·concepts (예: `concepts/cilium`, `concepts/kube_proxy_mode`) |
+| 변수 생성 | `gen_vars.py` → `inventory/lima/group_vars/k8s_cluster/zz-llm.yml` |
+| 실행 | Mac 의 kubespray venv 에서 `ansible-playbook -b cluster.yml` |
+| 노드 | Lima VM 2대 (cp1 = control plane + etcd, w1 = worker), arm64 Ubuntu 24.04 |
+| 되먹임 | 실행 로그 → `fatal:` 줄만 추출 → `raw/runs/` → ingest → 다음 질의 근거 |
+
+메모리 예산 (M1 Pro 16GB)
+
+| 구성 | 할당 | 비고 |
+|---|---|---|
+| cp1 | 2CPU, 2.5GB | kubespray 최소 2GB 보다 약간 여유 |
+| w1 | 2CPU, 2GB | 최소 1GB, 파드 몇 개 올릴 여유 |
+| Ollama gemma3:4b | ~5GB | 설치 중엔 내려 둠 (`ollama stop gemma3:4b`) |
+| macOS + 브라우저 | ~4~5GB | |
+
+- 순서 = 위키 작업(Ollama 사용) → Ollama 내림 → VM 띄우고 설치 → 로그 ingest(Ollama 다시)
+- 동시에 다 띄우지 않는 게 16GB 에서 핵심임
+
+### 9-4. 실습 가이드
+
+#### 9-4-1. 위키에 kubespray 문서 넣기
+
+```bash
+cd ~/llm-wiki
+git clone -b v2.32.0 --depth 1 https://github.com/kubernetes-sigs/kubespray.git ~/kubespray
+
+mkdir -p raw/kubespray
+# 75개 전부 대신 설치에 필요한 문서만 (gemma3:4b 기준 문서당 수 분)
+for f in README.md docs/advanced/arch.md docs/ansible/ansible.md docs/ansible/inventory.md \
+         docs/CNI/cilium.md docs/CNI/calico.md docs/operations/port-requirements.md \
+         docs/operations/offline-environment.md docs/operations/upgrades.md; do
+  cp ~/kubespray/$f raw/kubespray/$(echo $f | tr '/' '_')
+done
+for f in raw/kubespray/*.md; do python wiki.py ingest "$f"; done
+python wiki.py lint
+```
+
+```bash
+# 설치 전에 위키에 물어볼 것
+python wiki.py query "arm64 노드에서 쓸 수 있는 CNI 는?" --save
+python wiki.py query "control plane 최소 메모리와 필요한 포트" --save
+python wiki.py query "kube_proxy_mode 선택지와 차이" --save
+```
+
+#### 9-4-2. Lima VM 2대
+
+```bash
+brew install lima
+
+# socket_vmnet = VM 끼리, Mac 과 VM 이 같은 대역(192.168.105.0/24)으로 통신하게 해 줌
+# Lima 문서 기준 Homebrew 설치는 비권장 → root 소유 경로(/opt/socket_vmnet)에 소스로 설치
+git clone https://github.com/lima-vm/socket_vmnet && cd socket_vmnet
+git checkout v1.2.2
+make && sudo make PREFIX=/opt/socket_vmnet install.bin
+cd .. && limactl sudoers > etc_sudoers.d_lima && sudo install -o root etc_sudoers.d_lima /etc/sudoers.d/lima && rm etc_sudoers.d_lima
+
+for n in cp1 w1; do
+  mem=$([ $n = cp1 ] && echo 2.5 || echo 2)
+  limactl create --name=$n --cpus=2 --memory=$mem --network=lima:shared \
+    --set '.containerd.user=false' --tty=false template:ubuntu-24.04   # Lima 기본 rootless containerd 끔
+  limactl start $n
+done
+limactl shell cp1 ip -4 -br addr show lima0     # 192.168.105.x 확인
+limactl shell w1  ip -4 -br addr show lima0
+```
+
+> 주의 : Lima 기본 네트워크(user-mode)는 모든 VM 이 같은 192.168.5.15 를 받아서 VM 끼리 통신이 안 됨. vzNAT 은 Mac 에서는 닿지만 VM 끼리는 안 됨. etcd·kubelet·CNI 는 노드 간 통신이 필수라 shared(socket_vmnet) 가 필요함
+
+#### 9-4-3. kubespray 준비와 inventory
+
+```bash
+cd ~/kubespray
+python3.13 -m venv ~/ks-venv && source ~/ks-venv/bin/activate     # ansible-core 2.19 = Python 3.11~3.13
+pip install -r requirements.txt                                    # ansible 12.3.0
+cp -r inventory/sample inventory/lima
+```
+
+```ini
+# inventory/lima/inventory.ini  (IP 는 lima0 주소로)
+[kube_control_plane]
+cp1 ansible_host=192.168.105.2 ip=192.168.105.2 etcd_member_name=etcd1
+
+[etcd:children]
+kube_control_plane
+
+[kube_node]
+w1 ansible_host=192.168.105.3 ip=192.168.105.3
+
+[all:vars]
+ansible_user=<Mac 사용자 이름>                  # Lima VM 기본 사용자 = Mac 사용자
+ansible_ssh_private_key_file=~/.lima/_config/user
+```
+
+- `k8s_cluster` 그룹은 inventory 에 안 적어도 됨 → kubespray 가 `kube_control_plane` + `kube_node` 로 실행 중에 만듦 (`docs/ansible/inventory.md`)
+- 그래서 `ansible-inventory --host w1` 에는 `group_vars/k8s_cluster` 값이 안 보임. 정상임
+
+#### 9-4-4. LLM 으로 변수 초안 만들기
+
+```bash
+cd ~/llm-wiki
+python gen_vars.py --req "M1 Mac VM 2대, 회사와 같은 Cilium 으로 실습" --arch arm64 \
+  --pages concepts/cilium sources/docs_advanced_arch --out ~/kubespray/inventory/lima
+```
+
+```yaml
+# 결과 예 : inventory/lima/group_vars/k8s_cluster/zz-llm.yml
+# gen_vars.py 2026-11-23 | model=gemma3:4b | arch=arm64
+# 요구사항 : M1 Mac VM 2대, 회사와 같은 Cilium 으로 실습
+# 근거 : arm64 단독 클러스터에서 Cilium 지원 [[sources/docs_advanced_arch]]
+kube_network_plugin: cilium
+container_manager: containerd
+kube_proxy_mode: ipvs
+```
+
+- 핵심 코드 = JSON 스키마 enum 으로 1차 제한, 코드로 2차 검사
+
+```py
+ALLOWED = {
+    "kube_network_plugin": ["calico", "cilium", "flannel", "kube-ovn", "kube-router", "cni"],
+    "container_manager":   ["containerd", "crio", "docker"],
+    "kube_proxy_mode":     ["ipvs", "iptables", "nftables"],
+}
+ARCH_CNI = {"amd64": set(ALLOWED["kube_network_plugin"]), "arm64": {"calico", "cilium"}}  # docs/advanced/arch.md
+
+errs = [f"{k}={j.get(k)} 는 허용값 아님" for k, v in ALLOWED.items() if j.get(k) not in v]
+if j.get("kube_network_plugin") not in ARCH_CNI[a.arch]:
+    errs.append(f"{a.arch} 에서 {j.get('kube_network_plugin')} 미지원 (docs/advanced/arch.md)")
+if errs:
+    sys.exit("거부 : " + " / ".join(errs))           # 통과 못 하면 파일을 아예 안 씀
+```
+
+가짜 Ollama 테스트 결과
+
+```txt
+kube_network_plugin: cilium ... 저장 : inv/group_vars/k8s_cluster/zz-llm.yml
+거부 : arm64 에서 flannel 미지원 (docs/advanced/arch.md)
+위키에 없는 페이지 : concepts/없는것 → 먼저 ingest 할 것
+```
+
+#### 9-4-5. 설치 실행과 확인 (사람이 실행)
+
+```bash
+ollama stop gemma3:4b                                   # 메모리 비우기
+cd ~/kubespray && source ~/ks-venv/bin/activate
+ansible -i inventory/lima/inventory.ini all -m ping     # SSH 확인
+ansible-playbook -i inventory/lima/inventory.ini cluster.yml --syntax-check
+mkdir -p ~/llm-wiki/raw/runs
+ansible-playbook -i inventory/lima/inventory.ini -b cluster.yml 2>&1 | tee ~/llm-wiki/raw/runs/cluster-$(date +%F).log
+
+limactl shell cp1 sudo kubectl --kubeconfig /etc/kubernetes/admin.conf get nodes -o wide
+limactl shell cp1 sudo kubectl --kubeconfig /etc/kubernetes/admin.conf -n kube-system get pods
+```
+
+- 이미지·바이너리 다운로드가 대부분의 시간을 차지함 → 집 회선 기준 수십 분 예상
+- 확인 기준 = 노드 2개 Ready, cilium·coredns 파드 Running
+
+#### 9-4-6. 실패 로그를 위키로 되먹임
+
+```bash
+cd ~/llm-wiki
+# 로그 전체는 수만 줄 → fatal 줄과 바로 앞 TASK 이름만 남겨서 원본으로
+log=raw/runs/cluster-$(date +%F).log
+grep -B3 -E '^fatal:|FAILED!' $log | grep -E '^TASK|^fatal:|FAILED!' > raw/runs/fail-$(date +%F).md
+python wiki.py ingest raw/runs/fail-$(date +%F).md
+python wiki.py query "지난 설치에서 실패한 task 와 원인" --save
+```
+
+- 다음 설치 전에 같은 질문을 하면 `analyses/` 에 쌓인 답이 먼저 나옴 → 같은 실수 반복 방지
+- 정리 = `ansible-playbook -i inventory/lima/inventory.ini -b reset.yml` 또는 `limactl delete -f cp1 w1`
+
+### 9-5. 실무에서 확인 - 폐쇄망 운영 클러스터로 넓힐 때
+
+| 항목 | Mac 실습 | 사내 300+ 노드 |
+|---|---|---|
+| 원본 | kubespray 공식 문서 | 공식 문서 + 우리 group_vars + 업그레이드 런북 + 장애 기록 |
+| 다운로드 | 인터넷 직접 | `offline-environment.md` 대로 files_repo·이미지 레지스트리·OS 저장소 → Nexus(dmz-nexus) |
+| 변수 생성 | `gen_vars.py` 가 바로 저장 | 초안만 만들고 Git PR → 사람 리뷰 → ArgoCD 와 무관한 별도 저장소 |
+| 실행 | 사람이 한 번에 | `--limit` 로 노드 묶음 단위, `upgrade_cluster.yml` 은 마이너 한 단계씩 |
+| 모델 | Mac Ollama | 클러스터 내부 LLM (외부로 inventory·IP 가 나가지 않음) |
+
+- inventory 와 group_vars 에는 노드 IP, 인증서 경로, 레지스트리 주소가 들어 있음 → 외부 LLM 에 넣지 않는 게 로컬 LLM Wiki 를 쓰는 가장 큰 이유임
+- 업그레이드 전 질의 예 = "v2.31 → v2.32 에서 바뀐 기본값", "우리 group_vars 중 deprecated 된 변수" → 위키가 릴리즈 노트와 우리 설정을 같이 들고 있어야 답이 나옴
+
+> 주의 : 위키 답을 그대로 운영 클러스터에 적용하지 말 것. LLM Wiki 는 "어디를 봐야 하는지" 를 빨리 알려 주는 도구이고, 최종 판단은 원문 문서와 스테이징 실행 결과로 해야 한다
+
+### 9-6. 한 장 요약
+
+| 항목 | 핵심 |
+|---|---|
+| 가능 여부 | 가능. Mac 은 Ansible 실행, 노드는 Lima arm64 Ubuntu 24.04 VM 2대 |
+| CNI | arm64 단독이면 Calico 또는 Cilium 만 |
+| LLM 역할 | kubespray 문서 요약, 변수 선택과 근거를 JSON 으로 돌려줌 |
+| 코드 역할 | 허용값·arm64 호환 검사, `zz-llm.yml` 저장, log 기록 |
+| 사람 역할 | inventory 작성, `cluster.yml` 실행, 결과 확인 |
+| 되먹임 | 실패 로그 fatal 줄 → raw/runs → ingest → 다음 설치 때 query |
+| 사내 확장 | Nexus 오프라인 저장소, PR 리뷰, 노드 묶음 단위 실행, 내부 LLM |
+
+**kubespray 설치는 kubespray 가 하고, LLM Wiki 는 문서를 읽고 변수를 고르고 실패를 기록하는 보조로 붙일 때 작은 로컬 모델로도 쓸모가 있다**
+
+
 관련 글 : Local AI Models on a Mac - Ollama·Whisper·Streamlit 음성 챗봇 · Local AI Models on a Mac Ch15~18 - 문제 해결, RAG, Open WebUI, LangChain, 에이전트, 미세조정 · LLM Wiki · MacBook Pro M1 Pro 사양
