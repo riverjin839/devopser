@@ -72,7 +72,7 @@
 | 설정 | 동작 |
 |---|---|
 | `storage.type memory` (기본) | `Mem_Buf_Limit` 넘으면 tail input pause. tail 은 offset 을 저장해서 다시 읽음 |
-| `storage.type filesystem` | 메모리 한도를 넘으면 chunk 를 디스크에 쌓음. Pod 재시작에도 남음 |
+| `storage.type filesystem` | 메모리 한도를 넘으면 chunk 를 디스크에 쌓음. `storage.path` 를 hostPath 로 마운트해야 Pod 재생성에도 남음 (기본값 없음) |
 | tail `DB` (hostPath) | inode=offset 저장 → 재기동 후 이어서 읽음 |
 
 - 손실 케이스 = 다운 중 로그 로테이트로 원본 파일 삭제, `storage.total_limit_size` 초과, `Retry_Limit` 초과
@@ -124,7 +124,8 @@
 | triggerer | deferrable task 대기, 복구 후 이어감 | replica 2 이상 |
 
 - 진짜 위험은 다운이 아니라 **retry 로 인한 중복 실행** 임 (append insert, 외부 job 이중 제출)
-- KubernetesExecutor task Pod 는 drain 때 그냥 evict 됨 → 작업 노드에 장시간 task 가 있으면 끝날 때까지 기다리고 drain 함
+- KubernetesExecutor task Pod 는 기본적으로 ownerReference 가 없는 단독 Pod 임 → `kubectl drain` 이 `--force` 없이는 거부하고 에러로 멈춤
+- 그래서 작업 노드의 task Pod 는 끝날 때까지 기다린 뒤 drain 함. `--force` 로 지우면 그 task 는 실패 후 retry 로 넘어감
 
 ## 4. 1대씩 vs 여러 대 동시
 
@@ -187,6 +188,7 @@ kubectl get pod -n airflow -o wide --field-selector spec.nodeName=$NODE
 ```bash
 kubectl drain $NODE --ignore-daemonsets --delete-emptydir-data --timeout=20m
 # --force, --disable-eviction 은 쓰지 않음 (PDB 우회)
+# 단독 Pod(Airflow KubernetesExecutor task 등)가 남아 있으면 여기서 에러로 멈춤 → task 종료 후 재실행
 
 # ... 노드 작업 (bond 전환 등) ...
 
@@ -208,13 +210,14 @@ spec:
   maxUnavailable: 1
   selector: { matchLabels: { app: opensearch, role: data } }
 ---
-# StarRocks FE : follower 3 중 2 유지
+# StarRocks FE : 투표권 있는 follower 만 대상, 한 번에 1개
+# observer 까지 셀렉터에 걸리면 minAvailable: 2 는 follower 2대 동시 eviction 을 허용함 → 쿼럼 손실
 apiVersion: policy/v1
 kind: PodDisruptionBudget
-metadata: { name: sr-fe, namespace: starrocks }
+metadata: { name: sr-fe-follower, namespace: starrocks }
 spec:
-  minAvailable: 2
-  selector: { matchLabels: { app.kubernetes.io/component: fe } }
+  maxUnavailable: 1
+  selector: { matchLabels: { app.kubernetes.io/component: fe } }  # follower 전용 라벨로 좁힘
 ---
 # Airflow scheduler : 최소 1개 유지 (replica 2 이상 전제)
 apiVersion: policy/v1
