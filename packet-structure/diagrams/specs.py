@@ -59,4 +59,16 @@ SPECS = {
         edges=[E("symptom", "hubble", "먼저 확인"), E("hubble", "tcpdump", "원인 불분명", "emphasis"),
                E("tcpdump", "filter", "구간 분리", "emphasis"), E("filter", "mtu", "단편화 의심", "emphasis"),
                E("mtu", "cause", "결론", "dashed")]),
+
+    "packet-06-journey": dict(stepy=150,
+        title="hello 패킷의 여행 (A 에서 B)", hero=["nic_a"], strong=["k_a", "k_b"], io=["app_a", "sw", "app_b"],
+        nodes=[N("app_a", "external", "A 클라이언트", "10.40.24.1 · POST", 0, 0, "1"),
+               N("k_a", "backend", "A 커널", "TCP · IP · ARP", 1, 0, "2"),
+               N("nic_a", "security", "A NIC", "프레임 송신", 1, 1, "3"),
+               N("sw", "external", "스위치", "MAC 학습 · 전달", 0, 1, "4"),
+               N("k_b", "backend", "B 커널", "헤더 순서대로 제거", 0, 2, "5"),
+               N("app_b", "external", "B 서버 앱", "10.40.24.2 · JSON", 1, 2, "6")],
+        edges=[E("app_a", "k_a", "send()"), E("k_a", "nic_a", "프레임 완성", "emphasis"),
+               E("nic_a", "sw", "케이블", "emphasis"), E("sw", "k_b", "MAC 일치", "emphasis"),
+               E("k_b", "app_b", "소켓 전달", "dashed")]),
 }
