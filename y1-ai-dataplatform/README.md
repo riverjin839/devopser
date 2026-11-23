@@ -11,6 +11,10 @@ Y1 AI DATAPLATFORM 인프라 아키텍처 설계 제안 (Compute K8s · GPU · S
 | [y1-ai-dataplatform-proposal-detail-cmd.md](./y1-ai-dataplatform-proposal-detail-cmd.md) | 상세 제안서 (적용 · 검증 명령 포함) |
 | [y1-ai-dataplatform-tech-learning.md](./y1-ai-dataplatform-tech-learning.md) | 개선 기술 학습 문서 (원리 · 근거 · 검증 명령) |
 
+### 1차 검토 (Y지역 N/W 회신 반영, 2026-11-23)
+
+- [1차검토/](./1차검토) : 회신 개념 학습 노트 · 검토 결과(판정) · 최종 설계 보고서. 네트워크 부분은 이전 제안서보다 이 문서가 우선
+
 ### 그림
 
 | 경로 | 내용 |
