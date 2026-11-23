@@ -198,6 +198,8 @@ ping -M do -s 1422 <상대 Pod IP>
 
 ### 6-3. TCP 연결과 요청, 응답
 
+<!-- diagram: mlpe-packet-09-tcp-flow.html -->
+
 | 번호 | 방향 | 플래그 | 내용 |
 |---|---|---|---|
 | 1 | A → B | SYN | 연결 요청. 시퀀스 번호 시작값과 MSS 같은 옵션을 알림 |
@@ -207,12 +209,38 @@ ping -M do -s 1422 <상대 Pod IP>
 | 5 | B → A | ACK | 수신 확인. 응답과 합쳐져 생략되기도 함 |
 | 6 | B → A | PSH, ACK | HTTP 응답 86B (헤더 71B 와 본문 15B) |
 | 7 | A → B | ACK | 응답 수신 확인 |
+| 8 | 양쪽 | FIN, ACK | 연결 종료. 누가 먼저 끊는지는 서버와 클라이언트 구현에 따라 다름 |
 
 - 임시 포트(Ephemeral port) = A 가 연결마다 커널에서 받는 출발지 포트. 응답이 돌아올 문패 역할
-- HTTP/1.1 은 기본이 keep-alive 라서 응답 직후 FIN 이 나가지 않을 수 있음
+- 1~3 번이 3-way handshake 이고 이후부터 데이터가 오감
 - 플래그 조합은 일반적인 흐름이며 실제 캡처에서 합쳐지거나 나뉠 수 있음
+- 같은 PC 의 loopback 에서 curl 과 Python http.server 로 측정한 결과는 이 표와 달랐음
+  - 응답 헤더와 본문이 별도 세그먼트로 나뉨
+  - HTTP/1.0 서버라 서버가 먼저 FIN 을 보냄
+  - 이 표는 흐름을 보여주는 기준이고 실제 패킷 수는 클라이언트와 서버 조합에 따라 달라짐
 
-### 6-4. 요청 프레임 한 장
+### 6-4. 세그먼트, 패킷, 프레임 그리고 요청 프레임 한 장
+
+같은 데이터가 어느 계층에서 보느냐에 따라 이름이 달라짐
+
+| 계층 | 부르는 이름 | 헤더 | 누적 크기 |
+|---|---|---|---|
+| L7 | 데이터(HTTP 요청) | 없음 | 113B |
+| L4 | 세그먼트(Segment) | TCP 20B | 133B |
+| L3 | 패킷(Packet) | IP 20B | 153B |
+| L2 | 프레임(Frame) | Ethernet 14B | 167B |
+| L1 | 비트 | FCS 4B 는 NIC 이 추가 | 171B |
+
+<!-- diagram: mlpe-packet-07-pdu.html -->
+
+A 는 헤더를 바깥쪽으로 쌓고, B 는 바깥쪽부터 하나씩 벗김
+
+<!-- diagram: mlpe-packet-08-encap-decap.html -->
+
+- 캡슐화(A) = 앱 데이터 → TCP 헤더 → IP 헤더 → Ethernet 헤더
+- 역캡슐화(B) = Ethernet 확인(내 MAC) → IP 확인(내 IP, Protocol 6) → TCP 확인(포트 8080) → 소켓
+
+요청 프레임 한 장의 내용
 
 | 계층 | 내용 | 크기 |
 |---|---|---|
@@ -225,28 +253,114 @@ ping -M do -s 1422 <상대 Pod IP>
 
 - 의미 있는 데이터는 19B 뿐이고 나머지 148B 는 헤더임
 - IP 패킷 크기 153B 는 MTU 1500B 보다 훨씬 작아서 단편화 없이 한 프레임으로 감
-- 바이트 수는 위 요청 문자열 기준으로 직접 계산한 값이며 TCP 옵션이 붙으면 늘어남
+- 위 크기는 최소 헤더로 직접 계산한 예시값임
+- 실제 캡처는 TCP 옵션(SYN 은 40B, 그 외 타임스탬프로 32B)과 curl 의 헤더 때문에 더 큼
+  - loopback 측정 = curl 요청 본문 154B, 프레임 220B
+- 그래서 캡처 값이 예시와 달라도 정상임. 구조(층 순서)를 확인하는 용도임
 
-### 6-5. 직접 확인
+### 6-5. 폐쇄망에서 Linux 2대로 직접 확인
 
-개념 코드 (실행 검증 전, 인터페이스 이름은 환경에 맞게 변경)
+> 주의 : 아래 명령은 loopback 에서 일부 확인했고 2대 실장비에서는 실행 검증 전인 개념 코드임. 인터페이스 이름과 IP 는 환경에 맞게 변경
+
+**준비**
+
+- A, B 가 같은 서브넷이고 root(또는 sudo) 권한이 있어야 함
+- 인터페이스 이름 확인 : `ip -br addr` (아래 eth0 는 예시)
+- B 의 방화벽에서 8080 허용 (firewalld 면 `firewall-cmd --add-port=8080/tcp`)
+- 외부 도구 없이도 가능함 : B 는 python3 만 있으면 서버가 되고 A 는 curl 이나 python3 로 요청 가능
+- tcpdump 가 없으면 인터넷 되는 PC 에서 같은 OS 버전의 패키지(rpm 또는 deb)와 의존 라이브러리(libpcap)를 받아 반입 후 설치
+  - RHEL 계열 = `rpm -ivh libpcap*.rpm tcpdump*.rpm`
+  - Debian 계열 = `dpkg -i libpcap*.deb tcpdump*.deb`
+- Wireshark 는 GUI PC 에 설치하고 pcap 파일만 옮겨서 봄. 서버에는 tshark(CLI)만 있어도 됨
+
+**1단계 : B 에서 서버 실행**
 
 ```bash
-# A 에서 : 같은 서브넷이면 via(게이트웨이) 없이 dev 만 나옴
-ip route get 10.40.24.2
+# B : JSON POST 를 받아 {"status":"ok"} 를 돌려주는 최소 서버
+cat > server.py <<'PY'
+from http.server import BaseHTTPRequestHandler, HTTPServer
+class H(BaseHTTPRequestHandler):
+    def do_POST(self):
+        n = int(self.headers.get('Content-Length', 0))
+        print('받은 본문 :', self.rfile.read(n))
+        body = b'{"status":"ok"}'
+        self.send_response(200)
+        self.send_header('Content-Type', 'application/json')
+        self.send_header('Content-Length', str(len(body)))
+        self.end_headers()
+        self.wfile.write(body)
+HTTPServer(('0.0.0.0', 8080), H).serve_forever()
+PY
+python3 server.py
+```
 
-# A 에서 : ARP 캐시에 B 의 MAC 이 들어왔는지 확인
-ip neigh show 10.40.24.2
+**2단계 : B 에서 캡처 시작 (다른 터미널)**
 
-# A 에서 : 요청 전송 (JSON hello)
+```bash
+# ARP 까지 보려면 A 에서 먼저 ip neigh flush 해 둠
+# -nn = 이름 변환 끔, -e = MAC 표시, -w = 파일 저장
+tcpdump -nn -e -i eth0 -w hello.pcap \
+  'arp or (host 10.40.24.1 and tcp port 8080)'
+```
+
+**3단계 : A 에서 요청**
+
+```bash
+# A : ARP 캐시 비우고 경로 확인
+sudo ip neigh flush to 10.40.24.2
+ip route get 10.40.24.2          # via 없이 dev 만 나오면 같은 서브넷
+
+# A : JSON hello 전송
 curl -s -X POST http://10.40.24.2:8080/hello \
   -H 'Content-Type: application/json' -d '{"message":"hello"}'
 
-# B 에서 : 도착한 프레임을 MAC 포함해서 확인
-tcpdump -nn -e -i eth0 host 10.40.24.1 and tcp port 8080
+# A : B 의 MAC 이 캐시에 들어왔는지 확인
+ip neigh show 10.40.24.2
 ```
 
-> 주의 : 이 경로는 노드 IP 끼리의 직접 통신이라 VXLAN 캡슐화가 없음. 터널은 Pod IP 끼리 통신할 때만 붙음 (2-3 참고)
+**4단계 : 결과 읽기**
+
+```bash
+# 화면으로 바로 확인 (MAC 과 플래그)
+tcpdump -nn -e -r hello.pcap
+
+# 본문까지 보기 : -A (ASCII), -X (hex + ASCII)
+tcpdump -nn -A -r hello.pcap 'tcp port 8080'
+
+# tshark 로 흐름 정리 (서버에 tshark 가 있을 때)
+tshark -r hello.pcap -Y 'tcp.port==8080' \
+  -T fields -e frame.number -e ip.src -e ip.dst -e tcp.flags.str -e frame.len
+```
+
+**Wireshark 로 볼 때**
+
+- hello.pcap 을 GUI PC 로 옮겨 열기
+- 디스플레이 필터 : `arp || (ip.addr==10.40.24.1 && tcp.port==8080)`
+- 패킷 선택 후 가운데 창에서 Frame → Ethernet → IP → TCP → HTTP 순으로 펼치면 캡슐화 층이 그대로 보임
+- 우클릭 → Follow → TCP Stream : 요청과 응답 본문을 한 번에 봄
+- Statistics → Flow Graph : 6-3 의 SYN → SYN,ACK → ACK 흐름을 그림으로 확인
+- 프레임 길이는 Frame 항목의 Frame Length 로 확인
+
+**확인할 것**
+
+| 확인 | 볼 곳 | 기대 결과 |
+|---|---|---|
+| 같은 서브넷 | `ip route get` | via 없음 |
+| ARP | 캡처 첫 두 줄 | A 가 who-has 브로드캐스트, B 가 is-at 응답 |
+| MAC | `-e` 출력 | 출발지 = A 의 MAC, 목적지 = B 의 MAC |
+| 3-way handshake | 플래그 | [S] → [S.] → [.] |
+| 데이터 | `[P.]` 와 length | 요청 본문 19B 가 들어간 세그먼트 |
+| 종료 | `[F.]` | 마지막에 FIN 교환 |
+
+**자주 걸리는 함정**
+
+> 주의 : `-i any` 로 캡처하면 Ethernet 헤더 대신 cooked 헤더가 붙어서 MAC 이 안 보임. MAC 을 보려면 인터페이스를 지정함
+
+- 송신 측(A) 에서 캡처하면 체크섬이 incorrect 로 보일 수 있음 = NIC 체크섬 오프로드 때문이며 정상임 (`ethtool -k eth0` 로 확인)
+- 오프로드(TSO, GRO) 가 켜져 있으면 MTU 보다 큰 프레임이 캡처에 보일 수 있음
+- 응답 헤더와 본문이 별도 패킷으로 보이거나, FIN 을 서버가 먼저 보내는 건 정상 (6-3 참고)
+- 같은 스위치 안의 통신만 보이므로 제3의 노드에서는 캡처가 안 됨 (스위치가 해당 포트로만 전달). A 나 B 에서 캡처함
+- 이 경로는 노드 IP 끼리의 직접 통신이라 VXLAN 캡슐화가 없음. 터널은 Pod IP 끼리 통신할 때만 붙음 (2-3 참고)
 
 **IP 는 끝까지 그대로고 MAC 은 홉마다 바뀐다.**
 
